@@ -6,14 +6,20 @@
 
 if(!X_Server) exitWith {};
 
-private ["_counter"];
+private ["_counter", "_placed"];
 
 _counter = 0;
-
+_placed = [0];
 for "_i" from 1 to 85 do
 {
 	_x = floor (random 195);
+	while{_x in _placed} do
+	{
+		_x = floor (random 195);
+	};
+	//_x = floor (random 195);
 	[getMarkerPos format ["Spawn_%1", _x]] call vehicleCreation;
+	_placed set [_i, _x];
 	_counter = _counter + 1;
 };
 

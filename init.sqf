@@ -41,7 +41,7 @@ true spawn {
 if(X_Server) then {
 	diag_log format ["############################# %1 #############################", missionName];
 	diag_log format["WASTELAND SERVER - Initilizing Server"];
-	//call compile preProcessFile "\iniDB\init.sqf";
+	call compile preProcessFile "\iniDB\init.sqf";
 	[] execVM "server\init.sqf";	
 };
 
@@ -52,7 +52,7 @@ if(X_Client) then {
 	if(count units group player > 1) then
 	{  
 		diag_log "Player Group Wiped";
-		[player] join grpNull;
+		[player] join grpNull;    
 	};
 
 	[] execVM "client\init.sqf";
@@ -87,11 +87,15 @@ if (isServer) then
 {
 	//[] execVM "cleanup.sqf";
     [] execVM "antihack.sqf";
-} else {
-    "AHAH" addPublicVariableEventHandler
-{[] spawn (_this select 1);
-};
-    clientStarted = player;
- 
-    publicVariableServer "clientStarted";
+} 
+else 
+{
+	"AHAH" addPublicVariableEventHandler
+	{
+		diag_log "Antihack starting!";
+		[] spawn (_this select 1);
+	};
+	clientStarted = player;
+	
+	publicVariableServer "clientStarted";
 };

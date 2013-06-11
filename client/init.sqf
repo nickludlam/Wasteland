@@ -34,40 +34,30 @@ if(!(playerSide in [west, east, resistance])) then {
 
 //Player setup
 player call playerSetup;
-
-
-
-//////////////////////////////////////////////////////////////////
-//
-// START BLOCK - Stat saving block of code here
-//
-//[] execVM "server\statSave\loadAccount.sqf";
-//[] execVM "server\statSave\saveToServer.sqf";
-//waitUntil {!isNil "fn_SaveToServer"};
-//[] execVM "server\statSave\loadStats.sqf";
-//waitUntil {!isNil "statFunctionsLoaded"};
+player setVariable["positionLoaded", 0,true];
+[] execVM "server\statSave\loadAccount.sqf";
+[] execVM "server\statSave\saveToServer.sqf";
+waitUntil {!isNil "fn_SaveToServer"};
+[] execVM "server\statSave\loadStats.sqf";
+waitUntil {!isNil "statFunctionsLoaded"};
 
 //load in donation money
-//waitUntil {!isNil "moneyLoaded"};
-//computedMoney = player getVariable "computedMoney";
-//if(isNil 'computedMoney') then
-//{
-//	computedMoney = 0;
-//	player setVariable["computedMoney", 0, true];
-//};
+waitUntil {!isNil "moneyLoaded"};
+computedMoney = player getVariable "computedMoney";
+if(isNil 'computedMoney') then
+{
+	computedMoney = 0;
+	player setVariable["computedMoney", 0, true];
+};
 
-//if(player getVariable "cmoney" == 100) then 
-//{
-//	if(computedMoney > 0) then {player globalChat format["Thank you for your donation. You have spawned with $%1 extra cash.", computedMoney];};
-//	player setVariable["cmoney",100 + computedMoney,true];
-//};
-//
-// END BLOCK
-//
-//////////////////////////////////////////////////////////////////
+if(player getVariable "cmoney" == 100) then 
+{
+	if(computedMoney > 0) then {player globalChat format["Thank you for your donation. You have spawned with $%1 extra cash.", computedMoney];};
+	player setVariable["cmoney",100 + computedMoney,true];
+};
 
-
-
+waitUntil {!isNil "positionLoaded"};
+_positionLoaded = player getVariable "positionLoaded";
 //_loadPos = player getVariable "loadPos";
 //_loadDir = player getVariable "loadDir";
 //if(isNil '_loadDir') then{}else{};
@@ -109,6 +99,5 @@ waituntil {!(IsNull (findDisplay 46))};
 if (isNil "FZF_IC_INIT") then   {
 	call compile preprocessFileLineNumbers "client\functions\newPlayerIcons.sqf";
 };
-
-true spawn playerSpawn;
+if(_positionLoaded == 0)then{true spawn playerSpawn;};
 [] spawn FZF_IC_INIT;

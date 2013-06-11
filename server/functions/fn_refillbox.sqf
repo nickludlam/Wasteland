@@ -134,8 +134,10 @@ switch(_selectedBox) do {
 		_currBox addWeaponCargoGlobal ["srifle_LRR_SOS_F",1];
 		_currBox addWeaponCargoGlobal ["srifle_EBR_F",2];
 		_currBox addWeaponCargoGlobal ["Rangefinder",2];
-		_currBox addMagazineCargoGlobal ["5Rnd_127x108_Mag",6];
+		_currBox addItemCargo ["U_B_GhillieSuit", 1];
+		_currBox addItemCargo ["U_O_GhillieSuit", 1];
+		_currBox addMagazineCargoGlobal ["5Rnd_127x108_Mag",8];
 		_currBox addMagazineCargoGlobal ["20Rnd_762x51_Mag",15];
-		_currBox addMagazineCargoGlobal ["7Rnd_408_Mag",5];	
+		_currBox addMagazineCargoGlobal ["7Rnd_408_Mag",8];	
     };
 };

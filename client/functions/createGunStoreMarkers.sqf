@@ -91,7 +91,7 @@ _setStatus = {
 showmarkers = true;
 while {showmarkers} do {
     {
-    	_unit = missionNamespace getVariable (_gunStores select _forEachIndex);
+    	_unit = missionNamespace getVariable (gunStoreForMarkers select _forEachIndex);
 		_friendlyCount = 0;
 		_enemyCount = 0;
 		_doCheck = 1;
@@ -140,7 +140,7 @@ while {showmarkers} do {
 				};
 			};
 		};    
-    } forEach _gunStores;
+    }forEach gunStoreForMarkers;
 	sleep 1;
 	showmarkers = true;
 };

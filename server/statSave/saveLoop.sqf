@@ -28,6 +28,10 @@
 		[getPlayerUID player, getPlayerUID player, "SecondaryWeapon", SecondaryWeapon player] call fn_SaveToServer;
 		[getPlayerUID player, getPlayerUID player, "Position", getPosATL vehicle player] call fn_SaveToServer;
 		[getPlayerUID player, getPlayerUID player, "Direction", direction vehicle player] call fn_SaveToServer;
+		[getPlayerUID player, getPlayerUID player, "Goggles", goggles player] call fn_SaveToServer;
+		[getPlayerUID player, getPlayerUID player, "SecondaryItems", secondaryWeaponItems player] call fn_SaveToServer;
+		[getPlayerUID player, getPlayerUID player, "HandgunItems", handgunItems player] call fn_SaveToServer;
+		[getPlayerUID player, getPlayerUID player, "PrimaryItems", primaryWeaponItems player] call fn_SaveToServer;
 	player globalChat "Player Saved...";
 	};
 //};

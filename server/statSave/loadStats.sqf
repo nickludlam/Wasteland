@@ -9,11 +9,21 @@ loadFromDBClient =
 
 	_varName = _array select 1;
 	_varValue = _array select 2;
-	if(isNil '_varValue') exitWith {if(_varName == 'ComputedMoney') then {moneyLoaded = 1;};};
+	if(isNil '_varValue') exitWith 
+	{
+		if(_varName == 'ComputedMoney') then {moneyLoaded = 1;};
+		if(_varName == 'Position') then {positionLoaded = 1;};
+		if(_varName == 'Weapons') then {primaryLoaded = 1;};
+		if(_varName == 'SecondaryWeapon') then {secondaryLoaded = 1;};
+		if(_varName == 'Backpack') then { backpackLoaded = 1;};
+		if(_varName == 'Vest') then { vestLoaded = 1;};
+		if(_varName == 'Outfit') then { outfitLoaded = 1;};
+	};
 	
 	//player globalChat format["%1", _varName];
 	if(_varName == 'ComputedMoney') then {player setVariable["computedMoney",_varValue,true]; moneyLoaded = 1;};
 	if(_varName == 'Health') then {player setDamage _varValue;};
+	if(_varName == 'Goggles') then {player addGoggles _varValue;};
 	//if(_varName == 'Money') then {player setVariable["cmoney",_varValue,true];};
 	if(_varName == 'CanFood') then {player setVariable["canfood",_varValue,true];};
 	if(_varName == 'Medkits') then {player setVariable["medkits",_varValue,true];};
@@ -36,11 +46,13 @@ loadFromDBClient =
 			_exe = [player, (_name)] call fn_fitsInventory;
 			if(_exe == 1) then
 			{
-				if(str(_in) == "false")then{player addItem _name;};
+				if(str(_in) == "false")then{player addItem _name;}
+				else{player addMagazine _name;};
 			};
 			if(_exe == 2) then
 			{
-				if(str(_in) == "false")then{player addItem _name;};
+				if(str(_in) == "false")then{player addItem _name;}
+				else{player addMagazine _name;};
 			};
 			if(_exe == 3) then
 			{
@@ -48,6 +60,11 @@ loadFromDBClient =
 				{
 					_backpack = unitBackpack player;
 					_backpack addItemCargo [_name,1];
+				}
+				else
+				{	
+					_backpack = unitBackpack player;
+					_backpack addMagazineCargo [_name,1];
 				};
 			};
 		};
@@ -58,40 +75,58 @@ loadFromDBClient =
 		{
 			player addWeapon _x;
 		}foreach _varValue;
+		primaryLoaded = 1;
+	};
+	if(_varName == 'PrimaryItems') then 
+	{
+		{
+			player addPrimaryWeaponItem _x;
+		}foreach _varValue;
+	};
+	if(_varName == 'SecondaryItems') then 
+	{
+		{
+			player addSecondaryWeaponItem _x;
+		}foreach _varValue;
+	};
+	if(_varName == 'HandgunItems') then 
+	{
+		{
+			player addHandgunItem _x;
+		}foreach _varValue;
 	};
 	if(_varName == 'Magazines') then
 	{
+		{player removeMagazine _x} forEach magazines player;
 		for "_i" from 0 to (count _varValue) - 1 do 
 		{
 			_name = _varValue select _i;
-			//_subValue = _name select 1;
-			//_subValue2 = _name select 2;
-			//player globalChat format["%1", _name]; 
 			_exe = [player, (_name)] call fn_fitsInventory;			
+			player globalChat format["%1", _exe]; 
+			player globalChat format["%1", _name]; 
 			if(_exe == 1) then
 			{
-				//player globalChat "adding to player"; 
+				player globalChat "adding to player"; 
 				player addMagazine _name;
 			};
 			if(_exe == 2) then
 			{
-				//player globalChat "adding to player"; 
+				player globalChat "adding to vest"; 
 				player addMagazine _name;
 			};
 			if(_exe == 3) then
 			{
-				//player globalChat "adding to backpack"; 
 				_backpack = unitBackpack player;
 				_backpack addMagazineCargo [_name,1];
 			};
 		};
 	};
-	if(_varName == 'SecondaryWeapon') then {player addWeapon _x;};
-	if(_varName == 'Outfit') then {removeUniform player; player addUniform _varValue;};
+	if(_varName == 'SecondaryWeapon') then {player addWeapon _x; secondaryLoaded = 1;};
+	if(_varName == 'Outfit') then {removeUniform player; player addUniform _varValue; outfitLoaded = 1;};
 	if(_varName == 'HeadGear') then {removeHeadgear player; player addHeadgear _varValue;};
-	if(_varName == 'Backpack') then {removeBackpack player; player addBackpack _varValue;};
-	if(_varName == 'Vest') then {removeVest player; player addVest _varValue;};
-	if(_varName == 'Position') then {player setPos _varValue;};
+	if(_varName == 'Backpack') then {removeBackpack player; player addBackpack _varValue; backpackLoaded = 1;};
+	if(_varName == 'Vest') then {removeVest player; player addVest _varValue; vestLoaded = 1;};
+	if(_varName == 'Position') then {player setPos _varValue; player setVariable["positionLoaded", 1,true]; positionLoaded = 1;};
 	if(_varName == 'Direction') then {player setDir _varValue;};
 };
 

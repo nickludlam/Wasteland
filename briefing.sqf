@@ -192,6 +192,7 @@ player createDiaryRecord["changelog",
 - Money no longer saves because people were abusing it.<br/>
 - Donation awards are now 25 times the amount donated.<br/>
 - Other minor changes.<br/>
+- New general store.<br/>
 "
 ]
 ];

@@ -82,7 +82,7 @@ boatCreation = compile preprocessFileLineNumbers "server\spawning\boatCreation.s
 fn_refillbox = compile preprocessFileLineNumbers "server\functions\fn_refillbox.sqf";
 cleanupLoop = compile preprocessFileLineNumbers "server\functions\cleanupLoop.sqf";
 initGunStores = compile preprocessFileLineNumbers "server\functions\initStoreOwners.sqf";
-//immRebuild = compile preprocessFileLineNumbers "server\functions\immrebuild.sqf";  // NL - Seems buggy?
+immRebuild = compile preprocessFileLineNumbers "server\functions\immrebuild.sqf";
 
 //Player Management
 server_playerDied = compile preprocessFileLineNumbers "server\functions\serverPlayerDied.sqf";

@@ -19,7 +19,7 @@
 	#define mainMissionDelayTime 600
 
 	//#define mainBountyTimeout 10
-	//#define mainMissionTimeout 300
+	//#define mainMissionTimeout 190
 	//#define mainMissionDelayTime 0
 
 #endif

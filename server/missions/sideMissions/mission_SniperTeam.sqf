@@ -19,8 +19,8 @@ diag_log format["WASTELAND SERVER - Side Mission Started: %1",_missionType];
 
 //Get Mission Location
 //_returnData = call createMissionLocation;
-_rand = floor (random 14);
-_randomPos =	(getMarkerPos format ["sniper_%1", _rand]);
+_rand = floor (random 15);
+_randomPos =(getMarkerPos format ["sniper_%1", _rand]);
 
 //_randomIndex = _returnData select 1;
 

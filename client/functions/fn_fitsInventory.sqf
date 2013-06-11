@@ -96,8 +96,8 @@ if (_itemSize == 0) then { _itemSize = getNumber (configFile >> "CfgWeapons" >> 
 // Return boolean
 _fits = 0;
 if(_itemSize <= _uniformFree) then {_fits = 1;};
-if(_itemSize <= _vestFree) then {_fits = 2;};
-if(_itemSize <= _backpackFree) then {_fits = 3;};
+if((_itemSize <= _vestFree) && (_fits == 0)) then {_fits = 2;};
+if((_itemSize <= _backpackFree) && (_fits == 0)) then {_fits = 3;};
 //if((_itemSize <= _uniformFree) || (_itemSize <= _vestFree) || (_itemSize <= _backpackFree)) then {_fits = 1;};
 if(_itemSize == 0) then {_fits = 0;};
 //if((_itemSize != 0) AND ((_itemSize <= _uniformFree) OR (_itemSize <= _vestFree) OR (_itemSize <= _backpackFree))) then {_fits = 1;};

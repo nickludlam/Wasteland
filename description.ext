@@ -10,7 +10,7 @@ class Header
 	minPlayers=1;
 	maxPlayers=60;
 };
-author="His_Shadow + Bewilderbeest - See Credits";
+author="His_Shadow - See Credits";
 OnLoadName = "501 Wasteland v1.7.6";
 OnLoadMission = "Weapons spawn inside and beside buildings. Capture the yellow territories by staying in them for 5 minutes. Press M for more info.";
 //Dialog includes
@@ -42,72 +42,72 @@ class CfgIdentities
     class East_GR
     {
         name = "East GR";
-        face = "Face20";
+        face = "Face10";
         glasses = "None";
-        speaker = "Dan";
+        speaker = "Male01ENG";
         pitch = 1.1;
     };
 	
 	class East_GS
     {
         name = "East GS";
-        face = "Face20";
+        face = "Face10";
         glasses = "None";
-        speaker = "Dan";
+        speaker = "Male01ENG";
         pitch = 1.1;
     };
 	
 	class West_GR
     {
         name = "West GR";
-        face = "Face20";
+        face = "Face10";
         glasses = "None";
-        speaker = "Dan";
+        speaker = "Male01ENG";
         pitch = 1.1;
     };
 	
 	class West_GS
     {
         name = "West GS";
-        face = "Face20";
+        face = "Face10";
         glasses = "None";
-        speaker = "Dan";
+        speaker = "Male01ENG";
         pitch = 1.1;
     };
 	
 	class West_GSA
     {
         name = "West GSA";
-        face = "Face20";
+        face = "Face10";
         glasses = "None";
-        speaker = "Dan";
+        speaker = "Male01ENG";
         pitch = 1.1;
     };
 	
 	class East_Gen
     {
         name = "East Gen";
-        face = "Face20";
+        face = "Face10";
         glasses = "None";
-        speaker = "Dan";
+        speaker = "Male01ENG";
         pitch = 1.1;
     };
 	
 	class West_Gen
     {
         name = "West Gen";
-        face = "Face20";
+        face = "Face10";
         glasses = "None";
-        speaker = "Dan";
+        speaker = "Male01ENG";
         pitch = 1.1;
     };
 	
 	class East_GenS
     {
         name = "East GenS";
-        face = "Face20";
+        face = "Face10";
         glasses = "None";
-        speaker = "Dan";
+        speaker = "Male01ENG";
         pitch = 1.1;
     };
 	
@@ -116,7 +116,16 @@ class CfgIdentities
         name = "East GSE";
         face = "Face20";
         glasses = "None";
-        speaker = "Dan";
+        speaker = "Male01ENG";
+        pitch = 1.1;
+    };
+	
+	class North_GenS
+    {
+        name = "North GenS";
+        face = "Face20";
+        glasses = "None";
+        speaker = "Male01ENG";
         pitch = 1.1;
     };
 	

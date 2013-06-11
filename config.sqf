@@ -1,18 +1,4 @@
-//	@file Version: 1.1
-//	@file Name: config.sqf
-//	@file Author: [404] Deadbeat, [404] Costlyy, [GoT] JoSchaap
-//	@file Created: 20/11/2012 05:13
-//	@file Description: Main config.
 
-// --------------------------------------------------------------------------------------------------- \\
-// ----------  !DO NOT CHANGE ANYTHING BELOW THIS POINT UNLESS YOU KNOW WHAT YOU ARE DOING!	---------- \\
-// ----------																				---------- \\
-// ----------			404Games are not responsible for anything that may happen 			---------- \\
-// ----------			 as a result of unauthorised modifications to this file.			---------- \\
-// --------------------------------------------------------------------------------------------------- \\
-                                                                                                
-//Gunstore Weapon List - Gun Store Base List
-// Text name, classname, buy cost, sell amount
 currentOwnerName = "";
 weaponsArray =
 [
@@ -297,9 +283,9 @@ cityList = [
 		["Town_3",100,"East of Camp Maxwell"],
 		["Town_4",100,"Strogos Bay"],			
 		["Town_5",100,"East of Camp Tempest"],
-		["Town_6",100,"Old Outpost - General Store"],
+		["Town_6",100,"Old Outpost"],
 		["Town_7",100,"East of Airfield"],
-		["Town_8",100,"Old Transmission Station"],
+		["Town_8",100,"OTS"],
 		["Town_9",100,"Kill Farm"],
 		["Town_10",100,"Agia Marina"],
 		["Town_11",100,"Kamino Firing Range"],
@@ -309,3 +295,5 @@ cityList = [
 		["Town_15",100,"KevinDD's Medical Supplies"]
 ];
 cityLocations = [];
+
+gunStoreForMarkers = ["West_GS", "West_GSA", "East_GS", "East_GSE"];

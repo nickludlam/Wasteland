@@ -64,11 +64,11 @@ BoatList = ["O_Assaultboat","B_Assaultboat","O_Lifeboat","B_Lifeboat","C_Rubberb
 objectList = ["Land_Sacks_goods_F",
 			"Land_HBarrierBig_F",
 			"Land_HBarrier_5_F",
-			"Land_LampShabby_F",
+			//"Land_LampShabby_F",
 			"Land_HBarrierBig_F",
 			"Land_HBarrier_1_F",
-			"Land_LampDecor_F",
-//			"Land_Ytong_F",				seems broken
+			//"Land_LampDecor_F",
+			//"Land_Ytong_F",				seems broken
 			"Land_CanisterPlastic_F",
 			"Land_MetalBarrel_F",
 			"Land_HBarrierBig_F",
@@ -146,7 +146,8 @@ storeOwners =
 	["East_Gen", [5538.2,4710.21,77.3378],"East Gen"],
 	["West_Gen", [5538.2,4710.21,77.3378],"West Gen"],
 	["East_GenS", [5538.2,4710.21,77.3378],"East GenS"],
-	["East_GSE", [5538.2,4710.21,77.3378],"East GSE"]
+	["East_GSE", [5538.2,4710.21,77.3378],"East GSE"],
+	["North_GenS", [5538.2,4710.21,77.3378],"North GenS"]
 ];
  
                 

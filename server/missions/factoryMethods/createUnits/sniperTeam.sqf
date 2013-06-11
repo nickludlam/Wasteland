@@ -60,4 +60,4 @@ _man2 addEventHandler ["killed", "[_this select 0, _this select 1] execVM 'clien
 
 _leader = leader _group;
 _group setBehaviour "STEALTH";
-[_group, _pos] call defendArea;
+[_group, _pos] call defendArea3;

@@ -96,7 +96,7 @@ _marker = createMarker [_missionMarkerName, position _leader];
 _marker setMarkerType "mil_destroy";
 _marker setMarkerSize [1.25, 1.25];
 _marker setMarkerColor "ColorRed";
-_marker setMarkerText "Redneck Child Abuser";
+_marker setMarkerText "Serial Killer";
 
 //testing
 //_marker = createMarkerLocal [_missionMarkerName, position _leader];

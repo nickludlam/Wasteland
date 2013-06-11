@@ -22,7 +22,7 @@ _serverCompiledScripts = [] execVM "server\functions\serverCompile.sqf";
 waitUntil{scriptDone _serverCompiledScripts};
 
 //call compile preProcessFile "\iniDB\init.sqf";
-//execVM "server\statSave\serverGather.sqf";
+execVM "server\statSave\serverGather.sqf";
 
 diag_log format["WASTELAND SERVER - Server Compile Finished"];
 
@@ -52,11 +52,11 @@ if (serverSpawning == 1) then {
     //waitUntil{sleep 0.1; scriptDone _heliSpawn};
 	_buildrep = [] ExecVM "server\functions\rebuild.sqf";
 	sleep 0.1;
-	_cleanupLoop = [] ExecVM "server\functions\cleanupLoop.sqf";
-	sleep 0.1;
 	_initOwners = [] ExecVM "server\functions\initStoreOwners.sqf";
 	sleep 0.1;
 	_recurOwners = [] ExecVM "server\functions\recurInitStoreOwners.sqf";
+	_cleanupLoop = [] ExecVM "server\functions\cleanupLoop.sqf";
+	sleep 0.1;
 };
 #endif
 //Execute Server Missions.

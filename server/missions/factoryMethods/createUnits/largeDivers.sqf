@@ -136,8 +136,4 @@ _man5 addEventHandler ["killed", "[_this select 0, _this select 1] execVM 'clien
 
 
 _leader = leader _group;
-_group setCombatMode "RED";
-//_group setBehavior "AWARE"; // NL - Not working??
-
-
 [_group, _pos] call defendArea3;
