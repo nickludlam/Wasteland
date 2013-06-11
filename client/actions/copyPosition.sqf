@@ -1,0 +1,1 @@
+copytoclipboard str (getpos player) 

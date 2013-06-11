@@ -1,0 +1,91 @@
+//	@file Version: 1.0
+//	@file Name: playerSetup.sqf
+//	@file Author: [404] Deadbeat
+//	@file Created: 20/11/2012 05:19
+//	@file Args:
+
+_player = _this;
+//Player initialization
+_player setskill 0;
+{_player disableAI _x} foreach ["move","anim","target","autotarget"];
+_player setVariable ["BIS_noCoreConversations", true];
+
+enableSentences false;
+_player removeWeapon "ItemRadio";
+_player removeWeapon "ItemGPS";
+removeAllWeapons _player;
+removeUniform _player;
+removeVest _player;
+removeBackpack _player;
+removeHeadgear _player;
+removeGoggles _player;
+
+switch (str(playerSide)) do
+{
+    case "WEST":
+    {
+		_player addUniform "U_B_CombatUniform_mcam";
+		//_player addVest "V_HarnessO_brn";
+		_player addVest (["V_HarnessO_brn","V_HarnessOGL_brn"] call BIS_fnc_selectRandom);
+    };
+
+    case "EAST":
+    {
+        _player addUniform "U_O_CombatUniform_ocamo";
+		//_player addVest "V_HarnessO_brn";
+		_player addVest (["V_HarnessO_brn","V_HarnessOGL_brn"] call BIS_fnc_selectRandom);
+    };
+
+default
+    {
+		//_player addUniform (["U_B_CombatUniform_mcam","U_O_CombatUniform_ocamo"] call BIS_fnc_selectRandom);
+		_player addUniform (["U_C_Commoner1_1","U_C_Poloshirt_redwhite","U_C_Poloshirt_salmon","U_C_Poloshirt_tricolour","U_C_Poloshirt_blue","U_C_Poloshirt_burgundy"] call BIS_fnc_selectRandom);
+		_player addVest (["V_HarnessO_brn","V_HarnessOGL_brn"] call BIS_fnc_selectRandom);
+    };
+};
+
+//_player removeAllEventHandlers "killed";
+//_player addEventHandler ["killed", "[_this select 0, _this select 1] execVM 'client\clientEvents\handleKill.sqf'"];
+
+//_player addBackpack (["B_AssaultPack_dgtl","B_AssaultPack_rgr","B_AssaultPack_sgg","B_AssaultPack_blk","B_AssaultPack_mcamo"]call BIS_fnc_selectRandom);
+_player addMagazine "16Rnd_9x21_Mag";
+_player addMagazine "16Rnd_9x21_Mag";
+_player addMagazine "16Rnd_9x21_Mag";
+_gun = (["hgun_P07_F","hgun_Rook40_F"] call BIS_fnc_selectRandom);
+_player addWeapon _gun;
+
+_player addrating 1000000;
+_player switchMove "amovpknlmstpsraswpstdnon_gear";
+
+thirstLevel = 100;
+hungerLevel = 100;
+
+//decide whether we need to create the donation money
+_money = 0;
+if(computedMoney == 0) then 
+{ 
+	_money = 100;
+}
+else 
+{
+	_player globalChat format["Thank you for your donation. You have spawned with $%1 extra cash.", computedMoney];
+	_money = (100 + computedMoney);
+};
+
+_player setVariable["computedMoney", computedMoney, true];
+_player setVariable["cmoney",_money,true];
+_player setVariable["canfood",1,false];
+_player setVariable["medkits",1,false];
+_player setVariable["water",1,false];
+_player setVariable["fuel",0,false];
+_player setVariable["repairkits",1,false];
+_player setVariable["fuelFull", 0, false];
+_player setVariable["fuelEmpty", 1, false];
+_player setVariable["spawnBeacon",0,false];
+_player setVariable["camonet",0,false];
+
+[] execVM "client\functions\playerActions.sqf";
+_player selectWeapon _gun;
+
+_player groupChat format["Player Initialization Complete"];
+playerSetupComplete = true;
