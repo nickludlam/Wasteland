@@ -101,8 +101,8 @@ class Mission
 	randomSeed=14957468;
 	class Intel
 	{
-		briefingName="The 501st Elite Wasteland v1.7.6";
-		overviewText="Please register on our forum at www.the501stelite.com";
+		briefingName="Wasteland v1.7.6";
+		overviewText="Please register on our forum at www.kosclan.org";
 		resistanceWest=0;
 		timeOfChanges=2400;
 		startWeather=1;
@@ -6606,7 +6606,7 @@ class Mission
 		class Item198
 		{
 			position[]={3757.209,-0.0037686974,8740.7871};
-			name="Fussion_WAsteland_Variation_By_Fackstah_Fussion-networks.com";
+			name="www.kosclan.org";
 			type="Empty";
 			colorName="ColorBlack";
 		};
@@ -7046,28 +7046,28 @@ class Mission
 		{
 			position[]={6317.7959,0,7023.9355};
 			name="Website_2";
-			text="www.The501steElite.com";
+			text="www.kosclan.org";
 			type="flag_USA";
 		};
 		class Item265
 		{
 			position[]={322.85522,0,7033.3618};
 			name="Website_2_1";
-			text="www.The501steElite.com";
+			text="www.kosclan.org";
 			type="flag_USA";
 		};
 		class Item266
 		{
 			position[]={492.97949,0,1060.186};
 			name="Website_2_2";
-			text="www.The501steElite.com";
+			text="www.kosclan.org";
 			type="flag_USA";
 		};
 		class Item267
 		{
 			position[]={5548.71,0,1087.3252};
 			name="Website_2_3";
-			text="www.The501steElite.com";
+			text="www.kosclan.org";
 			type="flag_USA";
 		};
 		class Item268
@@ -8550,7 +8550,7 @@ class Mission
 		{
 			position[]={85.62001,-0.2156707,139.78809};
 			name="TS_4_1";
-			text="Donations award 25 times donation amount of in game money on respawn. Donate at www.the501stelite.com";
+			text="Donations award 25 times donation amount of in game money on respawn. Donate at www.kosclan.org";
 			type="mil_warning";
 			colorName="ColorRed";
 		};
@@ -8558,7 +8558,7 @@ class Mission
 		{
 			position[]={132.17722,-0.039569393,8067.3247};
 			name="TS_4_1_1";
-			text="Donations award 25 times donation amount of in game money on respawn. Donate at www.the501stelite.com";
+			text="Donations award 25 times donation amount of in game money on respawn. Donate at www.kosclan.org";
 			type="mil_warning";
 			colorName="ColorRed";
 		};

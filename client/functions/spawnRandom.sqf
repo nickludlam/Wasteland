@@ -20,7 +20,7 @@ closeDialog 0;
 _mins = floor(60 * (daytime - floor(daytime)));
 _townName = _randomLoc select 2;
 [
-"501 Wasteland",_townName,format ["%1:%3%2", floor(daytime), _mins, if(_mins < 10) then {"0"} else {""}]
+"KoS Wasteland",_townName,format ["%1:%3%2", floor(daytime), _mins, if(_mins < 10) then {"0"} else {""}]
 ] spawn BIS_fnc_infoText;
 
 

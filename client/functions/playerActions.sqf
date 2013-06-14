@@ -22,7 +22,7 @@ aActionsIDs = aActionsIDs + [player addAction["Fill Water Bottle", "noscript.sqf
 
 //Pickup Money
 aActionsIDs = aActionsIDs + [player addAction["Pickup Money", "client\actions\pickupMoney.sqf", [], 1, false, false, "", 'player distance (nearestobjects [player, ["Land_Sack_F"],  5] select 0) < 5']];
-aActionsIDs = aActionsIDs + [player addAction["Save Player", "server\statSave\saveLoop.sqf", [], 1, false, false, "", 'stance player == "PRONE"']];
+aActionsIDs = aActionsIDs + [player addAction["<img image=""client\icons\save.paa""/> <t color=""#3f71d7"">Save Player</t>", "server\statSave\saveLoop.sqf", [], 1, false, false, "", 'stance player == "PRONE"']];
 //aActionsIDs = aActionsIDs + [player addAction["Get Stance", "noscript.sqf", 'hint format["Your stance is: %1", stance player];', 1, false, false, "", '']];
 //aActionsIDs = aActionsIDs + [player addAction["Copy Position", "client\actions\copyPosition.sqf", [], 1, false, false, "", '']];
 
