@@ -8,6 +8,7 @@
 //  	reset BIS_fnc_mp
 "BIS_fnc_MP_packet" addPublicVariableEventHandler {};
 
+#include "defines.hpp" // Global definitions file
 #include "setup.sqf"
 #include "patch.sqf"
 StartProgress = false;
@@ -41,7 +42,13 @@ true spawn {
 if(X_Server) then {
 	diag_log format ["############################# %1 #############################", missionName];
 	diag_log format["WASTELAND SERVER - Initilizing Server"];
+	
+	#ifdef __LOCAL_SERVER__
+	diag_log format ["Skipping iniDB load"];
+	#else
 	call compile preProcessFile "\iniDB\init.sqf";
+	#endif
+
 	[] execVM "server\init.sqf";	
 };
 

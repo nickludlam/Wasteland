@@ -4,6 +4,8 @@
 //@file Created: 20/11/2012 05:19
 //@file Description: The client init.
 
+#include "defines.hpp"
+
 if(!X_Client) exitWith {};
 
 mutexScriptInProgress = false;
@@ -14,8 +16,6 @@ doCancelAction = false;
 currentMissionsMarkers = [];
 currentRadarMarkers = [];
 computedMoney = 0;
-//_loadPos = [];
-//_loadDir = 0;
 
 //Initialization Variables
 playerCompiledScripts = false;
@@ -34,7 +34,13 @@ if(!(playerSide in [west, east, resistance])) then {
 
 //Player setup
 player call playerSetup;
-player setVariable["positionLoaded", 0,true];
+player setVariable["positionLoaded", 0, true];
+
+///////////////////////////////////////////////////////////////////////////
+#ifdef __LOCAL_SERVER__
+// We disable save & money functions when we're in local client/server mode
+diag_log format ["Skipping client load/save/money functionality"];
+#else
 [] execVM "server\statSave\loadAccount.sqf";
 [] execVM "server\statSave\saveToServer.sqf";
 waitUntil {!isNil "fn_SaveToServer"};
@@ -57,13 +63,11 @@ if(player getVariable "cmoney" == 100) then
 };
 
 waitUntil {!isNil "positionLoaded"};
-_positionLoaded = player getVariable "positionLoaded";
-//_loadPos = player getVariable "loadPos";
-//_loadDir = player getVariable "loadDir";
-//if(isNil '_loadDir') then{}else{};
+#endif
+///////////////////////////////////////////////////////////////////////////
 
-//run the save loop
-//[] execVM "server\statSave\saveloop.sqf";
+_positionLoaded = player getVariable "positionLoaded";
+diag_log format ["_positionLoaded is %1", _positionLoaded];
 
 //Setup player events.
 if(!isNil "client_initEH") then {player removeEventHandler ["Respawn", client_initEH];};

@@ -21,7 +21,6 @@ _serverCompiledScripts = [] execVM "server\functions\serverCompile.sqf";
 [] execVM "server\functions\serverTimeSync.sqf";
 waitUntil{scriptDone _serverCompiledScripts};
 
-//call compile preProcessFile "\iniDB\init.sqf";
 execVM "server\statSave\serverGather.sqf";
 
 diag_log format["WASTELAND SERVER - Server Compile Finished"];
