@@ -20,7 +20,7 @@ if (isServer) then {
 
 if(!local _player) exitwith {};
 
-if((_player != _killer) && (vehicle _player != vehicle _killer) && (playerSide == side _killer) && (str(playerSide) in ["WEST", "EAST"])) then {
+if((_player != _killer) && (vehicle _player != vehicle _killer) && (playerSide == side _killer)) then {
 	pvar_PlayerTeamKiller = objNull;
 	if(_killer isKindOf "CAManBase") then {
 		pvar_PlayerTeamKiller = _killer;

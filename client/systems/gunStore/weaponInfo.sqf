@@ -17,222 +17,169 @@ _price = 0;
 // Grab access to the controls
 _dialog = findDisplay gunshop_DIALOG;
 _gunlist = _dialog displayCtrl gunshop_gun_list;
-_gunpicture = _dialog displayCtrl gunshop_gun_pic;
-_itempicture = _dialog displayCtrl gunshop_item_pic;
+_ammolist = _dialog displayCtrl gunshop_ammo_list;
 _gunlisttext = _dialog displayCtrl gunshop_gun_TEXT;
-_gunInfo = _dialog displayCtrl gunshop_gun_Info;
+_ammoText = _dialog displayCtrl gunshop_ammo_TEXT;
 
 //Get Selected Item
 _selectedItem = lbCurSel _gunlist;
 _itemText = _gunlist lbText _selectedItem;
-
-_gunpicture ctrlSettext _picture;
-_itempicture ctrlSettext _picture;
 _gunlisttext ctrlSetText format [""];
 
 //Check Items Price
-{if(_itemText == _x select 0) then{
+{
+if(_itemText == _x select 0) then
+{
 	_weap_type = _x select 1; 
 	_price = _x select 2;
     
 	_weapon = (configFile >> "CfgWeapons" >> _weap_type);
-    _gunInfo ctrlSetStructuredText parseText (format ["%1<br/>%2", getText(_weapon >> "displayName"), getText(_weapon >> "descriptionShort")]);
-    
-	_itempicture ctrlSettext "";
 	
-    _picture = getText(_weapon >> "picture");
-	_gunpicture ctrlSettext _picture;
+	_compatible = [];
+	lbClear _ammolist;
+	
+	_compatible = [];
+	{
+		_compatible = _compatible + getArray( (if ( _x == "this" ) then { _weapon } else { _weapon >> _x }) >> "magazines")
+    } forEach getArray(_weapon >> "muzzles");
+	
+	{
+		_name = getText(configFile >> "CfgMagazines" >> _x >> "displayname");
+		_conf = (configFile >>  "CfgMagazines" >> _x);
+		_picture = getText(_conf >> "picture");
+		_ammolistIndex = _ammolist lbAdd format["%1",_name];
+		_ammolist lbSetPicture [_ammolistIndex,_picture];
+	}foreach _compatible;
     
 	_gunlisttext ctrlSetText format ["Price: $%1", _price];	
-}}forEach weaponsArray;
+}}forEach pistolArray;
 
-{if(_itemText == _x select 0) then{
+{if(_itemText == _x select 0) then
+{
 	_weap_type = _x select 1; 
 	_price = _x select 2;
     
-    _weapon = (configFile >> "CfgMagazines" >> _weap_type);
-    _gunInfo ctrlSetStructuredText parseText (format ["%1<br/>%2", getText(_weapon >> "displayName"), getText(_weapon >> "descriptionShort")]);
+	_weapon = (configFile >> "CfgWeapons" >> _weap_type);
+	
+	_compatible = [];
+	lbClear _ammolist;
+	
+	_compatible = [];
+	{
+		_compatible = _compatible + getArray( (if ( _x == "this" ) then { _weapon } else { _weapon >> _x }) >> "magazines")
+    } forEach getArray(_weapon >> "muzzles");
+	
+	{
+		_name = getText(configFile >> "CfgMagazines" >> _x >> "displayname");
+		_conf = (configFile >>  "CfgMagazines" >> _x);
+		_picture = getText(_conf >> "picture");
+		_ammolistIndex = _ammolist lbAdd format["%1",_name];
+		_ammolist lbSetPicture [_ammolistIndex,_picture];
+	}foreach _compatible;
     
-	_gunpicture ctrlSettext "";
-	
-    _picture = getText(_weapon >> "picture");
-	_itempicture ctrlSettext _picture;
-	
 	_gunlisttext ctrlSetText format ["Price: $%1", _price];	
-}}forEach ammoArray;
+}}forEach smgArray;
 
-{if(_itemText == _x select 0) then{
+{if(_itemText == _x select 0) then
+{
+	_weap_type = _x select 1; 
+	_price = _x select 2;
+    
+	_weapon = (configFile >> "CfgWeapons" >> _weap_type);
+	
+	_compatible = [];
+	lbClear _ammolist;
+	
+	_compatible = [];
+	{
+		_compatible = _compatible + getArray( (if ( _x == "this" ) then { _weapon } else { _weapon >> _x }) >> "magazines")
+    } forEach getArray(_weapon >> "muzzles");
+	
+	{
+		_name = getText(configFile >> "CfgMagazines" >> _x >> "displayname");
+		_conf = (configFile >>  "CfgMagazines" >> _x);
+		_picture = getText(_conf >> "picture");
+		_ammolistIndex = _ammolist lbAdd format["%1",_name];
+		_ammolist lbSetPicture [_ammolistIndex,_picture];
+	}foreach _compatible;
+    
+	_gunlisttext ctrlSetText format ["Price: $%1", _price];	
+}}forEach rifleArray;
+
+{if(_itemText == _x select 0) then
+{
+	_weap_type = _x select 1; 
+	_price = _x select 2;
+    
+	_weapon = (configFile >> "CfgWeapons" >> _weap_type);
+	
+	_compatible = [];
+	lbClear _ammolist;
+	
+	_compatible = [];
+	{
+		_compatible = _compatible + getArray( (if ( _x == "this" ) then { _weapon } else { _weapon >> _x }) >> "magazines")
+    } forEach getArray(_weapon >> "muzzles");
+	
+	{
+		_name = getText(configFile >> "CfgMagazines" >> _x >> "displayname");
+		_conf = (configFile >>  "CfgMagazines" >> _x);
+		_picture = getText(_conf >> "picture");
+		_ammolistIndex = _ammolist lbAdd format["%1",_name];
+		_ammolist lbSetPicture [_ammolistIndex,_picture];
+	}foreach _compatible;
+    
+	_gunlisttext ctrlSetText format ["Price: $%1", _price];	
+}}forEach shotgunArray;
+
+{if(_itemText == _x select 0) then
+{
+	_weap_type = _x select 1; 
+	_price = _x select 2;
+    
+	_weapon = (configFile >> "CfgWeapons" >> _weap_type);
+	
+	_compatible = [];
+	lbClear _ammolist;
+	
+	_compatible = [];
+	{
+		_compatible = _compatible + getArray( (if ( _x == "this" ) then { _weapon } else { _weapon >> _x }) >> "magazines")
+    } forEach getArray(_weapon >> "muzzles");
+	
+	{
+		_name = getText(configFile >> "CfgMagazines" >> _x >> "displayname");
+		_conf = (configFile >>  "CfgMagazines" >> _x);
+		_picture = getText(_conf >> "picture");
+		_ammolistIndex = _ammolist lbAdd format["%1",_name];
+		_ammolist lbSetPicture [_ammolistIndex,_picture];
+	}foreach _compatible;
+    
+	_gunlisttext ctrlSetText format ["Price: $%1", _price];	
+}}forEach launcherArray;
+
+{if(_itemText == _x select 0) then
+{
 	_weap_type = _x select 1; 
 	_price = _x select 2;
 	
-	_weapon = "";
-	
-	if (_x select 3 == "backpack") then {
-		_weapon = (configFile >> "CfgVehicles" >> _weap_type);
-		_description = "";
-		
-		switch (_weap_type) do
-		{
-			case "B_Bergen_Base": {
-				_description = "25% more capacity than normal backpack";
-			};
-			case "B_Carryall_Base": {
-				_description = "40% more capacity than normal backpack";
-			};
-		};
-		
-		_gunInfo ctrlSetStructuredText parseText (format ["%1<br/>%2", _x select 0, _description]);
-	}
-	else {
-		_weapon = (configFile >> "CfgWeapons" >> _weap_type);
-		_gunInfo ctrlSetStructuredText parseText (format ["%1<br/>%2", getText(_weapon >> "displayName"), getText(_weapon >> "descriptionShort")]);
-	};
+	lbClear _ammolist;
     
-	_gunpicture ctrlSettext "";
+	_gunlisttext ctrlSetText format ["Price: $%1", _price];	
+}}forEach throwputArray;
+
+{if(_itemText == _x select 0) then{
+	_price = _x select 2;
 	
-    _picture = getText(_weapon >> "picture");
-	_itempicture ctrlSettext _picture;
-    
 	_gunlisttext ctrlSetText format ["Price: $%1", _price];	
 }}forEach accessoriesArray;
 
 {if(_itemText == _x select 0) then{
-	_weap_type = _x select 1; 
-	_price = _x select 2;
-	
-	_weapon = "";
-	
-	if (_x select 3 == "backpack") then {
-		_weapon = (configFile >> "CfgVehicles" >> _weap_type);
-		_description = "";
-		
-		switch (_weap_type) do
-		{
-			case "B_AssaultPack_Base": {
-				_description = "Small assault pack.";
-			};
-			case "B_FieldPack_Base": {
-				_description = "25% more capacity than normal backpack";
-			};
-			case "B_Bergen_Base": {
-				_description = "40% more capacity than normal backpack";
-			};
-			case "B_Carryall_Base": {
-				_description = "60% more capacity than normal backpack";
-			};
-		};
-		
-		_gunInfo ctrlSetStructuredText parseText (format ["%1<br/>%2", _x select 0, _description]);
-	}
-	else {
-		_weapon = (configFile >> "CfgWeapons" >> _weap_type);
-		_gunInfo ctrlSetStructuredText parseText (format ["%1<br/>%2", getText(_weapon >> "displayName"), getText(_weapon >> "descriptionShort")]);
-	};
-    
-	_gunpicture ctrlSettext "";
-	
-    _picture = getText(_weapon >> "picture");
-	_itempicture ctrlSettext _picture;
-    
+	_price = _x select 2;    
 	_gunlisttext ctrlSetText format ["Price: $%1", _price];	
 }}forEach backpackArray;
 
 {if(_itemText == _x select 0) then{
-	_weap_type = _x select 1; 
 	_price = _x select 2;
-	
-	_weapon = "";
-	
-	if (_x select 3 == "vehicle") then {
-		_weapon = (configFile >> "CfgVehicles" >> _weap_type);
-		_description = "";
-		
-		_gunInfo ctrlSetStructuredText parseText (format ["%1<br/>%2", _x select 0, _description]);
-	}
-	else {
-		_weapon = (configFile >> "CfgWeapons" >> _weap_type);
-		_gunInfo ctrlSetStructuredText parseText (format ["%1<br/>%2", getText(_weapon >> "displayName"), getText(_weapon >> "descriptionShort")]);
-	};
-    
-	_gunpicture ctrlSettext "";
-	
-    _picture = getText(_weapon >> "picture");
-	_itempicture ctrlSettext _picture;
-    
-	_gunlisttext ctrlSetText format ["Price: $%1", _price];	
-}}forEach landArray;
-
-{if(_itemText == _x select 0) then{
-	_weap_type = _x select 1; 
-	_price = _x select 2;
-	
-	_weapon = "";
-	
-	if (_x select 3 == "vehicle") then {
-		_weapon = (configFile >> "CfgVehicles" >> _weap_type);
-		_description = "";
-		
-		_gunInfo ctrlSetStructuredText parseText (format ["%1<br/>%2", _x select 0, _description]);
-	}
-	else {
-		_weapon = (configFile >> "CfgWeapons" >> _weap_type);
-		_gunInfo ctrlSetStructuredText parseText (format ["%1<br/>%2", getText(_weapon >> "displayName"), getText(_weapon >> "descriptionShort")]);
-	};
-    
-	_gunpicture ctrlSettext "";
-	
-    _picture = getText(_weapon >> "picture");
-	_itempicture ctrlSettext _picture;
-    
-	_gunlisttext ctrlSetText format ["Price: $%1", _price];	
-}}forEach seaArray;
-
-{if(_itemText == _x select 0) then{
-	_weap_type = _x select 1; 
-	_price = _x select 2;
-	
-	_weapon = "";
-	
-	if (_x select 3 == "vehicle") then {
-		_weapon = (configFile >> "CfgVehicles" >> _weap_type);
-		_description = "";
-		
-		_gunInfo ctrlSetStructuredText parseText (format ["%1<br/>%2", _x select 0, _description]);
-	}
-	else {
-		_weapon = (configFile >> "CfgWeapons" >> _weap_type);
-		_gunInfo ctrlSetStructuredText parseText (format ["%1<br/>%2", getText(_weapon >> "displayName"), getText(_weapon >> "descriptionShort")]);
-	};
-    
-	_gunpicture ctrlSettext "";
-	
-    _picture = getText(_weapon >> "picture");
-	_itempicture ctrlSettext _picture;
-    
-	_gunlisttext ctrlSetText format ["Price: $%1", _price];	
-}}forEach airArray;
-
-{if(_itemText == _x select 0) then{
-	_weap_type = _x select 1; 
-	_price = _x select 2;
-	
-	_weapon = "";
-	
-	if (_x select 3 == "vehicle") then {
-		_weapon = (configFile >> "CfgVehicles" >> _weap_type);
-		_description = "";
-		
-		_gunInfo ctrlSetStructuredText parseText (format ["%1<br/>%2", _x select 0, _description]);
-	}
-	else {
-		_weapon = (configFile >> "CfgWeapons" >> _weap_type);
-		_gunInfo ctrlSetStructuredText parseText (format ["%1<br/>%2", getText(_weapon >> "displayName"), getText(_weapon >> "descriptionShort")]);
-	};
-    
-	_gunpicture ctrlSettext "";
-	
-    _picture = getText(_weapon >> "picture");
-	_itempicture ctrlSettext _picture;
-    
 	_gunlisttext ctrlSetText format ["Price: $%1", _price];	
 }}forEach apparelArray;

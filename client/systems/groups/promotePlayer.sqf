@@ -56,24 +56,10 @@ if(_cont == 1) then
 		_side2 = side _target;
 		_dist = _x distance _target;
 		_value = (_x in units group _target);
-		if((str(_side1) in ["RESISTANCE","CIV","GUER"]) AND (str(_side2) in ["RESISTANCE","CIV","GUER"]) AND (_dist <=100)) then
+
+		if((_side1 != _side2) AND (_dist <=100)) then
 		{
-			If(_value) then
-			{
-				//do nothing
-				if(_do == 0) then{_do = 0;};
-			}
-			else
-			{
-				_do = 0;
-			};
-		}
-		else
-		{
-			if((_side1 != _side2) AND (_dist <=100)) then
-			{
-				_do = 0;
-			};
+			_do = 0;
 		};
 	}forEach playableUnits;
 		

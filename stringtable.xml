@@ -14,10 +14,10 @@
 			<English>OPFOR</English>
 		</Key>
 		<Key ID="STR_WL_Gen_TeamGUER">
-			<English>Independent</English>
+			<English>GFOR</English>
 		</Key>
 		<Key ID="STR_WL_Gen_TeamGUER_2">
-			<English>Independent</English>
+			<English>GFOR</English>
 		</Key>
 		<Key ID="STR_WL_Gen_Warning">
 			<English>Warning!</English>
@@ -25,10 +25,10 @@
 	</Package>
 	<Package name="Loading">
 		<Key ID="STR_WL_Loading_Teamkiller">
-			<English>You are considered team-killer and therefore not allowed in BLUFOR or OPFOR teams. You will shortly be kicked back to the lobby where you can only join Independent where killing anyone is allowed.</English>
+			<English>You are considered team-killer and therefore not allowed in BLUFOR, OPFOR, or GFOR teams. You will shortly be kicked back to the lobby.</English>
 		</Key>
 		<Key ID="STR_WL_Loading_Teamswitched">
-			<English>You have played as %1 for too long and cannot switch to the other team. You can still play as Independent. (Ask an admin to unlock you, if one is online.)</English>
+			<English>You have played as %1 for too long and cannot switch to the other team.</English>
 		</Key>
 	</Package>
 	<Package name="Gameplay">
@@ -38,7 +38,7 @@
 	</Package>
 	<Package name="WelcomeMessage">
 		<Key ID="STR_WL_WelcomeToWasteland">
-			<English>&lt;t color='#FF9E9E' size='2.5' &gt;Hosted by Kill on Sight. www.kosclan.org TS: tspeak.cloudapp.net&lt;t color='#FFFFFF' size='1' &gt;</English>
+			<English>&lt;t color='#FF9E9E' size='2.5' &gt;Hosted by Kill on Sight - www.kosclan.org TS: kosclan.cloudapp.net&lt;t color='#FFFFFF' size='1' &gt;</English>
 		</Key>
 		<Key ID="STR_WL_YouAreInTeam">
 			<English>&lt;t color='#FFFFFF' size='1.5' &gt;* You are in &lt;img size="1.5" image="%1"/&gt; &lt;t color="%2"&gt;%3&lt;/t&gt; team.&lt;br/&gt;* Attacking or stealing from other %4 players is &lt;t color="#aa0000"&gt;FORBIDDEN.&lt;/t&gt;&lt;br/&gt;* Don't be obnoxious on voip!&lt;br/&gt;* If you cannot pick up an item put it on the ground and then pick it up.&lt;br/&gt;* Capture Yellow territories by staying in them for 5 minutes.&lt;br/&gt;* Lay prone to save.&lt;br/&gt;* You will be locked to your team after 3 minutes.&lt;/t&gt;</English>
@@ -47,7 +47,7 @@
 			<English>&lt;t color='#FFFFFF' size='1.5' &gt;* You are in &lt;img size="1.5" image="%1"/&gt; &lt;t color="%2"&gt;%3&lt;/t&gt; team.&lt;br/&gt;* You are &lt;t color="#00aa00"&gt;FREE TO ATTACK ANYONE.&lt;/t&gt;&lt;br/&gt;* Don't be obnoxious on voip!&lt;br/&gt;* Lay prone to save.&lt;br/&gt;* Capture Yellow territories by stayin in them for 5 minutes.&lt;/t&gt;</English>
 		</Key>
 		<Key ID="STR_WL_MapMoreInfo">
-			<English>&lt;t color='#FFFFFF' size='1.5' &gt;Report bugs/problems to KoSClan2013@gmail.com&lt;br/&gt;Server will be restarted on request.&lt;br/&gt;For more info please see the map.&lt;br/&gt;&lt;br/&gt;&lt;/t&gt;</English>
+			<English>&lt;t color='#FFFFFF' size='1.5' &gt;Report bugs/problems to kosclan@gmail.com&lt;br/&gt;Server will be restarted on request.&lt;br/&gt;For more info please see the map.&lt;br/&gt;&lt;br/&gt;&lt;/t&gt;</English>
 		</Key>
 	</Package>
 	<Package name="TeamKillWarningMessage">

@@ -21,16 +21,16 @@ FZF_IC_Icons =
 	_remove_icon = false;
     _units = [];
     _uc = 0;
-	if (playerSide == resistance)then{ //decide what method to check who needs icons
-		{
-			if ((!isNull(_x)) ) then {
-				if (alive(_x)) then {
-					_units set [_uc, _x];
-					_uc = _uc + 1;
-				};
-			};			
-		} forEach (units(player));	
-	} else {
+//	if (playerSide == resistance)then{ //decide what method to check who needs icons
+//		{
+//			if ((!isNull(_x)) ) then {
+//				if (alive(_x)) then {
+//					_units set [_uc, _x];
+//					_uc = _uc + 1;
+//				};
+//			};			
+//		} forEach (units(player));	
+//	} else {
 		{  //decide who needs icons
 			if ((!isNull(_x)) && ((side _x) ==playerSide)) then {
 				if (alive(_x)) then {
@@ -39,7 +39,7 @@ FZF_IC_Icons =
 				};
 			};			
 		} forEach (allUnits);
-	};
+//	};
 
     if (isNil "_pIcons")then {
         _make_icons = true;

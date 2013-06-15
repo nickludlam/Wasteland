@@ -164,7 +164,7 @@ player createDiaryRecord["changelog",
 [
 "1.7.4 His_Shadow -",
 "<br/><br/>
-- Donation awards are now active. If you donate on our website at www.kosclan.org every time you spawn you will spawn with 5 times the amount you donated. When you die that amount will be removed from the sack you drop to reduce inflation.<br/>
+- Donation awards are now active. If you donate on our website at www.the501stelite.com every time you spawn you will spawn with 5 times the amount you donated. When you die that amount will be removed from the sack you drop to reduce inflation.<br/>
 - Saving now happens in the background. Before disconnecting be sure to move ammo and attachments from weapons in to your inventory.<br/>
 - Vehicle spawns for gun stores now are done with markers to make moving easire.<br/>
 - Armed chopper missions now spawn random chopper types.<br/>
@@ -193,6 +193,17 @@ player createDiaryRecord["changelog",
 - Donation awards are now 25 times the amount donated.<br/>
 - Other minor changes.<br/>
 - New general store.<br/>
+"
+]
+];
+
+player createDiaryRecord["changelog",
+[
+"1.1 His_Shadow -",
+"<br/><br/>
+- KoS migration.<br/>
+- Vehicle Stores.<br/>
+- Revamped Gun Store.<br/>
 "
 ]
 ];
@@ -226,11 +237,12 @@ player createDiaryRecord["Info",
 "
 <br/>
 	contact us at www.kosclan.org  <br/>
-	Or email us at kosserver@manumitthemind.com  <br/>
+	Or email us at kosclan@gmail.com  <br/>
 	Admins:<br/>
 	His_Shadow<br/>
 	Davis<br/>
-	Mr. Butters<br/>
+	CrossOps<br/>
+	GodMode<br/>
 	<br/>
 "
 ]

@@ -36,6 +36,7 @@ teamkillMessage = compile preprocessFileLineNumbers "client\functions\showTeamKi
 client_respawnDialog = compile preprocessFileLineNumbers "client\functions\loadRespawnDialog.sqf";
 loadGeneralStore = compile preprocessFileLineNumbers "client\systems\generalStore\loadGenStore.sqf";
 loadGunStore = compile preprocessFileLineNumbers "client\systems\gunStore\loadGunStore.sqf";
+loadVehStore = compile preprocessFileLineNumbers "client\systems\vehStore\loadvehStore.sqf";
 
 player groupChat "Client Compile Complete";
 sleep 1;

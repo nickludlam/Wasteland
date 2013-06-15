@@ -20,7 +20,7 @@ switch(str(side player)) do {
 		_teamcol = "#cc0000";
 	};
 	case "GUER": {
-		_teamrules = "STR_WL_YouAreInFFA";
+		_teamrules = "STR_WL_YouAreInTeam";
 		_teamicon = "client\icons\igui_side_indep_ca.paa";
 		_teamcol = "#00cc00";
 	};

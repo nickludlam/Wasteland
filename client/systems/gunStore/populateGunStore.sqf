@@ -14,7 +14,10 @@ _switch = _this select 0;
 _dialog = findDisplay gunshop_DIALOG;
 _gunlisttext = _dialog displayCtrl gunshop_gun_TEXT;
 _gunpicture = _dialog displayCtrl gunshop_gun_pic;
-_gunlist = _dialog displayCtrl gunshop_gun_list;								
+_gunlist = _dialog displayCtrl gunshop_gun_list;
+_ammolist = _dialog displayCtrl gunshop_ammo_list;
+_ammoBut = _dialog displayCtrl gunshop_but_butammo;							
+_ammoLbl = _dialog displayCtrl gunshop_ammo_TEXT;
 _gunInfo = _dialog displayCtrl gunshop_gun_Info;
 
 switch(_switch) do 
@@ -23,119 +26,170 @@ switch(_switch) do
 	{
 		//Clear the list
 		lbClear _gunlist;
+		lbClear _ammolist;
+		_ammoBut ctrlShow true;
+		_ammoLbl ctrlShow true;
+		_ammolist ctrlShow true;
 		_gunlist lbSetCurSel -1;
-		_gunpicture ctrlSettext "";
-		_gunlisttext ctrlSettext "";
-        _gunInfo ctrlSetStructuredText parseText "";
 
 		// Populate the gun shop weapon list
 		{
+			_weapon = (configFile >> "CfgWeapons" >> _x select 1);
+			_picture = getText (_weapon >> "picture");
 			_gunlistIndex = _gunlist lbAdd format["%1",_x select 0];
-		} forEach weaponsArray;
+			_gunlist lbSetPicture [_gunlistIndex,_picture];
+		} forEach pistolArray;
 	};
 	
-	case 1:
+	case 1: 
 	{
 		//Clear the list
 		lbClear _gunlist;
+		lbClear _ammolist;
+		_ammoBut ctrlShow true;
+		_ammoLbl ctrlShow true;
+		_ammolist ctrlShow true;
 		_gunlist lbSetCurSel -1;
-		_gunpicture ctrlSettext "";
-		_gunlisttext ctrlSettext "";
-        _gunInfo ctrlSetStructuredText parseText "";
 
 		// Populate the gun shop weapon list
 		{
+			_weapon = (configFile >> "CfgWeapons" >> _x select 1);
+			_picture = getText (_weapon >> "picture");
 			_gunlistIndex = _gunlist lbAdd format["%1",_x select 0];
-		} forEach ammoArray;	
+			_gunlist lbSetPicture [_gunlistIndex,_picture];
+		} forEach rifleArray;
 	};
-
-	case 2:
+	
+	case 2: 
 	{
 		//Clear the list
 		lbClear _gunlist;
+		lbClear _ammolist;
+		_ammoBut ctrlShow true;
+		_ammoLbl ctrlShow true;
+		_ammolist ctrlShow true;
 		_gunlist lbSetCurSel -1;
-		_gunpicture ctrlSettext "";
-		_gunlisttext ctrlSettext "";
-        _gunInfo ctrlSetStructuredText parseText "";
 
 		// Populate the gun shop weapon list
 		{
+			_weapon = (configFile >> "CfgWeapons" >> _x select 1);
+			_picture = getText (_weapon >> "picture");
 			_gunlistIndex = _gunlist lbAdd format["%1",_x select 0];
-		} forEach accessoriesArray;	
+			_gunlist lbSetPicture [_gunlistIndex,_picture];
+		} forEach smgArray;
 	};
 	
-	case 3:
+	case 3: 
 	{
 		//Clear the list
 		lbClear _gunlist;
+		lbClear _ammolist;
+		_ammoBut ctrlShow true;
+		_ammoLbl ctrlShow true;
+		_ammolist ctrlShow true;
 		_gunlist lbSetCurSel -1;
-		_gunpicture ctrlSettext "";
-		_gunlisttext ctrlSettext "";
-        _gunInfo ctrlSetStructuredText parseText "";
 
 		// Populate the gun shop weapon list
 		{
+			_weapon = (configFile >> "CfgWeapons" >> _x select 1);
+			_picture = getText (_weapon >> "picture");
 			_gunlistIndex = _gunlist lbAdd format["%1",_x select 0];
-		} forEach apparelArray;
+			_gunlist lbSetPicture [_gunlistIndex,_picture];
+		} forEach shotgunArray;
 	};
 	
-	case 4:
+	case 4: 
 	{
 		//Clear the list
 		lbClear _gunlist;
+		lbClear _ammolist;
+		_ammoBut ctrlShow true;
+		_ammoLbl ctrlShow true;
+		_ammolist ctrlShow true;
 		_gunlist lbSetCurSel -1;
-		_gunpicture ctrlSettext "";
-		_gunlisttext ctrlSettext "";
-        _gunInfo ctrlSetStructuredText parseText "";
 
 		// Populate the gun shop weapon list
 		{
+			_weapon = (configFile >> "CfgWeapons" >> _x select 1);
+			_picture = getText (_weapon >> "picture");
 			_gunlistIndex = _gunlist lbAdd format["%1",_x select 0];
-		} forEach backpackArray;	
+			_gunlist lbSetPicture [_gunlistIndex,_picture];
+		} forEach launcherArray;
 	};
 	
-	case 5:
+	case 5: 
 	{
 		//Clear the list
 		lbClear _gunlist;
+		lbClear _ammolist;
+		_ammoBut ctrlShow false;
+		_ammoLbl ctrlShow false;
+		_ammolist ctrlShow false;
 		_gunlist lbSetCurSel -1;
-		_gunpicture ctrlSettext "";
-		_gunlisttext ctrlSettext "";
-        _gunInfo ctrlSetStructuredText parseText "";
 
 		// Populate the gun shop weapon list
 		{
+			_weapon = (configFile >> "CfgMagazines" >> _x select 1);
+			_picture = getText (_weapon >> "picture");
 			_gunlistIndex = _gunlist lbAdd format["%1",_x select 0];
-		} forEach landArray;	
+			_gunlist lbSetPicture [_gunlistIndex,_picture];
+		} forEach throwputArray;
 	};
-	
+
 	case 6:
 	{
 		//Clear the list
 		lbClear _gunlist;
+		lbClear _ammolist;
+		_ammoBut ctrlShow false;
+		_ammoLbl ctrlShow false;
+		_ammolist ctrlShow false;
 		_gunlist lbSetCurSel -1;
-		_gunpicture ctrlSettext "";
-		_gunlisttext ctrlSettext "";
-        _gunInfo ctrlSetStructuredText parseText "";
 
 		// Populate the gun shop weapon list
 		{
+			_weapon = (configFile >> "CfgWeapons" >> _x select 1);
+			_picture = getText (_weapon >> "picture");
 			_gunlistIndex = _gunlist lbAdd format["%1",_x select 0];
-		} forEach seaArray;	
+			_gunlist lbSetPicture [_gunlistIndex,_picture];
+		} forEach accessoriesArray;	
 	};
 	
 	case 7:
 	{
 		//Clear the list
 		lbClear _gunlist;
+		lbClear _ammolist;
+		_ammoBut ctrlShow false;
+		_ammoLbl ctrlShow false;
+		_ammolist ctrlShow false;
 		_gunlist lbSetCurSel -1;
-		_gunpicture ctrlSettext "";
-		_gunlisttext ctrlSettext "";
-        _gunInfo ctrlSetStructuredText parseText "";
 
 		// Populate the gun shop weapon list
 		{
+			_weapon = (configFile >> "CfgWeapons" >> _x select 1);
+			_picture = getText (_weapon >> "picture");
 			_gunlistIndex = _gunlist lbAdd format["%1",_x select 0];
-		} forEach airArray;	
+			_gunlist lbSetPicture [_gunlistIndex,_picture];
+		} forEach apparelArray;
+	};
+	
+	case 8:
+	{
+		//Clear the list
+		lbClear _gunlist;
+		lbClear _ammolist;
+		_ammoBut ctrlShow false;
+		_ammoLbl ctrlShow false;
+		_ammolist ctrlShow false;
+		_gunlist lbSetCurSel -1;
+
+		// Populate the gun shop weapon list
+		{
+			_weapon = (configFile >> "CfgVehicles" >> _x select 1);
+			_picture = getText (_weapon >> "picture");
+			_gunlistIndex = _gunlist lbAdd format["%1",_x select 0];
+			_gunlist lbSetPicture [_gunlistIndex,_picture];
+		} forEach backpackArray;	
 	};
 };

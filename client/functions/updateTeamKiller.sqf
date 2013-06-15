@@ -3,7 +3,7 @@
 //	@file Author: [404] Deadbeat
 //	@file Created: 20/11/2012 05:19
 
-if(str(playerSide) in ["WEST", "EAST"]) then {
+//if(str(playerSide) in ["WEST", "EAST"]) then {
 	{
 		if(_x select 0 == playerUID) then {
 			if((_x select 1) >= 2) then {
@@ -14,4 +14,4 @@ if(str(playerSide) in ["WEST", "EAST"]) then {
 			};
 		};
 	} forEach pvar_teamKillList;
-};
+//};

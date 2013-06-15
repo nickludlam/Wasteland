@@ -31,7 +31,7 @@ _missionUptimeText = _display displayCtrl respawn_MissionUptime_Text;
 if(playerSide in [west]) then {_side = "Blufor"};
 if(playerSide in [east]) then {_side = "Opfor"};
 //if(str(playerSide) == "GUER") then {_side = "Independent"};
-if(str(playerSide) in ["RESISTANCE","CIV","GUER"]) then {_side = "Independent"};
+if(str(playerSide) in ["RESISTANCE","CIV","GUER"]) then {_side = "Gfor"};
 _respawnText ctrlSetStructuredText parseText (format["You are on %1.<br/>Please select a spawn point.",_side]);
 respawnDialogActive = true;
 

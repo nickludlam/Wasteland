@@ -18,24 +18,10 @@ _cont = 1;
 	_dist = _x distance _leader;
 	_group = group _leader;
 	_value = (_x in units group _leader);
-	if((str(_side1) in ["RESISTANCE","CIV","GUER"]) AND (str(_side2) in ["RESISTANCE","CIV","GUER"]) AND (_dist <=100)) then
+
+	if((_side1 != _side2) AND (_dist <=100)) then
 	{
-		If(_value) then
-		{
-			//do nothing
-			if(_cont == 0) then{_cont = 0;};
-		}
-		else
-		{
-			_cont = 0;
-		};
-	}
-	else
-	{
-		if((_side1 != _side2) AND (_dist <=100)) then
-		{
-			_cont = 0;
-		};
+		_cont = 0;
 	};
 }forEach playableUnits;
      

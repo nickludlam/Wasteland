@@ -96,22 +96,10 @@ while {showmarkers} do {
 		_enemyCount = 0;
 		_doCheck = 1;
 		{			
-			if((_x distance _unit < _radius) && (player != _x)) then {
-				if((playerSide in [west,east]) && (playerSide == side _x))then {
-					_friendlyCount = _friendlyCount + 1;
-					_doCheck = 0;
-				};
-				
-				if(_doCheck == 1) then
-				{	if((_x in units group player)) then
-					{
-						_friendlyCount = _friendlyCount + 1;
-					}
-					else 
-					{
-						_enemyCount = _enemyCount + 1;
-					};
-				};
+			if((_x distance _unit < _radius) && (player != _x)) then 
+			{
+				if(playerSide == side _x)then {_friendlyCount = _friendlyCount + 1;}
+				else {_enemyCount = _enemyCount + 1;};
 			};
 		} forEach playableUnits;
 

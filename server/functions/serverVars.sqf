@@ -146,7 +146,11 @@ storeOwners =
 	["West_Gen", [5538.2,4710.21,77.3378],"West Gen"],
 	["East_GenS", [5538.2,4710.21,77.3378],"East GenS"],
 	["East_GSE", [5538.2,4710.21,77.3378],"East GSE"],
-	["North_GenS", [5538.2,4710.21,77.3378],"North GenS"]
+	["North_GenS", [5538.2,4710.21,77.3378],"North GenS"],
+	["North_VS", [5538.2,4710.21,77.3378],"North VS"],
+	["East_VS", [5538.2,4710.21,77.3378],"East VS"],
+	["South_VS", [5538.2,4710.21,77.3378],"South VS"],
+	["West_VS", [5538.2,4710.21,77.3378],"West VS"]
 ];
  
                 

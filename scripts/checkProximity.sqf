@@ -10,23 +10,10 @@ _cont = 1;
 	_group = group _leader;
 	_value = (count units group _leader);
 	 player globalChat format["%1", _value];
-	if((_side1 in ["RESISTANCE","CIV","GUER"]) AND (_side2 in ["RESISTANCE","CIV","GUER"]) AND (_dist <=100)) then
+
+	if((_side1 != _side2) AND (_dist <=100)) then
 	{
-		If(_value > 1) then
-		{
-			//do nothing
-		}
-		else
-		{
-			_cont = 0;
-		};
-	}
-	else
-	{
-		if((_side1 != _side2) AND (_dist <=100)) then
-		{
-			_cont = 0;
-		};
+		_cont = 0;
 	};
 }forEach playableUnits;
 	

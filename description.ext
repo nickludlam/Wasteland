@@ -11,7 +11,7 @@ class Header
 	maxPlayers=60;
 };
 author="His_Shadow - See Credits";
-OnLoadName = "KoS Wasteland v1.7.6";
+OnLoadName = "KoS Wasteland v1.1";
 OnLoadMission = "Weapons spawn inside and beside buildings. Capture the yellow territories by staying in them for 5 minutes. Press M for more info.";
 //Dialog includes
 #include "addons\R3F_ARTY_AND_LOG\desc_include.h"
@@ -20,6 +20,7 @@ OnLoadMission = "Weapons spawn inside and beside buildings. Capture the yellow t
 #include "client\systems\groups\dialog\groupManagement.hpp"
 #include "client\systems\gunStore\dialog\gunshop_settings.hpp"
 #include "client\systems\generalStore\dialog\genstore_settings.hpp"
+#include "client\systems\vehStore\dialog\vehstore_settings.hpp"
 #include "client\systems\adminPanel\dialog\adminMenu.hpp"
 #include "client\systems\adminPanel\dialog\modMenu.hpp"
 #include "client\systems\adminPanel\dialog\serverAdminMenu.hpp"
@@ -123,6 +124,42 @@ class CfgIdentities
 	class North_GenS
     {
         name = "North GenS";
+        face = "Face20";
+        glasses = "None";
+        speaker = "Male01ENG";
+        pitch = 1.1;
+    };
+	
+	class North_VS
+    {
+        name = "North VS";
+        face = "Face20";
+        glasses = "None";
+        speaker = "Male01ENG";
+        pitch = 1.1;
+    };
+	
+	class East_VS
+    {
+        name = "East VS";
+        face = "Face20";
+        glasses = "None";
+        speaker = "Male01ENG";
+        pitch = 1.1;
+    };
+	
+	class South_VS
+    {
+        name = "South VS";
+        face = "Face20";
+        glasses = "None";
+        speaker = "Male01ENG";
+        pitch = 1.1;
+    };
+	
+	class West_VS
+    {
+        name = "West VS";
         face = "Face20";
         glasses = "None";
         speaker = "Male01ENG";

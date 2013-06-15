@@ -25,6 +25,9 @@ while{_run} do
 					{
 						case "West GS":{_x setPos (_building buildingPos 6);};//2 or 5 or 4 or 6
 						case "West GSA":{_x setPos (_building buildingPos 3);};//3
+						case "West VS":{_x setPos (_building buildingPos 3);};
+						case "North VS":{_x setPos (_building buildingPos 3);};
+						case "South VS":{_x setPos (_building buildingPos 1);};
 						case "East GS":{_x setPos (_building buildingPos 6);};
 						case "West Gen":{_x setPos (_building buildingPos 0);};
 						case "East Gen":{_x setPos (_building buildingPos 6);};

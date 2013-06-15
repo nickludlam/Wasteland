@@ -4,8 +4,6 @@
 //@file Created: 20/11/2012 05:19
 //@file Description: The client init.
 
-#include "defines.hpp"
-
 if(!X_Client) exitWith {};
 
 mutexScriptInProgress = false;
@@ -16,6 +14,8 @@ doCancelAction = false;
 currentMissionsMarkers = [];
 currentRadarMarkers = [];
 computedMoney = 0;
+//_loadPos = [];
+//_loadDir = 0;
 
 //Initialization Variables
 playerCompiledScripts = false;
@@ -34,13 +34,7 @@ if(!(playerSide in [west, east, resistance])) then {
 
 //Player setup
 player call playerSetup;
-player setVariable["positionLoaded", 0, true];
-
-///////////////////////////////////////////////////////////////////////////
-#ifdef __LOCAL_SERVER__
-// We disable save & money functions when we're in local client/server mode
-diag_log format ["Skipping client load/save/money functionality"];
-#else
+player setVariable["positionLoaded", 0,true];
 [] execVM "server\statSave\loadAccount.sqf";
 [] execVM "server\statSave\saveToServer.sqf";
 waitUntil {!isNil "fn_SaveToServer"};
@@ -63,10 +57,14 @@ if(player getVariable "cmoney" == 100) then
 };
 
 waitUntil {!isNil "positionLoaded"};
-#endif
-///////////////////////////////////////////////////////////////////////////
-
 _positionLoaded = player getVariable "positionLoaded";
+
+//DO NOT
+//_loadPos = player getVariable "loadPos";
+//_loadDir = player getVariable "loadDir";
+//if(isNil '_loadDir') then{}else{};
+//run the save loop
+//[] execVM "server\statSave\saveloop.sqf"; END DO NOT
 
 //Setup player events.
 if(!isNil "client_initEH") then {player removeEventHandler ["Respawn", client_initEH];};
@@ -103,4 +101,5 @@ if (isNil "FZF_IC_INIT") then   {
 	call compile preprocessFileLineNumbers "client\functions\newPlayerIcons.sqf";
 };
 if(_positionLoaded == 0)then{true spawn playerSpawn;};
+//true spawn playerSpawn;
 [] spawn FZF_IC_INIT;

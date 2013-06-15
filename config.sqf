@@ -1,74 +1,127 @@
 
 currentOwnerName = "";
-weaponsArray =
+pistolArray =
 [
 	//Handgun
-    ["P07","hgun_P07_F",40,20],
-	["Rook-40","hgun_Rook40_F",40,20],
+    ["P07 9 mm","hgun_P07_F",40,20],
+	["Rook-40 9 mm","hgun_Rook40_F",40,20]
+]; 
+
+rifleArray =
+[
     //Underwater Gun
-	["SDAR","arifle_SDAR_F",50,25],
+	["SDAR 5.56 mm","arifle_SDAR_F",50,25],
 	//Assault Rifle
-	["MX","arifle_MX_F",100,50],
-	["MX 3GL","arifle_MX_GL_F",250,125],
-	["MXC","arifle_MXC_F",100,50],
-	["MXM","arifle_MXM_F",700,350],
+	["MX 6.5 mm","arifle_MX_F",100,50],
+	["MX 3GL 6.5mm","arifle_MX_GL_F",250,125],
+	["MXC 6.5 mm","arifle_MXC_F",100,50],
+	["MXM 6.5 mm","arifle_MXM_F",700,350],
 	//Light Machine Gun
-	["MX SW","arifle_MX_SW_F",200,100],
-	["Mk200","LMG_Mk200_F",300,150],
-	["TRG-20","arifle_TRG20_F",100,50],	
-	["TRG-21","arifle_TRG21_F",100,50],
+	["MX SW 6.5 mm","arifle_MX_SW_F",200,100],
+	["Mk200 6.5 mm","LMG_Mk200_F",300,150],
+	["TRG-20 5.56 mm","arifle_TRG20_F",100,50],	
+	["TRG-21 5.56 mm","arifle_TRG21_F",100,50],
 	//Assault Rifle
-	["TRG-21 EGLM","arifle_TRG21_GL_F",250,125],
-	["Katiba","arifle_Khaybar_F",100,50],
-	["Katiba Carabine","arifle_Khaybar_C_F",100,50],
-	["Katiba GL","arifle_Khaybar_GL_F",250,125],
+	["TRG-21 EGLM 5.56 mm","arifle_TRG21_GL_F",250,125],
+	["Katiba 6.5 mm","arifle_Khaybar_F",100,50],
+	["Katiba Carabine 6.5 mm","arifle_Khaybar_C_F",100,50],
+	["Katiba GL 6.5 mm","arifle_Khaybar_GL_F",250,125],
 	//Sniper
-	["EBR","srifle_EBR_F",1000,500],
-	["LRR","srifle_LRR_F",3000,1500],
-	["GM6","srifle_GM6_F",3000,1500],
+	["EBR 7.62 mm","srifle_EBR_F",1000,500],
+	["M320 LRR .408","srifle_LRR_F",3000,1500],
+	["GM6 Lynx 12.7 mm","srifle_GM6_F",3000,1500]
+]; 
+
+smgArray =
+[
+]; 
+
+shotgunArray =
+[
+]; 
+
+launcherArray =
+[
     //Rocket
-	["NLAWr","launch_NLAW_F",800,400],
+	["NLAW","launch_NLAW_F",800,400],
 	["RPG-42 Alamut","launch_RPG32_F",1000,500]
+]; 
+
+throwputArray =
+[
+	["RGO Frag Grenade","HandGrenade",50,0],
+	["Stone","HandGrenade_Stone",30,0],
+	["Mini Grenade","MiniGrenade",25,0],
+	["Smoke Grenade (White)", "SmokeShell", 50,0],
+	["Smoke Grenade (Yellow)", "SmokeShellYellow", 50,0],
+	["Smoke Grenade (Green)", "SmokeShellGreen", 50,0],
+	["Smoke Grenade (Red)", "SmokeShellRed", 50,0],
+	["Smoke Grenade (Purple)", "SmokeShellPurple", 50,0],
+	["Smoke Grenade (Orange)", "SmokeShellPurple", 50,0],
+	["Smoke Grenade (Blue)", "SmokeShellBlue", 50,0],
+	["Chemlight (Green)", "Chemlight_green", 10,0],
+	["Chemlight (Red)", "Chemlight_red", 10,0],
+	["Chemlight (Yellow)", "Chemlight_yellow", 10,0],
+	["Chemlight (Blue)", "Chemlight_blue", 10,0],
+	["Explosive Charge","DemoCharge_Remote_Mag",500,0],
+	["Explosive Satchel","SatchelCharge_Remote_Mag",600,0],
+	["AT Mine","ATMine_Range_Mag",500,0],
+	["M6 SLAM Mine","SLAMDirectionalMine_Wire_Mag",500,0],
+	["Claymore Charge","ClaymoreDirectionalMine_Remote_Mag",300,0],
+	["APERS Mine","APERSMine_Range_Mag",500,0],
+	["APERS Bounding Mine","APERSBoundingMine_Range_Mag",500,0],
+	["APERS Tripwire Mine","APERSTripMine_Wire_Mag",500,0]
 ]; 
 
 //Gun Store Ammo List
 //Text name, classname, buy cost
 ammoArray =
 [
-	["9mm 16Rnd","16Rnd_9x21_Mag",15],
-	["5.56mm 20Rnd UW","20Rnd_556x45_UW_mag",15],
-	["5.56mm 30Rnd STANAG","30Rnd_556x45_Stanag",20],
-	["5.56mm 30Rnd STANAG Tracer (Red)","30Rnd_556x45_Stanag_Tracer_Red",20],
-	["5.56mm 30Rnd STANAG Tracer (Green)","30Rnd_556x45_Stanag_Tracer_Green",20],
-	["5.56mm 30Rnd STANAG Tracer (Yell)","30Rnd_556x45_Stanag_Tracer_Yellow",20],
+	["9mm 16Rnd Mag","16Rnd_9x21_Mag",15],
+	["9mm 30Rnd Mag","16Rnd_9x21_Mag",30],
+	["5.56mm 20Rnd Dual Purpose Mag","20Rnd_556x45_UW_mag",15],
+	["5.56mm 30Rnd STANAG Mag","30Rnd_556x45_Stanag",20],
+	["5.56mm 30Rnd Tracer (Red) Mag","30Rnd_556x45_Stanag_Tracer_Red",20],
+	["5.56mm 30Rnd Tracer (Green)","30Rnd_556x45_Stanag_Tracer_Green",20],
+	["5.56mm 30Rnd Tracer (Yellow)","30Rnd_556x45_Stanag_Tracer_Yellow",20],
 	["6.5mm 30Rnd C","30Rnd_65x39_case_mag",25],
-	["6.5mm 30Rnd CL","30Rnd_65x39_caseless_mag",30],
-	["6.5mm 30Rnd CL Tracer","30Rnd_65x39_caseless_mag_Tracer",30],
-	["6.5mm 30Rnd Kabita CL","30Rnd_65x39_caseless_green",25],
-	["6.5mm 30Rnd Kabita CL Tracer","30Rnd_65x39_caseless_green_mag_Tracer",25],
-	["6.5mm 100Rnd","100Rnd_65x39_caseless_mag_Tracer",50],
-	["6.5mm 200Rnd","200Rnd_65x39_cased_Box",100],
-	["6.5mm 200Rnd Tracer","200Rnd_65x39_cased_Box_Tracer",100],
-	["7.62mm 20Rnd","20Rnd_762x51_Mag",30],
-	[".408mm 7Rnd","7Rnd_408_Mag",300],
-	["12.7mm 5Rnd","5Rnd_127x108_Mag",325],
-	["HE Grenade","1Rnd_HE_Grenade_shell",50],
-	["GL Flare 40mm (White)","UGL_FlareWhite_F",50],
-	["GL Flare 40mm (Green)","UGL_FlareGreen_F",50],
-	["GL Flare 40mm (Red)","UGL_FlareRed_F",50],
-	["GL Flare 40mm (Yellow)","UGL_FlareYellow_F",50],
-	["GL Flare 40mm (Cir)","UGL_FlareCIR_F",50],
-	["Hand Grenade","HandGrenade",50],
-	["Hand Grenade (Stone)","HandGrenade_Stone",30],
-	["Hand Grenade (Mini)","MiniGrenade",25],
-	["Explosive Charge","DemoCharge_Remote_Mag",500],
-	["Explosive Satchel","SatchelCharge_Remote_Mag",600],
-	["AT Mine","ATMine_Range_Mag",500],
-	["M6 SLAM Mine","SLAMDirectionalMine_Wire_Mag",500],
-	["Claymore Charge","ClaymoreDirectionalMine_Remote_Mag",300],
-	["APERS Mine","APERSMine_Range_Mag",500],
-	["APERS Bounding Mine","APERSBoundingMine_Range_Mag",500],
-	["APERS Tripwire Mine","APERSTripMine_Wire_Mag",500],
+	["6.5mm 30Rnd STANAG Mag","30Rnd_65x39_caseless_mag",30],
+	["6.5mm 30Rnd Tracer (Red) Mag","30Rnd_65x39_caseless_mag_Tracer",30],
+	["6.5mm 30Rnd Caseless Mag","30Rnd_65x39_caseless_green",25],
+	["6.5mm 30Rnd Tracer (Green) Mag","30Rnd_65x39_caseless_green_mag_Tracer",25],
+	["6.5mm 100Rnd Belt Case","100Rnd_65x39_caseless_mag",50],
+	["6.5mm 100Rnd Tracer (Red) Belt Case","100Rnd_65x39_caseless_mag_Tracer",50],
+	["6.5mm 200Rnd Belt Case","200Rnd_65x39_cased_Box",100],
+	["6.5mm 200Rnd Tracer (Green)","200Rnd_65x39_cased_Box_Tracer",100],
+	["7.62mm 20Rnd Mag","20Rnd_762x51_Mag",30],
+	[".408mm 7Rnd Cheetah Mag","7Rnd_408_Mag",300],
+	["12.7mm 5Rnd Mag","5Rnd_127x108_Mag",325],
+	["40mm HE Grenade Round","1Rnd_HE_Grenade_shell",50],
+	["Flare Round (White)","UGL_FlareWhite_F",50],
+	["Flare Round (Green)","UGL_FlareGreen_F",50],
+	["Flare Round (Red)","UGL_FlareRed_F",50],
+	["Flare Round (Yellow)","UGL_FlareYellow_F",50],
+	["Flare Round (IR)","UGL_FlareCIR_F",50],
+	["Smoke Round (White)","1Rnd_Smoke_Grenade_shell",25],
+	["Smoke Round (Red)","1Rnd_SmokeRed_Grenade_shell",25],
+	["Smoke Round (Green)","1Rnd_SmokeGreen_Grenade_shell",25],
+	["Smoke Round (Yellow)","1Rnd_SmokeYellow_Grenade_shell",25],
+	["Smoke Round (Purple)","1Rnd_SmokePurple_Grenade_shell",25],
+	["Smoke Round (Blue)","1Rnd_SmokeBlue_Grenade_shell",25],
+	["Smoke Round (Orange)","1Rnd_SmokeOrange_Grenade_shell",25],
+	["40mm 3Rnd HE Grenade","3Rnd_HE_Grenade_shell",150],
+	["3Rnd 3GL Flares (White)","3Rnd_UGL_FlareWhite_F",150],
+	["3Rnd 3GL Flares (Green)","3Rnd_UGL_FlareGreen_F",150],
+	["3Rnd 3GL Flares (Red)","3Rnd_UGL_FlareRed_F",150],
+	["3Rnd 3GL Flares (Yellow)","3Rnd_UGL_FlareYellow_F",150],
+	["3Rnd 3GL Flares (IR)","3Rnd_UGL_FlareCIR_F",150],
+	["3Rnd 3GL Smoke Rounds (White)","3Rnd_Smoke_Grenade_shell",75],
+	["3Rnd 3GL Smoke Rounds (Red)","3Rnd_SmokeRed_Grenade_shell",75],
+	["3Rnd 3GL Smoke Rounds (Green)","3Rnd_SmokeGreen_Grenade_shell",75],
+	["3Rnd 3GL Smoke Rounds (Yellow)","3Rnd_SmokeYellow_Grenade_shell",75],
+	["3Rnd 3GL Smoke Rounds (Purple)","3Rnd_SmokePurple_Grenade_shell",75],
+	["3Rnd 3GL Smoke Rounds (Blue)","3Rnd_SmokeBlue_Grenade_shell",75],
+	["3Rnd 3GL Smoke Rounds (Orange)","3Rnd_SmokeOrange_Grenade_shell",75],
 	["NLAW Missile","NLAW_F",800],
 	["RPG32 Missile","RPG32_F",550],
 	["RPG32 AA Missile","RPG32_AA_F",1000]
@@ -152,7 +205,6 @@ apparelArray =
 	["Carrier Lite (Green)","V_PlateCarrier1_rgr", 250,"vest"],
 	["Carrier Rig (Green)","V_PlateCarrier2_rgr", 250,"vest"],
 	["Chest Rig (Khaki)","V_Chestrig_khk", 300,"vest"],
-	["Chest Rig (Green)","V_ChestrigB_rgr", 300,"vest"],
 	["Slash Bandolier (Coyote)","V_BandollierB_cbr", 100,"vest"],
 	["Slash Bandolier (Khaki)","V_BandollierB_khk", 100,"vest"],
 	["Tactical Vest (Brown)","V_TacVest_brn", 100,"vest"],
@@ -199,69 +251,53 @@ apparelArray =
 //Text name, classname, buy cost, spawn type, color
 landArray =
 [
-	["Quadbike","O_Quadbike_F",250,"vehicle",""],
-	["Offroad","c_offroad",500,"vehicle",""],
-	["Hunter","B_Hunter_F",2000,"vehicle",""],
-	["Hunter (O)","B_Hunter_F",2000,"vehicle","orange"],
-	["Hunter (R)","B_Hunter_F",2000,"vehicle","red"],
-	["Hunter (Y)","B_Hunter_F",2000,"vehicle","yellow"],
-	["Hunter (P)","B_Hunter_F",2000,"vehicle","pink"],
-	["Hunter HMG","B_Hunter_HMG_F",7000,"vehicle",""],
-	["Hunter HMG (O)","B_Hunter_HMG_F",7000,"vehicle","orange"],
-	["Hunter HMG (R)","B_Hunter_HMG_F",7000,"vehicle","red"],
-	["Hunter HMG (Y)","B_Hunter_HMG_F",7000,"vehicle","yellow"],
-	["Hunter HMG (P)","B_Hunter_HMG_F",7000,"vehicle","pink"],
-	["Hunter GMG","B_Hunter_RCWS_F",8000,"vehicle",""],
-	["Hunter GMG (O)","B_Hunter_HMG_F",8000,"vehicle","orange"],
-	["Hunter GMG (R)","B_Hunter_HMG_F",8000,"vehicle","red"],
-	["Hunter GMG (Y)","B_Hunter_HMG_F",8000,"vehicle","yellow"],
-	["Hunter GMG (P)","B_Hunter_HMG_F",8000,"vehicle","pink"],
-	["Ifrit","O_Ifrit_F",3000,"vehicle",""],
-	["Ifrit HMG","O_Ifrit_MG_F",8000,"vehicle",""],
-	["Ifrit GMG","O_Ifrit_GMG_F",9000,"vehicle",""]
+	["Quadbike","O_Quadbike_F",250,"vehicle",125],
+	["Offroad","c_offroad",500,"vehicle",350]
 ]; 
 
-seaArray =
+armoredArray =
 [
-	["Assault Boat Blue","B_Assaultboat",1000,"boat",""],
-	["Assault Boat Red","O_Assaultboat",1000,"boat",""],
-	["Rescue Blue","B_Lifeboat",1000,"boat",""],
-	["Rescue Red","O_Lifeboat",1000,"boat",""],
-	["Speedboat Minigun","B_SpeedBoat",6000,"boat",""],
-	["Speedboat Minigun (O)","B_SpeedBoat",6000,"boat","orange"],
-	["Speedboat Minigun (R)","B_SpeedBoat",6000,"boat","red"],
-	["Speedboat Minigun (Y)","B_SpeedBoat",6000,"boat","yellow"],
-	["Speedboat Minigun (P)","B_SpeedBoat",6000,"boat","pink"],
-	["Speedboat HMG","O_SpeedBoat",7000,"boat",""],
-	["Speedboat HMG (O)","O_SpeedBoat",7000,"boat","orange"],
-	["Speedboat HMG (R)","O_SpeedBoat",7000,"boat","red"],
-	["Speedboat HMG (Y)","O_SpeedBoat",7000,"boat","yellow"],
-	["Speedboat HMG (P)","O_SpeedBoat",7000,"boat","pink"]
+	["Hunter","B_Hunter_F",2000,"vehicle",1000],
+	["Hunter HMG","B_Hunter_HMG_F",7000,"vehicle",3500],
+	["Hunter GMG","B_Hunter_RCWS_F",8000,"vehicle",4000],
+	["Ifrit","O_Ifrit_F",3000,"vehicle",1500],
+	["Ifrit HMG","O_Ifrit_MG_F",8000,"vehicle",4000],
+	["Ifrit GMG","O_Ifrit_GMG_F",9000,"vehicle",4500]
 ]; 
 
-airArray =
+tanksArray =
+[
+]; 
+
+helicoptersArray =
 [
 	["MH-9","B_MH9_F",5000,"vehicle",""],
-	["MH-9 (O)","B_MH9_F",5000,"vehicle","orange"],
-	["MH-9 (R)","B_MH9_F",5000,"vehicle","red"],
-	["MH-9 (Y)","B_MH9_F",5000,"vehicle","yellow"],
-	["MH-9 (P)","B_MH9_F",5000,"vehicle","pink"],
 	["AH-9 (w)","B_AH9_F",12000,"vehicle",""],
-	["AH-9 (w)(O)","B_AH9_F",12000,"vehicle","orange"],
-	["AH-9 (w)(R)","B_AH9_F",12000,"vehicle","red"],
-	["AH-9 (w)(Y)","B_AH9_F",12000,"vehicle","yellow"],
-	["AH-9 (w)(P)","B_AH9_F",12000,"vehicle","pink"],
 	["Ka-60","O_Ka60_Unarmed_F",6000,"vehicle",""],
-	["Ka-60 (O)","O_Ka60_Unarmed_F",6000,"vehicle","orange"],
-	["Ka-60 (R)","O_Ka60_Unarmed_F",6000,"vehicle","red"],
-	["Ka-60 (Y)","O_Ka60_Unarmed_F",6000,"vehicle","yellow"],
-	["Ka-60 (P)","O_Ka60_Unarmed_F",6000,"vehicle","pink"],
-	["Ka-60 (w)","O_Ka60_F",13000,"vehicle",""],
-	["Ka-60 (w)(O)","O_Ka60_F",13000,"vehicle","orange"],
-	["Ka-60 (w)(R)","O_Ka60_F",13000,"vehicle","red"],
-	["Ka-60 (w)(Y)","O_Ka60_F",13000,"vehicle","yellow"],
-	["Ka-60 (w)(P)","O_Ka60_F",13000,"vehicle","pink"]
+	["Ka-60 (w)","O_Ka60_F",13000,"vehicle",""]
 ]; 
+
+jetsArray =
+[
+];
+
+boatsArray =
+[
+	["Assault Boat Blue","B_Assaultboat",1000,"boat",500],
+	["Assault Boat Red","O_Assaultboat",1000,"boat",500],
+	["Rescue Blue","B_Lifeboat",1000,"boat",500],
+	["Rescue Red","O_Lifeboat",1000,"boat",500],
+	["Speedboat Minigun","B_SpeedBoat",6000,"boat",3000],
+	["Speedboat HMG","O_SpeedBoat",7000,"boat",3500]
+];
+
+colorsArray =
+[
+	["Orange Camo", false],
+	["Red Camo", false],
+	["Yellow Camo", false],
+	["Pink Camo", false]
+];
 
 //General Store Item List
 //Display Name, Class Name, Description, Picture, Buy Price, Sell Price.
