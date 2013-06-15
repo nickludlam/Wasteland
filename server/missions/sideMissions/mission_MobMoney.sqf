@@ -3,7 +3,7 @@
 //	@file Author: [404] Deadbeat, [404] Costlyy
 //	@file Created: 08/12/2012 15:19
 //	@file Args:
-#include "setup.sqf"
+
 #include "sideMissionDefines.sqf";
 
 if(!isServer) exitwith {};
@@ -14,11 +14,7 @@ private ["_result","_missionMarkerName","_missionType","_startTime","_returnData
 _result = 0;
 _missionMarkerName = "Mob_Marker";
 _missionType = "Mob Money";
-#ifdef __A2NET__
-_startTime = floor(netTime);
-#else
 _startTime = floor(time);
-#endif
 
 diag_log format["WASTELAND SERVER - Side Mission Started: %1",_missionType];
 
@@ -77,21 +73,13 @@ CivGrpS = createGroup civilian;
 [CivGrpS,_posRand] spawn createLargeGroup;
 
 diag_log format["WASTELAND SERVER - Side Mission Waiting to be Finished: %1",_missionType];
-#ifdef __A2NET__
-_startTime = floor(netTime);
-#else
 _startTime = floor(time);
-#endif
 waitUntil
 {
     sleep 10; 
 	_playerPresent = false;
-	#ifdef __A2NET__
-	_currTime = floor(netTime);
-	#else
-    _currTime = floor(time);
-	#endif
-    if(_currTime - _startTime >= sideMissionTimeout) then {_result = 1;};
+	_currTime = floor(time);
+	if(_currTime - _startTime >= sideMissionTimeout) then {_result = 1;};
 	//if(alive _cash0) then {_allMoneyUp = 0;}
 	if((alive _cash0) OR (alive _cash1) OR (alive _cash2)) then {_allMoneyUp = 0;}
 	else {_allMoneyUp = 1;};

@@ -3,7 +3,6 @@
 //	@file Author: [404] Pulse
 //	@file Created: 20/11/2012 05:19
 
-#include "setup.sqf"
 #include "defines.hpp"
 
 if(!X_Server) exitWith {};
@@ -15,8 +14,4 @@ _newObject = _this select 0;
 getPlayerUID _newObject call iniDB_delete;
 #endif
 
-#ifdef __A2NET__
-_newObject setVariable["processedDeath",netTime];
-#else
 _newObject setVariable["processedDeath",time];
-#endif

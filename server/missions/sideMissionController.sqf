@@ -3,7 +3,6 @@
 //	@file Author: [404] Deadbeat, [404] Costlyy, [GoT] JoSchaap, Sanjo
 //	@file Created: 08/12/2012 15:19
 
-#include "setup.sqf"
 #include "sideMissions\sideMissionDefines.sqf";
 
 if (!isServer) exitWith {};
@@ -44,7 +43,11 @@ while {true} do
     
 	_missionRunning = [] spawn _mission;
     diag_log format["WASTELAND SERVER - Execute New Side Mission: %1",_missionType];
-    _hint = parseText format ["<t align='center' color='%2' shadow='2' size='1.75'>Side Objective</t><br/><t align='center' color='%2'>------------------------------</t><br/><t color='%3' size='1.0'>Starting in %1 Minutes</t>", sideMissionDelayTime / 60, sideMissionColor, subTextColor];
+    if (sideMissionDelayTime < 60) then {
+        _hint = parseText format ["<t align='center' color='%2' shadow='2' size='1.75'>Side Objective</t><br/><t align='center' color='%2'>------------------------------</t><br/><t color='%3' size='1.0'>Starting in %1 seconds</t>", sideMissionDelayTime, sideMissionColor, subTextColor];
+    } else {
+        _hint = parseText format ["<t align='center' color='%2' shadow='2' size='1.75'>Side Objective</t><br/><t align='center' color='%2'>------------------------------</t><br/><t color='%3' size='1.0'>Starting in %1 minutes</t>", sideMissionDelayTime / 60, sideMissionColor, subTextColor];
+    }
 	messageSystem = _hint;
 	if (!isDedicated) then { call serverMessage };
 	publicVariable "messageSystem";

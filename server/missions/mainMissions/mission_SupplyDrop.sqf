@@ -4,7 +4,7 @@
 
 // Cargo drop script used by 404Games with permission from [OCUK] MarKeR.
 // Modifications made by [404] Costlyy
-#include "setup.sqf"
+
 #include "mainMissionDefines.sqf";
 
 private [];

@@ -1,5 +1,5 @@
 private ["_result","_missionMarkerName","_missionType","_startTime","_returnData","_randomPos","_randomIndex","_vehicleClass","_vehicle","_picture","_vehicleName","_hint","_currTime","_playerPresent"];
-#include "setup.sqf";
+
 #include "sideMissionDefines.sqf";
 
 //Mission Initialization.
@@ -47,20 +47,12 @@ messageSystem = _hint;
 publicVariable "messageSystem";
 
 diag_log format["WASTELAND SERVER - Side Mission Waiting to be Finished: %1",_missionType];
-#ifdef __A2NET__
 _startTime = floor(netTime);
-#else
-_startTime = floor(time);
-#endif
 waitUntil
 {
 	sleep 1; 
 	_playerPresent = false;
-	#ifdef __A2NET__
-	_currTime = floor(netTime);
-	#else
     _currTime = floor(time);
-	#endif
     if(_currTime - _startTime >= sideMissionTimeout) then {_result = 1;};
     {if((isPlayer _x) AND (_x distance _vehicle <= missionRadiusTrigger)) then {_playerPresent = true};}forEach playableUnits;
     (_result == 1) OR (_playerPresent) OR ((damage _vehicle) == 1)

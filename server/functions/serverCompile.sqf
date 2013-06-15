@@ -1,4 +1,3 @@
-#include "setup.sqf"
 //	@file Version: 1.1
 //	@file Name: serverCompile.sqf
 //	@file Author: [404] Deadbeat, [GoT] JoSchaap

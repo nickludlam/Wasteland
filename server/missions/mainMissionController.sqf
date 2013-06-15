@@ -5,7 +5,6 @@
 
 if (!isServer) exitWith {};
 
-#include "setup.sqf"
 #include "mainMissions\mainMissionDefines.sqf";
 
 private ["_MainMissions","_mission","_missionType","_notPlayedMainMissions","_nextMissionIndex","_missionRunning","_hint"];
@@ -40,7 +39,11 @@ while {true} do
     
 	_missionRunning = [] spawn _mission;
     diag_log format["WASTELAND SERVER - Execute New Main Mission: %1",_missionType];
-    _hint = parseText format ["<t align='center' color='%2' shadow='2' size='1.75'>Main Objective</t><br/><t align='center' color='%2'>------------------------------</t><br/><t color='%3' size='1.0'>Starting in %1 Minutes</t>", mainMissionDelayTime / 60, mainMissionColor, subTextColor];
+    if (mainMissionDelayTime < 60) then {
+        _hint = parseText format ["<t align='center' color='%2' shadow='2' size='1.75'>Main Objective</t><br/><t align='center' color='%2'>------------------------------</t><br/><t color='%3' size='1.0'>Starting in %1 seconds</t>", mainMissionDelayTime, mainMissionColor, subTextColor];
+    } else {
+        _hint = parseText format ["<t align='center' color='%2' shadow='2' size='1.75'>Main Objective</t><br/><t align='center' color='%2'>------------------------------</t><br/><t color='%3' size='1.0'>Starting in %1 minutes</t>", mainMissionDelayTime / 60, mainMissionColor, subTextColor];
+    }
 	messageSystem = _hint;
 if (!isDedicated) then { call serverMessage };
 	publicVariable "messageSystem";

@@ -3,24 +3,17 @@
 //	@file Author: [404] Deadbeat
 //	@file Created: 08/12/2012 15:19
 
-//Main Mission Colour = #52bf90 - Light blue
-//Fail Mission Colour = #FF1717 - Light red
-//Fail Mission Colour = #17FF41 - Light green
-//Sub Colour = #FFF - White
-#include "setup.sqf"
+#include "defines.hpp"
+
 #ifdef __DEBUG__
 
-#define mainMissionTimeout 500
-#define mainMissionDelayTime 40
+	#define mainMissionTimeout 300
+	#define mainMissionDelayTime 5
 
 #else
 
 	#define mainMissionTimeout 1200
 	#define mainMissionDelayTime 600
-
-	//#define mainBountyTimeout 10
-	//#define mainMissionTimeout 190
-	//#define mainMissionDelayTime 0
 
 #endif
 

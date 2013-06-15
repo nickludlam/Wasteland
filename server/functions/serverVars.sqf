@@ -9,7 +9,6 @@
 // ----------			404Games are not responsible for anything that may happen 			---------- \\
 // ----------			 as a result of unauthorised modifications to this file.			---------- \\
 // --------------------------------------------------------------------------------------------------- \\
-#include "setup.sqf"
 if(!X_Server) exitWith {};
 
 diag_log format["WASTELAND SERVER - Initilizing Server Vars"];

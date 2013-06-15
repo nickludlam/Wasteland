@@ -67,7 +67,6 @@ waitUntil {!isNil "positionLoaded"};
 ///////////////////////////////////////////////////////////////////////////
 
 _positionLoaded = player getVariable "positionLoaded";
-diag_log format ["_positionLoaded is %1", _positionLoaded];
 
 //Setup player events.
 if(!isNil "client_initEH") then {player removeEventHandler ["Respawn", client_initEH];};

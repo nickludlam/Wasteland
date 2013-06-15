@@ -9,7 +9,6 @@
 "BIS_fnc_MP_packet" addPublicVariableEventHandler {};
 
 #include "defines.hpp" // Global definitions file
-#include "setup.sqf"
 #include "patch.sqf"
 StartProgress = false;
 enableSaving[false,false];

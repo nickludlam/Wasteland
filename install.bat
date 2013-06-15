@@ -15,3 +15,5 @@ xcopy /s /y "%USERPROFILE%\Documents\GitHub\Wasteland" %DESTINATION_DIR%
 copy "%USERPROFILE%\Documents\GitHub\Wasteland\defines.hpp" %DESTINATION_DIR%\client\
 copy "%USERPROFILE%\Documents\GitHub\Wasteland\defines.hpp" %DESTINATION_DIR%\server\
 copy "%USERPROFILE%\Documents\GitHub\Wasteland\defines.hpp" %DESTINATION_DIR%\server\functions\
+copy "%USERPROFILE%\Documents\GitHub\Wasteland\defines.hpp" %DESTINATION_DIR%\server\missions\sideMissions\
+copy "%USERPROFILE%\Documents\GitHub\Wasteland\defines.hpp" %DESTINATION_DIR%\server\missions\mainMissions\

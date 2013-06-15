@@ -3,23 +3,17 @@
 //	@file Author: [404] Deadbeat
 //	@file Created: 08/12/2012 15:19
 
-//Side Mission Colour = #4BC9B0 - Turquoise 
-//Fail Mission Colour = #FF1717 - Light red
-//Fail Mission Colour = #17FF41 - Light green
-//Sub Colour = #FFF - White
-#include "setup.sqf"
+#include "defines.hpp"
+
 #ifdef __DEBUG__
 
-	#define sideMissionTimeout 500
-	#define sideMissionDelayTime 40
+	#define sideMissionTimeout 230
+	#define sideMissionDelayTime 5
 
 #else
 
 	#define sideMissionTimeout 1200
 	#define sideMissionDelayTime 300
-	
-	//#define sideMissionTimeout 190
-	//#define sideMissionDelayTime 0
 
 #endif
 

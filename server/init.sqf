@@ -4,7 +4,7 @@
 //	@file Created: 20/11/2012 05:19
 //	@file Description: The server init.
 //	@file Args:
-#include "setup.sqf"
+
 if(!X_Server) exitWith {};
 
 sideMissions = 1;
@@ -25,8 +25,6 @@ execVM "server\statSave\serverGather.sqf";
 
 diag_log format["WASTELAND SERVER - Server Compile Finished"];
 
-#ifdef __DEBUG__
-#else
 //Execute Server Spawning.
 if (buildingsloot == 1) then {
 	diag_log format["GOT WASTELAND - Placing loot in buildings"];
@@ -57,7 +55,7 @@ if (serverSpawning == 1) then {
 	_cleanupLoop = [] ExecVM "server\functions\cleanupLoop.sqf";
 	sleep 0.1;
 };
-#endif
+
 //Execute Server Missions.
 if (sideMissions == 1) then {
 	diag_log format["WASTELAND SERVER - Initilizing Missions"];
