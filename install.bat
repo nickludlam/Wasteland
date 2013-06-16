@@ -45,6 +45,7 @@ mkdir %TEMP%\%LOCAL_MISSION_NAME%
 xcopy /q /s /y %SOURCE_DIR%\* %TEMP%\%LOCAL_MISSION_NAME%
 
 :: Copy defines_servermode.hpp to the directories which use defines.hpp
+copy "%USERPROFILE%\Documents\GitHub\Wasteland\defines_servermode.hpp" %TEMP%\%LOCAL_MISSION_NAME%\defines.hpp
 copy "%USERPROFILE%\Documents\GitHub\Wasteland\defines_servermode.hpp" %TEMP%\%LOCAL_MISSION_NAME%\client\defines.hpp
 copy "%USERPROFILE%\Documents\GitHub\Wasteland\defines_servermode.hpp" %TEMP%\%LOCAL_MISSION_NAME%\server\defines.hpp
 copy "%USERPROFILE%\Documents\GitHub\Wasteland\defines_servermode.hpp" %TEMP%\%LOCAL_MISSION_NAME%\server\functions\defines.hpp
@@ -54,7 +55,6 @@ copy "%USERPROFILE%\Documents\GitHub\Wasteland\defines_servermode.hpp" %TEMP%\%L
 echo Copied to %TEMP%\%LOCAL_MISSION_NAME%
 
 %PBO_TOOL% %TEMP%\%LOCAL_MISSION_NAME% %PBO_DESTINATION_DIR%\
-
 rmdir %TEMP%\%LOCAL_MISSION_NAME% /s /q
 
 GOTO END
@@ -69,6 +69,7 @@ mkdir %DESTINATION_DIR%
 xcopy /q /s /y %SOURCE_DIR% %TEST_DESTINATION_DIR%
 
 :: Copy defines_localediting.hpp to the directories which use defines.hpp
+copy "%USERPROFILE%\Documents\GitHub\Wasteland\defines_localediting.hpp" %TEST_DESTINATION_DIR%\defines.hpp
 copy "%USERPROFILE%\Documents\GitHub\Wasteland\defines_localediting.hpp" %TEST_DESTINATION_DIR%\client\defines.hpp
 copy "%USERPROFILE%\Documents\GitHub\Wasteland\defines_localediting.hpp" %TEST_DESTINATION_DIR%\server\defines.hpp
 copy "%USERPROFILE%\Documents\GitHub\Wasteland\defines_localediting.hpp" %TEST_DESTINATION_DIR%\server\functions\defines.hpp
@@ -79,7 +80,7 @@ GOTO END
 
 :NOARG
 
-echo "Install "
+echo "install.bat - Installs the Wasteland mission for testing or packaging"
 echo Error: You must specify 'test' or 'package' as an argument
 
 :END
