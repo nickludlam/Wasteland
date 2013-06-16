@@ -78,7 +78,7 @@ throwputArray =
 ammoArray =
 [
 	["9mm 16Rnd Mag","16Rnd_9x21_Mag",15],
-	["9mm 30Rnd Mag","16Rnd_9x21_Mag",30],
+	["9mm 30Rnd Mag","30Rnd_9x21_Mag",30],
 	["5.56mm 20Rnd Dual Purpose Mag","20Rnd_556x45_UW_mag",15],
 	["5.56mm 30Rnd STANAG Mag","30Rnd_556x45_Stanag",20],
 	["5.56mm 30Rnd Tracer (Red) Mag","30Rnd_556x45_Stanag_Tracer_Red",20],
@@ -94,7 +94,7 @@ ammoArray =
 	["6.5mm 200Rnd Belt Case","200Rnd_65x39_cased_Box",100],
 	["6.5mm 200Rnd Tracer (Green)","200Rnd_65x39_cased_Box_Tracer",100],
 	["7.62mm 20Rnd Mag","20Rnd_762x51_Mag",30],
-	[".408mm 7Rnd Cheetah Mag","7Rnd_408_Mag",300],
+	[".408 7Rnd Cheetah Mag","7Rnd_408_Mag",300],
 	["12.7mm 5Rnd Mag","5Rnd_127x108_Mag",325],
 	["40mm HE Grenade Round","1Rnd_HE_Grenade_shell",50],
 	["Flare Round (White)","UGL_FlareWhite_F",50],
@@ -123,8 +123,8 @@ ammoArray =
 	["3Rnd 3GL Smoke Rounds (Blue)","3Rnd_SmokeBlue_Grenade_shell",75],
 	["3Rnd 3GL Smoke Rounds (Orange)","3Rnd_SmokeOrange_Grenade_shell",75],
 	["NLAW Missile","NLAW_F",800],
-	["RPG32 Missile","RPG32_F",550],
-	["RPG32 AA Missile","RPG32_AA_F",1000]
+	["RPG-42 Missile","RPG32_F",550],
+	["RPG-42 AA Missile","RPG32_AA_F",1000]
 ]; 
 
 //Gun Store item List
