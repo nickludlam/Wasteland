@@ -20,7 +20,11 @@ if(_primary == "") exitWith {hint "You don't have a current weapon in your hand 
     };
 } foreach (getArray (configFile >> "Cfgweapons" >> _primary >> "magazines"));
 
-{if(_x select 1 == _primary) then {_weapon_value = _x select 3;};}forEach weaponsArray;
+{if(_x select 1 == _primary) then {_weapon_value = _x select 3;};}forEach pistolArray;
+{if(_x select 1 == _primary) then {_weapon_value = _x select 3;};}forEach rifleArray;
+{if(_x select 1 == _primary) then {_weapon_value = _x select 3;};}forEach smgArray;
+{if(_x select 1 == _primary) then {_weapon_value = _x select 3;};}forEach shotgunArray;
+{if(_x select 1 == _primary) then {_weapon_value = _x select 3;};}forEach launcherArray;
 
 if(isNil {_weapon_value}) exitWith {hint "The store does not want this item."};
 

@@ -31,6 +31,7 @@ _playerMoney = player getVariable "cmoney";
 _playerSlots = [];
 _size = lbSize _cartlist;
 _itemText = "";
+_handleMoney = 1;
 
 switch(_switch) do 
 {
@@ -51,12 +52,14 @@ switch(_switch) do
 				_price = _x select 2;
 				
 				//ensure they player has enought money
-				if ( _price > parseNumber str(_playerMoney)) then {hint format["You don't have enought money for %1", _itemText];breakTo "main"};
+				if ( _price > parseNumber str(_playerMoney)) then {hint format["You don't have enought money for %1", _itemText]; _handleMoney = 0;breakTo "main"};
 				_exe = [player, _class] call fn_fitsInventory;					
 				if(_exe == 0) then
 				{
 					{if(_x select 1 == _class) then{_price = _x select 2; _name = _x select 0;};}forEach ammoArray;
 					hint format["You don't have enough space for %1", _name];
+					_handleMoney = 0;
+					breakTo "main"
 				};
 				if(_exe == 1) then
 				{
@@ -76,8 +79,11 @@ switch(_switch) do
 	};
 };
 
-player setVariable["cmoney",_playerMoney - _price,true];
-_playerMoneyText CtrlsetText format["Cash: $%1", player getVariable "cmoney"];
+if(_handleMoney == 1) then
+{
+	player setVariable["cmoney",_playerMoney - _price,true];
+	_playerMoneyText CtrlsetText format["Cash: $%1", player getVariable "cmoney"];
+};
 
 //gunStoreCart = 0;
 //_totalText CtrlsetText format["Total: $%1", gunStoreCart];

@@ -31,6 +31,7 @@ _playerMoney = player getVariable "cmoney";
 _playerSlots = [];
 _size = lbSize _cartlist;
 _itemText = "";
+_handleMoney = 1;
 
 switch(_switch) do 
 {
@@ -50,7 +51,7 @@ switch(_switch) do
 				_price = _x select 2;
 				
 				//ensure they player has enought money
-				if ( _price > parseNumber str(_playerMoney)) then {hint format["You don't have enought money for %1", _itemText];breakTo "main"};
+				if ( _price > parseNumber str(_playerMoney)) then {hint format["You don't have enought money for %1", _itemText];_handleMoney = 0;breakTo "main"};
 				
 				//Main Rifle
 				if(_type == 1) then
@@ -88,7 +89,7 @@ switch(_switch) do
 				_price = _x select 2;
 				
 				//ensure they player has enought money
-				if ( _price > parseNumber str(_playerMoney)) then {hint format["You don't have enought money for %1", _itemText];breakTo "main"};
+				if ( _price > parseNumber str(_playerMoney)) then {hint format["You don't have enought money for %1", _itemText];_handleMoney = 0;breakTo "main"};
 				
 				//Main Rifle
 				if(_type == 1) then
@@ -125,7 +126,7 @@ switch(_switch) do
 				_price = _x select 2;
 				
 				//ensure they player has enought money
-				if ( _price > parseNumber str(_playerMoney)) then {hint format["You don't have enought money for %1", _itemText];breakTo "main"};
+				if ( _price > parseNumber str(_playerMoney)) then {hint format["You don't have enought money for %1", _itemText];_handleMoney = 0;breakTo "main"};
 				
 				//Main Rifle
 				if(_type == 1) then
@@ -162,7 +163,7 @@ switch(_switch) do
 				_price = _x select 2;
 				
 				//ensure they player has enought money
-				if ( _price > parseNumber str(_playerMoney)) then {hint format["You don't have enought money for %1", _itemText];breakTo "main"};
+				if ( _price > parseNumber str(_playerMoney)) then {hint format["You don't have enought money for %1", _itemText];_handleMoney = 0;breakTo "main"};
 				
 				//Main Rifle
 				if(_type == 1) then
@@ -199,7 +200,7 @@ switch(_switch) do
 				_price = _x select 2;
 				
 				//ensure they player has enought money
-				if ( _price > parseNumber str(_playerMoney)) then {hint format["You don't have enought money for %1", _itemText];breakTo "main"};
+				if ( _price > parseNumber str(_playerMoney)) then {hint format["You don't have enought money for %1", _itemText];_handleMoney = 0;breakTo "main"};
 				
 					player addWeapon _class;
 			};                    		
@@ -214,7 +215,7 @@ switch(_switch) do
 				_price = _x select 2;
 				
 				//ensure they player has enought money
-				if (_price > parseNumber str(_playerMoney)) then {hint format["You don't have enought money for %1", _itemText];breakTo "main"};
+				if (_price > parseNumber str(_playerMoney)) then {hint format["You don't have enought money for %1", _itemText];_handleMoney = 0;breakTo "main"};
 				_exe = [player, _class] call fn_fitsInventory;					
 				_IsMagazine = isClass (configFile >> "cfgMagazines" >> _name);
 				if(_exe == 0) then
@@ -258,7 +259,7 @@ switch(_switch) do
 				_price = _x select 2;
 				
 				//ensure they player has enought money
-				if ( _price > parseNumber str(_playerMoney)) then {hint format["You don't have enought money for %1", _itemText];breakTo "main"};
+				if ( _price > parseNumber str(_playerMoney)) then {hint format["You don't have enought money for %1", _itemText];_handleMoney = 0;breakTo "main"};
 				switch((_x select 3)) do
                 {
                 	case "binoc":
@@ -271,6 +272,8 @@ switch(_switch) do
 						{
 							{if(_x select 1 == _class) then{_price = _x select 2; _name = _x select 0;};}forEach accessoriesArray;
 							hint format["You do not have space for this item %1",_name];
+							_handleMoney = 0;
+							breakTo "main"
 						};
                     };
                     case "item":
@@ -281,6 +284,8 @@ switch(_switch) do
 						{
 							{if(_x select 1 == _class) then{_price = _x select 2; _name = _x select 0;};}forEach accessoriesArray;
 							hint format["You don't have enough space for %1", _name];
+							_handleMoney = 0;
+							breakTo "main"
 						};
 						if(_exe == 1) then
 						{
@@ -345,7 +350,7 @@ switch(_switch) do
 				_price = _x select 2;
 				
 				//ensure they player has enought money
-				if ( _price > parseNumber str(_playerMoney)) then {hint format["You don't have enought money for %1", _itemText];breakTo "main"};
+				if ( _price > parseNumber str(_playerMoney)) then {hint format["You don't have enought money for %1", _itemText];_handleMoney = 0;breakTo "main"};
 				switch((_x select 3)) do
                 {
                 	case "binoc":
@@ -358,6 +363,8 @@ switch(_switch) do
 						{
 							{if(_x select 1 == _class) then{_price = _x select 2; _name = _x select 0;};}forEach apparelArray;
 							hint format["You do not have space for this item %1",_name];
+							_handleMoney = 0;
+							breakTo "main"
 						};
                     };
                     case "item":
@@ -411,7 +418,7 @@ switch(_switch) do
 				_price = _x select 2;
 				
 				//ensure they player has enought money
-				if ( _price > parseNumber str(_playerMoney)) then {hint format["You don't have enought money for %1", _itemText];breakTo "main"};
+				if ( _price > parseNumber str(_playerMoney)) then {hint format["You don't have enought money for %1", _itemText];_handleMoney = 0;breakTo "main"};
 				switch((_x select 3)) do
                 {
                 	case "binoc":
@@ -424,6 +431,8 @@ switch(_switch) do
 						{
 							{if(_x select 1 == _class) then{_price = _x select 2; _name = _x select 0;};}forEach backpackArray;
 							hint format["You do not have space for this item %1",_name];
+							_handleMoney = 0;
+							breakTo "main"
 						};
                     };
                     case "item":
@@ -465,7 +474,9 @@ switch(_switch) do
         }forEach backpackArray;
 	};
 };
-
-player setVariable["cmoney",_playerMoney - _price,true];
-_playerMoneyText CtrlsetText format["Cash: $%1", player getVariable "cmoney"];
+if(_handleMoney == 1) then
+{
+	player setVariable["cmoney",_playerMoney - _price,true];
+	_playerMoneyText CtrlsetText format["Cash: $%1", player getVariable "cmoney"];
+}
 

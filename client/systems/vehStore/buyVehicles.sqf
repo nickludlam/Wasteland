@@ -25,6 +25,7 @@ _dialog = findDisplay vehshop_DIALOG;
 _playerMoneyText = _Dialog displayCtrl vehshop_money;
 _colorText = lbText [vehshop_color_list, (lbCurSel vehshop_color_list)];
 _itemText = lbText  [vehshop_veh_list, (lbCurSel vehshop_veh_list)];
+_handleMoney = 1;
 
 switch(_switch) do 
 {
@@ -35,7 +36,7 @@ switch(_switch) do
 			if(_itemText == _x select 0) then
 			{
 				_price = _x select 2;
-				if ( _price > parseNumber str(_playerMoney)) then {hint format["You don't have enought money for %1", _itemText];breakTo "main"};
+				if ( _price > parseNumber str(_playerMoney)) then {hint format["You don't have enought money for %1", _itemText];_handleMoney = 0;breakTo "main"};
 				_class = _x select 1;
 				_dir = getdir player;
 				_vehPos = getPos player;
@@ -71,7 +72,7 @@ switch(_switch) do
 			if(_itemText == _x select 0) then
 			{
 				_price = _x select 2;
-				if ( _price > parseNumber str(_playerMoney)) then {hint format["You don't have enought money for %1", _itemText];breakTo "main"};
+				if ( _price > parseNumber str(_playerMoney)) then {hint format["You don't have enought money for %1", _itemText];_handleMoney = 0;breakTo "main"};
 				_class = _x select 1;
 				_dir = getdir player;
 				_vehPos = getPos player;
@@ -107,7 +108,7 @@ switch(_switch) do
 			if(_itemText == _x select 0) then
 			{
 				_price = _x select 2;
-				if ( _price > parseNumber str(_playerMoney)) then {hint format["You don't have enought money for %1", _itemText];breakTo "main"};
+				if ( _price > parseNumber str(_playerMoney)) then {hint format["You don't have enought money for %1", _itemText];_handleMoney = 0;breakTo "main"};
 				_class = _x select 1;
 				_dir = getdir player;
 				_vehPos = getPos player;
@@ -144,7 +145,7 @@ switch(_switch) do
 			if(_itemText == _x select 0) then
 			{
 				_price = _x select 2;
-				if ( _price > parseNumber str(_playerMoney)) then {hint format["You don't have enought money for %1", _itemText];breakTo "main"};
+				if ( _price > parseNumber str(_playerMoney)) then {hint format["You don't have enought money for %1", _itemText];_handleMoney = 0;breakTo "main"};
 				_class = _x select 1;
 				_dir = getdir player;
 				_vehPos = getPos player;
@@ -181,7 +182,7 @@ switch(_switch) do
 			if(_itemText == _x select 0) then
 			{
 				_price = _x select 2;
-				if ( _price > parseNumber str(_playerMoney)) then {hint format["You don't have enought money for %1", _itemText];breakTo "main"};
+				if ( _price > parseNumber str(_playerMoney)) then {hint format["You don't have enought money for %1", _itemText];_handleMoney = 0;breakTo "main"};
 				_class = _x select 1;
 				_dir = getdir player;
 				_vehPos = getPos player;
@@ -218,7 +219,7 @@ switch(_switch) do
 			if(_itemText == _x select 0) then
 			{
 				_price = _x select 2;
-				if ( _price > parseNumber str(_playerMoney)) then {hint format["You don't have enought money for %1", _itemText];breakTo "main"};				
+				if ( _price > parseNumber str(_playerMoney)) then {hint format["You don't have enought money for %1", _itemText];_handleMoney = 0;breakTo "main"};				
 				_class = _x select 1;
 				_dir = getdir player;
 				_vehPos = getPos player;
@@ -254,7 +255,7 @@ switch(_switch) do
 			if(_itemText == _x select 0) then
 			{
 				_price = _x select 2;
-				if ( _price > parseNumber str(_playerMoney)) then {hint format["You don't have enought money for %1", _itemText];breakTo "main"};				
+				if ( _price > parseNumber str(_playerMoney)) then {hint format["You don't have enought money for %1", _itemText];_handleMoney = 0;breakTo "main"};				
 				_class = _x select 1;				
 				_dir = getdir player;
 				_vehPos = getPos player;
@@ -286,9 +287,11 @@ switch(_switch) do
 				};
 			};
 		}forEach submarinesArray;
-
 	};
 };
-hint format["%1 spawned outside.", _itemText];
-player setVariable["cmoney",_playerMoney - _price,true];
-_playerMoneyText CtrlsetText format["Cash: $%1", player getVariable "cmoney"];
+if(_handleMoney ==1) then
+{
+	hint format["%1 spawned outside.", _itemText];
+	player setVariable["cmoney",_playerMoney - _price,true];
+	_playerMoneyText CtrlsetText format["Cash: $%1", player getVariable "cmoney"];
+};
