@@ -59,19 +59,19 @@ if(_cartype == "B_Hunter_F") then
 	{
 		case 1:
 		{
-			_car setObjectTexture [0, "fack.jpg"];
+			_car setObjectTexture [0, "images\camo_fack.jpg"];
 		};
 		case 2:
 		{
-			_car setObjectTexture [0, "deser.jpg"];
+			_car setObjectTexture [0, "images\camo_deser.jpg"];
 		};
 		case 3:
 		{
-			_car setObjectTexture [0, "fuel.jpg"];
+			_car setObjectTexture [0, "images\camo_fuel.jpg"];
 		};
 		case 4:
 		{
-			_car setObjectTexture [0, "pank.jpg"];
+			_car setObjectTexture [0, "images\camo_pank.jpg"];
 		};
 		default{};
 	};

@@ -91,10 +91,10 @@ switch(_switch) do
 					_car setVelocity [0,0,0];
 					
 					//if they chose a color set the color
-					if(_colorText == "Orange Camo") then {_car setObjectTexture [0, "fack.jpg"];};
-					if(_colorText == "Red Camo") then {_car setObjectTexture [0, "deser.jpg"];};
-					if(_colorText == "Yellow Camo") then {_car setObjectTexture [0, "fuel.jpg"];};
-					if(_colorText == "Pink Camo") then {_car setObjectTexture [0, "pank.jpg"];};
+					if(_colorText == "Orange Camo") then {_car setObjectTexture [0, "images\camo_fack.jpg"];};
+					if(_colorText == "Red Camo") then {_car setObjectTexture [0, "images\camo_deser.jpg"];};
+					if(_colorText == "Yellow Camo") then {_car setObjectTexture [0, "images\camo_fuel.jpg"];};
+					if(_colorText == "Pink Camo") then {_car setObjectTexture [0, "images\camo_pank.jpg"];};
 					
 					//enable vehicle locking
 					vehiclelock = _car addAction ["Unlock / Lock","server\functions\unlocklock.sqf",[],7,true,true,"","(_target distance _this) < 7"];
@@ -128,10 +128,10 @@ switch(_switch) do
 					
 					//if they chose a color set the color
 					//if they chose a color set the color
-					if(_colorText == "Orange Camo") then {_car setObjectTexture [0, "fack.jpg"];};
-					if(_colorText == "Red Camo") then {_car setObjectTexture [0, "deser.jpg"];};
-					if(_colorText == "Yellow Camo") then {_car setObjectTexture [0, "fuel.jpg"];};
-					if(_colorText == "Pink Camo") then {_car setObjectTexture [0, "pank.jpg"];};
+					if(_colorText == "Orange Camo") then {_car setObjectTexture [0, "images\camo_fack.jpg"];};
+					if(_colorText == "Red Camo") then {_car setObjectTexture [0, "images\camo_deser.jpg"];};
+					if(_colorText == "Yellow Camo") then {_car setObjectTexture [0, "images\camo_fuel.jpg"];};
+					if(_colorText == "Pink Camo") then {_car setObjectTexture [0, "images\camo_pank.jpg"];};
 					
 					//enable vehicle locking
 					vehiclelock = _car addAction ["Unlock / Lock","server\functions\unlocklock.sqf",[],7,true,true,"","(_target distance _this) < 7"];
@@ -165,10 +165,10 @@ switch(_switch) do
 					
 					//if they chose a color set the color
 					//if they chose a color set the color
-					if(_colorText == "Orange Camo") then {_car setObjectTexture [0, "fack.jpg"];};
-					if(_colorText == "Red Camo") then {_car setObjectTexture [0, "deser.jpg"];};
-					if(_colorText == "Yellow Camo") then {_car setObjectTexture [0, "fuel.jpg"];};
-					if(_colorText == "Pink Camo") then {_car setObjectTexture [0, "pank.jpg"];};
+					if(_colorText == "Orange Camo") then {_car setObjectTexture [0, "images\camo_fack.jpg"];};
+					if(_colorText == "Red Camo") then {_car setObjectTexture [0, "images\camo_deser.jpg"];};
+					if(_colorText == "Yellow Camo") then {_car setObjectTexture [0, "images\camo_fuel.jpg"];};
+					if(_colorText == "Pink Camo") then {_car setObjectTexture [0, "images\camo_pank.jpg"];};
 					
 					//enable vehicle locking
 					vehiclelock = _car addAction ["Unlock / Lock","server\functions\unlocklock.sqf",[],7,true,true,"","(_target distance _this) < 7"];
@@ -202,10 +202,10 @@ switch(_switch) do
 					
 					//if they chose a color set the color
 					//if they chose a color set the color
-					if(_colorText == "Orange Camo") then {_car setObjectTexture [0, "fack.jpg"];};
-					if(_colorText == "Red Camo") then {_car setObjectTexture [0, "deser.jpg"];};
-					if(_colorText == "Yellow Camo") then {_car setObjectTexture [0, "fuel.jpg"];};
-					if(_colorText == "Pink Camo") then {_car setObjectTexture [0, "pank.jpg"];};
+					if(_colorText == "Orange Camo") then {_car setObjectTexture [0, "images\camo_fack.jpg"];};
+					if(_colorText == "Red Camo") then {_car setObjectTexture [0, "images\camo_deser.jpg"];};
+					if(_colorText == "Yellow Camo") then {_car setObjectTexture [0, "images\camo_fuel.jpg"];};
+					if(_colorText == "Pink Camo") then {_car setObjectTexture [0, "images\camo_pank.jpg"];};
 					
 					//enable vehicle locking
 					vehiclelock = _car addAction ["Unlock / Lock","server\functions\unlocklock.sqf",[],7,true,true,"","(_target distance _this) < 7"];
@@ -238,10 +238,10 @@ switch(_switch) do
 					_car setVelocity [0,0,0];
 					
 					//if they chose a color set the color
-					if(_colorText == "Orange Camo") then {_car setObjectTexture [0, "fack.jpg"];};
-					if(_colorText == "Red Camo") then {_car setObjectTexture [0, "deser.jpg"];};
-					if(_colorText == "Yellow Camo") then {_car setObjectTexture [0, "fuel.jpg"];};
-					if(_colorText == "Pink Camo") then {_car setObjectTexture [0, "pank.jpg"];};
+					if(_colorText == "Orange Camo") then {_car setObjectTexture [0, "images\camo_fack.jpg"];};
+					if(_colorText == "Red Camo") then {_car setObjectTexture [0, "images\camo_deser.jpg"];};
+					if(_colorText == "Yellow Camo") then {_car setObjectTexture [0, "images\camo_fuel.jpg"];};
+					if(_colorText == "Pink Camo") then {_car setObjectTexture [0, "images\camo_pank.jpg"];};
 					
 					//enable vehicle locking
 					vehiclelock = _car addAction ["Unlock / Lock","server\functions\unlocklock.sqf",[],7,true,true,"","(_target distance _this) < 7"];
@@ -275,10 +275,10 @@ switch(_switch) do
 					
 					//if they chose a color set the color
 					//if they chose a color set the color
-					if(_colorText == "Orange Camo") then {_car setObjectTexture [0, "fack.jpg"];};
-					if(_colorText == "Red Camo") then {_car setObjectTexture [0, "deser.jpg"];};
-					if(_colorText == "Yellow Camo") then {_car setObjectTexture [0, "fuel.jpg"];};
-					if(_colorText == "Pink Camo") then {_car setObjectTexture [0, "pank.jpg"];};
+					if(_colorText == "Orange Camo") then {_car setObjectTexture [0, "images\camo_fack.jpg"];};
+					if(_colorText == "Red Camo") then {_car setObjectTexture [0, "images\camo_deser.jpg"];};
+					if(_colorText == "Yellow Camo") then {_car setObjectTexture [0, "images\camo_fuel.jpg"];};
+					if(_colorText == "Pink Camo") then {_car setObjectTexture [0, "images\camo_pank.jpg"];};
 					
 					//enable vehicle locking
 					vehiclelock = _car addAction ["Unlock / Lock","server\functions\unlocklock.sqf",[],7,true,true,"","(_target distance _this) < 7"];
