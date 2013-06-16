@@ -107,12 +107,12 @@ class Mission
 		resistanceWest=0;
 		timeOfChanges=2400;
 		startWeather=1;
-		startWind=0;
+		startWind=0.2;
 		startWaves=0.38;
-		forecastWeather=0.25999999;
-		forecastWind=0;
-		forecastWaves=0.19999999;
-		forecastGust=0.38;
+		forecastWeather=0.26;
+		forecastWind=0.5;
+		forecastWaves=0.2;
+		forecastGust=0.5;
 		wavesForced=1;
 		windForced=1;
 		year=2013;
@@ -2165,7 +2165,7 @@ class Mission
 	};
 	class Vehicles
 	{
-		items=359;
+		items=362;
 		class Item0
 		{
 			position[]={3584.0212,197.43867,4904.0024};
@@ -5389,13 +5389,13 @@ class Mission
 		};
 		class Item329
 		{
-			position[]={4491.3643,104.76255,6806.915};
-			azimut=164.09413;
+			position[]={4487.4785,104.80201,6807.8589};
+			azimut=145;
 			id=459;
 			side="EMPTY";
 			vehicle="Land_LampShabby_F";
 			skill=0.2;
-			init="this setVariable [""R3F_LOG_disabled"", true];this setpos [4494.3335, 6805.4727, -1.3519225];";
+			init="this setVariable [""R3F_LOG_disabled"", true];";
 		};
 		class Item330
 		{
@@ -5676,7 +5676,7 @@ class Mission
 			vehicle="Land_i_Shop_01_V1_F";
 			skill=0.60000002;
 		};
-        class Item358
+		class Item358
 		{
 			position[]={5511.3223,78.867554,4727.1123};
 			azimut=35;
@@ -5684,6 +5684,40 @@ class Mission
 			side="EMPTY";
 			vehicle="FlagPole_F";
 			skill=0.60000002;
+			text="east_gunstore_flagpole";
+			init="this allowDamage false; this setFlagTexture ""images\flag_kos_wide_bw.jpg"";";
+		};
+		class Item359
+		{
+			position[]={2012.7885,2.9567652,5354.8823};
+			azimut=15;
+			id=489;
+			side="EMPTY";
+			vehicle="FlagPole_F";
+			skill=0.60000002;
+			text="airfield_gunstore_flagpole";
+			init="this allowDamage false; this setFlagTexture ""images\flag_kos_wide_bw.jpg"";";
+		};
+		class Item360
+		{
+			position[]={1995.1697,2.7804852,2719.8271};
+			azimut=15;
+			id=490;
+			side="EMPTY";
+			vehicle="FlagPole_F";
+			skill=0.60000002;
+			text="girna_gunstore_flagpole";
+			init="this allowDamage false; this setFlagTexture ""images\flag_kos_wide_bw.jpg"";";
+		};
+		class Item361
+		{
+			position[]={4488.3438,105.04463,6799.4014};
+			azimut=35;
+			id=491;
+			side="EMPTY";
+			vehicle="FlagPole_F";
+			skill=0.60000002;
+			text="killfarm_gunstore_flagpole";
 			init="this allowDamage false; this setFlagTexture ""images\flag_kos_wide_bw.jpg"";";
 		};
 	};

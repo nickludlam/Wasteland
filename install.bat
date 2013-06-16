@@ -5,7 +5,7 @@
 :: 'install.bat test'    - Copies the mission to your local MPMissions folder
 :: 'install.bat package' - Compiles a PBO for testing with a standlone server
 
-:: @ECHO OFF
+@ECHO OFF
 
 :: Set your ArmA3 profile name etc below. The very first time you run this
 
