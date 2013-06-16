@@ -57,7 +57,7 @@
 	</Package>
 	<Package name="Diary">
 		<Key ID="STR_WL_Diary_RulesContent">
-			<English>&lt;br/&gt;    1. Be friendly on comms. If you have a problem with another player, take it to direct.&lt;br/&gt;    2. Dont be an idiot over VOIP. We have a public TeamSpeak for players to use at tspeak.cloudapp.net.&lt;br/&gt;    3. Team killing or stealing from team mates when you BLUFOR or OPFOR is forbidden and punishable. Play as Independent if you want to be free for all.&lt;br/&gt;    4. Revealing information about your (ex)team to other teams is strictly forbidden.&lt;br/&gt;    5. Do not exploit/hack or you will be banned and  we will make fun of you behind your back.&lt;br/&gt;    6. have fun & watch out for the AI they are nasty little fuckers.</English>
+			<English>&lt;br/&gt;    1. Be friendly on comms. If you have a problem with another player, take it to direct.&lt;br/&gt;    2. Dont be an idiot over VOIP. We have a public TeamSpeak for players to use at tspeak.cloudapp.net.&lt;br/&gt;    3. Team killing or stealing from team mates when you BLUFOR or OPFOR is forbidden and punishable. Play as Independent if you want to be free for all.&lt;br/&gt;    4. Revealing information about your (ex)team to other teams is strictly forbidden.&lt;br/&gt;    5. Do not exploit/hack or you will be banned and  we will make fun of you behind your back.&lt;br/&gt;    6. have fun &amp; watch out for the AI they are nasty little fuckers.</English>
 		</Key>
 	</Package>
 	<Package name="Shop">

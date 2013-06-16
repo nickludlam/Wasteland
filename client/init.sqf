@@ -4,6 +4,8 @@
 //@file Created: 20/11/2012 05:19
 //@file Description: The client init.
 
+#include "defines.hpp"
+
 if(!X_Client) exitWith {};
 
 mutexScriptInProgress = false;
@@ -35,6 +37,12 @@ if(!(playerSide in [west, east, resistance])) then {
 //Player setup
 player call playerSetup;
 player setVariable["positionLoaded", 0,true];
+
+///////////////////////////////////////////////////////////////////////////
+#ifdef __LOCAL_SERVER__
+// We disable save & money functions when we're in local client/server mode
+diag_log format ["Skipping client load/save functionality"];
+#else
 [] execVM "server\statSave\loadAccount.sqf";
 [] execVM "server\statSave\saveToServer.sqf";
 waitUntil {!isNil "fn_SaveToServer"};
@@ -57,6 +65,9 @@ if(player getVariable "cmoney" == 100) then
 };
 
 waitUntil {!isNil "positionLoaded"};
+#endif
+///////////////////////////////////////////////////////////////////////////
+
 _positionLoaded = player getVariable "positionLoaded";
 
 //DO NOT

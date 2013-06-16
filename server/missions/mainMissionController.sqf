@@ -43,7 +43,7 @@ while {true} do
         _hint = parseText format ["<t align='center' color='%2' shadow='2' size='1.75'>Main Objective</t><br/><t align='center' color='%2'>------------------------------</t><br/><t color='%3' size='1.0'>Starting in %1 seconds</t>", mainMissionDelayTime, mainMissionColor, subTextColor];
     } else {
         _hint = parseText format ["<t align='center' color='%2' shadow='2' size='1.75'>Main Objective</t><br/><t align='center' color='%2'>------------------------------</t><br/><t color='%3' size='1.0'>Starting in %1 minutes</t>", mainMissionDelayTime / 60, mainMissionColor, subTextColor];
-    }
+    };
 	messageSystem = _hint;
 if (!isDedicated) then { call serverMessage };
 	publicVariable "messageSystem";
