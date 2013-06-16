@@ -5,7 +5,7 @@
 :: 'install.bat test'    - Copies the mission to your local MPMissions folder
 :: 'install.bat package' - Compiles a PBO for testing with a standlone server
 
-@ECHO OFF
+:: @ECHO OFF
 
 :: Set your ArmA3 profile name etc below. The very first time you run this
 
@@ -15,9 +15,9 @@ IF "%username%" == "Nick Ludlam" (
 	SET PBO_DESTINATION_DIR="C:\ArmaEditing\ArmA3\A3Master\MPMissions"
 )
 
-IF "%username%" == "Someone Else" (
-	SET LOCAL_ARMA_PROFILE=[KoS]Someone_Else
-	SET PBO_DESTINATION_DIR="C:\WHATEVER\CHANGEME\MPMissions"
+IF "%username%" == "Robert" (
+	SET LOCAL_ARMA_PROFILE=[KoS]His_Shadow
+	SET PBO_DESTINATION_DIR="G:\Games\a3master\MPMissions"
 )
 
 :: General definitions
