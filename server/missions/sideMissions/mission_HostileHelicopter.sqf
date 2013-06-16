@@ -79,7 +79,7 @@ _marker setMarkerText "Hostile Helicopter";
 
 _picture = getText (configFile >> "CfgVehicles" >> _vehicleClass>> "picture");
 _vehicleName = getText (configFile >> "cfgVehicles" >> _vehicleClass >> "displayName");
-_hint = parseText format ["<t align='center' color='%4' shadow='2' size='1.75'>!! WARNING !!</t><br/><t align='center' color='%4'>------------------------------</t><br/><t align='center' color='%5' size='1.25'>%1</t><br/><t align='center'><img size='5' image='%2'/></t><br/><t align='center' color='%5'>A armed <t color='%4'>%3</t> is patrolling the island. Destroy or steal it!</t>", _missionType, _picture, _vehicleName, sideMissionColor, subTextColor];
+_hint = parseText format ["<t align='center' color='%4' shadow='2' size='1.75'>!! WARNING !!</t><br/><t align='center' color='%4'>------------------------------</t><br/><t align='center' color='%5' size='1.25'>%1</t><br/><t align='center'><img size='5' image='%2'/></t><br/><t align='center' color='%5'>A armed <t color='%4'>%3</t> is patrolling the island. Destroy it!</t>", _missionType, _picture, _vehicleName, sideMissionColor, subTextColor];
 messageSystem = _hint;
 if (!isDedicated) then { call serverMessage };
 publicVariable "messageSystem";

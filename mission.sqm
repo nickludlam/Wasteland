@@ -49,7 +49,8 @@ class Mission
 		"A3_Structures_F_Dominants_Lighthouse",
 		"A3_Structures_F_Naval_RowBoats",
 		"A3_Structures_F_Ind_Shed",
-		"A3_Structures_F_Ind_PowerLines"
+		"A3_Structures_F_Ind_PowerLines",
+		"A3_Structures_F_Mil_Flags"
 	};
 	addOnsAuto[]=
 	{
@@ -2164,7 +2165,7 @@ class Mission
 	};
 	class Vehicles
 	{
-		items=358;
+		items=359;
 		class Item0
 		{
 			position[]={3584.0212,197.43867,4904.0024};
@@ -5674,6 +5675,16 @@ class Mission
 			side="EMPTY";
 			vehicle="Land_i_Shop_01_V1_F";
 			skill=0.60000002;
+		};
+        class Item358
+		{
+			position[]={5511.3223,78.867554,4727.1123};
+			azimut=35;
+			id=488;
+			side="EMPTY";
+			vehicle="FlagPole_F";
+			skill=0.60000002;
+			init="this allowDamage false; this setFlagTexture ""images\flag_kos_wide_bw.jpg"";";
 		};
 	};
 	class Markers
