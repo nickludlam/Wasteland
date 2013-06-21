@@ -25,7 +25,7 @@ diag_log format["WASTELAND SERVER - Main Mission Resumed: %1",_missionType];
 
 [_missionMarkerName,_randomPos,_missionType] call createClientMarker;
 
-_vehicleClass = ["O_Ifrit_GMG_F","B_Hunter_HMG_F","B_Hunter_RCWS_F","O_Ifrit_MG_F"] call BIS_fnc_selectRandom;
+_vehicleClass = ["O_MRAP_02_gmg_F","B_MRAP_01_hmg_F","B_MRAP_01_gmg_F","O_MRAP_02_hmg_F"] call BIS_fnc_selectRandom;
 
 //Vehicle Class, Posistion, Fuel, Ammo, Damage
 _vehicle addEventHandler ["IncomingMissile", "hint format['Incoming Missile Launched By: %1', name (_this select 2)]"];

@@ -34,7 +34,7 @@ diag_log format["WASTELAND SERVER - Side Mission Resumed: %1",_missionType];
 
 //commented this out because it relies on vehicles not here. When more vehicles come out perhaps these will be included
 //_vehicleClass = ["MtvrRefuel","MtvrReammo","MtvrRepair"] call BIS_fnc_selectRandom;
-_vehicleClass = ["c_offroad","B_Hunter_F","O_Ifrit_F"] call BIS_fnc_selectRandom;
+_vehicleClass = ["C_Offroad_01_F","B_MRAP_01_F","O_MRAP_02_F"] call BIS_fnc_selectRandom;
 
 //Vehicle Class, Posistion, Fuel, Ammo, Damage
 _vehicle = [_vehicleClass,_randomPos,1,1,0,"NONE"] call createMissionVehicle;

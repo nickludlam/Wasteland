@@ -46,7 +46,7 @@ _marker setMarkerText "Recon Vehicle";
 
 //commented this out because it relies on vehicles not here. When more vehicles come out perhaps these will be included
 //_vehicleClass = ["BAF_Jackal2_L2A1_w","ArmoredSUV_PMC","BTR40_MG_TK_GUE_EP1","BAF_Jackal2_L2A1_D"] call BIS_fnc_selectRandom;
-_vehicleClass = ["B_Hunter_HMG_F","B_Hunter_RCWS_F","O_Ifrit_MG_F", "O_Ifrit_GMG_F"] call BIS_fnc_selectRandom;
+_vehicleClass = ["B_MRAP_01_hmg_F","B_MRAP_01_gmg_F","O_MRAP_02_hmg_F", "O_MRAP_02_gmg_F"] call BIS_fnc_selectRandom;
 
 //Vehicle Class, Posistion, Fuel, Ammo, Damage
 _vehicle = [_vehicleClass,_randomPos,0,1,0,"NONE"] call createMissionVehicle;

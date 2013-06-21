@@ -32,7 +32,7 @@ _createVehicle = {
 };
 
 _vehicles = [];
-_vehicleClass = ["O_Ka60_F","B_AH9_F"] call BIS_fnc_selectRandom;
+_vehicleClass = ["O_Ka60_F","B_Heli_Light_01_armed_F"] call BIS_fnc_selectRandom;
 _vehicles set [0, [_vehicleClass, [2436.24,847.9,0.00133419], 110, _groupsm] call _createVehicle];
 
 _leader = driver (_vehicles select 0);

@@ -57,8 +57,8 @@ _starts1 set [2, [1248.54,4883.98,-1.72229]];
 _rand = floor (random 3);
 
 _vehicles = [];
-_vehicles set [0, ["O_SpeedBoat", (_starts0 select _rand), 110, _group] call _createVehicle];
-_vehicles set [1, ["B_SpeedBoat", (_starts1 select _rand), 110, _group] call _createVehicle];
+_vehicles set [0, ["O_Boat_Armed_01_hmg_F", (_starts0 select _rand), 110, _group] call _createVehicle];
+_vehicles set [1, ["B_Boat_Armed_01_minigun_F", (_starts1 select _rand), 110, _group] call _createVehicle];
 
 _leader = driver (_vehicles select 0);
 _group selectLeader _leader;
@@ -196,8 +196,8 @@ _marker setMarkerSize [1.25, 1.25];
 _marker setMarkerColor "ColorRed";
 _marker setMarkerText "Sea Convoy";
 
-_picture = getText (configFile >> "CfgVehicles" >> "O_SpeedBoat" >> "picture");
-_vehicleName = getText (configFile >> "cfgVehicles" >> "O_SpeedBoat" >> "displayName");
+_picture = getText (configFile >> "CfgVehicles" >> "O_Boat_Armed_01_hmg_F" >> "picture");
+_vehicleName = getText (configFile >> "cfgVehicles" >> "O_Boat_Armed_01_hmg_F" >> "displayName");
 _hint = parseText format ["<t align='center' color='%4' shadow='2' size='1.75'>Main Objective</t><br/><t align='center' color='%4'>------------------------------</t><br/><t align='center' color='%5' size='1.25'>%1</t><br/><t align='center'><img size='5' image='%2'/></t><br/><t align='center' color='%5'>A <t color='%4'>%3</t> is convoyed with another %3. Stop them!</t>", _missionType, _picture, _vehicleName, mainMissionColor, subTextColor];
 messageSystem = _hint;
 if (!isDedicated) then { call serverMessage };

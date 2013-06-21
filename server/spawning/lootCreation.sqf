@@ -14,10 +14,10 @@ randomweapon_weaponlist = [
 ["arifle_TRG21_F","30RND_556x45_Stanag"],
 ["arifle_TRG20_F","30RND_556x45_Stanag"],
 ["arifle_MXC_F","30Rnd_65x39_caseless_mag_Tracer"],
-["arifle_Khaybar_F","30Rnd_65x39_caseless_green"],
-["arifle_Khaybar_C_F","30Rnd_65x39_caseless_green_mag_Tracer"],
+["arifle_Katiba_F","30Rnd_65x39_caseless_green"],
+["arifle_Katiba_C_F","30Rnd_65x39_caseless_green_mag_Tracer"],
 ["arifle_MX_GL_F","30Rnd_65x39_caseless_mag"],
-["arifle_Khaybar_GL_F","30Rnd_65x39_caseless_green_mag_Tracer"]
+["arifle_Katiba_GL_F","30Rnd_65x39_caseless_green_mag_Tracer"]
 ];
  
 randomweapon_itemlist = [

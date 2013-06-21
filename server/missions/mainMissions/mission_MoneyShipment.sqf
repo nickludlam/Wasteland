@@ -14,7 +14,7 @@ diag_log format["WASTELAND SERVER - Main Mission Resumed: %1", _missionType];
 
 _grouphsq = createGroup civilian;
 
-_vehicle = "B_Hunter_RCWS_F" createVehicle [2090.59,5823.05,5.41];
+_vehicle = "B_MRAP_01_gmg_F" createVehicle [2090.59,5823.05,5.41];
 _vehicle addEventHandler ["IncomingMissile", "hint format['Incoming Missile Launched By: %1', name (_this select 2)]"];
 _vehicle setDir 91;
 clearMagazineCargoGlobal _vehicle;
@@ -79,8 +79,8 @@ _marker3 setMarkerSize [1.25, 1.25];
 _marker3 setMarkerColor "ColorRed";
 _marker3 setMarkerText "Money Shipment";
 
-_picture = getText (configFile >> "CfgVehicles" >> "B_Hunter_RCWS_F" >> "picture");
-_vehicleName = getText (configFile >> "cfgVehicles" >> "B_Hunter_RCWS_F" >> "displayName");
+_picture = getText (configFile >> "CfgVehicles" >> "B_MRAP_01_gmg_F" >> "picture");
+_vehicleName = getText (configFile >> "cfgVehicles" >> "B_MRAP_01_gmg_F" >> "displayName");
 _hint = parseText format ["<t align='center' color='%4' shadow='2' size='1.75'>Main Objective</t><br/><t align='center' color='%4'>------------------------------</t><br/><t align='center' color='%5' size='1.25'>%1</t><br/><t align='center'><img size='5' image='%2'/></t><br/><t align='center' color='%5'>A <t color='%4'>%3</t> is carrying $10,000. Stop them and claim the money!</t>", _missionType, _picture, _vehicleName, mainMissionColor, subTextColor];
 messageSystem = _hint;
 if (!isDedicated) then { call serverMessage };

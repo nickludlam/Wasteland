@@ -5,21 +5,21 @@
  * Liste des noms de classes des v�hicules terrestres pouvant remorquer des objets remorquables.
  */
 R3F_LOG_CFG_remorqueurs = [
-	"O_Quadbike_F",
-    "B_Quadbike_F",
-	"c_offroad",
-	"O_Ifrit_MG_F",
-    "B_Hunter_F",
-    "B_Hunter_RCWS_F",
-    "B_Hunter_HMG_F",
-    "O_Ifrit_F",
-    "O_Ifrit_GMG_F",
-	"B_Assaultboat",
-	"O_Assaultboat",
-	"B_SpeedBoat",
+	"O_Quadbike_01_F",
+    "B_Quadbike_01_F",
+	"C_Offroad_01_F",
+	"O_MRAP_02_hmg_F",
+    "B_MRAP_01_F",
+    "B_MRAP_01_gmg_F",
+    "B_MRAP_01_hmg_F",
+    "O_MRAP_02_F",
+    "O_MRAP_02_gmg_F",
+	"B_Boat_Transport_01_F",
+	"O_Boat_Transport_01_F",
+	"B_Boat_Armed_01_minigun_F",
 	"B_Lifeboat",	
 	"O_Lifeboat",
-	"O_SpeedBoat"
+	"O_Boat_Armed_01_hmg_F"
 ];
 
 /**
@@ -27,18 +27,18 @@ R3F_LOG_CFG_remorqueurs = [
  * Liste des noms de classes des objets remorquables.
  */
 R3F_LOG_CFG_objets_remorquables = [
-	"c_offroad",
-	"O_Ifrit_MG_F",
-	"B_Hunter_F",
-	"B_Hunter_RCWS_F",
-	"B_Hunter_HMG_F",
-	"O_Ifrit_F",
-	"O_Ifrit_GMG_F",
+	"C_Offroad_01_F",
+	"O_MRAP_02_hmg_F",
+	"B_MRAP_01_F",
+	"B_MRAP_01_gmg_F",
+	"B_MRAP_01_hmg_F",
+	"O_MRAP_02_F",
+	"O_MRAP_02_gmg_F",
 	"Land_Cargo20_Military_F",
 	//"O_Ka60_Unarmed_F",
-	//"B_MH9_F",
+	//"B_Heli_Light_01_F",
 	//"O_Ka60_F",
-	//"B_AH9_F",
+	//"B_Heli_Light_01_armed_F",
 	"Land_Cargo20_military_F",
 	"Land_Cargo_Patrol_V1_F",
 	"Land_MetalBarrel_F",
@@ -47,12 +47,12 @@ R3F_LOG_CFG_objets_remorquables = [
 	"Land_HBarrier_3_F",
 	"Land_HBarrier_5_F",
 	"Land_HBarrier_1_F",
-	"B_Assaultboat",
-	"O_Assaultboat",
-	"B_SpeedBoat",
+	"B_Boat_Transport_01_F",
+	"O_Boat_Transport_01_F",
+	"B_Boat_Armed_01_minigun_F",
 	"B_Lifeboat",	
 	"O_Lifeboat",
-	"O_SpeedBoat"
+	"O_Boat_Armed_01_hmg_F"
 ];
 
 /****** LIFT WITH VEHICLE / HELIPORTER AVEC VEHICULE ******/
@@ -63,9 +63,9 @@ R3F_LOG_CFG_objets_remorquables = [
  */
 R3F_LOG_CFG_heliporteurs = [
 	"O_Ka60_Unarmed_F",
-	"B_MH9_F",
+	"B_Heli_Light_01_F",
 	"O_Ka60_F",
-	"B_AH9_F"
+	"B_Heli_Light_01_armed_F"
 ];
 
 /**
@@ -73,21 +73,21 @@ R3F_LOG_CFG_heliporteurs = [
  * Liste des noms de classes des objets h�liportables.
  */
 R3F_LOG_CFG_objets_heliportables = [
-	"c_offroad",
-	"O_Ifrit_MG_F",
-    "B_Hunter_F",
-    "B_Hunter_RCWS_F",
-    "B_Hunter_HMG_F",
-    "O_Ifrit_F",
-    "O_Ifrit_GMG_F",
+	"C_Offroad_01_F",
+	"O_MRAP_02_hmg_F",
+    "B_MRAP_01_F",
+    "B_MRAP_01_gmg_F",
+    "B_MRAP_01_hmg_F",
+    "O_MRAP_02_F",
+    "O_MRAP_02_gmg_F",
 	"B_Lifeboat",
-	"B_Assaultboat",
-	"O_Assaultboat",
+	"B_Boat_Transport_01_F",
+	"O_Boat_Transport_01_F",
 	"O_Lifeboat",
 	"Land_Cargo20_Military_F",
 	"Land_Cargo_Patrol_V1_F",
-	"B_AH9_F",
-	"B_MH9_F",
+	"B_Heli_Light_01_armed_F",
+	"B_Heli_Light_01_F",
 	"Land_MetalBarrel_F",
 	"Land_HBarrierBig_F",
 	"Land_Mil_WallBig_4m_F",
@@ -101,27 +101,27 @@ R3F_LOG_CFG_objets_heliportables = [
 
 
 R3F_LOG_CFG_transporteurs = [
-	["c_offroad", 50],
-	["O_Ifrit_MG_F", 20],
-	["B_Hunter_F", 40],
-	["B_Hunter_RCWS_F", 20],
-	["B_Hunter_HMG_F", 20],
-	["O_Ifrit_F", 40],
-	["O_Ifrit_GMG_F", 20],
+	["C_Offroad_01_F", 50],
+	["O_MRAP_02_hmg_F", 20],
+	["B_MRAP_01_F", 40],
+	["B_MRAP_01_gmg_F", 20],
+	["B_MRAP_01_hmg_F", 20],
+	["O_MRAP_02_F", 40],
+	["O_MRAP_02_gmg_F", 20],
 	["O_Ka60_Unarmed_F", 80],
-	["B_MH9_F", 30],
+	["B_Heli_Light_01_F", 30],
 	["O_Ka60_F", 20],
-    ["O_Quadbike_F", 5],
-    ["B_Quadbike_F", 5],
+    ["O_Quadbike_01_F", 5],
+    ["B_Quadbike_01_F", 5],
 	["Land_Cargo_Patrol_V1_F", 100],
 	["Land_Cargo20_Military_F",100],
-	["B_AH9_F", 10],
-	["B_SpeedBoat", 5],
+	["B_Heli_Light_01_armed_F", 10],
+	["B_Boat_Armed_01_minigun_F", 5],
 	["B_Lifeboat", 5],
-	["B_Assaultboat", 10],
-	["O_Assaultboat", 10],
+	["B_Boat_Transport_01_F", 10],
+	["O_Boat_Transport_01_F", 10],
 	["O_Lifeboat", 5],
-	["O_SpeedBoat", 5]
+	["O_Boat_Armed_01_hmg_F", 5]
 ];
 
  
@@ -142,13 +142,13 @@ R3F_LOG_CFG_objets_transportables =  [
     ["Land_HBarrier_1_F", 1],
     ["Land_ToiletBox_F", 6],
 	["Land_LampShabby_F",3],
-    ["O_Quadbike_F", 10],
-    ["B_Quadbike_F", 10],
+    ["O_Quadbike_01_F", 10],
+    ["B_Quadbike_01_F", 10],
 	["Land_ToiletBox_F", 5],
 	["O_Lifeboat", 15],
 	["B_Lifeboat", 15],
-	["O_Mk6", 15],
-	["B_Mk6", 15],
+	["O_Mortar_01_F", 15],
+	["B_Mortar_01_F", 15],
 	["Land_Sack_F", 1],
 	["Land_Tyres_F", 3],
 	["Land_Coil_F", 5],
@@ -181,14 +181,14 @@ R3F_LOG_CFG_objets_deplacables = [
     "Land_Stone_8m_F",
 	"Land_LampShabby_F",
 	"Land_Mil_WallBig_4m_F",
-    "O_Quadbike_F",
-    "B_Quadbike_F",
+    "O_Quadbike_01_F",
+    "B_Quadbike_01_F",
 	"Land_ToiletBox_F",
-	"B_Assaultboat",
+	"B_Boat_Transport_01_F",
 	"B_Lifeboat",	
 	"O_Lifeboat",
     "C_Rubberboat",
-	"O_Assaultboat",
+	"O_Boat_Transport_01_F",
 	"Land_Sack_F",
 	"Land_Coil_F",
 	"Land_Pipes_Large_F",

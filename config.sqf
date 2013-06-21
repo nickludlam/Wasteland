@@ -23,9 +23,9 @@ rifleArray =
 	["TRG-21 5.56 mm","arifle_TRG21_F",100,50],
 	//Assault Rifle
 	["TRG-21 EGLM 5.56 mm","arifle_TRG21_GL_F",250,125],
-	["Katiba 6.5 mm","arifle_Khaybar_F",100,50],
-	["Katiba Carabine 6.5 mm","arifle_Khaybar_C_F",100,50],
-	["Katiba GL 6.5 mm","arifle_Khaybar_GL_F",250,125],
+	["Katiba 6.5 mm","arifle_Katiba_F",100,50],
+	["Katiba Carabine 6.5 mm","arifle_Katiba_C_F",100,50],   // Not present as of Beta?
+	["Katiba GL 6.5 mm","arifle_Katiba_GL_F",250,125],       // Not present as of Beta?
 	//Sniper
 	["EBR 7.62 mm","srifle_EBR_F",1000,500],
 	["M320 LRR .408","srifle_LRR_F",3000,1500],
@@ -251,18 +251,18 @@ apparelArray =
 //Text name, classname, buy cost, spawn type, color
 landArray =
 [
-	["Quadbike","O_Quadbike_F",250,"vehicle",125],
-	["Offroad","c_offroad",500,"vehicle",350]
+	["Quadbike","O_Quadbike_01_F",250,"vehicle",125],
+	["Offroad","C_Offroad_01_F",500,"vehicle",350]
 ]; 
 
 armoredArray =
 [
-	["Hunter","B_Hunter_F",2000,"vehicle",1000],
-	["Hunter HMG","B_Hunter_HMG_F",7000,"vehicle",3500],
-	["Hunter GMG","B_Hunter_RCWS_F",8000,"vehicle",4000],
-	["Ifrit","O_Ifrit_F",3000,"vehicle",1500],
-	["Ifrit HMG","O_Ifrit_MG_F",8000,"vehicle",4000],
-	["Ifrit GMG","O_Ifrit_GMG_F",9000,"vehicle",4500]
+	["Hunter","B_MRAP_01_F",2000,"vehicle",1000],
+	["Hunter HMG","B_MRAP_01_hmg_F",7000,"vehicle",3500],
+	["Hunter GMG","B_MRAP_01_gmg_F",8000,"vehicle",4000],
+	["Ifrit","O_MRAP_02_F",3000,"vehicle",1500],
+	["Ifrit HMG","O_MRAP_02_hmg_F",8000,"vehicle",4000],
+	["Ifrit GMG","O_MRAP_02_gmg_F",9000,"vehicle",4500]
 ]; 
 
 tanksArray =
@@ -271,8 +271,8 @@ tanksArray =
 
 helicoptersArray =
 [
-	["MH-9","B_MH9_F",5000,"vehicle",""],
-	["AH-9 (w)","B_AH9_F",12000,"vehicle",""],
+	["MH-9","B_Heli_Light_01_F",5000,"vehicle",""],
+	["AH-9 (w)","B_Heli_Light_01_armed_F",12000,"vehicle",""],
 	["Ka-60","O_Ka60_Unarmed_F",6000,"vehicle",""],
 	["Ka-60 (w)","O_Ka60_F",13000,"vehicle",""]
 ]; 
@@ -283,12 +283,12 @@ jetsArray =
 
 boatsArray =
 [
-	["Assault Boat Blue","B_Assaultboat",1000,"boat",500],
-	["Assault Boat Red","O_Assaultboat",1000,"boat",500],
+	["Assault Boat Blue","B_Boat_Transport_01_F",1000,"boat",500],
+	["Assault Boat Red","O_Boat_Transport_01_F",1000,"boat",500],
 	["Rescue Blue","B_Lifeboat",1000,"boat",500],
 	["Rescue Red","O_Lifeboat",1000,"boat",500],
-	["Speedboat Minigun","B_SpeedBoat",6000,"boat",3000],
-	["Speedboat HMG","O_SpeedBoat",7000,"boat",3500]
+	["Speedboat Minigun","B_Boat_Armed_01_minigun_F",6000,"boat",3000],
+	["Speedboat HMG","O_Boat_Armed_01_hmg_F",7000,"boat",3500]
 ];
 
 colorsArray =

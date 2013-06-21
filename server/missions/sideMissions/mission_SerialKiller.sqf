@@ -33,10 +33,10 @@ _createVehicle = {
     _vehicle
 };
 
-_vehicle = ["c_offroad",[4501.53,6778.33,108.319],195, _groupsm] call _createVehicle;
-//_vehicles set [0, ["c_offroad", [(_randomPos select 0) + 50, (_randomPos select 1) + 50,0], 110, _groupsm] call _createVehicle];
-//_vehicles set [1, ["B_Quadbike_F", [2619.0709, 613.5274, 64.271773], 110, _groupsm] call _createVehicle];
-//_vehicles set [2, ["O_Quadbike_F", [2607.2347, 627.8529, 63.935479], 110, _groupsm] call _createVehicle];
+_vehicle = ["C_Offroad_01_F",[4501.53,6778.33,108.319],195, _groupsm] call _createVehicle;
+//_vehicles set [0, ["C_Offroad_01_F", [(_randomPos select 0) + 50, (_randomPos select 1) + 50,0], 110, _groupsm] call _createVehicle];
+//_vehicles set [1, ["B_Quadbike_01_F", [2619.0709, 613.5274, 64.271773], 110, _groupsm] call _createVehicle];
+//_vehicles set [2, ["O_Quadbike_01_F", [2607.2347, 627.8529, 63.935479], 110, _groupsm] call _createVehicle];
 
 _leader = driver _vehicle;
 _groupsm selectLeader _leader;
@@ -106,8 +106,8 @@ _marker setMarkerText "Serial Killer";
 //_marker setMarkerTextLocal "Serial Killer";
 
 
-_picture = getText (configFile >> "CfgVehicles" >> "c_offroad" >> "picture");
-_vehicleName = getText (configFile >> "cfgVehicles" >> "c_offroad" >> "displayName");
+_picture = getText (configFile >> "CfgVehicles" >> "C_Offroad_01_F" >> "picture");
+_vehicleName = getText (configFile >> "cfgVehicles" >> "C_Offroad_01_F" >> "displayName");
 _hint = parseText format ["<t align='center' color='%4' shadow='2' size='1.75'>Side Objective</t><br/><t align='center' color='%4'>------------------------------</t><br/><t align='center' color='%5' size='1.25'>%1</t><br/><t align='center'><img size='5' image='%2'/></t><br/><t align='center' color='%5'>A serial killer is driving an <t color='%4'>%3</t>. Stop him!</t>", _missionType, _picture, _vehicleName, sideMissionColor, subTextColor];
 messageSystem = _hint;
 if (!isDedicated) then { call serverMessage };

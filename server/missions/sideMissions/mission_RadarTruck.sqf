@@ -29,7 +29,7 @@ diag_log format["WASTELAND SERVER - Main Mission Resumed: %1",_missionType];
 
 [_missionMarkerName,_randomPos,_missionType] call createClientMarker;
 
-_vehicleClass = ["c_offroad","B_Hunter_F"] call BIS_fnc_selectRandom;
+_vehicleClass = ["C_Offroad_01_F","B_MRAP_01_F"] call BIS_fnc_selectRandom;
 
 //Vehicle Class, Posistion, Fuel, Ammo, Damage
 _vehicle = [_vehicleClass,_randomPos,0.5,1,0.75,"NONE"] call createMissionVehicle;

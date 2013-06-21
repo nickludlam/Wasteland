@@ -51,7 +51,7 @@ _car setPosATL [getpos _car select 0,getpos _car select 1,1];
 _car setVelocity [0,0,0];
 _car addEventHandler ["IncomingMissile", "hint format['Incoming Missile Launched By: %1', name (_this select 2)]"];
 
-if(_cartype == "B_Hunter_F") then
+if(_cartype == "B_MRAP_01_F") then
 {
 	_color = 0;
 	_color = floor(random 7);

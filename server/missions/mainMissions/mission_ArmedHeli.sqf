@@ -37,13 +37,13 @@ _marker = createMarkerLocal ["ArmedHeli_Marker", _randomPos];
 "ArmedHeli_Marker" setMarkerSizeLocal [1,1];
 "ArmedHeli_Marker" setMarkerTextLocal "Mission Here";
 */
-_vehicleClass = ["O_Ka60_F","B_AH9_F"] call BIS_fnc_selectRandom;
+_vehicleClass = ["O_Ka60_F","B_Heli_Light_01_armed_F"] call BIS_fnc_selectRandom;
 
 // Vehicle spawning: Name, Position, Fuel, Ammo, Damage, "NONE"
 
 switch (_vehicleClass) do
 {
-	case "B_AH9_F": {
+	case "B_Heli_Light_01_armed_F": {
 		_vehicle = [_vehicleClass,_randomPos,0.5,0.5,0,"NONE"] call createMissionVehicle;
 		_vehicle addEventHandler ["IncomingMissile", "hint format['Incoming Missile Launched By: %1', name (_this select 2)]"];
 	};

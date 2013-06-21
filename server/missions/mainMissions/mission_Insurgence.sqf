@@ -43,13 +43,13 @@ _marker setMarkerText "Insurgent Force";
 //_marker setMarkerTextLocal "Insurgent Force";
 
 //_vehicleClass = ["BTR60_TK_EP1","M1126_ICV_MK19_EP1","BRDM2_TK_GUE_EP1","M113_UN_EP1","BTR90","LAV25","M6_EP1"] call BIS_fnc_selectRandom;
-//_vehicleClass = ["O_Ifrit_F","O_Ifrit_MG_F","O_Ifrit_GMG_F","B_Hunter_F","B_Hunter_HMG_F","B_Hunter_RCWS_F"] call BIS_fnc_selectRandom;
+//_vehicleClass = ["O_MRAP_02_F","O_MRAP_02_hmg_F","O_MRAP_02_gmg_F","B_MRAP_01_F","B_MRAP_01_hmg_F","B_MRAP_01_gmg_F"] call BIS_fnc_selectRandom;
 
 //Vehicle Class, Posistion, Fuel, Ammo, Damage, State
-_vehicle = ["O_Ifrit_F",_randomPos,0,1,0.75,"NONE"] call createMissionVehicle;
+_vehicle = ["O_MRAP_02_F",_randomPos,0,1,0.75,"NONE"] call createMissionVehicle;
 
-_picture = getText (configFile >> "O_Ifrit_F" >> _vehicleClass >> "picture");
-_vehicleName = getText (configFile >> "O_Ifrit_F" >> _vehicleClass >> "displayName");
+_picture = getText (configFile >> "O_MRAP_02_F" >> _vehicleClass >> "picture");
+_vehicleName = getText (configFile >> "O_MRAP_02_F" >> _vehicleClass >> "displayName");
 _hint = parseText format ["<t align='center' color='%4' shadow='2' size='1.75'>! WARNING !</t><br/><t align='center' color='%4'>------------------------------</t><br/><t align='center' color='%5' size='1.25'>Insurgent Forces</t><br/><t align='center'><img size='5' image='%2'/></t><br/><t align='center' color='%5'>A <t color='%4'>%3</t> has insurgent forces guarding it! Take them out now!</t>", _missionType, _picture, _vehicleName, mainMissionColor, subTextColor];
 if (!isDedicated) then { call serverMessage };
 messageSystem = _hint;

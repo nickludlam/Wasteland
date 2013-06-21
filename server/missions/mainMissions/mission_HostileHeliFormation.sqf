@@ -33,9 +33,9 @@ _createVehicle = {
 };
 
 _vehicles = [];
-_vehicleClass1 = ["O_Ka60_F","B_AH9_F"] call BIS_fnc_selectRandom;
-_vehicleClass2 = ["O_Ka60_F","B_AH9_F"] call BIS_fnc_selectRandom;
-_vehicleClass3 = ["O_Ka60_F","B_AH9_F"] call BIS_fnc_selectRandom;
+_vehicleClass1 = ["O_Ka60_F","B_Heli_Light_01_armed_F"] call BIS_fnc_selectRandom;
+_vehicleClass2 = ["O_Ka60_F","B_Heli_Light_01_armed_F"] call BIS_fnc_selectRandom;
+_vehicleClass3 = ["O_Ka60_F","B_Heli_Light_01_armed_F"] call BIS_fnc_selectRandom;
 _vehicles set [0, [_vehicleClass1, [2436.24,847.9,0.00133419], 91, _grouphsq] call _createVehicle];
 _vehicles set [1, [_vehicleClass2, [2418.8,828.152,0.00138879], 285, _grouphsq] call _createVehicle];
 _vehicles set [2, [_vehicleClass3, [2401.98,872.439,0.00141001], 285, _grouphsq] call _createVehicle];

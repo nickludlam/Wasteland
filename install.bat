@@ -26,7 +26,7 @@ SET SOURCE_DIR="%USERPROFILE%\Documents\GitHub\Wasteland"
 SET PBO_TOOL="C:\Program Files (x86)\Bohemia Interactive\Tools\BinPBO Personal Edition\BinPBO.exe"
 
 SET LOCAL_MISSION_NAME=KOS_Wasteland.Stratis
-SET TEST_DESTINATION_DIR="%USERPROFILE%\Documents\Arma 3 Alpha - Other Profiles\%LOCAL_ARMA_PROFILE%\MPMissions\%LOCAL_MISSION_NAME%"
+SET TEST_DESTINATION_DIR="%USERPROFILE%\Documents\Arma 3 - Other Profiles\%LOCAL_ARMA_PROFILE%\MPMissions\%LOCAL_MISSION_NAME%"
 
 :: end config
 
@@ -39,7 +39,7 @@ GOTO NOARG
 
 :PACKAGE 
 
-ECHO "Packaging..."
+ECHO Packaging...
 
 mkdir %TEMP%\%LOCAL_MISSION_NAME%
 xcopy /q /s /y %SOURCE_DIR%\* %TEMP%\%LOCAL_MISSION_NAME%
@@ -63,24 +63,30 @@ GOTO END
 
 :TEST
 
-ECHO "Building a test install..."
+ECHO Building a test install...
 
-mkdir %DESTINATION_DIR%
+IF exist %TEST_DESTINATION_DIR% ( echo Target dir exists ) ELSE ( mkdir %TEST_DESTINATION_DIR% )
+
 xcopy /q /s /y %SOURCE_DIR% %TEST_DESTINATION_DIR%
 
 :: Copy defines_localediting.hpp to the directories which use defines.hpp
-copy "%USERPROFILE%\Documents\GitHub\Wasteland\defines_localediting.hpp" %TEST_DESTINATION_DIR%\defines.hpp
-copy "%USERPROFILE%\Documents\GitHub\Wasteland\defines_localediting.hpp" %TEST_DESTINATION_DIR%\client\defines.hpp
-copy "%USERPROFILE%\Documents\GitHub\Wasteland\defines_localediting.hpp" %TEST_DESTINATION_DIR%\server\defines.hpp
-copy "%USERPROFILE%\Documents\GitHub\Wasteland\defines_localediting.hpp" %TEST_DESTINATION_DIR%\server\functions\defines.hpp
-copy "%USERPROFILE%\Documents\GitHub\Wasteland\defines_localediting.hpp" %TEST_DESTINATION_DIR%\server\missions\sideMissions\defines.hpp
-copy "%USERPROFILE%\Documents\GitHub\Wasteland\defines_localediting.hpp" %TEST_DESTINATION_DIR%\server\missions\mainMissions\defines.hpp
+copy "%USERPROFILE%\Documents\GitHub\Wasteland\defines_localediting.hpp" %TEST_DESTINATION_DIR%\defines.hpp > nul
+copy "%USERPROFILE%\Documents\GitHub\Wasteland\defines_localediting.hpp" %TEST_DESTINATION_DIR%\client\defines.hpp > nul
+copy "%USERPROFILE%\Documents\GitHub\Wasteland\defines_localediting.hpp" %TEST_DESTINATION_DIR%\server\defines.hpp > nul
+copy "%USERPROFILE%\Documents\GitHub\Wasteland\defines_localediting.hpp" %TEST_DESTINATION_DIR%\server\functions\defines.hpp > nul
+copy "%USERPROFILE%\Documents\GitHub\Wasteland\defines_localediting.hpp" %TEST_DESTINATION_DIR%\server\missions\sideMissions\defines.hpp > nul
+copy "%USERPROFILE%\Documents\GitHub\Wasteland\defines_localediting.hpp" %TEST_DESTINATION_DIR%\server\missions\mainMissions\defines.hpp > nul
+
+echo Mission copied to %TEST_DESTINATION_DIR%
 
 GOTO END
 
 :NOARG
 
-echo "install.bat - Installs the Wasteland mission for testing or packaging"
+echo.
+echo install.bat - Installs the ArmA mission for testing or packaging
+echo.
 echo Error: You must specify 'test' or 'package' as an argument
+echo.
 
 :END

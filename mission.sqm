@@ -4,7 +4,6 @@ class Mission
 	addOns[]=
 	{
 		"a3_map_stratis",
-		"a3_air_f_ka60",
 		"A3_Characters_F_BLUFOR",
 		"A3_Characters_F_OPFOR",
 		"A3_Weapons_F",
@@ -19,7 +18,6 @@ class Mission
 		"A3_Structures_F_Ind_AirPort",
 		"A3_Structures_F_Furniture",
 		"A3_Weapons_F_Ammoboxes",
-		"A3_Static_F_Mk6",
 		"A3_Structures_F_Civ_Market",
 		"A3_Structures_F_Ind_Cargo",
 		"A3_Structures_F_Naval_Piers",
@@ -29,7 +27,6 @@ class Mission
 		"A3_Structures_F_Households_Addons",
 		"A3_Structures_F_Households_House_Shop01",
 		"A3_Structures_F_Mil_Cargo",
-		"A3_Soft_F_Offroad",
 		"a3_structures_f_households_stone_big",
 		"A3_Structures_F_Households_Stone_Shed",
 		"A3_Structures_F_Households_WIP",
@@ -72,7 +69,6 @@ class Mission
 		"A3_Structures_F_Households_House_Small02",
 		"A3_Structures_F_Mil_Cargo",
 		"A3_Static_F_Mk6",
-		"A3_Soft_F_Offroad",
 		"A3_Structures_F_Ind_Transmitter_Tower",
 		"A3_Structures_F_Dominants_Lighthouse",
 		"A3_Structures_F_Naval_RowBoats",
@@ -2165,7 +2161,7 @@ class Mission
 	};
 	class Vehicles
 	{
-		items=365;
+		items=362;
 		class Item0
 		{
 			position[]={3584.0212,197.43867,4904.0024};
@@ -3618,7 +3614,7 @@ class Mission
 			special="NONE";
 			id=277;
 			side="EMPTY";
-			vehicle="B_Mk6";
+			vehicle="B_Mortar_01_F";
 			leader=1;
 			lock="UNLOCKED";
 			skill=0.60000002;
@@ -3630,7 +3626,7 @@ class Mission
 			special="NONE";
 			id=278;
 			side="EMPTY";
-			vehicle="B_Mk6";
+			vehicle="B_Mortar_01_F";
 			leader=1;
 			lock="UNLOCKED";
 			skill=0.60000002;
@@ -3642,7 +3638,7 @@ class Mission
 			azimut=220;
 			id=279;
 			side="EMPTY";
-			vehicle="c_offroad";
+			vehicle="C_Offroad_01_F";
 			leader=1;
 			skill=0.2;
 			init="this addEventHandler [""Killed"",{(_this select 0) spawn {sleep 180; deleteVehicle _this}}];this addEventHandler [""IncomingMissile"", ""hint format['Incoming Missile Launched By: %1', name (_this select 2)]""];";
@@ -5685,7 +5681,7 @@ class Mission
 			vehicle="FlagPole_F";
 			skill=0.60000002;
 			text="east_gunstore_flagpole";
-			init="this allowDamage false; this setFlagTexture ""images\flag_kos_wide_bw.jpg"";";
+			init="this allowDamage false; this setFlagTexture ""images\flag_kos_wide.jpg"";";
 		};
 		class Item359
 		{
@@ -5696,7 +5692,7 @@ class Mission
 			vehicle="FlagPole_F";
 			skill=0.60000002;
 			text="airfield_gunstore_flagpole";
-			init="this allowDamage false; this setFlagTexture ""images\flag_kos_wide_bw.jpg"";";
+			init="this allowDamage false; this setFlagTexture ""images\flag_kos_wide.jpg"";";
 		};
 		class Item360
 		{
@@ -5707,7 +5703,7 @@ class Mission
 			vehicle="FlagPole_F";
 			skill=0.60000002;
 			text="girna_gunstore_flagpole";
-			init="this allowDamage false; this setFlagTexture ""images\flag_kos_wide_bw.jpg"";";
+			init="this allowDamage false; this setFlagTexture ""images\flag_kos_wide.jpg"";";
 		};
 		class Item361
 		{
@@ -5718,38 +5714,7 @@ class Mission
 			vehicle="FlagPole_F";
 			skill=0.60000002;
 			text="killfarm_gunstore_flagpole";
-			init="this allowDamage false; this setFlagTexture ""images\flag_kos_wide_bw.jpg"";";
-		};
-		class Item362
-		{
-			position[]={2012.0793,3,5345.728};
-			azimut=283;
-			id=492;
-			side="EMPTY";
-			vehicle="Sign_F";
-			skill=0.60000002;
-			text="airfield_gunstore_sign";
-			init="this allowDamage false; this enablesimulation false";
-		};
-		class Item363
-		{
-			position[]={2012.0793,3,5345.728};
-			offsetY=1.9;
-			id=2;
-			side="EMPTY";
-			vehicle="UserTexture1m_F";
-			skill=0.60000002;
-			init="this setObjectTexture [0, ""images\kos_sign_l.paa""]; this attachTo [airfield_gunstore_sign,[-0.5,-0.05,0.6]]; ";
-		};
-		class Item364
-		{
-			position[]={2012.0793,3,5345.728};
-			offsetY=1.9;
-			id=3;
-			side="EMPTY";
-			vehicle="UserTexture1m_F";
-			skill=0.60000002;
-			init="this setObjectTexture [0, ""images\kos_sign_r.paa""]; this attachTo [airfield_gunstore_sign,[0.5,-0.05,0.6]];";
+			init="this allowDamage false; this setFlagTexture ""images\flag_kos_wide.jpg"";";
 		};
 	};
 	class Markers

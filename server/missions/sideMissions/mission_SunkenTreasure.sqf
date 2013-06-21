@@ -107,7 +107,7 @@ _createVehicle = {
     _vehicle
 };
 _vehicles = [];
-_vehicles set [0, ["O_SpeedBoat", [(_posRand select 0), (_posRand select 1), 0], _fix, 110, _group] call _createVehicle];
+_vehicles set [0, ["O_Boat_Armed_01_hmg_F", [(_posRand select 0), (_posRand select 1), 0], _fix, 110, _group] call _createVehicle];
 
 _hint = parseText format ["<t align='center' color='%2' shadow='2' size='1.75'>Side Objective</t><br/><t align='center' color='%2'>------------------------------</t><br/><t align='center' color='%3' size='1.25'>%1</t><br/><t align='center' color='%3'>$10,000 in sunken treasure has been located. Go get it!</t>", _missionType,  sideMissionColor, subTextColor];
 messageSystem = _hint;
