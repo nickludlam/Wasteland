@@ -32,7 +32,7 @@ _createVehicle = {
 };
 
 _vehicles = [];
-_vehicleClass = ["O_Ka60_F","B_Heli_Light_01_armed_F"] call BIS_fnc_selectRandom;
+_vehicleClass = ["O_Heli_Light_02_F","B_Heli_Light_01_armed_F"] call BIS_fnc_selectRandom;
 _vehicles set [0, [_vehicleClass, [2436.24,847.9,0.00133419], 110, _groupsm] call _createVehicle];
 
 _leader = driver (_vehicles select 0);
@@ -77,9 +77,9 @@ _marker setMarkerSize [1.25, 1.25];
 _marker setMarkerColor "ColorRed";
 _marker setMarkerText "Hostile Helicopter";
 
-_picture = getText (configFile >> "CfgVehicles" >> _vehicleClass>> "picture");
+_picture = getText (configFile >> "CfgVehicles" >> _vehicleClass>> "picture");  
 _vehicleName = getText (configFile >> "cfgVehicles" >> _vehicleClass >> "displayName");
-_hint = parseText format ["<t align='center' color='%4' shadow='2' size='1.75'>!! WARNING !!</t><br/><t align='center' color='%4'>------------------------------</t><br/><t align='center' color='%5' size='1.25'>%1</t><br/><t align='center'><img size='5' image='%2'/></t><br/><t align='center' color='%5'>A armed <t color='%4'>%3</t> is patrolling the island. Destroy it!</t>", _missionType, _picture, _vehicleName, sideMissionColor, subTextColor];
+_hint = parseText format ["<t align='center' color='%4' shadow='2' size='1.75'>!! WARNING !!</t><br/><t align='center' color='%4'>------------------------------</t><br/><t align='center' color='%5' size='1.25'>%1</t><br/><t align='center'><img size='5' image='%2'/></t><br/><t align='center' color='%5'>An armed <t color='%4'>%3</t> is patrolling the island. Destroy it!</t>", _missionType, _picture, _vehicleName, sideMissionColor, subTextColor];
 messageSystem = _hint;
 if (!isDedicated) then { call serverMessage };
 publicVariable "messageSystem";

@@ -11,7 +11,7 @@
 
 randomweapon_weaponlist = [
 ["arifle_MX_F","30Rnd_65x39_caseless_mag"],
-["arifle_TRG21_F","30RND_556x45_Stanag"],
+["arifle_TRG21_F","30Rnd_556x45_Stanag"],
 ["arifle_TRG20_F","30RND_556x45_Stanag"],
 ["arifle_MXC_F","30Rnd_65x39_caseless_mag_Tracer"],
 ["arifle_Katiba_F","30Rnd_65x39_caseless_green"],

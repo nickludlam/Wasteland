@@ -42,10 +42,10 @@ _viableRespawnLocations = [];
 
 // If we have any viable spawn locations from above, use them, otherwise go true random
 
-if (count cityList > 0) then {
+if (count _viableRespawnLocations > 0) then {
     // Pick from our candidate list of locations
     //diag_log format["RespawnSelector: Respawning from _viableRespawnLocations"];
-    _randomLoc = cityList select (floor random (count _viableRespawnLocations));
+    _randomLoc = _viableRespawnLocations select (floor random (count _viableRespawnLocations));
 } else {
     // True random spot
     //diag_log format["RespawnSelector: Respawning from a true randomised cityList location"];

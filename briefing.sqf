@@ -208,6 +208,17 @@ player createDiaryRecord["changelog",
 ]
 ];
 
+player createDiaryRecord["changelog",
+[
+"1.2 Bewilderbeest -",
+"<br/><br/>
+- Incorporated all Beta content.<br/>
+- Rearmed the Mob Money and Serial Killer missions.<br/>
+- You can no longer spawn on yourself as group leader.<br/>
+"
+]
+];
+
 player createDiaryRecord["Info",
 [
 "The Basics -",

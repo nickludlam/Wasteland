@@ -16,9 +16,7 @@ _leader = _group createunit ["C_man_polo_1_F", [(_pos select 0) + 30, _pos selec
 _leader addMagazine "RPG32_F";
 _leader addMagazine "RPG32_F";
 _leader addWeapon "launch_RPG32_F";
-_leader addMagazine "30Rnd_65x39_case_mag";
-_leader addMagazine "30Rnd_65x39_case_mag";
-_leader addMagazine "30Rnd_65x39_case_mag";
+_leader addMagazines ["30Rnd_556x45_Stanag", 3];
 _leader addWeapon "arifle_TRG20_F";
 _leader setskill ["Endurance",1];
 _leader setskill ["aimingAccuracy",1];
@@ -49,9 +47,7 @@ _man2 addEventHandler ["killed", "[_this select 0, _this select 1] execVM 'clien
 
 //Rifle_man
 _man3 = _group createunit ["C_man_polo_3_F", [_pos select 0, (_pos select 1) + 30, 0], [], 0.5, "Form"];
-_man3 addMagazine "30Rnd_65x39_case_mag";
-_man3 addMagazine "30Rnd_65x39_case_mag";
-_man3 addMagazine "30Rnd_65x39_case_mag";
+_man3 addMagazines ["30Rnd_556x45_Stanag", 3];
 _man3 addWeapon "arifle_TRG20_F";
 _man3 setskill ["Endurance",1];
 _man3 setskill ["aimingAccuracy",1];
@@ -66,9 +62,7 @@ _man3 addEventHandler ["killed", "[_this select 0, _this select 1] execVM 'clien
 
 //Rifle_man
 _man4 = _group createunit ["C_man_polo_4_F", [_pos select 0, (_pos select 1) + 40, 0], [], 0.5, "Form"];
-_man4 addMagazine "30Rnd_65x39_case_mag";
-_man4 addMagazine "30Rnd_65x39_case_mag";
-_man4 addMagazine "30Rnd_65x39_case_mag";
+_man4 addMagazines ["30Rnd_556x45_Stanag", 3];
 _man4 addWeapon "arifle_TRG20_F";
 _man4 setskill ["Endurance",1];
 _man4 setskill ["aimingAccuracy",1];
@@ -83,8 +77,8 @@ _man4 addEventHandler ["killed", "[_this select 0, _this select 1] execVM 'clien
 
 //Sniper
 _man5 = _group createunit ["C_man_polo_5_F", [_pos select 0, (_pos select 1) - 30, 0], [], 0.5, "Form"];
-_man5 addMagazine "20Rnd_762x45_Mag";
-_man5 addMagazine "20Rnd_762x45_Mag";
+_man5 addMagazine "20Rnd_762x51_Mag";
+_man5 addMagazine "20Rnd_762x51_Mag";
 _man5 addWeapon "srifle_EBR_F";
 _man5 setskill ["Endurance",1];
 _man5 setskill ["aimingAccuracy",1];
@@ -99,9 +93,7 @@ _man5 addEventHandler ["killed", "[_this select 0, _this select 1] execVM 'clien
 
 //Grenadier
 _man6 = _group createunit ["C_man_polo_4_F", [_pos select 0, (_pos select 1) - 40, 0], [], 0.5, "Form"];
-_man6 addMagazine "30Rnd_65x39_case_mag";
-_man6 addMagazine "30Rnd_65x39_case_mag";
-_man6 addMagazine "30Rnd_65x39_case_mag";
+_man6 addMagazines ["30Rnd_556x45_Stanag", 3];
 _man6 addWeapon "arifle_TRG20_F";
 _man6 setskill ["Endurance",1];
 _man6 setskill ["aimingAccuracy",1];
@@ -135,9 +127,7 @@ _man8 = _group createunit ["C_man_polo_4_F", [_pos select 0, (_pos select 1) + 5
 _man8 addMagazine "RPG32_F";
 _man8 addMagazine "RPG32_F";
 _man8 addWeapon "launch_RPG32_F";
-_man8 addMagazine "30Rnd_65x39_case_mag";
-_man8 addMagazine "30Rnd_65x39_case_mag";
-_man8 addMagazine "30Rnd_65x39_case_mag";
+_man8 addMagazines ["30Rnd_556x45_Stanag", 3];
 _man8 addWeapon "arifle_TRG20_F";
 _man8 setskill ["Endurance",1];
 _man8 setskill ["aimingAccuracy",1];
@@ -152,8 +142,8 @@ _man8 addEventHandler ["killed", "[_this select 0, _this select 1] execVM 'serve
 
 //Sniper
 _man9 = _group createunit ["C_man_polo_4_F", [_pos select 0, (_pos select 1) - 50, 0], [], 0.5, "Form"];
-_man9 addMagazine "20Rnd_762x45_Mag";
-_man9 addMagazine "20Rnd_762x45_Mag";
+_man9 addMagazine "20Rnd_762x51_Mag";
+_man9 addMagazine "20Rnd_762x51_Mag";
 _man9 addWeapon "srifle_EBR_F";
 _man9 setskill ["Endurance",1];
 _man9 setskill ["aimingAccuracy",1];
@@ -168,9 +158,7 @@ _man9 addEventHandler ["killed", "[_this select 0, _this select 1] execVM 'serve
 
 //Rifle_man
 _man10 = _group createunit ["C_man_polo_4_F", [_pos select 0, (_pos select 1) + 30, 0], [], 0.5, "Form"];
-_man10 addMagazine "30Rnd_65x39_case_mag";
-_man10 addMagazine "30Rnd_65x39_case_mag";
-_man10 addMagazine "30Rnd_65x39_case_mag";
+_man10 addMagazines ["30Rnd_556x45_Stanag", 3];
 _man10 addWeapon "arifle_TRG20_F";
 _man10 setskill ["Endurance",1];
 _man10 setskill ["aimingAccuracy",1];

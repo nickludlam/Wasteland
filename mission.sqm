@@ -98,7 +98,7 @@ class Mission
 	randomSeed=14957468;
 	class Intel
 	{
-		briefingName="KoS Wasteland v1.1";
+		briefingName="KoS Wasteland v1.2";
 		overviewText="Please register on our forum at www.kosclan.org";
 		resistanceWest=0;
 		timeOfChanges=2400;
@@ -6861,7 +6861,7 @@ class Mission
 		{
 			position[]={3591.4124,43.02541,6762.1348};
 			name="heal_1";
-			text="KevinDD's Medical Supplies";
+			text="Kevin DD's Medical Supplies";
 			type="b_med";
 			colorName="ColorBLUFOR";
 			angle=180.94299;

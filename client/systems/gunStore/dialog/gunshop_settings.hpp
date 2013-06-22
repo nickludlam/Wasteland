@@ -154,43 +154,6 @@ class gunshopd {
 	};
 		};
 
-		//class CartList: w_RscListbox
-		//{
-		//	idc = gunshop_cart;
-		//	onLBSelChanged = "[] execvm 'client\systems\gunStore\weaponInfo.sqf'";
-        //
-		//	x = 0.690104 * safezoneW + safezoneX;
-		//	y = 0.225 * safezoneH + safezoneY;
-		//	w = 0.0916666 * safezoneW;
-		//	h = 0.422222 * safezoneH;
-		//};
-
-		//class AddToCart: w_RscButton
-		//{
-		//	idc = -1;
-		//	onButtonClick = "[] execVM 'client\systems\gunStore\addToCart.sqf'";
-		//	text = "Add";
-        //
-		//	x = 0.515625 * safezoneW + safezoneX;
-		//	y = 0.375 * safezoneH + safezoneY;
-		//	w = 0.065 * safezoneW;
-		//	h = 0.040 * safezoneH;
-        //
-		//};
-
-		//class RemoveFromCart: w_RscButton
-		//{
-		//	idc = -1;
-		//	onButtonClick = "[] execVM 'client\systems\gunStore\removeFromCart.sqf'";
-		//	text = "Remove";
-        //
-		//	x = 0.515625 * safezoneW + safezoneX;
-		//	y = 0.425 * safezoneH + safezoneY;
-		//	w = 0.065 * safezoneW;
-		//	h = 0.040 * safezoneH;
-        //
-		//};
-
 		class BuyToCrate: w_RscButton
 		{
 			idc = -1;

@@ -13,6 +13,8 @@ switch(_selectedBox) do {
     case "mission_Mid_BAF": { // Broad selection of mid-high tier weapons 
     	_currBox = _box;
         
+        // TODO: This whole mid BAF section is full of ArmA2 gun and ammo references
+
         // Clear prexisting weapons first
         clearMagazineCargoGlobal _currBox;
 		clearWeaponCargoGlobal _currBox;
@@ -56,10 +58,11 @@ switch(_selectedBox) do {
 		// Add new weapons before ammunition
 		_currBox addWeaponCargoGlobal ["launch_NLAW_F",2];
 		_currBox addWeaponCargoGlobal ["launch_RPG32_F",2];
+		_currBox addWeaponCargoGlobal ["launch_Titan_F",1];
 		// Add ammunition
-		_currBox addMagazineCargoGlobal ["RPG32_AA_F",5];
 		_currBox addMagazineCargoGlobal ["RPG32_F",5];
 		_currBox addMagazineCargoGlobal ["NLAW_F",5];
+		_currBox addMagazineCargoGlobal ["Titan_AA",3];
 		_currBox addMagazineCargoGlobal ["DemoCharge_Remote_Mag",5];
 		_currBox addMagazineCargoGlobal ["APERSMine_Range_Mag",6];
     };
@@ -97,7 +100,6 @@ switch(_selectedBox) do {
 		_currBox addWeaponCargoGlobal ["launch_NLAW_F",1];
 		_currBox addWeaponCargoGlobal ["launch_RPG32_F",1];
 		_currBox addMagazineCargoGlobal ["16Rnd_9x21_Mag",10];
-		_currBox addMagazineCargoGlobal ["RPG32_AA_F",5];
 		_currBox addMagazineCargoGlobal ["RPG32_F",5];
 		_currBox addMagazineCargoGlobal ["NLAW_F",5];
 		_currBox addMagazineCargoGlobal ["DemoCharge_Remote_Mag",20];

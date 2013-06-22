@@ -43,6 +43,7 @@ switch(_switch) do
 		_playerSlots = [player] call BIS_fnc_invSlotsEmpty;
 
 		{
+
 			if(_itemText == _x select 0) then
 			{
 				_class = _x select 1;
@@ -53,7 +54,8 @@ switch(_switch) do
 				
 				//ensure they player has enought money
 				if ( _price > parseNumber str(_playerMoney)) then {hint format["You don't have enought money for %1", _itemText]; _handleMoney = 0;breakTo "main"};
-				_exe = [player, _class] call fn_fitsInventory;					
+				_exe = [player, _class] call fn_fitsInventory;
+				
 				if(_exe == 0) then
 				{
 					{if(_x select 1 == _class) then{_price = _x select 2; _name = _x select 0;};}forEach ammoArray;
@@ -67,7 +69,7 @@ switch(_switch) do
 				};
 				if(_exe == 2) then
 				{
-					 player addMagazine _name;
+					player addMagazine _name;
 				};
 				if(_exe == 3) then
 				{
