@@ -251,8 +251,7 @@ apparelArray =
 //Text name, classname, buy cost, spawn type, color
 landArray =
 [
-	["Quadbike","B_Quadbike_01_F",250,"vehicle",125],
-	["Quadbike (Red)","C_Quadbike_01_F",250,"vehicle",125],
+	["Quadbike","C_Quadbike_01_F",250,"vehicle",125],
 	["Offroad","C_Offroad_01_F",500,"vehicle",350],
 	["HEMTT Open","B_Truck_01_transport_F",750,"vehicle",400],
 	["HEMTT Covered","B_Truck_01_covered_F",750,"vehicle",400],
