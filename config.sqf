@@ -24,8 +24,8 @@ rifleArray =
 	//Assault Rifle
 	["TRG-21 EGLM 5.56 mm","arifle_TRG21_GL_F",250,125],
 	["Katiba 6.5 mm","arifle_Katiba_F",100,50],
-	["Katiba Carabine 6.5 mm","arifle_Katiba_C_F",100,50],   // Not present as of Beta?
-	["Katiba GL 6.5 mm","arifle_Katiba_GL_F",250,125],       // Not present as of Beta?
+	["Katiba Carabine 6.5 mm","arifle_Katiba_C_F",100,50],
+	["Katiba GL 6.5 mm","arifle_Katiba_GL_F",250,125],
 	//Sniper
 	["EBR 7.62 mm","srifle_EBR_F",1000,500],
 	["M320 LRR .408","srifle_LRR_F",3000,1500],
@@ -251,8 +251,13 @@ apparelArray =
 //Text name, classname, buy cost, spawn type, color
 landArray =
 [
-	["Quadbike","O_Quadbike_01_F",250,"vehicle",125],
-	["Offroad","C_Offroad_01_F",500,"vehicle",350]
+	["Quadbike","B_Quadbike_01_F",250,"vehicle",125],
+	["Quadbike (Red)","C_Quadbike_01_F",250,"vehicle",125],
+	["Offroad","C_Offroad_01_F",500,"vehicle",350],
+	["HEMTT Open","B_Truck_01_transport_F",750,"vehicle",400],
+	["HEMTT Covered","B_Truck_01_covered_F",750,"vehicle",400],
+	["Zamak Open","O_Truck_02_transport_F",750,"vehicle",400],
+	["Zamak Covered","O_Truck_02_covered_F",750,"vehicle",400]
 ]; 
 
 armoredArray =
@@ -262,19 +267,29 @@ armoredArray =
 	["Hunter GMG","B_MRAP_01_gmg_F",8000,"vehicle",4000],
 	["Ifrit","O_MRAP_02_F",3000,"vehicle",1500],
 	["Ifrit HMG","O_MRAP_02_hmg_F",8000,"vehicle",4000],
-	["Ifrit GMG","O_MRAP_02_gmg_F",9000,"vehicle",4500]
-]; 
+	["Ifrit GMG","O_MRAP_02_gmg_F",9000,"vehicle",4500],
+	["Strider","O_MRAP_03_F",3000,"vehicle",1500],
+	["Strider HMG","O_MRAP_03_hmg_F",8000,"vehicle",4000],
+	["Strider GMG","O_MRAP_03_gmg_F",9000,"vehicle",4500]
+];
 
 tanksArray =
 [
+	["AMV-7 Marshall","B_APC_Wheeled_01_cannon_F",1000,"vehicle",""],
+	["MSE-3 Marid","O_APC_Wheeled_02_rcws_F",1000,"vehicle",""]
 ]; 
 
 helicoptersArray =
 [
-	["MH-9","B_Heli_Light_01_F",5000,"vehicle",""],
-	["AH-9 (w)","B_Heli_Light_01_armed_F",12000,"vehicle",""],
-	["Ka-60","O_Ka60_Unarmed_F",6000,"vehicle",""],
-	["Ka-60 (w)","O_Ka60_F",13000,"vehicle",""]
+	["MH-9 Hummingbird","B_Heli_Light_01_F",5000,"vehicle",""],
+	["AH-9 Pawnee","B_Heli_Light_01_armed_F",10000,"vehicle",""],
+	["AH-99 Blackfoot","B_Heli_Attack_01_F",10000,"vehicle",""],
+	["UH-80 Ghosthawk","B_Heli_Transport_01_F",10000,"vehicle",""],
+	["Mi-48 Kajman", "O_Heli_Attack_02_F", 10000, "vehicle", ""],
+	["Mi-48 Kajman (Black)", "O_Heli_Attack_02_black_F", 10000, "vehicle", ""],
+	["PO-30 Orca", "O_Heli_Light_02_F", 10000, "vehicle", ""],
+	["PO-30 Orca (Black)", "O_Heli_Light_02_unarmed_F", 10000, "vehicle", ""],
+	["CH-49 Mohawk", "C_Heli_Transport_02_F", 10000, "vehicle", ""]
 ]; 
 
 jetsArray =
@@ -289,6 +304,11 @@ boatsArray =
 	["Rescue Red","O_Lifeboat",1000,"boat",500],
 	["Speedboat Minigun","B_Boat_Armed_01_minigun_F",6000,"boat",3000],
 	["Speedboat HMG","O_Boat_Armed_01_hmg_F",7000,"boat",3500]
+];
+
+submarinesArray = 
+[
+	["SDV Submarine", "B_SDV_01_F", 20000, "submarine", 1000]
 ];
 
 colorsArray =
