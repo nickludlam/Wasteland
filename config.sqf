@@ -85,7 +85,6 @@ throwputArray =
 	["APERS Tripwire Mine","APERSTripMine_Wire_Mag",500,0]
 ];
 
-"Does _itemText  == _x ["3Rnd 3GL Smoke Rounds (Blue)","3Rnd_SmokeBlue_Grenade_shell",75]"
 //Gun Store Ammo List
 //Text name, classname, buy cost
 ammoArray =
