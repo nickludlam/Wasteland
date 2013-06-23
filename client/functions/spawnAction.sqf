@@ -58,3 +58,11 @@ if(isNil{client_firstSpawn}) then {
 		};
 	};
 };
+
+// Select the first weapon they have, if any. Probably a pistol
+_wArray = weapons player;
+if (count _wArray > 0) then {
+	_wName = _wArray select 0;
+	player selectWeapon _wName;
+};
+
