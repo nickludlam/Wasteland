@@ -8,7 +8,7 @@
 #ifdef __DEBUG__
 
 	#define sideMissionTimeout 230
-	#define sideMissionDelayTime 5
+	#define sideMissionDelayTime 60
 
 #else
 

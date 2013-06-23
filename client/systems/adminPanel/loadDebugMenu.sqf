@@ -21,6 +21,7 @@ if ((_uid in moderators) OR (_uid in administrators) OR (_uid in serverAdministr
 	                "Show Server FPS",
 					"Access Respawn Dialog",
 					"Cleanup",
+					"Toggle god mode",
 	                "Test Function",
 					"Rebuild Buildings",
 					"Init Gun Stores"

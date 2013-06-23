@@ -89,7 +89,7 @@ if ((_uid in moderators) OR (_uid in administrators) OR (_uid in serverAdministr
 			    {
 	                closeDialog 0;    
 	                hint "Click on map to teleport";
-	                onMapSingleClick "vehicle player setPos _pos; onMapSingleClick '';true;";
+	                onMapSingleClick "vehicle player setPos _pos; onMapSingleClick '';hint ''; true;";
 			    };
 			    case 3: //Tags
 			    {
@@ -102,8 +102,8 @@ if ((_uid in moderators) OR (_uid in administrators) OR (_uid in serverAdministr
 			    };
 	            case 5: //Debug Menu
 			    {   
-	            	closeDialog 0;   
-	                execVM "client\systems\adminPanel\loadDebugMenu.sqf";
+	            	closeDialog 0;
+	            	execVM "client\systems\adminPanel\loadDebugMenu.sqf";
 			    };
 			};
 	    };
@@ -140,16 +140,52 @@ if ((_uid in moderators) OR (_uid in administrators) OR (_uid in serverAdministr
 					[]execVM "client\systems\adminPanel\cleanup.sqf";
 					hint "Cleanup script ran";
 				};
-	            case 6: //Test Function
+				case 6:
+				{
+					#ifdef __DEBUG__ 
+					if (X_Client) then {
+						_curPlayerInvulnState = player getVariable ["isAdminInvulnerable", 0];
+						diag_log format ["ADMIN: _curPlayerState is %1", _curPlayerInvulnState];
+ 
+						diag_log "ADMIN: Adding invulnerability";
+ 
+						if (_curPlayerInvulnState == 0) then
+						{
+							diag_log "ADMIN: Adding invulnerability";
+							hint "You are now invulnerable";
+							player setVariable ["isAdminInvulnerable", 1, true];
+ 
+							player removeAllEventHandlers "handleDamage";
+							player addEventHandler ["handleDamage", { false }];        
+							player allowDamage false;
+						}
+						else
+						{
+							diag_log "ADMIN: Removing invulnerability";
+							hint "You are no longer invulnerable";
+							player setVariable ["isAdminInvulnerable", 0, true];
+ 
+							player removeAllEventHandlers "handleDamage";
+							player addEventHandler ["handleDamage", { true }];        
+							player allowDamage true;
+						};
+ 
+						diag_log format ["ADMIN: End of isAdminInvulnerable section"];
+					};
+					#else
+					hint "Sorry, god mode isn't available outside of DEBUG mode";
+					#endif
+				};
+	            case 7: //Test Function
 			    {
                    _lootspawnz = [] execVM "server\spawning\respawn.sqf";
 			    };
-				case 7: //Building Repair
+				case 8: //Building Repair
 			    {
                    //[] execVM "client\functions\immRebuild.sqf";
 				   [] call immRebuild;
 			    };
-				case 8: //store owner init
+				case 9: //store owner init
 				{
 					//[] execVM "server\functions\initStoreOwners.sqf";
 					[] call initGunStores;

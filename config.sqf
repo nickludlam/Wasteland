@@ -288,13 +288,14 @@ armoredArray =
 	["Ifrit GMG","O_MRAP_02_gmg_F",9000,"vehicle",4500],
 	["Strider","I_MRAP_03_F",3000,"vehicle",1500],
 	["Strider HMG","I_MRAP_03_hmg_F",8000,"vehicle",4000],
-	["Strider GMG","I_MRAP_03_gmg_F",9000,"vehicle",4500]
+	["Strider GMG","I_MRAP_03_gmg_F",9000,"vehicle",4500],
+	["AMV-7 Marshall","B_APC_Wheeled_01_cannon_F",11000,"vehicle",""],
+	["MSE-3 Marid","O_APC_Wheeled_02_rcws_F",11000,"vehicle",""]
 ];
 
 tanksArray =
 [
-	["AMV-7 Marshall","B_APC_Wheeled_01_cannon_F",10000,"vehicle",""],
-	["MSE-3 Marid","O_APC_Wheeled_02_rcws_F",10000,"vehicle",""]
+
 ];
 
 helicoptersArray =

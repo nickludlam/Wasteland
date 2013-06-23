@@ -8,7 +8,7 @@
 #ifdef __DEBUG__
 
 	#define mainMissionTimeout 300
-	#define mainMissionDelayTime 5
+	#define mainMissionDelayTime 30
 
 #else
 

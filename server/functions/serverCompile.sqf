@@ -18,7 +18,7 @@ mission_HostileHeliFormation = compile preprocessFileLineNumbers "server\mission
 mission_Convoy = compile preprocessFileLineNumbers "server\missions\mainMissions\mission_Convoy.sqf";
 mission_MoneyShipment = compile preprocessFileLineNumbers "server\missions\mainMissions\mission_MoneyShipment.sqf";
 mission_SeaConvoy = compile preprocessFileLineNumbers "server\missions\mainMissions\mission_SeaConvoy.sqf";
-//mission_APC = compile preprocessFileLineNumbers "server\missions\mainMissions\mission_APC.sqf";
+mission_APC = compile preprocessFileLineNumbers "server\missions\mainMissions\mission_APC.sqf";
 //mission_Insurgence = compile preprocessFileLineNumbers "server\missions\mainMissions\mission_Insurgence.sqf";
 mission_Bounty = compile preprocessFileLineNumbers "server\missions\mainMissions\mission_BountyHunt.sqf";
 

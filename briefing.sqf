@@ -224,6 +224,7 @@ player createDiaryRecord["changelog",
 - Incorporated all Beta content.<br/>
 - Rearmed the Mob Money and Serial Killer missions.<br/>
 - You can no longer spawn on yourself as group leader.<br/>
+- New mission involving the APCs.<br/>
 "
 ]
 ];

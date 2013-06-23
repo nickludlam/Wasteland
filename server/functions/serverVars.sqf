@@ -174,5 +174,10 @@ MissionSpawnMarkers = [
             ["Mission_11",false],
             ["Mission_12",false],
             ["Mission_13",false],
-            ["Mission_14",false]
-];
+            ["Mission_14",false],
+            ["Mission_15",false],
+            ["Mission_16",false],
+            ["Mission_17",false],
+            ["Mission_18",false],
+            ["Mission_19",false]
+            ];

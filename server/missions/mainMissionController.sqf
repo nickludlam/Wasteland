@@ -11,16 +11,19 @@ private ["_MainMissions","_mission","_missionType","_notPlayedMainMissions","_ne
 
 diag_log format["WASTELAND SERVER - Started Main Mission State"];
 
-_MainMissions = [[mission_ArmedHeli,"mission_ArmedHeli"],
+_MainMissions = [
+                 [mission_ArmedHeli,"mission_ArmedHeli"],
 				 [mission_LightArmVeh,"mission_LightArmVeh"],
 				 [mission_HostileHeliFormation,"mission_HostileHeliFormation"],
 				 [mission_SeaConvoy, "mission_SeaConvoy"],
 				 [mission_CivHeli,"mission_CivHeli"],
 				 [mission_Convoy,"mission_Convoy"],
 				 [mission_MoneyShipment, "mission_MoneyShipment"],
-				 [mission_Bounty, "mission_Bounty"]];
+				 [mission_Bounty, "mission_Bounty"],
+                 [mission_APC, "mission_APC"]
+                ];
 //_MainMissions = [[mission_Bounty, "mission_Bounty"]];//,
-//				 [mission_SupplyDrop,"mission_SupplyDrop"][mission_APC,"mission_APC"]];[mission_MoneyShipment, "mission_MoneyShipment"]
+//				   [mission_APC,"mission_APC"]];[mission_MoneyShipment, "mission_MoneyShipment"]
 //[mission_Outpost,"mission_Outpost"][mission_Insurgence, "mission_Insurgence"]
 _notPlayedMainMissions = +_MainMissions;
 
