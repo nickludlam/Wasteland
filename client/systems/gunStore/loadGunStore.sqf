@@ -14,6 +14,7 @@ _Dialog = findDisplay gunshop_DIALOG;
 _playerMoney = _Dialog displayCtrl gunshop_money;
 _money = player getVariable "cmoney";
 _playerMoney CtrlsetText format["Cash: $%1", _money];
-_owner = _this select 0;
-currentOwnerName = name _owner;
-currentOwnerID = _owner;
+//we don't need this since vehicles are their own separate store now Just in case it becomes useful in the future I will comment it out H_S
+//_owner = _this select 0;
+//currentOwnerName = name _owner;
+//currentOwnerID = _owner;

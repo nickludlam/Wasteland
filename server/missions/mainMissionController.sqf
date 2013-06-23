@@ -17,8 +17,9 @@ _MainMissions = [[mission_ArmedHeli,"mission_ArmedHeli"],
 				 [mission_SeaConvoy, "mission_SeaConvoy"],
 				 [mission_CivHeli,"mission_CivHeli"],
 				 [mission_Convoy,"mission_Convoy"],
-				 [mission_MoneyShipment, "mission_MoneyShipment"]];
-//_MainMissions = [[mission_SeaConvoy, "mission_SeaConvoy"]];//,
+				 [mission_MoneyShipment, "mission_MoneyShipment"],
+				 [mission_Bounty, "mission_Bounty"]];
+//_MainMissions = [[mission_Bounty, "mission_Bounty"]];//,
 //				 [mission_SupplyDrop,"mission_SupplyDrop"][mission_APC,"mission_APC"]];[mission_MoneyShipment, "mission_MoneyShipment"]
 //[mission_Outpost,"mission_Outpost"][mission_Insurgence, "mission_Insurgence"]
 _notPlayedMainMissions = +_MainMissions;

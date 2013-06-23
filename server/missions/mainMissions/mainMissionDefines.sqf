@@ -14,6 +14,7 @@
 
 	#define mainMissionTimeout 1200
 	#define mainMissionDelayTime 600
+	#define mainBountyTimeout 1320
 
 #endif
 

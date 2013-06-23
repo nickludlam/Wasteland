@@ -83,8 +83,8 @@ _man4 addEventHandler ["killed", "[_this select 0, _this select 1] execVM 'clien
 
 //Sniper
 _man5 = _group createunit ["C_man_polo_5_F", [_pos select 0, (_pos select 1) - 30, 0], [], 0.5, "Form"];
-_man5 addMagazine "20Rnd_762x45_Mag";
-_man5 addMagazine "20Rnd_762x45_Mag";
+_man5 addMagazine "20Rnd_762x51_Mag";
+_man5 addMagazine "20Rnd_762x51_Mag";
 _man5 addWeapon "srifle_EBR_F";
 _man5 setskill ["Endurance",1];
 _man5 setskill ["aimingAccuracy",1];
@@ -152,8 +152,8 @@ _man8 addEventHandler ["killed", "[_this select 0, _this select 1] execVM 'serve
 
 //Sniper
 _man9 = _group createunit ["C_man_polo_4_F", [_pos select 0, (_pos select 1) - 50, 0], [], 0.5, "Form"];
-_man9 addMagazine "20Rnd_762x45_Mag";
-_man9 addMagazine "20Rnd_762x45_Mag";
+_man9 addMagazine "20Rnd_762x51_Mag";
+_man9 addMagazine "20Rnd_762x51_Mag";
 _man9 addWeapon "srifle_EBR_F";
 _man9 setskill ["Endurance",1];
 _man9 setskill ["aimingAccuracy",1];

@@ -208,6 +208,15 @@ player createDiaryRecord["changelog",
 ]
 ];
 
+player createDiaryRecord["changelog",
+[
+"1.2 His_Shadow -",
+"<br/><br/>
+- Bounty Hunt mission added.<br/>
+"
+]
+];
+
 player createDiaryRecord["Info",
 [
 "The Basics -",
