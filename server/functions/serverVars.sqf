@@ -89,7 +89,7 @@ objectList = ["Land_Sacks_goods_F",
 staticWeaponsList = ["B_MK6"];
 
 //Object List - Random Helis.
-staticHeliList = ["O_Ka60_Unarmed_F",
+staticHeliList = ["O_Heli_Light_02_F",
 					"B_Heli_Light_01_F"];
 
 //Random Weapon List - Change this to what you want to spawn in cars.
@@ -110,7 +110,7 @@ vehicleWeapons = ["arifle_SDAR_F",
                 "arifle_Mk20_F",
                 "arifle_Mk20_GL_F",
                 "LMG_Mk200_F",
-                "LMG_Zafir_F"
+                "LMG_Zafir_F",
                 "hgun_P07_F",
                 "hgun_Rook40_F",
                 "hgun_ACPC2_F",
