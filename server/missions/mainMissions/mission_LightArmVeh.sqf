@@ -25,9 +25,12 @@ diag_log format["WASTELAND SERVER - Main Mission Resumed: %1",_missionType];
 
 [_missionMarkerName,_randomPos,_missionType] call createClientMarker;
 
-_vehicleClass = ["O_MRAP_02_gmg_F","B_MRAP_01_hmg_F","B_MRAP_01_gmg_F","O_MRAP_02_hmg_F"] call BIS_fnc_selectRandom;
+CivGrpM = createGroup civilian;
+[CivGrpM,_randomPos] spawn createMidGroup;
 
 //Vehicle Class, Posistion, Fuel, Ammo, Damage
+_vehicleClass = ["O_MRAP_02_gmg_F","B_MRAP_01_hmg_F","B_MRAP_01_gmg_F","O_MRAP_02_hmg_F"] call BIS_fnc_selectRandom;
+_vehicle = [_vehicleClass,_randomPos,0.5,0.5,0,"NONE"] call createMissionVehicle;
 _vehicle addEventHandler ["IncomingMissile", "hint format['Incoming Missile Launched By: %1', name (_this select 2)]"];
 
 _picture = getText (configFile >> "cfgVehicles" >> typeOf _vehicle >> "picture");
@@ -35,9 +38,6 @@ _vehicleName = _vehicleClass;
 _hint = parseText format ["<t align='center' color='%4' shadow='2' size='1.75'>Main Objective</t><br/><t align='center' color='%4'>------------------------------</t><br/><t align='center' color='%5' size='1.25'>%1</t><br/><t align='center'><img size='5' image='%2'/></t><br/><t align='center' color='%5'>A<t color='%4'> %3</t>, has been spoted in the area marked</t>", _missionType, _picture, _missionType, mainMissionColor, subTextColor];
 messageSystem = _hint;
 publicVariable "messageSystem";
-
-CivGrpM = createGroup civilian;
-[CivGrpM,_randomPos] spawn createMidGroup;
 
 diag_log format["WASTELAND SERVER - Main Mission Waiting to be Finished: %1",_missionType];
 _startTime = floor(time);

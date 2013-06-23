@@ -210,7 +210,16 @@ player createDiaryRecord["changelog",
 
 player createDiaryRecord["changelog",
 [
-"1.2 Bewilderbeest -",
+"1.2 His_Shadow -",
+"<br/><br/>
+- Bounty Hunt mission added.<br/>
+"
+]
+];
+
+player createDiaryRecord["changelog",
+[
+"1.3 Bewilderbeest -",
 "<br/><br/>
 - Incorporated all Beta content.<br/>
 - Rearmed the Mob Money and Serial Killer missions.<br/>

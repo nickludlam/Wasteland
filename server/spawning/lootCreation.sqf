@@ -58,6 +58,9 @@ randomweapon_itemlist = [
 
     _pos = [0,0];
     randomweapon_buildings = nearestObjects [_pos, ["house"], 60000];
+	_do = 1;
+while{_do == 1} do
+{
     sleep 30;
     {
      _building = _x;
@@ -109,3 +112,5 @@ randomweapon_itemlist = [
       };    
      };
     }foreach randomweapon_buildings;
+	sleep 7200;
+}
