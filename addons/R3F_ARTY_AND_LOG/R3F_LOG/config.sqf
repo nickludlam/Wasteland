@@ -8,6 +8,10 @@ R3F_LOG_CFG_remorqueurs = [
 	"O_Quadbike_01_F",
     "B_Quadbike_01_F",
 	"C_Offroad_01_F",
+	"B_Truck_01_transport_F",
+	"B_Truck_01_covered_F",
+	"O_Truck_02_transport_F",
+	"O_Truck_02_covered_F",
 	"O_MRAP_02_hmg_F",
     "B_MRAP_01_F",
     "B_MRAP_01_gmg_F",
@@ -28,6 +32,10 @@ R3F_LOG_CFG_remorqueurs = [
  */
 R3F_LOG_CFG_objets_remorquables = [
 	"C_Offroad_01_F",
+	"B_Truck_01_transport_F",
+	"B_Truck_01_covered_F",
+	"O_Truck_02_transport_F",
+	"O_Truck_02_covered_F",
 	"O_MRAP_02_hmg_F",
 	"B_MRAP_01_F",
 	"B_MRAP_01_gmg_F",
@@ -35,10 +43,6 @@ R3F_LOG_CFG_objets_remorquables = [
 	"O_MRAP_02_F",
 	"O_MRAP_02_gmg_F",
 	"Land_Cargo20_Military_F",
-	//"O_Ka60_Unarmed_F",
-	//"B_Heli_Light_01_F",
-	//"O_Ka60_F",
-	//"B_Heli_Light_01_armed_F",
 	"Land_Cargo20_military_F",
 	"Land_Cargo_Patrol_V1_F",
 	"Land_MetalBarrel_F",
@@ -62,10 +66,15 @@ R3F_LOG_CFG_objets_remorquables = [
  * Liste des noms de classes des v�hicules a�riens pouvant h�liporter des objets h�liportables.
  */
 R3F_LOG_CFG_heliporteurs = [
-	"O_Ka60_Unarmed_F",
 	"B_Heli_Light_01_F",
-	"O_Ka60_F",
-	"B_Heli_Light_01_armed_F"
+	"B_Heli_Light_01_armed_F",
+	"B_Heli_Attack_01_F",
+	"B_Heli_Transport_01_F",
+	"O_Heli_Attack_02_F",
+	"O_Heli_Attack_02_black_F",
+	"O_Heli_Light_02_F",
+	"O_Heli_Light_02_unarmed_F",
+	"I_Heli_Transport_02_F"
 ];
 
 /**
@@ -80,6 +89,9 @@ R3F_LOG_CFG_objets_heliportables = [
     "B_MRAP_01_hmg_F",
     "O_MRAP_02_F",
     "O_MRAP_02_gmg_F",
+    "I_MRAP_03_F",
+    "I_MRAP_03_hmg_F",
+    "I_MRAP_03_gmg_F",
 	"B_Lifeboat",
 	"B_Boat_Transport_01_F",
 	"O_Boat_Transport_01_F",
@@ -101,27 +113,46 @@ R3F_LOG_CFG_objets_heliportables = [
 
 
 R3F_LOG_CFG_transporteurs = [
+	// Unarmed vehicles
+    ["O_Quadbike_01_F", 5],
+    ["B_Quadbike_01_F", 5],
 	["C_Offroad_01_F", 50],
+	["B_Truck_01_transport_F",100],
+	["B_Truck_01_covered_F",100],
+	["O_Truck_02_transport_F",100],
+	["O_Truck_02_covered_F",100],
+	// Light armor
 	["O_MRAP_02_hmg_F", 20],
 	["B_MRAP_01_F", 40],
 	["B_MRAP_01_gmg_F", 20],
 	["B_MRAP_01_hmg_F", 20],
 	["O_MRAP_02_F", 40],
 	["O_MRAP_02_gmg_F", 20],
-	["O_Ka60_Unarmed_F", 80],
+	["I_MRAP_03_F", 40],
+	["I_MRAP_03_hmg_F", 20],
+	["I_MRAP_03_gmg_F", 20],
+	// APC
+	["B_APC_Wheeled_01_cannon_F",30],
+	["O_APC_Wheeled_02_rcws_F",30],
+	// Helis
 	["B_Heli_Light_01_F", 30],
-	["O_Ka60_F", 20],
-    ["O_Quadbike_01_F", 5],
-    ["B_Quadbike_01_F", 5],
-	["Land_Cargo_Patrol_V1_F", 100],
-	["Land_Cargo20_Military_F",100],
-	["B_Heli_Light_01_armed_F", 10],
-	["B_Boat_Armed_01_minigun_F", 5],
+	["B_Heli_Light_01_armed_F", 30],
+	["B_Heli_Attack_01_F", 10],
+	["B_Heli_Transport_01_F", 80],
+	["O_Heli_Attack_02_F", 30],
+	["O_Heli_Attack_02_black_F", 50],
+	["O_Heli_Light_02_F", 30],
+	["O_Heli_Light_02_unarmed_F", 50],
+	["I_Heli_Transport_02_F", 90],
+	// Boats
+	["B_Boat_Transport_01_F",15],
+	["O_Boat_Transport_01_F",15],
+	["I_Boat_Transport_01_F",15],
 	["B_Lifeboat", 5],
-	["B_Boat_Transport_01_F", 10],
-	["O_Boat_Transport_01_F", 10],
-	["O_Lifeboat", 5],
-	["O_Boat_Armed_01_hmg_F", 5]
+	["O_Lifeboat",5],
+	["B_Boat_Armed_01_minigun_F",5],
+	["O_Boat_Armed_01_hmg_F",5],
+	["I_Boat_Armed_01_minigun_F",5]
 ];
 
  
@@ -155,7 +186,7 @@ R3F_LOG_CFG_objets_transportables =  [
 	["Land_Pipes_Large_F", 5],
 	["Land_Cargo_Patrol_V1_F", 30],
 	["Land_Cargo20_Military_F", 30],
-        ["Land_Stone_8m_F", 5]
+	["Land_Stone_8m_F", 5]
 ];
 
 /****** MOVABLE-BY-PLAYER OBJECTS / OBJETS DEPLACABLES PAR LE JOUEUR ******/
