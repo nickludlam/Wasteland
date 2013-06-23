@@ -2165,7 +2165,7 @@ class Mission
 	};
 	class Vehicles
 	{
-		items=365;
+		items=362;
 		class Item0
 		{
 			position[]={3584.0212,197.43867,4904.0024};
@@ -5719,37 +5719,6 @@ class Mission
 			skill=0.60000002;
 			text="killfarm_gunstore_flagpole";
 			init="this allowDamage false; this setFlagTexture ""images\flag_kos_wide_bw.jpg"";";
-		};
-		class Item362
-		{
-			position[]={2012.0793,3,5345.728};
-			azimut=283;
-			id=492;
-			side="EMPTY";
-			vehicle="Sign_F";
-			skill=0.60000002;
-			text="airfield_gunstore_sign";
-			init="this allowDamage false; this enablesimulation false";
-		};
-		class Item363
-		{
-			position[]={2012.0793,3,5345.728};
-			offsetY=1.9;
-			id=2;
-			side="EMPTY";
-			vehicle="UserTexture1m_F";
-			skill=0.60000002;
-			init="this setObjectTexture [0, ""images\kos_sign_l.paa""]; this attachTo [airfield_gunstore_sign,[-0.5,-0.05,0.6]]; ";
-		};
-		class Item364
-		{
-			position[]={2012.0793,3,5345.728};
-			offsetY=1.9;
-			id=3;
-			side="EMPTY";
-			vehicle="UserTexture1m_F";
-			skill=0.60000002;
-			init="this setObjectTexture [0, ""images\kos_sign_r.paa""]; this attachTo [airfield_gunstore_sign,[0.5,-0.05,0.6]];";
 		};
 	};
 	class Markers
