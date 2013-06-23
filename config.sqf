@@ -184,8 +184,9 @@ backpackArray =
 	//["Small Green","B_AssaultPack_ocamo",0,"backpack"],
 	["Small Dark Brn","B_AssaultPack_rgr",350,"backpack"],
 	["Small White","B_AssaultPack_sgg",350,"backpack"],
+	
 	["Small Diver Blk","B_AssaultPack_blk_DiverExp",2400,"backpack"],
-	["Small Diver TL Blk","B_AssaultPack_blk_DiverTL",400,"backpack"],
+
 	["Small Medic Drk Brn","B_AssaultPack_rgr_Medic",750,"backpack"],
 	["Small Repair Drk Brn","B_AssaultPack_rgr_Repair",1200,"backpack"],
 	["Medium Brn","B_FieldPack_Base",700,"backpack"],
@@ -303,7 +304,7 @@ helicoptersArray =
 	["MH-9 Hummingbird","B_Heli_Light_01_F",5000,"vehicle",""],
 	["AH-9 Pawnee","B_Heli_Light_01_armed_F",12000,"vehicle",""],
 	["AH-99 Blackfoot","B_Heli_Attack_01_F",15000,"vehicle",""],
-	["UH-80 Ghosthawk","B_Heli_Transport_01_F",16000,"vehicle",""],
+	["UH-80 Ghosthawk","B_Heli_Transport_01_F",10000,"vehicle",""],
 	["Mi-48 Kajman", "O_Heli_Attack_02_F", 15000, "vehicle", ""],
 	["Mi-48 Kajman (Black)", "O_Heli_Attack_02_black_F", 15000, "vehicle", ""],
 	["PO-30 Orca", "O_Heli_Light_02_F", 12000, "vehicle", ""],
@@ -317,11 +318,11 @@ jetsArray =
 
 boatsArray =
 [
-	["Assault Boat Blue","B_Boat_Transport_01_F",1000,"boat",500],
-	["Assault Boat Red","O_Boat_Transport_01_F",1000,"boat",500],
-	["Assault Boat Green","I_Boat_Transport_01_F",1000,"boat",500],
-	["Rescue Blue","B_Lifeboat",1000,"boat",500],
-	["Rescue Red","O_Lifeboat",1000,"boat",500],
+	["Assault Boat Blue","B_Boat_Transport_01_F",750,"boat",500],
+	["Assault Boat Red","O_Boat_Transport_01_F",750,"boat",500],
+	["Assault Boat Green","I_Boat_Transport_01_F",750,"boat",500],
+	["Rescue Blue","B_Lifeboat",500,"boat",500],
+	["Rescue Red","O_Lifeboat",500,"boat",500],
 	["Speedboat Minigun Blue","B_Boat_Armed_01_minigun_F",6000,"boat",3000],
 	["Speedboat HMG","O_Boat_Armed_01_hmg_F",7000,"boat",3500],
 	["Speedboat Minigun Green","I_Boat_Armed_01_minigun_F",5000,"boat",500]
@@ -329,7 +330,7 @@ boatsArray =
 
 submarinesArray = 
 [
-	["SDV Submarine", "B_SDV_01_F", 1, "submarine", 8000]
+	["SDV Submarine", "B_SDV_01_F", 1500, "submarine", 750]
 ];
 
 colorsArray =

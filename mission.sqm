@@ -9294,7 +9294,7 @@ class Mission
 			timeoutMax=300;
 			interruptable=1;
 			age="UNKNOWN";
-			expActiv="""s1_80"" setmarkercolor ""colorblue"";titleText [""Blufor has captured Cousin Romans Garage"",""PLAIN"", 3]; titleFadeOut 3;  _handle = player execVM ""cmoneyB.sqf""; ";
+			expActiv="""s1_80"" setmarkercolor ""colorblue"";titleText [""Blufor has captured Godmode's Garage"",""PLAIN"", 3]; titleFadeOut 3;  _handle = player execVM ""cmoneyB.sqf""; ";
 			class Effects
 			{
 				voice="HintsOpen";
@@ -9311,7 +9311,7 @@ class Mission
 			timeoutMax=300;
 			interruptable=1;
 			age="UNKNOWN";
-			expActiv="""s1_80"" setmarkercolor ""colorred"";titleText [""Opfor has captured Cousin Romans Garage"",""PLAIN"", 3]; titleFadeOut 3;  _handle = player execVM ""cmoneyO.sqf""; ";
+			expActiv="""s1_80"" setmarkercolor ""colorred"";titleText [""Opfor has captured Godmode's Garage"",""PLAIN"", 3]; titleFadeOut 3;  _handle = player execVM ""cmoneyO.sqf""; ";
 			class Effects
 			{
 				voice="HintsOpen";
@@ -9672,7 +9672,7 @@ class Mission
 			timeoutMax=30;
 			interruptable=1;
 			age="UNKNOWN";
-			expActiv="{_x Setdammage 0} Foreach thislist; {thirstLevel = 100; hungerLevel = 100;}Foreach thislist;";
+			expActiv="{_x Setdammage 0} Foreach thislist; {thirstLevel = 100; hungerLevel = 100; fatigueLevel = 0;}Foreach thislist;";
 			class Effects
 			{
 				voice="Hints";
@@ -9692,7 +9692,7 @@ class Mission
 			timeoutMax=30;
 			interruptable=1;
 			age="UNKNOWN";
-			expActiv="{_x Setdammage 0} Foreach thislist; {thirstLevel = 100; hungerLevel = 100;}Foreach thislist;";
+			expActiv="{_x Setdammage 0} Foreach thislist; {thirstLevel = 100; hungerLevel = 100; fatigueLevel = 0;}Foreach thislist;";
 			class Effects
 			{
 				voice="Hints";
@@ -9821,7 +9821,7 @@ class Mission
 			timeoutMax=300;
 			interruptable=1;
 			age="UNKNOWN";
-			expActiv="""s1_80"" setmarkercolor ""colorgreen"";titleText [""Rebels have captured Cousin Romans Garage"",""PLAIN"", 3]; titleFadeOut 3; _handle = player execVM ""cmoneyI.sqf"";  ";
+			expActiv="""s1_80"" setmarkercolor ""colorgreen"";titleText [""Rebels have captured Godmode's Garage"",""PLAIN"", 3]; titleFadeOut 3; _handle = player execVM ""cmoneyI.sqf"";  ";
 			class Effects
 			{
 				voice="HintsOpen";
