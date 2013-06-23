@@ -13,9 +13,9 @@ rifleArray =
     //Underwater Gun
 	["SDAR 5.56 mm","arifle_SDAR_F",50,25],
 	//Assault Rifle
-	["MX 6.5 mm","arifle_MX_F",100,50],
+	["MX 6.5 mm","arifle_MX_F",150,75],
 	["MX 3GL 6.5 mm","arifle_MX_GL_F",250,125],
-	["MXC 6.5 mm","arifle_MXC_F",100,50],
+	["MXC 6.5 mm","arifle_MXC_F",150,75],
 	["MXM 6.5 mm","arifle_MXM_F",700,350],
 
 	//Light Machine Gun
@@ -23,16 +23,16 @@ rifleArray =
 	["Mk200 6.5 mm","LMG_Mk200_F",300,150],
 	["Zafir 7.62 mm","LMG_Zafir_F",400,200],
 	//Assault Rifle
-	["Mk20C 5.56 mm","arifle_Mk20C_F",100,50],
-	["Mk20 5.56 mm","arifle_Mk20C_F",100,50],	
-	["Mk20 EGLM 5.56 mm","arifle_Mk20_GL_F",100,50],
+	["Mk20C 5.56 mm","arifle_Mk20C_F",150,75],
+	["Mk20 5.56 mm","arifle_Mk20_F",150,75],	
+	["Mk20 EGLM 5.56 mm","arifle_Mk20_GL_F",150,75],
 
-	["TRG-20 5.56 mm","arifle_TRG20_F",100,50],	
-	["TRG-21 5.56 mm","arifle_TRG21_F",100,50],
+	["TRG-20 5.56 mm","arifle_TRG20_F",150,75],	
+	["TRG-21 5.56 mm","arifle_TRG21_F",150,75],
 	["TRG-21 EGLM 5.56 mm","arifle_TRG21_GL_F",250,125],
 
-	["Katiba 6.5 mm","arifle_Katiba_F",100,50],
-	["Katiba Carabine 6.5 mm","arifle_Katiba_C_F",100,50],
+	["Katiba 6.5 mm","arifle_Katiba_F",150,75],
+	["Katiba Carabine 6.5 mm","arifle_Katiba_C_F",150,75],
 	["Katiba GL 6.5 mm","arifle_Katiba_GL_F",250,125],
 	//Sniper
 	["Mk18 ABR 7.62 mm","srifle_EBR_F",1000,500],
@@ -42,8 +42,8 @@ rifleArray =
 
 smgArray =
 [
-	["Vermin SBR 9mm", "SMG_01_F", 90, 45],
-	["Scorpion EVO-4 9mm", "SMG_02_F", 90, 45]
+	["Vermin SBR 9mm", "SMG_01_F", 60, 30],
+	["Scorpion EVO-4 9mm", "SMG_02_F", 60, 30]
 ];
 
 shotgunArray =
@@ -55,7 +55,7 @@ launcherArray =
     //Rocket
 	["PCML","launch_NLAW_F",800,400],
 	["RPG-42 Alamut","launch_RPG32_F",800,400],
-	["Titan MPRL","launch_Titan_F",1200,600],
+	["Titan MPRL","launch_Titan_F",1000,500],
 	["Titan MPRL Compact","launch_Titan_short_F",1000,500]
 ]; 
 
@@ -208,7 +208,7 @@ backpackArray =
 	["Ex Large Brn","B_Carryall_Base",4000,"backpack"],
 	["Ex Large Camo","B_Carryall_ocamo",4000,"backpack"],
 	["Ex Large Camo Blu","B_Carryall_oucamo",4000,"backpack"],
-	["Steerable parachute","B_Parachute",5000,"backpack"]
+	["Steerable parachute","B_Parachute",1000,"backpack"]
 	//["TestB_Carryall_oucamo_Exp","B_Carryall_oucamo_Exp",0,"backpack"],
 	//["TestBag_Base","Bag_Base",0,"backpack"]
 ];
@@ -271,7 +271,7 @@ apparelArray =
 landArray =
 [
 	["Quadbike","C_Quadbike_01_F",250,"vehicle",125],
-	["Offroad","C_Offroad_01_F",500,"vehicle",350],
+	["Offroad","C_Offroad_01_F",500,"vehicle",250],
 	["HEMTT Open","B_Truck_01_transport_F",750,"vehicle",400],
 	["HEMTT Covered","B_Truck_01_covered_F",750,"vehicle",400],
 	["Zamak Open","O_Truck_02_transport_F",750,"vehicle",400],
@@ -280,34 +280,34 @@ landArray =
 
 armoredArray =
 [
-	["Hunter","B_MRAP_01_F",1,"vehicle",1000],
-	["Hunter HMG","B_MRAP_01_hmg_F",1,"vehicle",3500],
-	["Hunter GMG","B_MRAP_01_gmg_F",1,"vehicle",4000],
-	["Ifrit","O_MRAP_02_F",1,"vehicle",1500],
-	["Ifrit HMG","O_MRAP_02_hmg_F",1,"vehicle",4000],
-	["Ifrit GMG","O_MRAP_02_gmg_F",1,"vehicle",4500],
-	["Strider","I_MRAP_03_F",1,"vehicle",1500],
-	["Strider HMG","I_MRAP_03_hmg_F",1,"vehicle",4000],
-	["Strider GMG","I_MRAP_03_gmg_F",1,"vehicle",4500]
+	["Hunter","B_MRAP_01_F",2000,"vehicle",1000],
+	["Hunter HMG","B_MRAP_01_hmg_F",7000,"vehicle",3500],
+	["Hunter GMG","B_MRAP_01_gmg_F",8000,"vehicle",4000],
+	["Ifrit","O_MRAP_02_F",3000,"vehicle",1500],
+	["Ifrit HMG","O_MRAP_02_hmg_F",8000,"vehicle",4000],
+	["Ifrit GMG","O_MRAP_02_gmg_F",9000,"vehicle",4500],
+	["Strider","I_MRAP_03_F",3000,"vehicle",1500],
+	["Strider HMG","I_MRAP_03_hmg_F",8000,"vehicle",4000],
+	["Strider GMG","I_MRAP_03_gmg_F",9000,"vehicle",4500]
 ];
 
 tanksArray =
 [
-	["AMV-7 Marshall","B_APC_Wheeled_01_cannon_F",1,"vehicle",""],
-	["MSE-3 Marid","O_APC_Wheeled_02_rcws_F",1,"vehicle",""]
+	["AMV-7 Marshall","B_APC_Wheeled_01_cannon_F",10000,"vehicle",""],
+	["MSE-3 Marid","O_APC_Wheeled_02_rcws_F",10000,"vehicle",""]
 ];
 
 helicoptersArray =
 [
-	["MH-9 Hummingbird","B_Heli_Light_01_F",1,"vehicle",""],
-	["AH-9 Pawnee","B_Heli_Light_01_armed_F",1,"vehicle",""],
-	["AH-99 Blackfoot","B_Heli_Attack_01_F",1,"vehicle",""],
-	["UH-80 Ghosthawk","B_Heli_Transport_01_F",1,"vehicle",""],
-	["Mi-48 Kajman", "O_Heli_Attack_02_F", 1, "vehicle", ""],
-	["Mi-48 Kajman (Black)", "O_Heli_Attack_02_black_F", 1, "vehicle", ""],
-	["PO-30 Orca", "O_Heli_Light_02_F", 1, "vehicle", ""],
-	["PO-30 Orca (Black)", "O_Heli_Light_02_unarmed_F", 1, "vehicle", ""],
-	["CH-49 Mohawk", "I_Heli_Transport_02_F", 1, "vehicle", ""]
+	["MH-9 Hummingbird","B_Heli_Light_01_F",5000,"vehicle",""],
+	["AH-9 Pawnee","B_Heli_Light_01_armed_F",12000,"vehicle",""],
+	["AH-99 Blackfoot","B_Heli_Attack_01_F",15000,"vehicle",""],
+	["UH-80 Ghosthawk","B_Heli_Transport_01_F",16000,"vehicle",""],
+	["Mi-48 Kajman", "O_Heli_Attack_02_F", 15000, "vehicle", ""],
+	["Mi-48 Kajman (Black)", "O_Heli_Attack_02_black_F", 15000, "vehicle", ""],
+	["PO-30 Orca", "O_Heli_Light_02_F", 12000, "vehicle", ""],
+	["PO-30 Orca (Black)", "O_Heli_Light_02_unarmed_F", 6000, "vehicle", ""],
+	["CH-49 Mohawk", "I_Heli_Transport_02_F", 8000, "vehicle", ""]
 ];
 
 jetsArray =
@@ -328,7 +328,7 @@ boatsArray =
 
 submarinesArray = 
 [
-	["SDV Submarine", "B_SDV_01_F", 1, "submarine", 1000]
+	["SDV Submarine", "B_SDV_01_F", 1, "submarine", 8000]
 ];
 
 colorsArray =

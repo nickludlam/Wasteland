@@ -86,6 +86,22 @@ _vehText ctrlSetText "";
 		{
 			_isDumb = true;
 		};
+		case "HEMTT Open":
+		{
+			_isDumb = true;
+		};
+		case "HEMTT Covered":
+		{
+			_isDumb = true;
+		};
+		case "Zamak Open":
+		{
+			_isDumb = true;
+		};
+		case "Zamak Covered":
+		{
+			_isDumb = true;
+		};
 		case "Ifrit":
 		{
 			_isDumb = true;
@@ -98,6 +114,22 @@ _vehText ctrlSetText "";
 		{
 			_isDumb = true;
 		};
+		case "Strider":
+		{
+			_isDumb = true;
+		};
+		case "Strider HMG":
+		{
+			_isDumb = true;
+		};
+		case "Strider GMG":
+		{
+			_isDumb = true;
+		};
+		case "MSE-3 Marid":
+		{
+			_isDumb = true;
+		};
 		case "Assault Boat Blue":
 		{
 			_isDumb = true;
@@ -106,11 +138,27 @@ _vehText ctrlSetText "";
 		{
 			_isDumb = true;
 		};
+		case "Assault Boat Green":
+		{
+			_isDumb = true;
+		};
 		case "Rescue Blue":
 		{
 			_isDumb = true;
 		};
 		case "Rescue Red":
+		{
+			_isDumb = true;
+		};
+		case "AH-99 Blackfoot":
+		{
+			_isDumb = true;
+		};
+		case "UH-80 Ghosthawk":
+		{
+			_isDumb = true;
+		};
+		case "SDV Submarine":
 		{
 			_isDumb = true;
 		};

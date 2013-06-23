@@ -105,11 +105,17 @@ vehicleWeapons = ["arifle_SDAR_F",
                 "arifle_Katiba_F",
                 "arifle_Katiba_C_F",  
                 "arifle_Katiba_GL_F",
-                "arifle_SDAR_F",
                 "srifle_EBR_F",
+                "arifle_Mk20C_F",
+                "arifle_Mk20_F",
+                "arifle_Mk20_GL_F",
                 "LMG_Mk200_F",
+                "LMG_Zafir_F"
                 "hgun_P07_F",
-                "hgun_Rook40_F"];
+                "hgun_Rook40_F",
+                "hgun_ACPC2_F",
+                "SMG_01_F",
+                "SMG_02_F"];
 
 vehicleAddition = [
 			"Zasleh2",

@@ -8,7 +8,7 @@ waituntil {!isnil "bis_fnc_init"};
 
 private ["_townName","_randomLoc","_pos"];
 
-_spawnSafely = 0; // or 1 if you feel lucky
+_spawnSafely = 1; // 0 for normal, or 1 if you feel lucky   
 
 if (_spawnSafely == 1) then
 {

@@ -17,7 +17,9 @@ randomweapon_weaponlist = [
 ["arifle_Katiba_F","30Rnd_65x39_caseless_green"],
 ["arifle_Katiba_C_F","30Rnd_65x39_caseless_green_mag_Tracer"],
 ["arifle_MX_GL_F","30Rnd_65x39_caseless_mag"],
-["arifle_Katiba_GL_F","30Rnd_65x39_caseless_green_mag_Tracer"]
+["arifle_Katiba_GL_F","30Rnd_65x39_caseless_green_mag_Tracer"],
+["Vermin SBR 9mm", "SMG_01_F", "30Rnd_45ACP_MAG_SMG_01"],
+["Scorpion EVO-4 9mm", "SMG_02_F", "30Rnd_9x21_Mag"]
 ];
  
 randomweapon_itemlist = [
