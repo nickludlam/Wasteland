@@ -259,12 +259,12 @@ apparelArray =
 	["Pilot Coveralls Blue", "U_B_HeliPilotCoveralls", 100, "uni"],
 	["Pilot Coveralls Red", "U_O_PilotCoveralls", 100, "uni"],
 	["Protector Helmet (Hex)","H_HelmetO_ocamo", 100,"hat"],
-	["Common Clothes 1","U_C_Commoner1_1", 30,"uni"],
-	["Polo Red/White","U_C_Poloshirt_redwhite", 30,"uni"],
-	["Polo Salmon","U_C_Poloshirt_salmon", 30,"uni"],
-	["Polo tri-color","U_C_Poloshirt_tricolour", 30,"uni"],
-	["Polo Blue","U_C_Poloshirt_blue", 30,"uni"],
-	["Polo Burgundy","U_C_Poloshirt_burgundy", 30,"uni"]
+	["Common Clothes 1","U_C_Commoner1_1", 50,"uni"],
+	["Polo Red/White","U_C_Poloshirt_redwhite", 50,"uni"],
+	["Polo Salmon","U_C_Poloshirt_salmon", 50,"uni"],
+	["Polo tri-color","U_C_Poloshirt_tricolour", 50,"uni"],
+	["Polo Blue","U_C_Poloshirt_blue", 50,"uni"],
+	["Polo Burgundy","U_C_Poloshirt_burgundy", 50,"uni"]
 ];
 
 //Text name, classname, buy cost, spawn type, color
