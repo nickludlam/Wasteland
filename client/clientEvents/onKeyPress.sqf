@@ -28,6 +28,8 @@ switch _key do
     //U key
     case 22:
     {
+        // If we have a dialog up, close it
+        if (dialog) exitWith { closeDialog 0; };
 		execVM "client\systems\adminPanel\checkAdmin.sqf";
     };
     
