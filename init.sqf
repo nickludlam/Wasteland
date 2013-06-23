@@ -42,7 +42,7 @@ if(X_Server) then {
 	diag_log format ["############################# %1 #############################", missionName];
 	diag_log format["WASTELAND SERVER - Initilizing Server"];
 	
-	#ifdef __LOCAL_SERVER__
+	#ifdef __DISABLE_INIDB__
 	diag_log format ["Skipping iniDB load"];
 	#else
 	call compile preProcessFile "\iniDB\init.sqf";

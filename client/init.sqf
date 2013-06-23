@@ -39,7 +39,7 @@ player call playerSetup;
 player setVariable["positionLoaded", 0,true];
 
 ///////////////////////////////////////////////////////////////////////////
-#ifdef __LOCAL_SERVER__
+#ifdef __DISABLE_INIDB__
 // We disable save & money functions when we're in local client/server mode
 diag_log format ["Skipping client load/save functionality"];
 #else

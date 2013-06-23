@@ -79,7 +79,7 @@ while {_run} do
 	{
 		if (getPosASL _unit distance _position > 10 && {alive _unit} count crew _unit == 0) then 
 		{
-			diag_log format ["Crew: %1", {alive _unit} count crew _unit];
+			//diag_log format ["vehicle.sqf - Unit %1. Crew: %2", _unit, {alive _unit} count crew _unit];
 			
 			_timeout = time + _deserted;
 			sleep 0.1;

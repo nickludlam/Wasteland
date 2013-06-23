@@ -10,7 +10,7 @@ if(!X_Server) exitWith {};
 private["_newObject"];
 _newObject = _this select 0;
 
-#ifndef __LOCAL_SERVER__
+#ifndef __DISABLE_INIDB__
 getPlayerUID _newObject call iniDB_delete;
 #endif
 
