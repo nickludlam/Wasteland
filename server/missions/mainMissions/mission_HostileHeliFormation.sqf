@@ -32,7 +32,7 @@ _createVehicle = {
 	if(_type == "O_Heli_Attack_02_F") then
 	{
 		_soldier2 = [_grouphsq, _position] call createRandomSoldier;
-		_soldier2 = moveInGunner _vehicle;
+		_soldier2 moveInGunner _vehicle;
 	};
     
     _vehicle
