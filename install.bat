@@ -47,6 +47,7 @@ xcopy /q /s /y %SOURCE_DIR%\* %TEMP%\%LOCAL_MISSION_NAME%
 :: Copy defines_servermode.hpp to the directories which use defines.hpp
 copy "%USERPROFILE%\Documents\GitHub\Wasteland\defines_servermode.hpp" %TEMP%\%LOCAL_MISSION_NAME%\defines.hpp
 copy "%USERPROFILE%\Documents\GitHub\Wasteland\defines_servermode.hpp" %TEMP%\%LOCAL_MISSION_NAME%\client\defines.hpp
+copy "%USERPROFILE%\Documents\GitHub\Wasteland\defines_servermode.hpp" %TEMP%\%LOCAL_MISSION_NAME%\client\functions\defines.hpp > nul
 copy "%USERPROFILE%\Documents\GitHub\Wasteland\defines_servermode.hpp" %TEMP%\%LOCAL_MISSION_NAME%\server\defines.hpp
 copy "%USERPROFILE%\Documents\GitHub\Wasteland\defines_servermode.hpp" %TEMP%\%LOCAL_MISSION_NAME%\server\functions\defines.hpp
 copy "%USERPROFILE%\Documents\GitHub\Wasteland\defines_servermode.hpp" %TEMP%\%LOCAL_MISSION_NAME%\server\missions\sideMissions\defines.hpp
@@ -72,6 +73,7 @@ xcopy /q /s /y %SOURCE_DIR% %TEST_DESTINATION_DIR%
 :: Copy defines_localediting.hpp to the directories which use defines.hpp
 copy "%USERPROFILE%\Documents\GitHub\Wasteland\defines_localediting.hpp" %TEST_DESTINATION_DIR%\defines.hpp > nul
 copy "%USERPROFILE%\Documents\GitHub\Wasteland\defines_localediting.hpp" %TEST_DESTINATION_DIR%\client\defines.hpp > nul
+copy "%USERPROFILE%\Documents\GitHub\Wasteland\defines_localediting.hpp" %TEST_DESTINATION_DIR%\client\functions\defines.hpp > nul
 copy "%USERPROFILE%\Documents\GitHub\Wasteland\defines_localediting.hpp" %TEST_DESTINATION_DIR%\server\defines.hpp > nul
 copy "%USERPROFILE%\Documents\GitHub\Wasteland\defines_localediting.hpp" %TEST_DESTINATION_DIR%\server\functions\defines.hpp > nul
 copy "%USERPROFILE%\Documents\GitHub\Wasteland\defines_localediting.hpp" %TEST_DESTINATION_DIR%\server\missions\sideMissions\defines.hpp > nul

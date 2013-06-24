@@ -6,7 +6,7 @@
 //	@file Args:
 
 disableSerialization;
-private["_ui","_hud","_food","_water"];
+private["_ui","_fatigue", "_hud","_food","_water"];
 
 while {true} do
 {
@@ -20,8 +20,19 @@ while {true} do
     _health = damage player;
     _health = round (_health * (10 ^ _decimalPlaces)) / (10 ^ _decimalPlaces);
     _health = 100 - (_health * 100);
+
+    // Weird and experimental. percentage stamina. Total is 200%, which is full sprint
+    // capability, no running thirst 
+    _sprintFatigue = getFatigue player;
+    if (_sprintFatigue > 0.5) then {
+        _sprintFatigue = 0.5;
+    };
+    _percentRunningThirst = round (fatigueLevel * 100);    // 0 = fine, 100 = hot n thirsty
+    _percentSprintFatigue = round (_sprintFatigue * 200);  // 0 = fine, 100 = no sprint ability
+
+    _stamina = format ["%1/%2", (100 - _percentSprintFatigue), (100 - _percentRunningThirst)];
     
-    _vitals ctrlSetStructuredText parseText format ["%1 <img size='0.8' image='client\icons\1.paa'/><br/>%3 <img size='0.8' image='client\icons\water.paa'/><br/>%2 <img size='0.8' image='client\icons\food.paa'/><br/>%4 <img size='0.8' image='client\icons\money.paa'/>", _health, hungerLevel, thirstLevel, (player getVariable "cmoney")];
+    _vitals ctrlSetStructuredText parseText format ["%1 <img size='0.8' image='client\icons\running.paa'/><br/>%2 <img size='0.8' image='client\icons\1.paa'/><br/>%3 <img size='0.8' image='client\icons\water.paa'/><br/>%4 <img size='0.8' image='client\icons\food.paa'/><br/>%5 <img size='0.8' image='client\icons\money.paa'/>", _stamina, _health, thirstLevel, hungerLevel, (player getVariable "cmoney")];
     _vitals ctrlCommit 0;
         
     if(player != vehicle player) then

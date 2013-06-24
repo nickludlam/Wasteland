@@ -5,3 +5,6 @@
 
 // Controls whether iniDB is used to persist player data
 #define __DISABLE_INIDB__
+
+// Define this if you want to enable long periods of running to drain your water level
+#define __RUNNING_THIRST__

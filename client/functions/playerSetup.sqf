@@ -59,6 +59,7 @@ _player switchMove "amovpknlmstpsraswpstdnon_gear";
 
 thirstLevel = 100;
 hungerLevel = 100;
+fatigueLevel = 0;
 
 //decide whether we need to create the donation money
 _money = 0;
