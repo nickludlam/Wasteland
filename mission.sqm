@@ -9294,7 +9294,7 @@ class Mission
 			timeoutMax=300;
 			interruptable=1;
 			age="UNKNOWN";
-			expActiv="""s1_80"" setmarkercolor ""colorblue"";titleText [""Blufor has captured Godmode's Garage"",""PLAIN"", 3]; titleFadeOut 3;  _handle = player execVM ""cmoneyB.sqf""; ";
+			expActiv="""s1_80"" setmarkercolor ""colorblue"";titleText [""Blufor has captured GodMode's Garage"",""PLAIN"", 3]; titleFadeOut 3;  _handle = player execVM ""cmoneyB.sqf""; ";
 			class Effects
 			{
 				voice="HintsOpen";
@@ -9311,7 +9311,7 @@ class Mission
 			timeoutMax=300;
 			interruptable=1;
 			age="UNKNOWN";
-			expActiv="""s1_80"" setmarkercolor ""colorred"";titleText [""Opfor has captured Godmode's Garage"",""PLAIN"", 3]; titleFadeOut 3;  _handle = player execVM ""cmoneyO.sqf""; ";
+			expActiv="""s1_80"" setmarkercolor ""colorred"";titleText [""Opfor has captured GodMode's Garage"",""PLAIN"", 3]; titleFadeOut 3;  _handle = player execVM ""cmoneyO.sqf""; ";
 			class Effects
 			{
 				voice="HintsOpen";
@@ -9821,7 +9821,7 @@ class Mission
 			timeoutMax=300;
 			interruptable=1;
 			age="UNKNOWN";
-			expActiv="""s1_80"" setmarkercolor ""colorgreen"";titleText [""Rebels have captured Godmode's Garage"",""PLAIN"", 3]; titleFadeOut 3; _handle = player execVM ""cmoneyI.sqf"";  ";
+			expActiv="""s1_80"" setmarkercolor ""colorgreen"";titleText [""Rebels have captured GodMode's Garage"",""PLAIN"", 3]; titleFadeOut 3; _handle = player execVM ""cmoneyI.sqf"";  ";
 			class Effects
 			{
 				voice="HintsOpen";
