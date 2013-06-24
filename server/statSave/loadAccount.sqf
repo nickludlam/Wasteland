@@ -24,7 +24,7 @@ _donation = getPlayerUID player + "_donation";
 [getPlayerUID player, getPlayerUID player, "FuelEmpty", "NUMBER"] call sendToServer;
 [getPlayerUID player, getPlayerUID player, "SpawnBeacon", "NUMBER"] call sendToServer;
 [getPlayerUID player, getPlayerUID player, "Camonet", "NUMBER"] call sendToServer;
-//[getPlayerUID player, getPlayerUID player, "Magazines", "ARRAY"] call sendToServer;
+[getPlayerUID player, getPlayerUID player, "Magazines", "ARRAY"] call sendToServer;
 //sleep .15;
 [getPlayerUID player, getPlayerUID player, "Health", "NUMBER"] call sendToServer;
 
@@ -39,6 +39,9 @@ waitUntil {!isNil "backpackLoaded"};
 [getPlayerUID player, getPlayerUID player, "PrimaryItems", "ARRAY"] call sendToServer;
 [getPlayerUID player, getPlayerUID player, "SecondaryItems", "ARRAY"] call sendToServer;
 [getPlayerUID player, getPlayerUID player, "HandgunItems", "ARRAY"] call sendToServer;
+[getPlayerUID player, getPlayerUID player, "PrimaryMagazine", "ARRAY"] call sendToServer;
+[getPlayerUID player, getPlayerUID player, "SecondaryMagazine", "ARRAY"] call sendToServer;
+[getPlayerUID player, getPlayerUID player, "HandgunMagazine", "ARRAY"] call sendToServer;
 //===========================================================================
 
 //END

@@ -51,7 +51,7 @@ default
 _player addMagazine "16Rnd_9x21_Mag";
 _player addMagazine "16Rnd_9x21_Mag";
 _player addMagazine "16Rnd_9x21_Mag";
-_gun = (["hgun_P07_F","hgun_Rook40_F"] call BIS_fnc_selectRandom);
+_gun = (["hgun_P07_F","hgun_Rook40_F","hgun_ACPC2_F"] call BIS_fnc_selectRandom);
 _player addWeapon _gun;
 
 _player addrating 1000000;

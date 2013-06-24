@@ -32,6 +32,9 @@
 		[getPlayerUID player, getPlayerUID player, "SecondaryItems", secondaryWeaponItems player] call fn_SaveToServer;
 		[getPlayerUID player, getPlayerUID player, "HandgunItems", handgunItems player] call fn_SaveToServer;
 		[getPlayerUID player, getPlayerUID player, "PrimaryItems", primaryWeaponItems player] call fn_SaveToServer;
+		[getPlayerUID player, getPlayerUID player, "PrimaryMagazine", primaryWeaponMagazine player] call fn_SaveToServer;
+		[getPlayerUID player, getPlayerUID player, "SecondaryMagazine", secondaryWeaponMagazine player] call fn_SaveToServer;
+		[getPlayerUID player, getPlayerUID player, "HandgunMagazine", handgunMagazine player] call fn_SaveToServer;
 	player globalChat "Player Saved...";
 	};
 //};

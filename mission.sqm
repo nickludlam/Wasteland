@@ -98,7 +98,7 @@ class Mission
 	randomSeed=14957468;
 	class Intel
 	{
-		briefingName="KoS Wasteland v1.3";
+		briefingName="KoS Wasteland v2.0";
 		overviewText="Please register on our forum at www.kosclan.org";
 		resistanceWest=0;
 		timeOfChanges=2400;

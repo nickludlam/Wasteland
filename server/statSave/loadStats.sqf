@@ -95,6 +95,69 @@ loadFromDBClient =
 			player addHandgunItem _x;
 		}foreach _varValue;
 	};
+	if(_varName == 'PrimaryMagazine') then 
+	{
+		for "_i" from 0 to (count _varValue) - 1 do 
+		{
+			_name = _varValue select _i;
+			_exe = [player, (_name)] call fn_fitsInventory;			
+			if(_exe == 1) then
+			{
+				player addMagazine _name;
+			};
+			if(_exe == 2) then
+			{
+				player addMagazine _name;
+			};
+			if(_exe == 3) then
+			{
+				_backpack = unitBackpack player;
+				_backpack addMagazineCargo [_name,1];
+			};
+		};
+	};
+	if(_varName == 'SecondaryMagazine') then 
+	{
+		for "_i" from 0 to (count _varValue) - 1 do 
+		{
+			_name = _varValue select _i;
+			_exe = [player, (_name)] call fn_fitsInventory;			
+			if(_exe == 1) then
+			{
+				player addMagazine _name;
+			};
+			if(_exe == 2) then
+			{
+				player addMagazine _name;
+			};
+			if(_exe == 3) then
+			{
+				_backpack = unitBackpack player;
+				_backpack addMagazineCargo [_name,1];
+			};
+		};
+	};
+	if(_varName == 'HandgunMagazine') then 
+	{
+		for "_i" from 0 to (count _varValue) - 1 do 
+		{
+			_name = _varValue select _i;
+			_exe = [player, (_name)] call fn_fitsInventory;			
+			if(_exe == 1) then
+			{
+				player addMagazine _name;
+			};
+			if(_exe == 2) then
+			{
+				player addMagazine _name;
+			};
+			if(_exe == 3) then
+			{
+				_backpack = unitBackpack player;
+				_backpack addMagazineCargo [_name,1];
+			};
+		};
+	};
 	if(_varName == 'Magazines') then
 	{
 		{player removeMagazine _x} forEach magazines player;
@@ -102,16 +165,16 @@ loadFromDBClient =
 		{
 			_name = _varValue select _i;
 			_exe = [player, (_name)] call fn_fitsInventory;			
-			player globalChat format["%1", _exe]; 
-			player globalChat format["%1", _name]; 
+			//player globalChat format["%1", _exe]; 
+			//player globalChat format["%1", _name]; 
 			if(_exe == 1) then
 			{
-				player globalChat "adding to player"; 
+				//player globalChat "adding to player"; 
 				player addMagazine _name;
 			};
 			if(_exe == 2) then
 			{
-				player globalChat "adding to vest"; 
+				//player globalChat "adding to vest"; 
 				player addMagazine _name;
 			};
 			if(_exe == 3) then
