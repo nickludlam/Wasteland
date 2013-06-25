@@ -26,16 +26,40 @@ _createVehicle = {
     _vehicle setDir _direction;
     _grouphsq addVehicle _vehicle;
     
-    _soldier = [_grouphsq, _position] call createRandomSoldier; 
+    _soldier = [_grouphsq, _position] call createRandomPilot; 
     _soldier moveInDriver _vehicle;
+	
+	if(_type == "O_Heli_Attack_02_F") then
+	{
+		_soldier2 = [_grouphsq, _position] call createRandomPilot;
+		_soldier2 moveInGunner _vehicle;
+	};
+	if(_type == "O_Heli_Attack_02_black_F") then
+	{
+		_soldier2 = [_grouphsq, _position] call createRandomPilot;
+		_soldier2 moveInGunner _vehicle;
+	};
+	if(_type == "B_Heli_Transport_01_F") then
+	{
+		_soldier2 = [_grouphsq, _position] call createRandomPilot;
+		_soldier2 moveInGunner _vehicle;
+		_soldier3 = [_grouphsq, _position] call createRandomPilot;
+		_soldier3 assignAsGunner _vehicle;
+		_soldier3 moveInCargo _vehicle;
+	};
+	if(_type == "B_Heli_Attack_01_F") then
+	{
+		_soldier1 = [_grouphsq, _position] call createRandomPilot;
+		_soldier1 moveInCargo _vehicle;
+	};
     
     _vehicle
 };
 
 _vehicles = [];
-_vehicleClass1 = ["O_Ka60_F","B_AH9_F"] call BIS_fnc_selectRandom;
-_vehicleClass2 = ["O_Ka60_F","B_AH9_F"] call BIS_fnc_selectRandom;
-_vehicleClass3 = ["O_Ka60_F","B_AH9_F"] call BIS_fnc_selectRandom;
+_vehicleClass1 = ["B_Heli_Transport_01_F","B_Heli_Light_01_armed_F","O_Heli_Light_02_F","B_Heli_Attack_01_F", "O_Heli_Attack_02_F", "O_Heli_Attack_02_black_F"] call BIS_fnc_selectRandom;
+_vehicleClass2 = ["B_Heli_Transport_01_F","B_Heli_Light_01_armed_F","O_Heli_Light_02_F","B_Heli_Attack_01_F", "O_Heli_Attack_02_F", "O_Heli_Attack_02_black_F"] call BIS_fnc_selectRandom;
+_vehicleClass3 = ["B_Heli_Transport_01_F","B_Heli_Light_01_armed_F","O_Heli_Light_02_F","B_Heli_Attack_01_F", "O_Heli_Attack_02_F", "O_Heli_Attack_02_black_F"] call BIS_fnc_selectRandom;
 _vehicles set [0, [_vehicleClass1, [2436.24,847.9,0.00133419], 91, _grouphsq] call _createVehicle];
 _vehicles set [1, [_vehicleClass2, [2418.8,828.152,0.00138879], 285, _grouphsq] call _createVehicle];
 _vehicles set [2, [_vehicleClass3, [2401.98,872.439,0.00141001], 285, _grouphsq] call _createVehicle];
@@ -101,9 +125,9 @@ _marker setMarkerSize [1.25, 1.25];
 _marker setMarkerColor "ColorRed";
 _marker setMarkerText "Hostile Helis";
 
-_picture = getText (configFile >> "CfgVehicles" >> "O_Ka60_F" >> "picture");
-_vehicleName = getText (configFile >> "cfgVehicles" >> "O_Ka60_F" >> "displayName");
-_hint = parseText format ["<t align='center' color='%4' shadow='2' size='1.75'>! AIR ALARM !</t><br/><t align='center' color='%4'>------------------------------</t><br/><t align='center' color='%5' size='1.25'>Hostile AirSquad</t><br/><t align='center'><img size='5' image='%2'/></t><br/><t align='center' color='%5'>A formation of 3 <t color='%4'>%3</t> Are patroling the island, armed and dangerous! Take them out now!</t>", _missionType, _picture, _vehicleName, mainMissionColor, subTextColor];
+_picture = getText (configFile >> "CfgVehicles" >> _vehicleClass1 >> "picture");
+_vehicleName = getText (configFile >> "cfgVehicles" >> _vehicleClass1 >> "displayName");
+_hint = parseText format ["<t align='center' color='%4' shadow='2' size='1.75'>! AIR ALARM !</t><br/><t align='center' color='%4'>------------------------------</t><br/><t align='center' color='%5' size='1.25'>Hostile AirSquad</t><br/><t align='center'><img size='5' image='%2'/></t><br/><t align='center' color='%5'>At least one hostile <t color='%4'>%3</t> has been spotted. Take them out!</t>", _missionType, _picture, _vehicleName, mainMissionColor, subTextColor];
 messageSystem = _hint;
 if (!isDedicated) then { call serverMessage };
 publicVariable "messageSystem";
