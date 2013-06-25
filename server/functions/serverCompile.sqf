@@ -55,6 +55,7 @@ createClientMarker = compile preprocessFileLineNumbers "server\missions\factoryM
 createWaitCondition = compile preprocessFileLineNumbers "server\missions\factoryMethods\createWaitCondition.sqf";
 deleteClientMarker = compile preprocessFileLineNumbers "server\missions\factoryMethods\deleteClientMarker.sqf";
 createRandomSoldier = compile preprocessFileLineNumbers "server\missions\factoryMethods\createUnits\createRandomSoldier.sqf";
+createRandomPilot = compile preprocessFileLineNumbers "server\missions\factoryMethods\createUnits\createRandomPilot.sqf";
 createRandomAquaticSoldier = compile preprocessFileLineNumbers "server\missions\factoryMethods\createUnits\createRandomAquaticSoldier.sqf";
 createSmallGroup = compile preprocessFileLineNumbers "server\missions\factoryMethods\createUnits\smallGroup.sqf";
 createSniperTeam = compile preprocessFileLineNumbers "server\missions\factoryMethods\createUnits\sniperTeam.sqf";

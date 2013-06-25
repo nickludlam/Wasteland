@@ -89,19 +89,9 @@ if (!isDedicated) then {
 	} foreach (nearestObjects[[0,0], R3F_LOG_CFG_objets_deplacables, 20000]); 
 };
 
-if (isServer) then 
-{
-	//[] execVM "cleanup.sqf";
-    [] execVM "antihack.sqf";
-} 
+if (isServer) then { execVM "antihack\setup.sqf" }
 else 
 {
-	"AHAH" addPublicVariableEventHandler
-	{
-		diag_log "Antihack starting!";
-		[] spawn (_this select 1);
-	};
-	clientStarted = player;
-	
+	clientStarted = player;	
 	publicVariableServer "clientStarted";
 };

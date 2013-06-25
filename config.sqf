@@ -307,45 +307,45 @@ apparelArray =
 	["Heli Pilot Helmet (Green)","H_PilotHelmetHeli_I", 120,"hat"],	
 	["Pilot Helmet (Blue)","H_PilotHelmetFighter_B", 130,"hat"],
 	["Pilot Helmet (Red)","H_PilotHelmetFighter_O", 130,"hat"],
-	["Pilot Helmet (Green)","H_PilotHelmetFighter_I", 130,"hat"],
+	//["Pilot Helmet (Green)","H_PilotHelmetFighter_I", 130,"hat"],
 	["Fatigues (Hex)","U_O_CombatUniform_ocamo", 100,"uni"],
 	//["Fatigues (Urban)","U_O_CombatUniform_oucamo", 100,"uni"],
-	["Recon Fatigues (Black)","U_O_SpecopsUniform_blk", 100,"uni"],
-	["Recon Fatigues (Hex)","U_O_SpecopsUniform_ocamo", 100,"uni"],
+	//["Recon Fatigues (Black)","U_O_SpecopsUniform_blk", 100,"uni"],
+	//["Recon Fatigues (Hex)","U_O_SpecopsUniform_ocamo", 100,"uni"],
 	["Recon Fatigues (MTP)","U_B_CombatUniform_wdl_vest", 100,"uni"],
-	["Recon Fatigues (MTP)","U_B_CombatUniform_sgg_vest", 100,"uni"],
-	["Recon Fatigues (MTP)","U_B_CombatUniform_mcam_vest", 100,"uni"],
+	//["Recon Fatigues (MTP)","U_B_CombatUniform_sgg_vest", 100,"uni"],
+	//["Recon Fatigues (MTP)","U_B_CombatUniform_mcam_vest", 100,"uni"],
 	["Combat Fatigues (MTP)","U_B_CombatUniform_wdl", 100,"uni"],
-	["Combat Fatigues (MTP)","U_B_CombatUniform_sgg", 100,"uni"],
-	["Combat Fatigues (MTP)", "U_B_CombatUniform_mcam", 100, "uni"],
+	//["Combat Fatigues (MTP)","U_B_CombatUniform_sgg", 100,"uni"],
+	//["Combat Fatigues (MTP)", "U_B_CombatUniform_mcam", 100, "uni"],
 	//["Combat Fatigues (MTP)(TEE)", "U_B_CombatUniform_mcam_tshirt", 100, "uni"],
 	//["Combat Fatigues (MTP)(TEE)", "U_B_CombatUniform_wdl_tshirt", 100, "uni"],
 	//["Combat Fatigues (MTP)(TEE)", "U_B_CombatUniform_sgg_tshirt", 100, "uni"],
-	["Combat Fatigues (Green)", "U_I_CombatUniform_shortsleeve", 100, "uni"],
 	["Combat Fatigues (Green)", "U_I_CombatUniform", 100, "uni"],
-	["Combat Fatigues (Green)", "U_I_CombatUniform_tshirt", 100, "uni"],
-	["Officer Fatigues (Hex)", "U_O_OfficerUniform_ocamo", 100, "uni"],
+	//["Combat Fatigues (Green)", "U_I_CombatUniform_shortsleeve", 100, "uni"],
+	//["Combat Fatigues (Green)", "U_I_CombatUniform_tshirt", 100, "uni"],
+	//["Officer Fatigues (Hex)", "U_O_OfficerUniform_ocamo", 100, "uni"],
 	["Officer Fatigues (Hex)", "U_I_OfficerUniform", 100, "uni"],
 	["Worn Combat Fatigues (MTP)", "U_B_CombatUniform_mcam_worn", 100, "uni"],
 	["Carrier GL Rig (Black)","V_PlateCarrierGL_blk", 250,"vest"],
-	["Carrier GL Rig (Coyote)","V_PlateCarrierGL_cbr", 250,"vest"],
-	["Carrier GL Rig (Green)","V_PlateCarrierGL_rgr", 250,"vest"],
+	//["Carrier GL Rig (Coyote)","V_PlateCarrierGL_cbr", 250,"vest"],
+	//["Carrier GL Rig (Green)","V_PlateCarrierGL_rgr", 250,"vest"],
 	["Carrier Lite (Black)","V_PlateCarrier1_blk", 250,"vest"],
-	["Carrier Lite (Coyote)","V_PlateCarrier1_cbr", 250,"vest"],
-	["Carrier Lite (Green)","V_PlateCarrier1_rgr", 250,"vest"],
+	//["Carrier Lite (Coyote)","V_PlateCarrier1_cbr", 250,"vest"],
+	//["Carrier Lite (Green)","V_PlateCarrier1_rgr", 250,"vest"],
 	["Carrier Rig (Black)","V_PlateCarrier2_blk", 250,"vest"],
-	["Carrier Rig (Coyote)","V_PlateCarrier2_cbr", 250,"vest"],
-	["Carrier Rig (Green)","V_PlateCarrier2_rgr", 250,"vest"],
+	//["Carrier Rig (Coyote)","V_PlateCarrier2_cbr", 250,"vest"],
+	//["Carrier Rig (Green)","V_PlateCarrier2_rgr", 250,"vest"],
 	["Carrier Special Rig (Coyote)","V_PlateCarrierSpec_cbr", 275,"vest"],
-	["Carrier Special Rig (Green)","V_PlateCarrierSpec_rgr", 275,"vest"],
+	//["Carrier Special Rig (Green)","V_PlateCarrierSpec_rgr", 275,"vest"],
 	//["Fighter Chestrig (Olive)","V_ChestrigF_oli", 275,"vest"],
 	["GA Carrier GL Rig","V_PlateCarrierIAGL_dgtl", 275,"vest"],
 	//["GA Carrier Lite (Digi)","V_PlateCarrierIA1_dgtl", 275,"vest"],
-	["GA Carrier Rig (Digi)","V_PlateCarrierIA2_dgtl", 275,"vest"],
+	//["GA Carrier Rig (Digi)","V_PlateCarrierIA2_dgtl", 275,"vest"],
 	["LBV Harness", "V_HarnessO_brn", 250, "vest"],
-	["LBV Harness (Gray)", "V_HarnessO_gry", 250, "vest"],
+	//["LBV Harness (Gray)", "V_HarnessO_gry", 250, "vest"],
 	["LBV Gren Harness", "V_HarnessOGL_brn", 250, "vest"],
-	["LBV Gren Harness (Gray)", "V_HarnessOGL_gry", 250, "vest"],
+	//["LBV Gren Harness (Gray)", "V_HarnessOGL_gry", 250, "vest"],
 	["Chest Rig (Khaki)","V_Chestrig_khk", 300,"vest"],
 	["Slash Bandolier (Coyote)","V_BandollierB_cbr", 100,"vest"],
 	["Slash Bandolier (Green)","V_BandollierB_rgr", 100,"vest"],
@@ -358,7 +358,7 @@ apparelArray =
 	["Tactical Vest (Khaki)","V_TacVest_khk", 100,"vest"],
 	["Tactical Vest (Police)","V_TacVest_blk_POLICE", 100,"vest"],
 	//["Camouflaged Vest","V_TacVestCamo_khk", 100,"vest"],
-	["Raven Vest","V_TacVestIR_blk", 100,"vest"],
+	//["Raven Vest","V_TacVestIR_blk", 100,"vest"],
 	["Rangemaster Cap", "H_Cap_headphones", 100, "hat"],
 	["Rangemaster Suit", "U_Rangemaster", 100, "uni"],
 	["Rangemaster Belt", "V_Rangemaster_belt", 100, "vest"],
@@ -431,15 +431,16 @@ tanksArray =
 
 helicoptersArray =
 [
-	["MH-9 Hummingbird","B_Heli_Light_01_F",5000,"vehicle",""],
-	["AH-9 Pawnee","B_Heli_Light_01_armed_F",12000,"vehicle",""],
-	["AH-99 Blackfoot","B_Heli_Attack_01_F",15000,"vehicle",""],
-	["UH-80 Ghosthawk","B_Heli_Transport_01_F",10000,"vehicle",""],
-	["Mi-48 Kajman", "O_Heli_Attack_02_F", 15000, "vehicle", ""],
-	["Mi-48 Kajman (Black)", "O_Heli_Attack_02_black_F", 15000, "vehicle", ""],
-	["PO-30 Orca", "O_Heli_Light_02_F", 12000, "vehicle", ""],
-	["PO-30 Orca (Black)", "O_Heli_Light_02_unarmed_F", 6000, "vehicle", ""],
-	["CH-49 Mohawk", "I_Heli_Transport_02_F", 8000, "vehicle", ""]
+	["MH-9 Hummingbird","B_Heli_Light_01_F",5000,"vehicle",""],//little bird
+	["PO-30 Orca (Black)", "O_Heli_Light_02_unarmed_F", 6000, "vehicle", ""], //ka-60
+	["CH-49 Mohawk", "I_Heli_Transport_02_F", 8000, "vehicle", ""],//big transport chopper
+	
+	["UH-80 Ghosthawk","B_Heli_Transport_01_F",10000,"vehicle",""],//stealth chopper 2 gunners
+	["AH-9 Pawnee","B_Heli_Light_01_armed_F",12000,"vehicle",""],//little bird with guns
+	["PO-30 Orca", "O_Heli_Light_02_F", 13000, "vehicle", ""],//armed ka-60
+	["AH-99 Blackfoot","B_Heli_Attack_01_F",15000,"vehicle",""],//attack chopper
+	["Mi-48 Kajman", "O_Heli_Attack_02_F", 15000, "vehicle", ""], //attack chopper with gunner
+	["Mi-48 Kajman (Black)", "O_Heli_Attack_02_black_F", 15000, "vehicle", ""] //attack chopper with gunner
 ];
 
 jetsArray =

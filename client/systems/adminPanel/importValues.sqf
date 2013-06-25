@@ -16,6 +16,7 @@
 #define playerMenuPlayerGun 55502
 #define playerMenuPlayerItems 55503
 #define playerMenuPlayerPos 55504
+#define playerMenuPlayerUID 55510
 #define playerMenuPlayerList 55505
 #define playerMenuPlayerObject 55507
 #define playerMenuPlayerHealth 55508
@@ -40,6 +41,7 @@ if ((_uid in moderators) OR (_uid in administrators) OR (_uid in serverAdministr
 	_currentGunText = _dialogPlayer displayCtrl playerMenuPlayerGun;
 	_itemsText = _dialogPlayer displayCtrl playerMenuPlayerItems;
 	_posText = _dialogPlayer displayCtrl playerMenuPlayerPos;
+	_uidText = _dialogPlayer displayCtrl playerMenuPlayerUID;
 	_healthText = _dialogPlayer displayCtrl playerMenuPlayerHealth;
 	_objectText = _dialogPlayer displayCtrl playerMenuPlayerObject;
 	_playerListBox = _dialogPlayer displayCtrl playerMenuPlayerList;
@@ -71,6 +73,7 @@ if ((_uid in moderators) OR (_uid in administrators) OR (_uid in serverAdministr
 	            _currentGunText ctrlSetText format["Money: %1",_x getVariable "cmoney"];
 	            _skinText ctrlSetText format["Skin: %1",typeOf(_x)];
 	            _posText ctrlSetText format["Position: %1",position _x];
+				_uidText ctrlSetText format["UID: %1",(getPlayerUID _x)];
 	            _objectText ctrlSetText format["Slot: %1",_x];
 	            
 	            //Calculate Health 0 - 100
