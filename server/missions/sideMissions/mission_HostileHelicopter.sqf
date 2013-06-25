@@ -26,13 +26,37 @@ _createVehicle = {
     _vehicle setDir _direction;
     _groupsm addVehicle _vehicle;
     
-    _soldier = [_groupsm, _position] call createRandomSoldier; 
+    _soldier = [_groupsm, _position] call createRandomPilot; 
     _soldier moveInDriver _vehicle;
+	if(_type == "O_Heli_Attack_02_F") then
+	{
+		_soldier2 = [_grouphsq, _position] call createRandomPilot;
+		_soldier2 moveInGunner _vehicle;
+	};
+	if(_type == "O_Heli_Attack_02_black_F") then
+	{
+		_soldier2 = [_grouphsq, _position] call createRandomPilot;
+		_soldier2 moveInGunner _vehicle;
+	};
+	if(_type == "B_Heli_Transport_01_F") then
+	{
+		_soldier2 = [_grouphsq, _position] call createRandomPilot;
+		_soldier2 moveInGunner _vehicle;
+		_soldier3 = [_grouphsq, _position] call createRandomPilot;
+		_soldier3 assignAsGunner _vehicle;
+		_soldier3 moveInCargo _vehicle;
+	};
+	if(_type == "B_Heli_Attack_01_F") then
+	{
+		_soldier1 = [_grouphsq, _position] call createRandomPilot;
+		_soldier1 moveInCargo _vehicle;
+	};
+	
     _vehicle
 };
 
 _vehicles = [];
-_vehicleClass = ["O_Heli_Light_02_F","B_Heli_Light_01_armed_F"] call BIS_fnc_selectRandom;
+_vehicleClass = ["B_Heli_Transport_01_F","B_Heli_Light_01_armed_F","O_Heli_Light_02_F","B_Heli_Attack_01_F", "O_Heli_Attack_02_F", "O_Heli_Attack_02_black_F"] call BIS_fnc_selectRandom;
 _vehicles set [0, [_vehicleClass, [2436.24,847.9,0.00133419], 110, _groupsm] call _createVehicle];
 
 _leader = driver (_vehicles select 0);

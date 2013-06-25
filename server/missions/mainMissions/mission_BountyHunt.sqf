@@ -27,7 +27,7 @@ if(isNil "_foundPlayer") then
 	exit
 };
 
-_hint = parseText format ["<t align='center' color='%2' shadow='2' size='1.75'>Bounty Hunt</t><br/><t align='center' color='%2'>------------------------------</t><br/><t color='%3' size='1.0'>%1 has a bounty on his head. You have 22 minutes to kill him! Killer gets $10,000 and his side gets $1000 per person. If he's protected he gets the $10,000 and his side gets $1,000 per person.</t>", name _foundPlayer, mainMissionColor, subTextColor];
+_hint = parseText format ["<t align='center' color='%2' shadow='2' size='1.75'>Bounty Hunt</t><br/><t align='center' color='%2'>------------------------------</t><br/><t color='%3' size='1.0'>%1 has a bounty on his head. You have 30 minutes to kill him! Killer gets $10,000 and his side gets $1000 per person. If he's protected he gets the $10,000 and his side gets $1,000 per person.</t>", name _foundPlayer, mainMissionColor, subTextColor];
 messageSystem = _hint;
 if (!isDedicated) then { call serverMessage };
 publicVariable "messageSystem";

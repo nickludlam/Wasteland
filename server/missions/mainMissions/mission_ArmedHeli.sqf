@@ -37,29 +37,11 @@ _marker = createMarkerLocal ["ArmedHeli_Marker", _randomPos];
 "ArmedHeli_Marker" setMarkerSizeLocal [1,1];
 "ArmedHeli_Marker" setMarkerTextLocal "Mission Here";
 */
-_vehicleClass = ["O_Ka60_F","B_Heli_Light_01_armed_F", "O_Heli_Light_02_F","O_Heli_Attack_02_F"] call BIS_fnc_selectRandom;
+_vehicleClass = ["B_Heli_Transport_01_F","B_Heli_Light_01_armed_F","O_Heli_Light_02_F","B_Heli_Attack_01_F", "O_Heli_Attack_02_F", "O_Heli_Attack_02_black_F"] call BIS_fnc_selectRandom;
 
 // Vehicle spawning: Name, Position, Fuel, Ammo, Damage, "NONE"
-
-switch (_vehicleClass) do
-{
-	case "B_Heli_Light_01_armed_F": {
-		_vehicle = [_vehicleClass,_randomPos,0.5,0.5,0,"NONE"] call createMissionVehicle;
-		_vehicle addEventHandler ["IncomingMissile", "hint format['Incoming Missile Launched By: %1', name (_this select 2)]"];
-	};
-	case "O_Ka60_F": {	// Ka60 has twice less default ammo capacity than AH9
-		_vehicle = [_vehicleClass,_randomPos,0.5,1,0,"NONE"] call createMissionVehicle;
-		_vehicle addEventHandler ["IncomingMissile", "hint format['Incoming Missile Launched By: %1', name (_this select 2)]"];
-	};
-	case "O_Heli_Light_02_F": {	// Ka60 has twice less default ammo capacity than AH9
-		_vehicle = [_vehicleClass,_randomPos,0.5,1,0,"NONE"] call createMissionVehicle;
-		_vehicle addEventHandler ["IncomingMissile", "hint format['Incoming Missile Launched By: %1', name (_this select 2)]"];
-	};
-		case "O_Heli_Attack_02_F": {	// Ka60 has twice less default ammo capacity than AH9
-		_vehicle = [_vehicleClass,_randomPos,0.5,1,0,"NONE"] call createMissionVehicle;
-		_vehicle addEventHandler ["IncomingMissile", "hint format['Incoming Missile Launched By: %1', name (_this select 2)]"];
-	};
-};
+_vehicle = [_vehicleClass,_randomPos,0.5,0.5,0,"NONE"] call createMissionVehicle;
+_vehicle addEventHandler ["IncomingMissile", "hint format['Incoming Missile Launched By: %1', name (_this select 2)]"];
 
 _picture = getText (configFile >> "cfgVehicles" >> typeOf _vehicle >> "picture");
 _vehicleName = getText (configFile >> "cfgVehicles" >> typeOf _vehicle >> "displayName");

@@ -73,7 +73,7 @@ if ((_uid in moderators) OR (_uid in administrators) OR (_uid in serverAdministr
 	            _currentGunText ctrlSetText format["Money: %1",_x getVariable "cmoney"];
 	            _skinText ctrlSetText format["Skin: %1",typeOf(_x)];
 	            _posText ctrlSetText format["Position: %1",position _x];
-		    _uidText ctrlSetText format["UID: %1",(getPlayerUID _x)];
+		    	_uidText ctrlSetText format["UID: %1",(getPlayerUID _x)];
 	            _objectText ctrlSetText format["Slot: %1",_x];
 	            
 	            //Calculate Health 0 - 100

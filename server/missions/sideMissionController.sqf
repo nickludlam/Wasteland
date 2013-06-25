@@ -21,7 +21,7 @@ _SideMissions = [[mission_WepCache,"mission_WepCache"],
 				[mission_SunkenSupplys, "mission_SunkenSupplys"],
 				[mission_SniperTeam, "mission_SniperTeam"]];
 //USED FOR TESTING
-//_SideMissions = [[mission_SniperTeam, "mission_SniperTeam"];
+//_SideMissions = [[mission_HostileHelicopter,"mission_HostileHelicopter"]];
 				//[mission_SniperTeam, "mission_SniperTeam"]];//,
 //[mission_Truck,"mission_Truck"][mission_SerialKiller,"mission_SerialKiller"]
 //				[mission_ReconVeh,"mission_ReconVeh"]];[mission_MobMoney, "mission_MobMoney"]
