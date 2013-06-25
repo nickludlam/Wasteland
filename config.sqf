@@ -153,9 +153,9 @@ accessoriesArray =
 	["Binoculars","Binocular",100,"binoc"],
 	["NV Goggles","NVGoggles",100,"binoc"],
 	["Diving Goggles","G_Diving",100,"gogg"],
-	["Rangefinder","Rangefinder",350,"binoc"],   
-	["Laser Designator","Laserdesignator",350,"binoc"],
-	["Laser Batteries","Laserbatteries",15,"item"],
+	["Rangefinder","Rangefinder",300,"binoc"],   
+	["Laser Designator","Laserdesignator",500,"binoc"],
+	["Laser Batteries","Laserbatteries",20,"item"],
 	["Mine Detector","MineDetector",200,"item"],
 	["First Aid","FirstAidKit", 100,"item"],
 	["Medkit","Medikit", 550,"item"],
@@ -403,10 +403,10 @@ landArray =
 [
 	["Quadbike","C_Quadbike_01_F",250,"vehicle",125],
 	["Offroad","C_Offroad_01_F",500,"vehicle",250],
-	["HEMTT Open","B_Truck_01_transport_F",750,"vehicle",400],
-	["HEMTT Covered","B_Truck_01_covered_F",750,"vehicle",400],
-	["Zamak Open","O_Truck_02_transport_F",750,"vehicle",400],
-	["Zamak Covered","O_Truck_02_covered_F",750,"vehicle",400]
+	["HEMTT Open","B_Truck_01_transport_F",700,"vehicle",400],
+	["HEMTT Covered","B_Truck_01_covered_F",900,"vehicle",400],
+	["Zamak Open","O_Truck_02_transport_F",700,"vehicle",400],
+	["Zamak Covered","O_Truck_02_covered_F",900,"vehicle",400]
 ]; 
 
 armoredArray =
