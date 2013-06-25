@@ -438,9 +438,9 @@ helicoptersArray =
 	["UH-80 Ghosthawk","B_Heli_Transport_01_F",10000,"vehicle",""],//stealth chopper 2 gunners
 	["AH-9 Pawnee","B_Heli_Light_01_armed_F",12000,"vehicle",""],//little bird with guns
 	["PO-30 Orca", "O_Heli_Light_02_F", 13000, "vehicle", ""],//armed ka-60
-	["AH-99 Blackfoot","B_Heli_Attack_01_F",15000,"vehicle",""],//attack chopper
-	["Mi-48 Kajman", "O_Heli_Attack_02_F", 15000, "vehicle", ""], //attack chopper with gunner
-	["Mi-48 Kajman (Black)", "O_Heli_Attack_02_black_F", 15000, "vehicle", ""] //attack chopper with gunner
+	["AH-99 Blackfoot","B_Heli_Attack_01_F",20000,"vehicle",""],//attack chopper
+	["Mi-48 Kajman", "O_Heli_Attack_02_F", 25000, "vehicle", ""], //attack chopper with gunner
+	["Mi-48 Kajman (Black)", "O_Heli_Attack_02_black_F", 25000, "vehicle", ""] //attack chopper with gunner
 ];
 
 jetsArray =
