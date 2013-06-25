@@ -5,8 +5,12 @@
 //	@file Created: 11/09/2012 04:23
 //	@file Args:
 
+#include "defines.hpp"
+
 disableSerialization;
 private["_ui","_fatigue", "_hud","_food","_water"];
+
+_counter = 0; // used for flashing UI elements, with the _modulo var
 
 while {true} do
 {
@@ -14,7 +18,10 @@ while {true} do
     _ui = uiNameSpace getVariable "WastelandHud";
     _vitals = _ui displayCtrl 3600;
     _hudVehicle = _ui displayCtrl 3601;
-    
+    _runningIconName = 'running.paa';
+    _stamina = "100";
+
+
     //Calculate Health 0 - 100
     _decimalPlaces = 2;
     _health = damage player;
@@ -27,12 +34,40 @@ while {true} do
     if (_sprintFatigue > 0.5) then {
         _sprintFatigue = 0.5;
     };
-    _percentRunningThirst = round (fatigueLevel * 100);    // 0 = fine, 100 = hot n thirsty
+
+    _counter = _counter + 1;
+    _modulo = _counter mod 2;
+
+    // fatigueLevel: -3 = exhausted, -2 = tired, -1 = resting, 0 = fine, 1 = hot n thirsty
     _percentSprintFatigue = round (_sprintFatigue * 200);  // 0 = fine, 100 = no sprint ability
 
-    _stamina = format ["%1/%2", (100 - _percentSprintFatigue), (100 - _percentRunningThirst)];
-    
-    _vitals ctrlSetStructuredText parseText format ["%1 <img size='0.8' image='client\icons\running.paa'/><br/>%2 <img size='0.8' image='client\icons\1.paa'/><br/>%3 <img size='0.8' image='client\icons\water.paa'/><br/>%4 <img size='0.8' image='client\icons\food.paa'/><br/>%5 <img size='0.8' image='client\icons\money.paa'/>", _stamina, _health, thirstLevel, hungerLevel, (player getVariable "cmoney")];
+
+    if (fatigueLevel == FATIGUE_EXHAUSTED) then {
+        if (_modulo == 0) then {
+            _stamina = format ["<t color='#FF0000'>%1</t>", "EXHAUSTED!"];
+            _runningIconName = 'running.paa';
+        } else {
+            _stamina = format ["<t color='#FFFFFF'>%1</t>", "EXHAUSTED!"];
+            _runningIconName = 'running_red.paa';
+        };
+    };
+
+    if (fatigueLevel == FATIGUE_TIRED) then {
+        _runningIconName = 'running_red.paa';
+        _stamina = format ["%1", "TIRED"];
+    };
+
+    if (fatigueLevel == FATIGUE_RESTING) then {
+        _runningIconName = 'running_red.paa';
+        _stamina = format ["%1", "RESTING"];
+    };
+
+    if (fatigueLevel >= 0) then {
+        _runningIconName = 'running.paa';
+        _stamina = format ["%1", (100 - _percentSprintFatigue)];
+    };
+
+    _vitals ctrlSetStructuredText parseText format ["%1 <img size='0.8' image='client\icons\%2'/><br/>%3 <img size='0.8' image='client\icons\1.paa'/><br/>%4 <img size='0.8' image='client\icons\water.paa'/><br/>%5 <img size='0.8' image='client\icons\food.paa'/><br/>%6 <img size='0.8' image='client\icons\money.paa'/>", _stamina, _runningIconName, _health, thirstLevel, hungerLevel, (player getVariable "cmoney")];
     _vitals ctrlCommit 0;
         
     if(player != vehicle player) then

@@ -40,9 +40,9 @@ class WastelandHud {
 			idc = hud_status_idc;
 			type = CT_STRUCTURED_TEXT;
 			size = 0.040;
-			x = safeZoneX + (safeZoneW * (1 - (0.16 / SafeZoneW)));
-			y = safeZoneY + (safeZoneH * (1 - (0.25 / SafeZoneH)));
-			w = 0.14; h = 0.25;
+			x = safeZoneX + (safeZoneW * (1 - (0.27 / SafeZoneW)));
+			y = safeZoneY + (safeZoneH * (1 - (0.24 / SafeZoneH)));
+			w = 0.25; h = 0.25;
 			colorText[] = {1,1,1,1};
 			lineSpacing = 3;
 			colorBackground[] = {0,0,0,0};

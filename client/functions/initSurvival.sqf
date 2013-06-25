@@ -9,19 +9,18 @@
 
 #ifdef __RUNNING_THIRST__
 
-private["_cumulativePlayerFatigue", "_maxEntries", "_sleepInterval"];
+private["_cumulativePlayerFatigue", "_maxEntries", "_sleepInterval", "_fatigueRecoveryLevel", "_fatigueWarningLevel", "_fatigueThreshold", "_extraThirstDecrement"];
 
 [] spawn {
 	//diag_log format ["DEBUG: Starting fatigue checks"];
 	
 	_cumulativePlayerFatigue = [];
-	_maxEntries = 8;              // Number of entries in our averaging array
-	_sleepInterval = 30;           // Sleep between sampling fatigue
+	_maxEntries = 5;               // Number of entries in our averaging array
+	_sleepInterval = 10;           // Sleep between sampling fatigue
 	_fatigueRecoveryLevel = 0.50;  // Value above which we give the player recovery message 
-	_fatigueWarningLevel = 0.95;   // Value above which we warn the player
+	_fatigueWarningLevel = 0.90;   // Value above which we warn the player
 	_fatigueThreshold = 1;         // Value above which the avg fatigue will cause thirst
 	_extraThirstDecrement = 4;     // Value to decrement each period from the player's water level
-
 	_triggeredFatigueMessage = 0;
 
 	while {true} do
@@ -33,7 +32,6 @@ private["_cumulativePlayerFatigue", "_maxEntries", "_sleepInterval"];
 
 		if (fatigueLevel == 0) then
 		{
-			diag_log format ["did the player die?"];
 			// reset our array
 			_cumulativePlayerFatigue = [];
 		};
@@ -41,9 +39,11 @@ private["_cumulativePlayerFatigue", "_maxEntries", "_sleepInterval"];
 		curFatigueLevel = getFatigue player;
 
 		// Allow faster recovery if you're below 50% fatigue
-		if (_triggeredFatigueMessage == 1 && curFatigueLevel < 0.5) then
+		if (_triggeredFatigueMessage == 1 && curFatigueLevel < _fatigueRecoveryLevel) then
 		{
 			curFatigueLevel = 0;
+			_triggeredFatigueMessage = 0;
+			_cumulativePlayerFatigue = [];
 		};
 
 		_cumulativePlayerFatigue = [curFatigueLevel] + _cumulativePlayerFatigue;
@@ -60,26 +60,31 @@ private["_cumulativePlayerFatigue", "_maxEntries", "_sleepInterval"];
 
 		fatigueLevel = _total / _maxEntries;
 
-		//player globalChat format ["DEBUG: curFatigue %1. Array is %2. fatigueLevel is %3", curFatigueLevel, _cumulativePlayerFatigue, fatigueLevel];
-
-		// If we're in recovery mode, wait until we're below our threshold
-		if (_triggeredFatigueMessage == 1 && fatigueLevel < _fatigueRecoveryLevel) then {
-			player globalChat "You feel rested and ready to go";
-			_triggeredFatigueMessage = 0;
-		};
-
 		// How high is the level currently?
 		if (fatigueLevel > _fatigueWarningLevel) then
 		{
-			if (fatigueLevel > _fatigueThreshold) then
+			_triggeredFatigueMessage = 1;
+
+			if (fatigueLevel >= _fatigueThreshold) then
 			{
-				hint "You're sweating profusely. Stop and rest to cool off!";
-				_triggeredFatigueMessage = 1;
+				fatigueLevel = FATIGUE_EXHAUSTED;
+				hint "You're feeling exhausted. Stop and rest to cool off!";
 				thirstLevel = thirstLevel - _extraThirstDecrement;
 			} else {
-				hint "You're starting to overheat from the pace";
+				fatigueLevel = FATIGUE_TIRED;
+				hint "You're starting to get tired from the pace";
+			};
+		} else {
+			// If we're in recovery mode, wait until we're below our threshold
+			if (_triggeredFatigueMessage == 1) then {
+				if (curFatigueLevel > _fatigueRecoveryLevel && curFatigueLevel < _fatigueWarningLevel) then {
+					// if we're still above, fatigueLevel = -1, AKA recovery mode (RESTING)
+					fatigueLevel = FATIGUE_RESTING;
+				};
 			};
 		};
+
+		//player globalChat format ["curFatigue: %1. Array: %2. fatigueLevel: %3 thirst: %4", curFatigueLevel, _cumulativePlayerFatigue, fatigueLevel, thirstLevel];
 
 		sleep _sleepInterval;
 	};
@@ -109,7 +114,7 @@ private["_cumulativePlayerFatigue", "_maxEntries", "_sleepInterval"];
 [] spawn  {
 	while{true} do
 	{
-	sleep 300;
+	sleep 400;
 	waitUntil {!respawnDialogActive};
 	if(thirstLevel < 2) then {player setDamage 1.31337; hint parseText "<t size='2' color='#ff0000'>Warning</t><br/><br/>You have died from dehydration.";}
 	else

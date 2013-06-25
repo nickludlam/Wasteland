@@ -4,6 +4,8 @@
 //	@file Created: 20/11/2012 05:19
 //	@file Args:
 
+#include "defines.hpp"
+
 #define serverAdminMenu_option 50007
 #define modMenu_option 50005
 #define debugMenu_option 50003
