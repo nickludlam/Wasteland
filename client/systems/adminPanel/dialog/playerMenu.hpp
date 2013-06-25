@@ -8,6 +8,7 @@
 #define playerMenuPlayerObject 55507
 #define playerMenuPlayerHealth 55508
 #define playerMenuWarnMessage 55509
+#define playerMenuPlayerUID 55510
 
 class PlayersMenu
 {
@@ -37,6 +38,17 @@ class PlayersMenu
 			w = 0.0844792 * safezoneW;
 			h = 0.0448148 * safezoneH;
 		};
+		
+		class PlayerUIDText: w_RscText
+		{
+			idc = playerMenuPlayerUID;
+			text = "UID:";
+			sizeEx = 0.030;
+			x = 0.52 * safezoneW + safezoneX;
+			y = 0.24 * safezoneH + safezoneY;
+			w = 0.25 * safezoneW;
+			h = 0.04 * safezoneH;
+		};
 
 		class PlayerObjectText: w_RscText
 		{
@@ -44,7 +56,7 @@ class PlayersMenu
 			text = "Slot:";
 			sizeEx = 0.030;
 			x = 0.52 * safezoneW + safezoneX;
-			y = 0.24 * safezoneH + safezoneY;
+			y = 0.26 * safezoneH + safezoneY;
 			w = 0.25 * safezoneW;
 			h = 0.04 * safezoneH;
 		};
@@ -55,7 +67,7 @@ class PlayersMenu
 			text = "Skin:";
 			sizeEx = 0.030;
 			x = 0.52 * safezoneW + safezoneX;
-			y = 0.26 * safezoneH + safezoneY;
+			y = 0.28 * safezoneH + safezoneY;
 			w = 0.25 * safezoneW;
 			h = 0.04 * safezoneH;
 		};
@@ -66,7 +78,7 @@ class PlayersMenu
 			text = "Money:";
 			sizeEx = 0.030;
 			x = 0.52 * safezoneW + safezoneX;
-			y = 0.28 * safezoneH + safezoneY;
+			y = 0.30 * safezoneH + safezoneY;
 			w = 0.25 * safezoneW;
 			h = 0.04 * safezoneH;
 		};
@@ -77,7 +89,7 @@ class PlayersMenu
 			text = "Items:";
 			sizeEx = 0.030;
 			x = 0.52 * safezoneW + safezoneX;
-			y = 0.30 * safezoneH + safezoneY;
+			y = 0.32 * safezoneH + safezoneY;
 			w = 0.40 * safezoneW;
 			h = 0.04 * safezoneH;
 		};
@@ -88,7 +100,7 @@ class PlayersMenu
 			text = "Health:";
 			sizeEx = 0.030;
 			x = 0.52 * safezoneW + safezoneX;
-			y = 0.32 * safezoneH + safezoneY;
+			y = 0.34 * safezoneH + safezoneY;
 			w = 0.25 * safezoneW;
 			h = 0.04 * safezoneH;
 		};
@@ -99,7 +111,7 @@ class PlayersMenu
 			text = "Position:";
 			sizeEx = 0.030;
 			x = 0.52 * safezoneW + safezoneX;
-			y = 0.34 * safezoneH + safezoneY;
+			y = 0.36 * safezoneH + safezoneY;
 			w = 0.25 * safezoneW;
 			h = 0.04 * safezoneH;
 		};
