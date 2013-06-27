@@ -402,7 +402,10 @@ apparelArray =
 //Text name, classname, buy cost, spawn type, color
 landArray =
 [
-	["Quadbike","C_Quadbike_01_F",250,"vehicle",125],
+	["Quadbike Blue","B_Quadbike_01_F",250,"vehicle",125],
+	["Quadbike Red","O_Quadbike_01_F",250,"vehicle",125],
+	["Quadbike Green","I_Quadbike_01_F",250,"vehicle",125],
+	["Quadbike Civilian","C_Quadbike_01_F",250,"vehicle",125],
 	["Offroad","C_Offroad_01_F",500,"vehicle",250],
 	["HEMTT Open","B_Truck_01_transport_F",700,"vehicle",400],
 	["HEMTT Covered","B_Truck_01_covered_F",900,"vehicle",400],
@@ -455,6 +458,7 @@ boatsArray =
 	["Assault Boat Green","I_Boat_Transport_01_F",750,"boat",500],
 	["Rescue Blue","B_Lifeboat",500,"boat",500],
 	["Rescue Red","O_Lifeboat",500,"boat",500],
+	["Rescue Civilian", "C_Rubberboat", 500,"boat",500],
 	["Speedboat Minigun Blue","B_Boat_Armed_01_minigun_F",6000,"boat",3000],
 	["Speedboat HMG","O_Boat_Armed_01_hmg_F",7000,"boat",3500],
 	["Speedboat Minigun Green","I_Boat_Armed_01_minigun_F",5000,"boat",500]

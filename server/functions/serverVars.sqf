@@ -48,10 +48,10 @@ publicVariable "currentInvites";
 currentStaticHelis = []; // Storage for the heli marker numbers so that we don't spawn wrecks on top of live helis
 
 //Civilian Vehicle List - Random Spawns
-civilianVehicles = ["C_Offroad_01_F"];
+civilianVehicles = ["C_Offroad_01_F","C_Quadbike_01_F"];
 
 //Light Military Vehicle List - Random Spawns
-lightMilitaryVehicles = ["B_Quadbike_01_F","O_Quadbike_01_F"];
+lightMilitaryVehicles = ["B_Quadbike_01_F","O_Quadbike_01_F","I_Quadbike_01_F"];
 
 //Medium Military Vehicle List - Random Spawns
 mediumMilitaryVehicles = ["B_MRAP_01_F"];//,"O_MRAP_02_F"];
@@ -90,7 +90,7 @@ staticWeaponsList = ["B_MK6"];
 
 //Object List - Random Helis.
 staticHeliList = ["O_Heli_Light_02_F",
-					"B_Heli_Light_01_F"];
+				"B_Heli_Light_01_F"];
 
 //Random Weapon List - Change this to what you want to spawn in cars.
 vehicleWeapons = ["arifle_SDAR_F",
@@ -121,9 +121,11 @@ vehicleAddition = [
 			"Zasleh2",
 			"muzzle_snds_H",
 			"muzzle_snds_L",
+			"muzzle_snds_M",
 			"muzzle_snds_B",
 			"muzzle_snds_H_MG",
 			"optic_Arco",
+			"optic_MRCO",
 			"optic_Hamr", 
 			"optic_Aco", 
 			"optic_ACO_grn", 
@@ -138,7 +140,8 @@ vehicleAddition = [
 vehicleAddition2 = [
 	"Chemlight_blue",
 	"Chemlight_red",
-	"Chemlight_green"
+	"Chemlight_green",
+	"Chemlight_yellow"
 ];
 
 storeOwners = 

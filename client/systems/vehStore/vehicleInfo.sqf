@@ -78,7 +78,19 @@ _vehText ctrlSetText "";
 	_isDumb = false;
 	switch(_itemText) do
 	{
-		case "Quadbike":
+		case "Quadbike Blue":
+		{
+			_isDumb = true;
+		};
+		case "Quadbike Red":
+		{
+			_isDumb = true;
+		};
+		case "Quadbike Green":
+		{
+			_isDumb = true;
+		};
+		case "Quadbike Civilian":
 		{
 			_isDumb = true;
 		};
@@ -147,6 +159,10 @@ _vehText ctrlSetText "";
 			_isDumb = true;
 		};
 		case "Rescue Red":
+		{
+			_isDumb = true;
+		};
+		case "Rescue Civilian":
 		{
 			_isDumb = true;
 		};

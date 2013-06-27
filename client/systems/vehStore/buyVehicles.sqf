@@ -274,7 +274,6 @@ switch(_switch) do
 					_car setVelocity [0,0,0];
 					
 					//if they chose a color set the color
-					//if they chose a color set the color
 					if(_colorText == "Orange Camo") then {_car setObjectTexture [0, "images\camo_fack.jpg"];};
 					if(_colorText == "Red Camo") then {_car setObjectTexture [0, "images\camo_deser.jpg"];};
 					if(_colorText == "Yellow Camo") then {_car setObjectTexture [0, "images\camo_fuel.jpg"];};
