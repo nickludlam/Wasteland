@@ -9371,7 +9371,7 @@ class Mission
 			timeoutMax=300;
 			interruptable=1;
 			age="UNKNOWN";
-			expActiv="""s1_81"" setmarkercolor ""colorgreen"";titleText [""Rebels have captured Girna"",""PLAIN"", 3]; titleFadeOut 3;  _handle = player execVM ""cmoneyI.sqf""; ";
+			expActiv="""s1_81"" setmarkercolor ""colorgreen"";titleText [""Gfor has captured Girna"",""PLAIN"", 3]; titleFadeOut 3;  _handle = player execVM ""cmoneyI.sqf""; ";
 			class Effects
 			{
 				voice="HintsOpen";
@@ -9428,7 +9428,7 @@ class Mission
 			timeoutMax=300;
 			interruptable=1;
 			age="UNKNOWN";
-			expActiv="""s1_82"" setmarkercolor ""colorgreen"";titleText [""Rebels have captured North Agia Marina Garage"",""PLAIN"", 3]; titleFadeOut 3;  _handle = player execVM ""cmoneyI.sqf""; ";
+			expActiv="""s1_82"" setmarkercolor ""colorgreen"";titleText [""Gfor has captured North Agia Marina Garage"",""PLAIN"", 3]; titleFadeOut 3;  _handle = player execVM ""cmoneyI.sqf""; ";
 			class Effects
 			{
 				voice="HintsOpen";
@@ -9506,7 +9506,7 @@ class Mission
 			timeoutMax=300;
 			interruptable=1;
 			age="UNKNOWN";
-			expActiv="""s1_84"" setmarkercolor ""colorgreen"";titleText [""Rebels have captured Kamino Firing Range"",""PLAIN"", 3]; titleFadeOut 3;  _handle = player execVM ""cmoneyI.sqf""; ";
+			expActiv="""s1_84"" setmarkercolor ""colorgreen"";titleText [""Gfor has captured Kamino Firing Range"",""PLAIN"", 3]; titleFadeOut 3;  _handle = player execVM ""cmoneyI.sqf""; ";
 			class Effects
 			{
 				voice="HintsOpen";
@@ -9729,7 +9729,7 @@ class Mission
 			timeoutMax=300;
 			interruptable=1;
 			age="UNKNOWN";
-			expActiv="""s1_87"" setmarkercolor ""colorgreen"";titleText [""Rebels have captured Camp Rogain"",""PLAIN"", 3]; titleFadeOut 3;  _handle = player execVM ""cmoneyI.sqf""; ";
+			expActiv="""s1_87"" setmarkercolor ""colorgreen"";titleText [""Gfor has captured Camp Rogain"",""PLAIN"", 3]; titleFadeOut 3;  _handle = player execVM ""cmoneyI.sqf""; ";
 			class Effects
 			{
 				voice="HintsOpen";
@@ -9749,7 +9749,7 @@ class Mission
 			timeoutMax=300;
 			interruptable=1;
 			age="UNKNOWN";
-			expActiv="""s1_83"" setmarkercolor ""colorgreen"";titleText [""Rebels have captured Air Station Mike"",""PLAIN"", 3]; titleFadeOut 3;  _handle = player execVM ""cmoneyI.sqf""; ";
+			expActiv="""s1_83"" setmarkercolor ""colorgreen"";titleText [""Gfor has captured Air Station Mike"",""PLAIN"", 3]; titleFadeOut 3;  _handle = player execVM ""cmoneyI.sqf""; ";
 			class Effects
 			{
 				voice="HintsOpen";
@@ -9767,7 +9767,7 @@ class Mission
 			timeoutMax=300;
 			interruptable=1;
 			age="UNKNOWN";
-			expActiv="""s1_88"" setmarkercolor ""colorgreen"";titleText [""Rebels have captured Camp Tempest"",""PLAIN"", 3]; titleFadeOut 3;  _handle = player execVM ""cmoneyI.sqf""; ";
+			expActiv="""s1_88"" setmarkercolor ""colorgreen"";titleText [""Gfor has captured Camp Tempest"",""PLAIN"", 3]; titleFadeOut 3;  _handle = player execVM ""cmoneyI.sqf""; ";
 			class Effects
 			{
 				voice="HintsOpen";
@@ -9786,7 +9786,7 @@ class Mission
 			timeoutMax=300;
 			interruptable=1;
 			age="UNKNOWN";
-			expActiv="""s1_86"" setmarkercolor ""colorgreen"";titleText [""Rebels have captured Camp Maxwell"",""PLAIN"", 3]; titleFadeOut 3;  _handle = player execVM ""cmoneyI.sqf""; ";
+			expActiv="""s1_86"" setmarkercolor ""colorgreen"";titleText [""Gfor has captured Camp Maxwell"",""PLAIN"", 3]; titleFadeOut 3;  _handle = player execVM ""cmoneyI.sqf""; ";
 			class Effects
 			{
 				voice="HintsOpen";
@@ -9804,7 +9804,7 @@ class Mission
 			timeoutMax=300;
 			interruptable=1;
 			age="UNKNOWN";
-			expActiv="""s1_89"" setmarkercolor ""colorgreen"";titleText [""Rebels have captured Agios Cephas"",""PLAIN"", 3]; titleFadeOut 3;  _handle = player execVM ""cmoneyI.sqf""; ";
+			expActiv="""s1_89"" setmarkercolor ""colorgreen"";titleText [""Gfor has captured Agios Cephas"",""PLAIN"", 3]; titleFadeOut 3;  _handle = player execVM ""cmoneyI.sqf""; ";
 			class Effects
 			{
 				voice="HintsOpen";
@@ -9821,7 +9821,7 @@ class Mission
 			timeoutMax=300;
 			interruptable=1;
 			age="UNKNOWN";
-			expActiv="""s1_80"" setmarkercolor ""colorgreen"";titleText [""Rebels have captured GodMode's Garage"",""PLAIN"", 3]; titleFadeOut 3; _handle = player execVM ""cmoneyI.sqf"";  ";
+			expActiv="""s1_80"" setmarkercolor ""colorgreen"";titleText [""Gfor has captured GodMode's Garage"",""PLAIN"", 3]; titleFadeOut 3; _handle = player execVM ""cmoneyI.sqf"";  ";
 			class Effects
 			{
 				voice="HintsOpen";
@@ -9878,7 +9878,7 @@ class Mission
 			timeoutMax=300;
 			interruptable=1;
 			age="UNKNOWN";
-			expActiv="""s1_11"" setmarkercolor ""colorgreen"";titleText [""Rebels have captured PalmBeatz Impoundlot"",""PLAIN"", 3]; titleFadeOut 3; _handle = player execVM ""cmoneyI.sqf"";  ";
+			expActiv="""s1_11"" setmarkercolor ""colorgreen"";titleText [""Gfor has captured PalmBeatz Impoundlot"",""PLAIN"", 3]; titleFadeOut 3; _handle = player execVM ""cmoneyI.sqf"";  ";
 			class Effects
 			{
 				voice="HintsOpen";
@@ -9932,7 +9932,7 @@ class Mission
 			timeoutMax=300;
 			interruptable=1;
 			age="UNKNOWN";
-			expActiv="""S2"" setmarkercolor ""colorgreen"";titleText [""Rebels have captured Jay Cove"",""PLAIN"", 3]; titleFadeOut 3; _handle = player execVM ""cmoneyI.sqf"";  ";
+			expActiv="""S2"" setmarkercolor ""colorgreen"";titleText [""Gfor has captured Jay Cove"",""PLAIN"", 3]; titleFadeOut 3; _handle = player execVM ""cmoneyI.sqf"";  ";
 			class Effects
 			{
 				voice="HintsOpen";
@@ -9986,7 +9986,7 @@ class Mission
 			timeoutMax=300;
 			interruptable=1;
 			age="UNKNOWN";
-			expActiv="""S3"" setmarkercolor ""colorgreen"";titleText [""Rebels have captured the Drug Smugglers Den"",""PLAIN"", 3]; titleFadeOut 3; _handle = player execVM ""cmoneyI.sqf"";  ";
+			expActiv="""S3"" setmarkercolor ""colorgreen"";titleText [""Gfor has captured the Drug Smugglers Den"",""PLAIN"", 3]; titleFadeOut 3; _handle = player execVM ""cmoneyI.sqf"";  ";
 			class Effects
 			{
 				voice="HintsOpen";
@@ -10063,7 +10063,7 @@ class Mission
 			timeoutMax=300;
 			interruptable=1;
 			age="UNKNOWN";
-			expActiv="""S101"" setmarkercolor ""colorgreen"";titleText [""Rebels have captured the Old Transmission Station"",""PLAIN"", 3]; titleFadeOut 3; _handle = player execVM ""cmoneyI.sqf"";  ";
+			expActiv="""S101"" setmarkercolor ""colorgreen"";titleText [""Gfor has captured the Old Transmission Station"",""PLAIN"", 3]; titleFadeOut 3; _handle = player execVM ""cmoneyI.sqf"";  ";
 			class Effects
 			{
 				voice="HintsOpen";
@@ -10123,7 +10123,7 @@ class Mission
 			timeoutMax=300;
 			interruptable=1;
 			age="UNKNOWN";
-			expActiv="""S1011"" setmarkercolor ""colorgreen"";titleText [""Rebels have captured the Airfield North"",""PLAIN"", 3]; titleFadeOut 3; _handle = player execVM ""cmoneyIAF.sqf"";  ";
+			expActiv="""S1011"" setmarkercolor ""colorgreen"";titleText [""Gfor has captured the Airfield North"",""PLAIN"", 3]; titleFadeOut 3; _handle = player execVM ""cmoneyIAF.sqf"";  ";
 			class Effects
 			{
 				voice="HintsOpen";
@@ -10183,7 +10183,7 @@ class Mission
 			timeoutMax=300;
 			interruptable=1;
 			age="UNKNOWN";
-			expActiv="""S1012"" setmarkercolor ""colorgreen"";titleText [""Rebels have captured the Airfield South"",""PLAIN"", 3]; titleFadeOut 3; _handle = player execVM ""cmoneyIAF.sqf"";  ";
+			expActiv="""S1012"" setmarkercolor ""colorgreen"";titleText [""Gfor has captured the Airfield South"",""PLAIN"", 3]; titleFadeOut 3; _handle = player execVM ""cmoneyIAF.sqf"";  ";
 			class Effects
 			{
 				voice="HintsOpen";
@@ -10305,7 +10305,7 @@ class Mission
 			timeoutMax=300;
 			interruptable=1;
 			age="UNKNOWN";
-			expActiv="""sLZ"" setmarkercolor ""colorgreen"";titleText [""Rebels have captured LZ Connor"",""PLAIN"", 3]; titleFadeOut 3;  _handle = player execVM ""cmoneyI.sqf""; ";
+			expActiv="""sLZ"" setmarkercolor ""colorgreen"";titleText [""Gfor has captured LZ Connor"",""PLAIN"", 3]; titleFadeOut 3;  _handle = player execVM ""cmoneyI.sqf""; ";
 			class Effects
 			{
 				voice="HintsOpen";
@@ -10359,7 +10359,7 @@ class Mission
 			timeoutMax=300;
 			interruptable=1;
 			age="UNKNOWN";
-			expActiv="""sAGG"" setmarkercolor ""colorgreen"";titleText [""Rebels have captured Agios Loannis"",""PLAIN"", 3]; titleFadeOut 3;  _handle = player execVM ""cmoneyI.sqf""; ";
+			expActiv="""sAGG"" setmarkercolor ""colorgreen"";titleText [""Gfor has captured Agios Loannis"",""PLAIN"", 3]; titleFadeOut 3;  _handle = player execVM ""cmoneyI.sqf""; ";
 			class Effects
 			{
 				voice="HintsOpen";
@@ -10416,7 +10416,7 @@ class Mission
 			timeoutMax=300;
 			interruptable=1;
 			age="UNKNOWN";
-			expActiv="""s1_8N"" setmarkercolor ""colorgreen"";titleText [""Rebels have captured South Agia Marina Garage"",""PLAIN"", 3]; titleFadeOut 3;  _handle = player execVM ""cmoneyI.sqf""; ";
+			expActiv="""s1_8N"" setmarkercolor ""colorgreen"";titleText [""Gfor has captured South Agia Marina Garage"",""PLAIN"", 3]; titleFadeOut 3;  _handle = player execVM ""cmoneyI.sqf""; ";
 			class Effects
 			{
 				voice="HintsOpen";
@@ -10573,7 +10573,7 @@ class Mission
 			timeoutMax=300;
 			interruptable=1;
 			age="UNKNOWN";
-			expActiv="""shouse"" setmarkercolor ""colorgreen"";titleText [""Rebels have captured the Crossop's Favela"",""PLAIN"", 3]; titleFadeOut 3; _handle = player execVM ""cmoneyIAF.sqf"";  ";
+			expActiv="""shouse"" setmarkercolor ""colorgreen"";titleText [""Gfor has captured the Crossop's Favela"",""PLAIN"", 3]; titleFadeOut 3; _handle = player execVM ""cmoneyIAF.sqf"";  ";
 			class Effects
 			{
 				voice="HintsOpen";
@@ -10850,7 +10850,7 @@ class Mission
 			timeoutMax=300;
 			interruptable=1;
 			age="UNKNOWN";
-			expActiv="""S2_1"" setmarkercolor ""colorgreen"";titleText [""Rebels have captured Shadow's Light"",""PLAIN"", 3]; titleFadeOut 3; _handle = player execVM ""cmoneyI.sqf"";  ";
+			expActiv="""S2_1"" setmarkercolor ""colorgreen"";titleText [""Gfor has captured Shadow's Light"",""PLAIN"", 3]; titleFadeOut 3; _handle = player execVM ""cmoneyI.sqf"";  ";
 			class Effects
 			{
 				voice="HintsOpen";
@@ -10906,7 +10906,7 @@ class Mission
 			timeoutMax=300;
 			interruptable=1;
 			age="UNKNOWN";
-			expActiv="""S2_1_1"" setmarkercolor ""colorgreen"";titleText [""Rebels have captured Kamino Settlement"",""PLAIN"", 3]; titleFadeOut 3; _handle = player execVM ""cmoneyI.sqf"";  ";
+			expActiv="""S2_1_1"" setmarkercolor ""colorgreen"";titleText [""Gfor has captured Kamino Settlement"",""PLAIN"", 3]; titleFadeOut 3; _handle = player execVM ""cmoneyI.sqf"";  ";
 			class Effects
 			{
 				voice="HintsOpen";
@@ -10981,7 +10981,7 @@ class Mission
 			timeoutMax=300;
 			interruptable=1;
 			age="UNKNOWN";
-			expActiv="""s1_85"" setmarkercolor ""colorgreen"";titleText [""Rebels have captured Kill Farm"",""PLAIN"", 3]; titleFadeOut 3;  _handle = player execVM ""cmoneyI.sqf""; ";
+			expActiv="""s1_85"" setmarkercolor ""colorgreen"";titleText [""Gfor has captured Kill Farm"",""PLAIN"", 3]; titleFadeOut 3;  _handle = player execVM ""cmoneyI.sqf""; ";
 			class Effects
 			{
 				voice="HintsOpen";
@@ -11108,7 +11108,7 @@ class Mission
 			timeoutMax=300;
 			interruptable=1;
 			age="UNKNOWN";
-			expActiv="""s1_83_1"" setmarkercolor ""colorgreen"";titleText [""Rebels have captured LZ Baldy"",""PLAIN"", 3]; titleFadeOut 3;  _handle = player execVM ""cmoneyI.sqf""; ";
+			expActiv="""s1_83_1"" setmarkercolor ""colorgreen"";titleText [""Gfor has captured LZ Baldy"",""PLAIN"", 3]; titleFadeOut 3;  _handle = player execVM ""cmoneyI.sqf""; ";
 			class Effects
 			{
 				voice="HintsOpen";
@@ -11168,7 +11168,7 @@ class Mission
 			timeoutMax=300;
 			interruptable=1;
 			age="UNKNOWN";
-			expActiv="""s1_83_1_1"" setmarkercolor ""colorgreen"";titleText [""Rebels have captured Pythos"",""PLAIN"", 3]; titleFadeOut 3;  _handle = player execVM ""cmoneyI.sqf""; ";
+			expActiv="""s1_83_1_1"" setmarkercolor ""colorgreen"";titleText [""Gfor has captured Pythos"",""PLAIN"", 3]; titleFadeOut 3;  _handle = player execVM ""cmoneyI.sqf""; ";
 			class Effects
 			{
 				voice="HintsOpen";

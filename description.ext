@@ -1,6 +1,7 @@
 respawn="BASE";
 respawnDelay=15;
 disabledAI=1;
+disableChannels[]={0,1,2,6};
 enableItemsDropping = 1;
 loadScreen = "Loading.jpg";
 aikills=1;
