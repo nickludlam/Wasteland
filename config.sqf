@@ -161,6 +161,7 @@ accessoriesArray =
 	["Medkit","Medikit", 550,"item"],
 	["Toolkit","ToolKit", 550,"item"],
 	["Suppressor 9mm","muzzle_snds_L", 250,"item"],
+	["Suppressor 5.56mm", "muzzle_snds_M", 250, "item"],
 	["Suppressor 6.5mm","muzzle_snds_H", 250,"item"],
 	["LMG Suppressor 6.5mm","muzzle_snds_H_MG", 250,"item"],
 	["Suppressor 7.62mm","muzzle_snds_B", 250,"item"],
@@ -420,8 +421,8 @@ armoredArray =
 	["Strider","I_MRAP_03_F",3000,"vehicle",1500],
 	["Strider HMG","I_MRAP_03_hmg_F",8000,"vehicle",4000],
 	["Strider GMG","I_MRAP_03_gmg_F",9000,"vehicle",4500],
-	["AMV-7 Marshall","B_APC_Wheeled_01_cannon_F",11000,"vehicle",""],
-	["MSE-3 Marid","O_APC_Wheeled_02_rcws_F",11000,"vehicle",""]
+	["AMV-7 Marshall","B_APC_Wheeled_01_cannon_F",13000,"vehicle",""],
+	["MSE-3 Marid","O_APC_Wheeled_02_rcws_F",13000,"vehicle",""]
 ];
 
 tanksArray =

@@ -63,7 +63,7 @@ switch(_switch) do
 					//enable vehicle locking
 					vehiclelock = _car addAction ["Unlock / Lock","server\functions\unlocklock.sqf",[],7,true,true,"","(_target distance _this) < 7"];
 					_car addEventHandler ["Killed",{(_this select 0) spawn {sleep 180; deleteVehicle _this}}];
-					_car addEventHandler ["IncomingMissile", "hint format['Incoming Missile Launched By: %1', name (_this select 2)]"];
+					_car addEventHandler ["IncomingMissile", "[name (_this select 2)] execVM 'incomingAlarm.sqf'"];
 				};
 			};
 		}forEach landArray;
@@ -99,7 +99,7 @@ switch(_switch) do
 					//enable vehicle locking
 					vehiclelock = _car addAction ["Unlock / Lock","server\functions\unlocklock.sqf",[],7,true,true,"","(_target distance _this) < 7"];
 					_car addEventHandler ["Killed",{(_this select 0) spawn {sleep 180; deleteVehicle _this}}];
-					_car addEventHandler ["IncomingMissile", "hint format['Incoming Missile Launched By: %1', name (_this select 2)]"];
+					_car addEventHandler ["IncomingMissile", "[name (_this select 2)] execVM 'incomingAlarm.sqf'"];
 				};
 			};
 		}forEach armoredArray;
@@ -136,7 +136,7 @@ switch(_switch) do
 					//enable vehicle locking
 					vehiclelock = _car addAction ["Unlock / Lock","server\functions\unlocklock.sqf",[],7,true,true,"","(_target distance _this) < 7"];
 					_car addEventHandler ["Killed",{(_this select 0) spawn {sleep 180; deleteVehicle _this}}];
-					_car addEventHandler ["IncomingMissile", "hint format['Incoming Missile Launched By: %1', name (_this select 2)]"];
+					_car addEventHandler ["IncomingMissile", "[name (_this select 2)] execVM 'incomingAlarm.sqf'"];
 				};
 			};
 		}forEach tanksArray;
@@ -173,7 +173,7 @@ switch(_switch) do
 					//enable vehicle locking
 					vehiclelock = _car addAction ["Unlock / Lock","server\functions\unlocklock.sqf",[],7,true,true,"","(_target distance _this) < 7"];
 					_car addEventHandler ["Killed",{(_this select 0) spawn {sleep 180; deleteVehicle _this}}];
-					_car addEventHandler ["IncomingMissile", "hint format['Incoming Missile Launched By: %1', name (_this select 2)]"];
+					_car addEventHandler ["IncomingMissile", "[name (_this select 2)] execVM 'incomingAlarm.sqf'"];
 				};
 			};
 		}forEach helicoptersArray;
@@ -210,7 +210,7 @@ switch(_switch) do
 					//enable vehicle locking
 					vehiclelock = _car addAction ["Unlock / Lock","server\functions\unlocklock.sqf",[],7,true,true,"","(_target distance _this) < 7"];
 					_car addEventHandler ["Killed",{(_this select 0) spawn {sleep 180; deleteVehicle _this}}];
-					_car addEventHandler ["IncomingMissile", "hint format['Incoming Missile Launched By: %1', name (_this select 2)]"];
+					_car addEventHandler ["IncomingMissile", "[name (_this select 2)] execVM 'incomingAlarm.sqf'"];
 				};
 			};
 		}forEach jetsArray;
@@ -246,7 +246,7 @@ switch(_switch) do
 					//enable vehicle locking
 					vehiclelock = _car addAction ["Unlock / Lock","server\functions\unlocklock.sqf",[],7,true,true,"","(_target distance _this) < 7"];
 					_car addEventHandler ["Killed",{(_this select 0) spawn {sleep 180; deleteVehicle _this}}];
-					_car addEventHandler ["IncomingMissile", "hint format['Incoming Missile Launched By: %1', name (_this select 2)]"];
+					_car addEventHandler ["IncomingMissile", "[name (_this select 2)] execVM 'incomingAlarm.sqf'"];
 				};
 			};
 		}forEach boatsArray;
@@ -283,7 +283,7 @@ switch(_switch) do
 					//enable vehicle locking
 					vehiclelock = _car addAction ["Unlock / Lock","server\functions\unlocklock.sqf",[],7,true,true,"","(_target distance _this) < 7"];
 					_car addEventHandler ["Killed",{(_this select 0) spawn {sleep 180; deleteVehicle _this}}];
-					_car addEventHandler ["IncomingMissile", "hint format['Incoming Missile Launched By: %1', name (_this select 2)]"];
+					_car addEventHandler ["IncomingMissile", "[name (_this select 2)] execVM 'incomingAlarm.sqf'"];
 				};
 			};
 		}forEach submarinesArray;

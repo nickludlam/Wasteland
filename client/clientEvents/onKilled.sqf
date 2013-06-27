@@ -72,7 +72,8 @@ _to_delete_quick = [];
 //get the donation money and subtract it from their total
 _mTotal = 0;
 _mTotal = _player getVariable "cmoney";
-if(_mTotal > computedMoney) then {_mTotal = _mTotal - computedMoney};
+_mTotal = _mTotal - computedMoney;
+if(_mTotal <= 0) then {_mTotal = 0;};
 if(_mTotal > 0) then {
 	_m = "Land_Sack_F" createVehicle (position _player);
 	_m setVariable["money", _mTotal, true];

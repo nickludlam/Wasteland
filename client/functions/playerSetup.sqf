@@ -39,7 +39,7 @@ switch (str(playerSide)) do
 default
     {
 		//_player addUniform (["U_B_CombatUniform_mcam","U_O_CombatUniform_ocamo"] call BIS_fnc_selectRandom);
-		_player addUniform (["U_C_Commoner1_1","U_C_Poloshirt_redwhite","U_C_Poloshirt_salmon","U_C_Poloshirt_tricolour","U_C_Poloshirt_blue","U_C_Poloshirt_burgundy"] call BIS_fnc_selectRandom);
+		_player addUniform "U_I_CombatUniform";
 		_player addVest (["V_HarnessO_brn","V_HarnessOGL_brn"] call BIS_fnc_selectRandom);
     };
 };

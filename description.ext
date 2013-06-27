@@ -38,6 +38,17 @@ class RscTitles {
 	#include "client\systems\newicons.hpp"
 };
 
+class CfgSounds
+{
+	sounds[] = {alarm1};
+	class alarm1
+	{
+		name = "alarm1";
+		sound[] = {"\client\sounds\alarm1.ogg", db+20, 2.5};
+		titles[] = {	};
+	};
+};
+
 class CfgIdentities
 {
     class East_GR

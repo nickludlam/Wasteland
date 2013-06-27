@@ -37,7 +37,7 @@ _marker = createMarkerLocal ["CivHeli_Marker", _randomPos];
 "CivHeli_Marker" setMarkerSizeLocal [1,1];
 "CivHeli_Marker" setMarkerTextLocal "Mission Here";
 */
-_vehicleClass = ["O_Ka60_Unarmed_F","B_Heli_Light_01_F"] call BIS_fnc_selectRandom;
+_vehicleClass = ["B_Heli_Light_01_F","O_Heli_Light_02_unarmed_F","I_Heli_Transport_02_F"] call BIS_fnc_selectRandom;
 _vehicle addEventHandler ["IncomingMissile", "hint format['Incoming Missile Launched By: %1', name (_this select 2)]"];
 
 //Vehicle Class, Posistion, Fuel, Ammo, Damage

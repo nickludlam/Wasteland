@@ -228,6 +228,8 @@ player createDiaryRecord["changelog",
 - New choppers incorporated into chopper missions.<br/>
 - Bounty Hunt time increased to 30 minutes.<br/>
 - Gun store price adjustment.<br/>
+- Audible sound when missile is fired at vehicle.<br/>
+- 5.56 supressor in gun store.<br/>
 "
 ]
 ];
