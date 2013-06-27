@@ -15,13 +15,19 @@ private["_cumulativePlayerFatigue", "_maxEntries", "_sleepInterval", "_fatigueRe
 	//diag_log format ["DEBUG: Starting fatigue checks"];
 	
 	_cumulativePlayerFatigue = [];
-	_maxEntries = 5;               // Number of entries in our averaging array
+	_maxEntries = 1;              // Number of entries in our averaging array
 	_sleepInterval = 10;           // Sleep between sampling fatigue
 	_fatigueRecoveryLevel = 0.50;  // Value above which we give the player recovery message 
-	_fatigueWarningLevel = 0.90;   // Value above which we warn the player
+	_fatigueWarningLevel = 0.95;   // Value above which we warn the player
 	_fatigueThreshold = 1;         // Value above which the avg fatigue will cause thirst
 	_extraThirstDecrement = 4;     // Value to decrement each period from the player's water level
+	_extraHungerDecrement = 1;     // Value to decrement each period from the player's food level
 	_triggeredFatigueMessage = 0;
+
+	_hndl = ppEffectCreate ["colorCorrections", 150];
+
+	tiredEffectApplied = 0;
+	exhaustedEffectApplied = 0;
 
 	while {true} do
 	{
@@ -67,14 +73,36 @@ private["_cumulativePlayerFatigue", "_maxEntries", "_sleepInterval", "_fatigueRe
 
 			if (fatigueLevel >= _fatigueThreshold) then
 			{
+				if (exhaustedEffectApplied == 0) then {
+					_hndl ppEffectAdjust [1.0, 1.0, -0.2, [0.5, 0.5, 0.5, -0.3], [0.5, 0.5, 0.5, 0.6], [0.5,0.5,0.5,0.5]];  
+					_hndl ppEffectCommit 1;
+					_hndl ppEffectEnable true;
+					exhaustedEffectApplied = 1;
+				};
+
 				fatigueLevel = FATIGUE_EXHAUSTED;
 				hint "You're feeling exhausted. Stop and rest to cool off!";
 				thirstLevel = thirstLevel - _extraThirstDecrement;
-			} else {
+				hungerLevel = hungerLevel - _extraHungerDecrement;
+			} 
+			else
+			{
+				if (tiredEffectApplied == 0) then {
+					_hndl ppEffectAdjust [1.0, 1.0, -0.2, [0.5, 0.5, 0.5, -0.6], [0.5, 0.5, 0.5, 0.6], [0.5,0.5,0.5,0.5]];  
+					_hndl ppEffectCommit 1;
+					_hndl ppEffectEnable true;
+					tiredEffectApplied = 1;
+				};
 				fatigueLevel = FATIGUE_TIRED;
 				hint "You're starting to get tired from the pace";
 			};
-		} else {
+		}
+		else
+		{
+			_hndl ppEffectEnable false;
+			_hndl ppEffectCommit 1;
+			tiredEffectApplied = 0;
+			exhaustedEffectApplied = 0;
 			// If we're in recovery mode, wait until we're below our threshold
 			if (_triggeredFatigueMessage == 1) then {
 				if (curFatigueLevel > _fatigueRecoveryLevel && curFatigueLevel < _fatigueWarningLevel) then {
@@ -88,6 +116,8 @@ private["_cumulativePlayerFatigue", "_maxEntries", "_sleepInterval", "_fatigueRe
 
 		sleep _sleepInterval;
 	};
+
+	ppEffectDestroy _hndl;
 };
 #endif
 
