@@ -76,7 +76,6 @@ switch(_switch) do
 				{
 					player addWeapon _class;
 				};
-				
 			};                    		
 		}forEach pistolArray;
 			

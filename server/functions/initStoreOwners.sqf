@@ -11,9 +11,13 @@ private ["_pos", "_name", "_men", "_run", "_fPos", "_fName", "_markerName", "_mP
 	
 	_building = _objects select 0;
 	{
+		_x removeAllEventHandlers "hit";
+		_x removeAllEventHandlers "dammaged";
+		_x removeAllEventHandlers "handleDamage";
 		_x addeventhandler ["hit", {(_this select 0) setdamage 0;}];
 		_x addeventhandler ["dammaged", {(_this select 0) setdamage 0;}];
 		_x addEventHandler["handledamage", {false}];
+		_x allowDamage false;
 	}foreach _objects;
 
 	//_building allowDamage false;

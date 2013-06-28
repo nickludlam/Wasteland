@@ -53,6 +53,7 @@ if (serverSpawning == 1) then {
 	sleep 0.1;
 	_recurOwners = [] ExecVM "server\functions\recurInitStoreOwners.sqf";
 	_cleanupLoop = [] ExecVM "server\functions\cleanupLoop.sqf";
+	_antiMissionFailed = [] ExecVM "server\spawning\antiMissionFailedNPCs.sqf";
 	sleep 0.1;
 };
 
