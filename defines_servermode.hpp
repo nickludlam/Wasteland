@@ -4,4 +4,4 @@
 //#define __DEBUG__
 
 // Define this if you want to enable long periods of running to drain your water level
-//#define __RUNNING_THIRST__
+//#define __RUNNING_FATIGUE__

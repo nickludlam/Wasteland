@@ -7,10 +7,4 @@
 #define __DISABLE_INIDB__
 
 // Define this if you want to enable long periods of running to drain your water level
-#define __RUNNING_THIRST__
-
-
-// FATIGUE SYSTEM
-#define FATIGUE_EXHAUSTED -3
-#define FATIGUE_TIRED -2
-#define FATIGUE_RESTING -1
+#define __RUNNING_FATIGUE__

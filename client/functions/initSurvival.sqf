@@ -7,7 +7,12 @@
 
 #include "defines.hpp" // Global definitions file
 
-#ifdef __RUNNING_THIRST__
+#ifdef __RUNNING_FATIGUE__
+
+// FATIGUE SYSTEM
+#define FATIGUE_EXHAUSTED -3
+#define FATIGUE_TIRED -2
+#define FATIGUE_RESTING -1
 
 private["_cumulativePlayerFatigue", "_maxEntries", "_sleepInterval", "_fatigueRecoveryLevel", "_fatigueWarningLevel", "_fatigueThreshold", "_extraThirstDecrement", "_tiredEffectApplied", "_exhaustedEffectApplied"];
 
@@ -20,7 +25,7 @@ player setFatigue 0.9;
 	_maxEntries = 8;               // Number of entries in our averaging array
 	_sleepInterval = 10;           // Sleep between sampling fatigue
 	_fatigueRecoveryLevel = 0.50;  // Value above which we give the player recovery message 
-	_fatigueWarningLevel = 0.95;   // Value above which we warn the player
+	_fatigueWarningLevel = 0.96;   // Value above which we warn the player
 	_fatigueThreshold = 1;         // Value above which the avg fatigue will cause thirst
 	_extraThirstDecrement = 4;     // Value to decrement each period from the player's water level
 	_extraHungerDecrement = 1;     // Value to decrement each period from the player's food level
@@ -30,6 +35,16 @@ player setFatigue 0.9;
 
 	_tiredEffectApplied = 0;
 	_exhaustedEffectApplied = 0;
+
+	// if fatigue > _fatigueRecoveryLevel and fatigue < _fatigueThreshold
+	// IF !WARNING_MODE_ENABLED
+	// 	ISSUE WARNING DIALOG
+	// 	SET WARNING EFFECT
+	// 	WARNING_MODE_ENABLED=1
+
+	// if fatigue == _fatigueThreshold
+	// IF !WARNING_MODE_ENABLED
+
 
 	while {true} do
 	{
@@ -60,6 +75,7 @@ player setFatigue 0.9;
 		// Average the samples we have of fatigue
 		_total = 0;
 		{
+			// Prevent adding nil values
 			if (_x > 0) then
 			{
 				_total = _total + _x;
