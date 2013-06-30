@@ -1,7 +1,7 @@
 
 //	@file Version: 1.0
 //	@file Name: initSurvival.sqf
-//	@file Author: [404] Deadbeat, [404] Costlyy, TAW_Tonic (original)
+//	@file Author: [404] Deadbeat, [404] Costlyy, TAW_Tonic (original), [KoS]Bewilderbeest (fatigue mechanic)
 //	@file Created: 20/11/2012 05:19
 //	@file Args:
 
@@ -9,42 +9,36 @@
 
 #ifdef __RUNNING_FATIGUE__
 
-// FATIGUE SYSTEM
-#define FATIGUE_EXHAUSTED -3
-#define FATIGUE_TIRED -2
-#define FATIGUE_RESTING -1
-
-private["_cumulativePlayerFatigue", "_maxEntries", "_sleepInterval", "_fatigueRecoveryLevel", "_fatigueWarningLevel", "_fatigueThreshold", "_extraThirstDecrement", "_tiredEffectApplied", "_exhaustedEffectApplied"];
-
-player setFatigue 0.9;
+private["_cumulativePlayerFatigue", "_maxEntries", "_sleepInterval", "_fatigueRecoveryLevel", "_fatigueWarningThreshold", "_fatigueExhaustionThreshold", "_extraThirstDecrement", "_tiredEffectApplied", "_exhaustedEffectApplied", "_msg"];
 
 [] spawn {
 	//diag_log format ["DEBUG: Starting fatigue checks"];
 	
+	// We sample every _sleepInterval, and keep _maxEntries samples in total. An average is calculated, 
+	// and then we determine if its over _fatigueWarningLevel or _fatigueExhaustionThreshold
+
+	// MATHS!
 	_cumulativePlayerFatigue = [];
-	_maxEntries = 8;               // Number of entries in our averaging array
+	_defaultMaxEntries = 18;		// Number of entries in our averaging array
 	_sleepInterval = 10;           // Sleep between sampling fatigue
-	_fatigueRecoveryLevel = 0.50;  // Value above which we give the player recovery message 
-	_fatigueWarningLevel = 0.96;   // Value above which we warn the player
-	_fatigueThreshold = 1;         // Value above which the avg fatigue will cause thirst
+	_fatigueRecoveryLevel = 0.49;  // Value above which we give the player recovery message 
+	_fatigueWarningThreshold = 0.98;   // Value above which we warn the player
+	_fatigueExhaustionThreshold = 1; // Value above which the avg fatigue will cause thirst
 	_extraThirstDecrement = 4;     // Value to decrement each period from the player's water level
-	_extraHungerDecrement = 1;     // Value to decrement each period from the player's food level
-	_triggeredFatigueMessage = 0;
+	_extraHungerDecrement = 1;     // Value to decrement each period from the player'spawn food level
 
+	// State
+	_triggeredTiredMessage = 0;
+	_triggeredExhaustionMode = 0;
+
+	// scaling
+	_scaleFactor = 1;
+
+
+	// PP Effects for tired / exhausted
 	_hndl = ppEffectCreate ["colorCorrections", 1999];
-
 	_tiredEffectApplied = 0;
 	_exhaustedEffectApplied = 0;
-
-	// if fatigue > _fatigueRecoveryLevel and fatigue < _fatigueThreshold
-	// IF !WARNING_MODE_ENABLED
-	// 	ISSUE WARNING DIALOG
-	// 	SET WARNING EFFECT
-	// 	WARNING_MODE_ENABLED=1
-
-	// if fatigue == _fatigueThreshold
-	// IF !WARNING_MODE_ENABLED
-
 
 	while {true} do
 	{
@@ -53,127 +47,209 @@ player setFatigue 0.9;
 
 		waitUntil {!respawnDialogActive};
 
+		// If the player is a fresh spawn
 		if (fatigueLevel == 0) then
 		{
 			// reset our array
 			_cumulativePlayerFatigue = [];
+			_triggeredExhaustionMode = 0;
+			_triggeredTiredMessage = 0;
 		};
 
 		curFatigueLevel = getFatigue player;
+		diag_log format ["curFatigueLevel %1", curFatigueLevel];
 
-		// Allow faster recovery if you're below 50% fatigue
-		if (_triggeredFatigueMessage == 1 && curFatigueLevel < _fatigueRecoveryLevel) then
-		{
-			curFatigueLevel = 0;
-			_triggeredFatigueMessage = 0;
-			_cumulativePlayerFatigue = [];
+		// Used later
+		_unit = player;
+		_speed = sqrt ( (velocity _unit select 0)^2 + (velocity _unit select 1)^2 + (velocity _unit select 2)^2 );
+		diag_log format ["_speed %1", _speed];
+
+		// Weapon count
+		_wArray = weapons player;
+		_wCount = count _wArray;
+		diag_log format ["Player has %1 weapon(s) (%2)", _wCount, _wArray];
+
+		//
+		_maxEntries = _defaultMaxEntries;
+		if (_wCount >= 2) then {
+			if (_wCount >= 3) then {
+				_maxEntries = _maxEntries - 8;
+			} else {
+				_maxEntries = _maxEntries - 2;
+			};
 		};
 
-		_cumulativePlayerFatigue = [curFatigueLevel] + _cumulativePlayerFatigue;
-		_cumulativePlayerFatigue resize _maxEntries;
+		diag_log format ["_maxEntries is now %1", _maxEntries];
 
-		// Average the samples we have of fatigue
-		_total = 0;
-		{
-			// Prevent adding nil values
-			if (_x > 0) then
+		// Different mechanics once we're exhausted.
+		// We only come out of exhaustion mode when curFatigueLevel < _fatigueRecoveryLevel 
+		if (_triggeredExhaustionMode == 1) then {
+			diag_log "In exhaustion mode";
+
+			if (curFatigueLevel < _fatigueRecoveryLevel) then
 			{
-				_total = _total + _x;
-			};
-		} forEach _cumulativePlayerFatigue;
+				// Allow full recovery if you're below 50% fatigue
 
-		fatigueLevel = _total / _maxEntries;
+				diag_log "Player recovered";
 
-		// How high is the level currently?
-		if (fatigueLevel > _fatigueWarningLevel) then
-		{
-
-			if (fatigueLevel >= _fatigueThreshold) then
-			{
-				if (_exhaustedEffectApplied == 0) then {
-					_hndl ppEffectEnable true;
-					_hndl ppEffectAdjust [0.7, 1.1, 0, [0, 0, 0, 0], [1, 1, 1, 0.4], [0.5, 0.5, 0.5, 0.5]];    
-					_hndl ppEffectCommit 3;
-					_exhaustedEffectApplied = 1;
-					//player globalChat "_exhaustedEffectApplied=1";
-				};
-
-				fatigueLevel = FATIGUE_EXHAUSTED;
-
-				_daytime = daytime;
-				if (_daytime > 11 and _daytime < 18) then {
-					// Day time = overheating
-					hint "You're sweating profusely. Stop and cool down!";
-				} else 
-				{
-					// Night time = tiredness / fatigue
-					hint "You feel exhausted. Stop an rest now!";
-				};
-
-				thirstLevel = thirstLevel - _extraThirstDecrement;
-				hungerLevel = hungerLevel - _extraHungerDecrement;
-			} 
-			else
-			{
-				// Fire once
-				if (_triggeredFatigueMessage == 0) then 
-				{
-					if (_tiredEffectApplied == 0) then {
-						_hndl ppEffectEnable true;
-						_hndl ppEffectAdjust [1, 1, 0.0, [0, 0, 0, 0], [1, 1, 1, 0.7], [0.5, 0.5, 0.5, 0.5]];  
-						_hndl ppEffectCommit 3;
-						_tiredEffectApplied = 1;
-						//player globalChat "_tiredEffectApplied=1";
-					};
-
-					fatigueLevel = FATIGUE_TIRED;
-
-					_daytime = daytime;
-					if (_daytime > 11 and _daytime < 18) then {
-						// Day time = overheating
-						hint "You're feeling hot and tired. Slow down";
-					} else 
-					{
-						// Night time = tiredness / fatigue
-						hint "You're getting tired from the relentless pace";
-					};
-				};
-			};
-	
-			_triggeredFatigueMessage = 1;
-		}
-		else
-		{
-			if (_tiredEffectApplied == 1 or _exhaustedEffectApplied == 1) then {
+				//player globalChat "Fast recovery!";
+				_tiredEffectApplied = 0;
+				_exhaustedEffectApplied = 0;
 				_hndl ppEffectEnable true;
 				_hndl ppEffectAdjust [1, 1, 0.0, [0, 0, 0, 0], [1, 1, 1, 1], [0.5, 0.5, 0.5, 0.5]];  
 				_hndl ppEffectCommit 3;
-				_tiredEffectApplied = 0;
-				_exhaustedEffectApplied = 0;
-				//player globalChat "reset applied effects";
-			} else
-			{
-				_hndl ppEffectEnable false;
-			};
 
-			// If we're in recovery mode, wait until we're below our threshold
-			if (_triggeredFatigueMessage == 1) then {
-				if (curFatigueLevel > _fatigueRecoveryLevel && curFatigueLevel < _fatigueWarningLevel) then {
-					// if we're still above, fatigueLevel = -1, AKA recovery mode (RESTING)
-					_unit = player;
-					_speed = sqrt ( (velocity _unit select 0)^2 + (velocity _unit select 1)^2 + (velocity _unit select 2)^2 );
-					//player globalChat format ["_speed is %1", _speed];
-					if (_speed == 0) then {
-						fatigueLevel = FATIGUE_RESTING;
-					} else
-					{
-						fatigueLevel = FATIGUE_TIRED;
+				// reset
+				fatigueLevel = 0;
+			} else {
+				// Not recovered yet
+	
+				if (_speed == 0) then {
+					// Player still. Do not deduct water/food penalty
+					diag_log "Player still. Resting";
+					fatigueLevel = FATIGUE_RESTING;
+				} else {
+					// If they're still moving, deduct the penalty
+
+					diag_log "Still exhausted";
+
+					fatigueLevel = FATIGUE_EXHAUSTED;
+
+					// Player is exhausted, decrement food and water
+					thirstLevel = thirstLevel - _extraThirstDecrement;
+					hungerLevel = hungerLevel - _extraHungerDecrement;
+
+					// Have they died yet?
+					if (hungerLevel < 2 or thirstLevel < 2) then {
+						if(hungerLevel < 2) then {player setDamage 1.31337; hint parseText "<t size='2' color='#ff0000'>Warning</t><br/><br/>You have starved to death.";};
+						if(thirstLevel < 2) then {player setDamage 1.31337; hint parseText "<t size='2' color='#ff0000'>Warning</t><br/><br/>You have died from dehydration.";};
+					} else {
+						// If they're not dead, issue the warning
+						_daytime = daytime;
+						if (_daytime > 11 and _daytime < 18) then {
+							// Day time = overheating
+							_msg = "You're sweating profusely! You need to stop and cool down, otherwise your food and water levels will drop rapidly";
+							_hint = parseText format ["<t align='center' color='#FF0000'><img size='3' color='#ff0000' image='images\running_icon_128.paa'/></t><br/><t align='center' color='#FF0000' size='1.75'>FATIGUE WARNING!</t><br/><t align='center' color='#ffffff'>%1</t>", _msg];
+							hint _hint;
+						} else {
+							// Night time = tiredness / fatigue
+							_msg = "You feel exhausted! You need to stop an rest now, otherwise your food and water levels will drop rapidly";
+							_hint = parseText format ["<t align='center' color='#FF0000'><img size='3' color='#ff0000' image='images\running_icon_128.paa'/></t><br/><t align='center' color='#FF0000' size='1.75'>FATIGUE WARNING!</t><br/><t align='center' color='#ffffff'>%1</t>", _msg];
+							hint _hint;
+						};
 					};
 				};
 			};
+
+		} else {
+			diag_log "Not in exhaustion mode";
+
+			diag_log format ["_cumulativePlayerFatigue resized by %1", _maxEntries];
+
+			_cumulativePlayerFatigue = [curFatigueLevel] + _cumulativePlayerFatigue;
+			_cumulativePlayerFatigue resize _maxEntries;
+
+			diag_log format ["_cumulativePlayerFatigue = %1", _cumulativePlayerFatigue];
+
+			// Average the samples we have of fatigue
+			_total = 0;
+			{
+				// Prevent adding nil values
+				if (_x > 0) then
+				{
+					_total = _total + _x;
+				};
+			} forEach _cumulativePlayerFatigue;
+
+			// calc mean avg
+			_avgFatigueLevel = _total / _maxEntries;
+			
+			diag_log format ["avgFatigueLevel = %1", _avgFatigueLevel];
+
+			// How high is the level currently?
+			if (_avgFatigueLevel > _fatigueWarningThreshold) then
+			{
+				if (_avgFatigueLevel >= _fatigueExhaustionThreshold) then
+				{
+					// Exhaustion mode engage!
+					diag_log "Triggering exhaustion mode now!";
+
+					_triggeredExhaustionMode = 1;
+					_triggeredTiredMessage = 1;
+
+					if (_exhaustedEffectApplied == 0) then {
+						_hndl ppEffectEnable true;
+						_hndl ppEffectAdjust [0.7, 1.1, 0, [0, 0, 0, 0], [1, 1, 1, 0.4], [0.5, 0.5, 0.5, 0.5]];    
+						_hndl ppEffectCommit 3;
+						_exhaustedEffectApplied = 1;
+						//player globalChat "_exhaustedEffectApplied=1";
+					};
+				} 
+				else
+				{
+					// Fire once
+					if (_triggeredTiredMessage == 0) then 
+					{
+						diag_log "Triggering tired message";
+
+						_triggeredTiredMessage = 1;
+
+						if (_tiredEffectApplied == 0) then {
+							_hndl ppEffectEnable true;
+							_hndl ppEffectAdjust [1, 1, 0.0, [0, 0, 0, 0], [1, 1, 1, 0.6], [0.5, 0.5, 0.5, 0.5]];  
+							_hndl ppEffectCommit 3;
+							_tiredEffectApplied = 1;
+							//player globalChat "_tiredEffectApplied=1";
+						};
+
+						// Special value
+						fatigueLevel = FATIGUE_TIRED;
+
+						_daytime = daytime;
+						if (_daytime > 11 and _daytime < 18) then {
+							// Day time = overheating
+							hint "You're starting to feel hot and tired. Slow down";
+						} else {
+							// Night time = tiredness / fatigue
+							hint "You're getting tired from the relentless pace. Slow down";
+						};
+					} else {
+						diag_log "Tired or resting";
+
+						// If we're here, we've triggered the tired message
+						// but we're not exhausted, so you're either tired or resting
+						if (_speed < 1.6) then {
+							// 1.55 = walking pace
+							fatigueLevel = FATIGUE_RESTING;
+						} else {
+							fatigueLevel = FATIGUE_TIRED;
+						};
+					};
+				};
+			}
+			else
+			{
+				diag_log format ["Average fatigue %1", _avgFatigueLevel];
+
+				if (_tiredEffectApplied == 1 or _exhaustedEffectApplied == 1) then {
+					_tiredEffectApplied = 0;
+					_exhaustedEffectApplied = 0;
+					_triggeredTiredMessage = 1;
+					_hndl ppEffectEnable true;
+					_hndl ppEffectAdjust [1, 1, 0.0, [0, 0, 0, 0], [1, 1, 1, 1], [0.5, 0.5, 0.5, 0.5]];  
+					_hndl ppEffectCommit 3;
+					//player globalChat "reset applied effects";
+				} else {
+					// If we're in our normal state, disable the ppeffect
+					_hndl ppEffectEnable false;
+				};
+
+				// Regular value
+				fatigueLevel = _avgFatigueLevel;
+			};
 		};
 
-		//player globalChat format ["curFatigue: %1. Array: %2. fatigueLevel: %3 thirst: %4", curFatigueLevel, _cumulativePlayerFatigue, fatigueLevel, thirstLevel];
+		//player globalChat format ["curFatigueLevel: %1. fatigueLevel: %2. Array: %3", curFatigueLevel, fatigueLevel, _cumulativePlayerFatigue];
 		sleep _sleepInterval;
 	};
 
