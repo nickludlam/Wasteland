@@ -360,7 +360,7 @@ apparelArray =
 	["Tactical Vest (Police)","V_TacVest_blk_POLICE", 100,"vest"],
 	//["Camouflaged Vest","V_TacVestCamo_khk", 100,"vest"],
 	//["Raven Vest","V_TacVestIR_blk", 100,"vest"],
-	["Rangemaster Cap", "H_Cap_headphones", 100, "hat"],
+	["Rangemaster Cap", "H_Cap_headphones", 20, "hat"],
 	["Rangemaster Suit", "U_Rangemaster", 100, "uni"],
 	["Rangemaster Belt", "V_Rangemaster_belt", 100, "vest"],
 	["Ghillie (Blue)","U_B_GhillieSuit", 450,"uni"],
