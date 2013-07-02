@@ -41,7 +41,7 @@ while {true} do
     // fatigueLevel: -3 = exhausted, -2 = tired, -1 = resting, 0 = fine, 1 = hot n thirsty
     _percentSprintFatigue = round (_sprintFatigue * 200);  // 0 = fine, 100 = no sprint ability
 
-#ifdef __RUNNING_FATIGUE__
+#ifdef __RUNNING_EXHAUSTION__
     if (fatigueLevel == FATIGUE_EXHAUSTED) then {
         if (_modulo == 0) then {
             _stamina = format ["<t color='#FF0000'>%1</t>", "EXHAUSTED!"];
