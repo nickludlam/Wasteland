@@ -37,7 +37,7 @@ private["_cumulativePlayerFatigue",
 	_cumulativePlayerFatigue = [];
 	_defaultMaxEntries = 18;		   // Number of entries in our averaging array
 	_sleepInterval = 10;               // Sleep between sampling fatigue
-	_fatigueRecoveryLevel = 0.45;      // Value above which we give the player recovery message 
+	_fatigueRecoveryLevel = 0.50;      // Value above which we give the player recovery message 
 	_fatigueTiredThreshold = 0.92;     // UI transition warning
 	_fatigueWarningThreshold = 0.98;   // Value above which we warn the player
 	_fatigueExhaustionThreshold = 1;   // Value above which the avg fatigue will cause thirst
@@ -245,8 +245,15 @@ private["_cumulativePlayerFatigue",
 
 					} else {
 						diag_log "Silent tired warning";
-						fatigueLevel = FATIGUE_TIRED;
-					};
+						// If we're here, we've triggered the tired message
+						// but we're not exhausted, so you're either tired or resting
+						if (_speed < 1.6) then {
+							// 1.55 = walking pace
+							fatigueLevel = FATIGUE_RESTING;
+						} else {
+							fatigueLevel = FATIGUE_TIRED;
+						};
+				};
 				};
 			}
 			else
