@@ -234,6 +234,16 @@ player createDiaryRecord["changelog",
 ]
 ];
 
+player createDiaryRecord["changelog",
+[
+"2.1 Bewilderbeest & His_Shadow -",
+"<br/><br/>
+- Sprint meter added.<br/>
+- Running exhaustion mechanic added.<br/>
+"
+]
+];
+
 player createDiaryRecord["Info",
 [
 "The Basics -",
@@ -266,6 +276,7 @@ player createDiaryRecord["Info",
 	Or email us at kosclan@gmail.com  <br/>
 	Admins:<br/>
 	His_Shadow<br/>
+	Bewilderbeest<br/>
 	Davis<br/>
 	CrossOps<br/>
 	GodMode<br/>
