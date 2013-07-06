@@ -26,15 +26,15 @@ waitUntil {{!isNull(missionNamespace getVariable _x) && ((getPos(missionNamespac
 	_markerName setMarkerBrushLocal "Grid";
 	_markerName setMarkerAlphaLocal 0.5;
 
-	// Gun store title    
-    _markerName = format["marker_shop_title_%1",_x];
-    deleteMarkerLocal _markerName;
-	_marker = createMarkerLocal [_markerName, getPos _unit];
-	_markerName setMarkerShapeLocal "ICON";
-    _markerName setMarkerTypeLocal "mil_dot";
-    _markerName setMarkerColorLocal "ColorRed";
-	_markerName setMarkerSizeLocal [1,1];
-	_markerName setMarkerTextLocal "GUN-STORE";
+	//// Gun store title  NOTE: Added the dot to the map so that when these markers disappear at least the gun stores are still marked
+    //_markerName = format["marker_shop_title_%1",_x];
+    //deleteMarkerLocal _markerName;
+	//_marker = createMarkerLocal [_markerName, getPos _unit];
+	//_markerName setMarkerShapeLocal "ICON";
+    //_markerName setMarkerTypeLocal "mil_dot";
+    //_markerName setMarkerColorLocal "ColorRed";
+	//_markerName setMarkerSizeLocal [1,1];
+	//_markerName setMarkerTextLocal "GUN-STORE";
 
 	// Gun store description    
     _markerName = format["marker_shop_desc_%1",_x];

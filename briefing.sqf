@@ -240,6 +240,8 @@ player createDiaryRecord["changelog",
 "<br/><br/>
 - Sprint meter added.<br/>
 - Running exhaustion mechanic added.<br/>
+- Moved Airfield spawn.<br/>
+- Added persistent gun store markers so for when the gun store circles disappear.<br/>
 "
 ]
 ];
