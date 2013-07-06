@@ -5838,7 +5838,7 @@ class Mission
 		};
 		class Item11
 		{
-			position[]={2519.8313,74.213608,5648.2227};
+			position[]={3028.5994,45.89352,5419.0151};
 			name="Town_12";
 			type="Empty";
 			colorName="ColorRed";
@@ -10859,7 +10859,7 @@ class Mission
 		};
 		class Item84
 		{
-			position[]={2519.8252,74.214157,5648.2173};
+			position[]={3028.5933,45.896385,5419.0098};
 			a=100;
 			b=100;
 			angle=218.83701;
