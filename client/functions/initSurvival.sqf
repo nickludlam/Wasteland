@@ -160,7 +160,7 @@ private["_cumulativePlayerFatigue",
 		} else {
 			//diag_log "Not in exhaustion mode";
 
-			diag_log format ["_cumulativePlayerFatigue resized by %1", _maxEntries];
+			//diag_log format ["_cumulativePlayerFatigue resized by %1", _maxEntries];
 
 			_cumulativePlayerFatigue = [curFatigueLevel] + _cumulativePlayerFatigue;
 			_cumulativePlayerFatigue resize _maxEntries;
@@ -231,7 +231,7 @@ private["_cumulativePlayerFatigue",
 								hint "You're getting tired from the relentless pace. Slow down";
 							};
 						} else {
-							diag_log "Tired or resting";
+							//diag_log "Tired or resting";
 
 							// If we're here, we've triggered the tired message
 							// but we're not exhausted, so you're either tired or resting
@@ -295,7 +295,7 @@ private["_cumulativePlayerFatigue",
 		else
 		{
 		hungerLevel = hungerLevel - 5;
-		if(hungerLevel < 2) then {player setDamage 1.31337; hint parseText "<t size='2' color='#ff0000'>Warning</t><br/><br/>You have starved to death.";};
+		if(hungerLevel < 2) then {player setDamage 1.3133	7; hint parseText "<t size='2' color='#ff0000'>Warning</t><br/><br/>You have starved to death.";};
 		switch(true) do {
 			case (hungerLevel <= 10 && hungerLevel >= 5): {hint parseText format["<t size='2' color='#ff0000'>Warning</t><br/><br/>You are now starving to death, you will slowly lose health, find something to eat quickly!", hungerLevel];};
 			case (hungerLevel <= 20 && hungerLevel >= 15): {hint parseText format["<t size='2' color='#ff0000'>Warning</t><br/><br/>You are starting to starve, you need to find something to eat otherwise you will start to lose health!", hungerLevel];};
