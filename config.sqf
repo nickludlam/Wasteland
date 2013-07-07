@@ -139,7 +139,7 @@ ammoArray =
 	["3Rnd 3GL Smoke Rounds (Orange)","3Rnd_SmokeOrange_Grenade_shell",75],
 	["PCML Missile","NLAW_F",800],
 	["RPG-42 Missile","RPG32_F",550],
-	["RPG-42 AA Missile","RPG32_AA_F",1000],
+	//["RPG-42 AA Missile","RPG32_AA_F",1000],
 	["Titan AA Missile","Titan_AA",1000],
 	["Titan AT Missile","Titan_AT",550],
 	["Titan AP Missile","Titan_AP",550]
@@ -307,14 +307,14 @@ headArray=
 
 uniformArray=
 [
-["Fatigues (Hex)","U_O_CombatUniform_ocamo", 100,"uni"],
+	["Fatigues (Hex)","U_O_CombatUniform_ocamo", 100,"uni"],
 	//["Fatigues (Urban)","U_O_CombatUniform_oucamo", 100,"uni"],
 	//["Recon Fatigues (Black)","U_O_SpecopsUniform_blk", 100,"uni"],
 	//["Recon Fatigues (Hex)","U_O_SpecopsUniform_ocamo", 100,"uni"],
-	["Recon Fatigues (MTP)","U_B_CombatUniform_wdl_vest", 100,"uni"],
+	//["Recon Fatigues (MTP)","U_B_CombatUniform_wdl_vest", 100,"uni"],
 	//["Recon Fatigues (MTP)","U_B_CombatUniform_sgg_vest", 100,"uni"],
 	//["Recon Fatigues (MTP)","U_B_CombatUniform_mcam_vest", 100,"uni"],
-	["Combat Fatigues (MTP)","U_B_CombatUniform_wdl", 100,"uni"],
+	//["Combat Fatigues (MTP)","U_B_CombatUniform_wdl", 100,"uni"],
 	//["Combat Fatigues (MTP)","U_B_CombatUniform_sgg", 100,"uni"],
 	//["Combat Fatigues (MTP)", "U_B_CombatUniform_mcam", 100, "uni"],
 	//["Combat Fatigues (MTP)(TEE)", "U_B_CombatUniform_mcam_tshirt", 100, "uni"],
@@ -408,7 +408,7 @@ genItemArray=
 	["Diving Goggles","G_Diving",100,"gogg"],
 	["Rangefinder","Rangefinder",300,"binoc"],   
 	["Laser Designator","Laserdesignator",500,"binoc"],
-	["Laser Batteries","Laserbatteries",20,"item"],
+	//["Laser Batteries","Laserbatteries",20,"item"],
 	["Mine Detector","MineDetector",200,"item"],
 	["First Aid","FirstAidKit", 100,"item"],
 	["Medkit","Medikit", 550,"item"],
