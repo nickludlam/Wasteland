@@ -74,12 +74,12 @@ private["_cumulativePlayerFatigue",
 		};
 
 		curFatigueLevel = getFatigue player;
-		diag_log format ["curFatigueLevel %1", curFatigueLevel];
+		//diag_log format ["curFatigueLevel %1", curFatigueLevel];
 
 		// Used later
 		_unit = player;
 		_speed = sqrt ( (velocity _unit select 0)^2 + (velocity _unit select 1)^2 + (velocity _unit select 2)^2 );
-		diag_log format ["_speed %1", _speed];
+		//diag_log format ["_speed %1", _speed];
 
 		// Weapon count
 		_hasPrimary = primaryWeapon player;
@@ -88,25 +88,25 @@ private["_cumulativePlayerFatigue",
 		_maxEntries = _defaultMaxEntries;
 		if (_hasPrimary != "" or _hasSecondary != "") then {
 			if (_hasSecondary != "") then {
-				diag_log "Player has secondary";
+				//diag_log "Player has secondary";
 				_maxEntries = _maxEntries - _secondaryWeaponModifier;
 			} else {
-				diag_log "Player has primary";
+				//diag_log "Player has primary";
 				_maxEntries = _maxEntries - _primaryWeaponModifier;
 			};
 		};
 
-		diag_log format ["_maxEntries is now %1", _maxEntries];
+		//diag_log format ["_maxEntries is now %1", _maxEntries];
 
 		// Different mechanics once we're exhausted.
 		// We only come out of exhaustion mode when curFatigueLevel < _fatigueRecoveryLevel 
 		if (_triggeredExhaustionMode == 1) then {
-			diag_log "In exhaustion mode";
+			//diag_log "In exhaustion mode";
 
 			if (curFatigueLevel < _fatigueRecoveryLevel) then
 			{
 				// Allow full recovery if you're below 50% fatigue
-				diag_log "Player recovered";
+				//diag_log "Player recovered";
 
 				//player globalChat "Fast recovery!";
 				_tiredEffectApplied = 0;
@@ -122,12 +122,12 @@ private["_cumulativePlayerFatigue",
 	
 				if (_speed == 0) then {
 					// Player still. Do not deduct water/food penalty
-					diag_log "Player still. Resting";
+					//diag_log "Player still. Resting";
 					fatigueLevel = FATIGUE_RESTING;
 				} else {
 					// If they're still moving, deduct the penalty
 
-					diag_log "Still exhausted";
+					//diag_log "Still exhausted";
 
 					fatigueLevel = FATIGUE_EXHAUSTED;
 
@@ -158,14 +158,14 @@ private["_cumulativePlayerFatigue",
 			};
 
 		} else {
-			diag_log "Not in exhaustion mode";
+			//diag_log "Not in exhaustion mode";
 
-			diag_log format ["_cumulativePlayerFatigue resized by %1", _maxEntries];
+			//diag_log format ["_cumulativePlayerFatigue resized by %1", _maxEntries];
 
 			_cumulativePlayerFatigue = [curFatigueLevel] + _cumulativePlayerFatigue;
 			_cumulativePlayerFatigue resize _maxEntries;
 
-			diag_log format ["_cumulativePlayerFatigue = %1", _cumulativePlayerFatigue];
+			//diag_log format ["_cumulativePlayerFatigue = %1", _cumulativePlayerFatigue];
 
 			// Average the samples we have of fatigue
 			_total = 0;
@@ -180,7 +180,7 @@ private["_cumulativePlayerFatigue",
 			// calc mean avg
 			_avgFatigueLevel = _total / _maxEntries;
 			
-			diag_log format ["avgFatigueLevel = %1", _avgFatigueLevel];
+			//diag_log format ["avgFatigueLevel = %1", _avgFatigueLevel];
 
 			// How high is the level currently?
 			if (_avgFatigueLevel > _fatigueTiredThreshold) then
@@ -188,7 +188,7 @@ private["_cumulativePlayerFatigue",
 				if (_avgFatigueLevel >= _fatigueExhaustionThreshold) then
 				{
 					// Exhaustion mode engage!
-					diag_log "Triggering exhaustion mode now!";
+					//diag_log "Triggering exhaustion mode now!";
 
 					_triggeredExhaustionMode = 1;
 					_triggeredTiredMessage = 1;
@@ -207,7 +207,7 @@ private["_cumulativePlayerFatigue",
 						// Fire once
 						if (_triggeredTiredMessage == 0) then 
 						{
-							diag_log "Triggering tired message";
+							//diag_log "Triggering tired message";
 
 							_triggeredTiredMessage = 1;
 
@@ -231,7 +231,7 @@ private["_cumulativePlayerFatigue",
 								hint "You're getting tired from the relentless pace. Slow down";
 							};
 						} else {
-							diag_log "Tired or resting";
+							//diag_log "Tired or resting";
 
 							// If we're here, we've triggered the tired message
 							// but we're not exhausted, so you're either tired or resting
@@ -244,7 +244,7 @@ private["_cumulativePlayerFatigue",
 						};
 
 					} else {
-						diag_log "Silent tired warning";
+						//diag_log "Silent tired warning";
 						// If we're here, we've triggered the tired message
 						// but we're not exhausted, so you're either tired or resting
 						if (_speed < 1.6) then {
@@ -258,7 +258,7 @@ private["_cumulativePlayerFatigue",
 			}
 			else
 			{
-				diag_log format ["Average fatigue %1", _avgFatigueLevel];
+				//diag_log format ["Average fatigue %1", _avgFatigueLevel];
 
 				if (_tiredEffectApplied == 1 or _exhaustedEffectApplied == 1) then {
 					_tiredEffectApplied = 0;
@@ -295,7 +295,7 @@ private["_cumulativePlayerFatigue",
 		else
 		{
 		hungerLevel = hungerLevel - 5;
-		if(hungerLevel < 2) then {player setDamage 1.31337; hint parseText "<t size='2' color='#ff0000'>Warning</t><br/><br/>You have starved to death.";};
+		if(hungerLevel < 2) then {player setDamage 1.3133	7; hint parseText "<t size='2' color='#ff0000'>Warning</t><br/><br/>You have starved to death.";};
 		switch(true) do {
 			case (hungerLevel <= 10 && hungerLevel >= 5): {hint parseText format["<t size='2' color='#ff0000'>Warning</t><br/><br/>You are now starving to death, you will slowly lose health, find something to eat quickly!", hungerLevel];};
 			case (hungerLevel <= 20 && hungerLevel >= 15): {hint parseText format["<t size='2' color='#ff0000'>Warning</t><br/><br/>You are starting to starve, you need to find something to eat otherwise you will start to lose health!", hungerLevel];};
