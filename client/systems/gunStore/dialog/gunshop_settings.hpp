@@ -19,39 +19,6 @@ class gunshopd {
 			w = 0.71 * safezoneW;
 			h = 0.661111 * safezoneH;
 		};
-		
-		//class WeaponSelectedPicture: w_RscPicture
-		//{
-		//	idc = gunshop_gun_pic;
-		//	text = "";
-        //
-		//	x = 0.504104 * safezoneW + safezoneX;
-		//	y = 0.236111 * safezoneH + safezoneY;
-		//	w = 0.1507404 * safezoneH * (safezoneH/safezoneW);
-		//	h = 0.0753702 * safezoneH;
-		//};
-		
-		//class ItemSelectedPicture: w_RscPicture
-		//{
-		//	idc = gunshop_item_pic;
-		//	text = "";
-        //
-		//	x = 0.525990 * safezoneW + safezoneX;
-		//	y = 0.236111 * safezoneH + safezoneY;
-		//	w = 0.0753702 * safezoneH * (safezoneH/safezoneW);
-		//	h = 0.0753702 * safezoneH;
-		//};
-
-		//class ItemSelectedInfo: w_RscStructuredText
-		//{
-		//	idc = gunshop_gun_Info;
-		//	text = "";
-        //
-		//	x = 0.440104 * safezoneW + safezoneX;
-		//	y = 0.50463 * safezoneH + safezoneY;
-		//	w = 0.214166 * safezoneW;
-		//	h = 0.192963 * safezoneH;
-		//};
 
 		class ItemSelectedPrice: w_RscStructuredText
 		{
@@ -97,17 +64,6 @@ class gunshopd {
 			w = 0.0844792 * safezoneW;
 			h = 0.0448148 * safezoneH;
 		};
-
-		//class CartTotalText: w_RscText
-		//{
-		//	idc = gunshop_total;
-		//	text = "Total: $0";
-        //
-		//	x = 0.6875 * safezoneW + safezoneX;
-		//	y = 0.65 * safezoneH + safezoneY;
-		//	w = 0.0844792 * safezoneW;
-		//	h = 0.0448148 * safezoneH;
-		//};
 	};
 	
 	class controls {
@@ -151,7 +107,7 @@ class gunshopd {
 				arrowFull = "\A3\ui_f\data\gui\cfg\scrollbar\arrowFull_ca.paa";
 				arrowEmpty = "\A3\ui_f\data\gui\cfg\scrollbar\arrowEmpty_ca.paa";
 				border = "\A3\ui_f\data\gui\cfg\scrollbar\border_ca.paa";
-	};
+			};
 		};
 
 		class BuyToCrate: w_RscButton
@@ -328,23 +284,10 @@ class gunshopd {
 		{
 			idc = -1;
 			onButtonClick = "[7] execVM 'client\systems\gunStore\populateGunStore.sqf'";
-			text = "Apparel";
-
-			x = 0.203125 * safezoneW + safezoneX;
-			y = 0.575 * safezoneH + safezoneY;
-			w = 0.088 * safezoneW;
-			h = 0.040 * safezoneH;
-
-		};
-		
-		class StoreButton8: w_RscButton
-		{
-			idc = -1;
-			onButtonClick = "[8] execVM 'client\systems\gunStore\populateGunStore.sqf'";
 			text = "Backpacks";
 
 			x = 0.203125 * safezoneW + safezoneX;
-			y = 0.625 * safezoneH + safezoneY;
+			y = 0.575 * safezoneH + safezoneY;
 			w = 0.088 * safezoneW;
 			h = 0.040 * safezoneH;
 

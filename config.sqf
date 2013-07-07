@@ -149,17 +149,6 @@ ammoArray =
 //Text name, classname, buy cost, item class
 accessoriesArray =
 [
-	["GPS","ItemGPS", 100,"item"],
-	["Binoculars","Binocular",100,"binoc"],
-	["NV Goggles","NVGoggles",100,"binoc"],
-	["Diving Goggles","G_Diving",100,"gogg"],
-	["Rangefinder","Rangefinder",300,"binoc"],   
-	["Laser Designator","Laserdesignator",500,"binoc"],
-	["Laser Batteries","Laserbatteries",20,"item"],
-	["Mine Detector","MineDetector",200,"item"],
-	["First Aid","FirstAidKit", 100,"item"],
-	["Medkit","Medikit", 550,"item"],
-	["Toolkit","ToolKit", 550,"item"],
 	["Suppressor 9mm","muzzle_snds_L", 250,"item"],
 	["Suppressor 5.56mm", "muzzle_snds_M", 250, "item"],
 	["Suppressor 6.5mm","muzzle_snds_H", 250,"item"],
@@ -222,6 +211,10 @@ backpackArray =
 //Text name, classname, buy cost, item class
 apparelArray =
 [	
+];
+
+headArray=
+[
 	//["Bandanna (Coyote)", "H_Bandanna_cbr", 10, "hat"],
 	//["Bandanna (Camo)", "H_Bandanna_camo", 10, "hat"],
 	//["Bandanna (Gray)", "H_Bandanna_gry", 10, "hat"],
@@ -283,6 +276,7 @@ apparelArray =
 	["Military Cap (Russia)","H_MilCap_rucamo", 20,"hat"],
 	["Military Cap (Urban)","H_MilCap_oucamo", 20,"hat"],
 	["Military Cap (Green)","H_MilCap_dgtl", 20,"hat"],
+	["Rangemaster Cap", "H_Cap_headphones", 20, "hat"],
 	["Assassin Helmet (Black)", "H_HelmetSpecO_blk", 250, "hat"],
 	//["Assassin Helmet (Hex)", "H_HelmetSpecO_ocamo", 250, "hat"],
 	["Crew Helmet","H_HelmetCrew_B", 120,"hat"],
@@ -307,9 +301,13 @@ apparelArray =
 	["Heli Pilot Helmet (Red)","H_PilotHelmetHeli_O", 120,"hat"],
 	["Heli Pilot Helmet (Green)","H_PilotHelmetHeli_I", 120,"hat"],	
 	["Pilot Helmet (Blue)","H_PilotHelmetFighter_B", 130,"hat"],
-	["Pilot Helmet (Red)","H_PilotHelmetFighter_O", 130,"hat"],
+	["Pilot Helmet (Red)","H_PilotHelmetFighter_O", 130,"hat"]
 	//["Pilot Helmet (Green)","H_PilotHelmetFighter_I", 130,"hat"],
-	["Fatigues (Hex)","U_O_CombatUniform_ocamo", 100,"uni"],
+];
+
+uniformArray=
+[
+["Fatigues (Hex)","U_O_CombatUniform_ocamo", 100,"uni"],
 	//["Fatigues (Urban)","U_O_CombatUniform_oucamo", 100,"uni"],
 	//["Recon Fatigues (Black)","U_O_SpecopsUniform_blk", 100,"uni"],
 	//["Recon Fatigues (Hex)","U_O_SpecopsUniform_ocamo", 100,"uni"],
@@ -328,6 +326,42 @@ apparelArray =
 	//["Officer Fatigues (Hex)", "U_O_OfficerUniform_ocamo", 100, "uni"],
 	["Officer Fatigues (Hex)", "U_I_OfficerUniform", 100, "uni"],
 	["Worn Combat Fatigues (MTP)", "U_B_CombatUniform_mcam_worn", 100, "uni"],
+	["Rangemaster Suit", "U_Rangemaster", 100, "uni"],
+	["Wetsuit Blue","U_B_Wetsuit", 200,"uni"],
+	["Wetsuit Red","U_O_Wetsuit", 200,"uni"],
+	["Wetsuit Green","U_I_Wetsuit", 200,"uni"],
+	["Ghillie (Blue)","U_B_GhillieSuit", 450,"uni"],
+	["Ghillie (Red)", "U_O_GhillieSuit", 450, "uni"],
+	["Ghillie (Green)", "U_I_GhillieSuit", 450, "uni"],
+	["Heli Pilot Coveralls Blue", "U_B_HeliPilotCoveralls", 100, "uni"],
+	["Heli Pilot Coveralls Green", "U_I_HeliPilotCoveralls", 100, "uni"],
+	["Pilot Coveralls Blue", "U_B_HeliPilotCoveralls", 100, "uni"],
+	["Pilot Coveralls Red", "U_O_PilotCoveralls", 100, "uni"],
+	//["Pilot Coveralls Green", "U_I_pilotCoveralls", 100, "uni"],
+	["Competitor Suit","U_Competitor", 50,"uni"],
+	//["Jacket and Shorts","U_OrestesBody", 50,"uni"],
+	//["Kabeiroi Leader's Outfit","U_IG_Menelaos", 50,"uni"],
+	//["Novak's Leisure Suit","U_C_Novak", 50,"uni"],
+	//["Scientist Suit","U_OI_Scientist", 50,"uni"],
+	["Common Clothes 1","U_C_Commoner1_1", 50,"uni"],
+	//["Common Clothes 2","U_C_Commoner1_2", 50,"uni"],
+	//["Common Clothes 3","U_C_Commoner1_2", 50,"uni"],
+	["Polo Red/White","U_C_Poloshirt_redwhite", 50,"uni"],
+	["Polo Salmon","U_C_Poloshirt_salmon", 50,"uni"],
+	["Polo tri-color","U_C_Poloshirt_tricolour", 50,"uni"],
+	["Polo Blue","U_C_Poloshirt_blue", 50,"uni"],
+	["Polo Burgundy","U_C_Poloshirt_burgundy", 50,"uni"],
+	["Polo Stripped","U_C_Poloshirt_stripped", 50,"uni"],
+	["Underwear","U_BasicBody", 20,"uni"]
+	//["Underwear 1","U_NikosBody", 20,"uni"],
+	//["Underwear 2","U_MillerBody", 20,"uni"],
+	//["Underwear 3","U_KerryBody", 20,"uni"],
+	//["Underwear 4","U_AttisBody", 20,"uni"],
+	//["Underwear 5","U_AntigonaBody", 20,"uni"]
+];
+
+vestArray=
+[
 	["Carrier GL Rig (Black)","V_PlateCarrierGL_blk", 250,"vest"],
 	//["Carrier GL Rig (Coyote)","V_PlateCarrierGL_cbr", 250,"vest"],
 	//["Carrier GL Rig (Green)","V_PlateCarrierGL_rgr", 250,"vest"],
@@ -358,45 +392,27 @@ apparelArray =
 	["Tactical Vest (Olive)","V_TacVest_oli", 100,"vest"],
 	["Tactical Vest (Khaki)","V_TacVest_khk", 100,"vest"],
 	["Tactical Vest (Police)","V_TacVest_blk_POLICE", 100,"vest"],
-	//["Camouflaged Vest","V_TacVestCamo_khk", 100,"vest"],
-	//["Raven Vest","V_TacVestIR_blk", 100,"vest"],
-	["Rangemaster Cap", "H_Cap_headphones", 20, "hat"],
-	["Rangemaster Suit", "U_Rangemaster", 100, "uni"],
 	["Rangemaster Belt", "V_Rangemaster_belt", 100, "vest"],
-	["Ghillie (Blue)","U_B_GhillieSuit", 450,"uni"],
-	["Ghillie (Red)", "U_O_GhillieSuit", 450, "uni"],
-	["Ghillie (Green)", "U_I_GhillieSuit", 450, "uni"],
 	["Rebreather Blue","V_RebreatherB", 250,"vest"],
 	["Rebreather Red","V_RebreatherIR", 250,"vest"],
-	["Rebreather Green","V_RebreatherIA", 250,"vest"],
-	["Wetsuit Blue","U_B_Wetsuit", 200,"uni"],
-	["Wetsuit Red","U_O_Wetsuit", 200,"uni"],
-	["Wetsuit Green","U_I_Wetsuit", 200,"uni"],
-	["Heli Pilot Coveralls Blue", "U_B_HeliPilotCoveralls", 100, "uni"],
-	["Heli Pilot Coveralls Green", "U_I_HeliPilotCoveralls", 100, "uni"],
-	["Pilot Coveralls Blue", "U_B_HeliPilotCoveralls", 100, "uni"],
-	["Pilot Coveralls Red", "U_O_PilotCoveralls", 100, "uni"],
-	//["Pilot Coveralls Green", "U_I_pilotCoveralls", 100, "uni"],
-	["Competitor Suit","U_Competitor", 50,"uni"],
-	//["Jacket and Shorts","U_OrestesBody", 50,"uni"],
-	//["Kabeiroi Leader's Outfit","U_IG_Menelaos", 50,"uni"],
-	//["Novak's Leisure Suit","U_C_Novak", 50,"uni"],
-	//["Scientist Suit","U_OI_Scientist", 50,"uni"],
-	["Common Clothes 1","U_C_Commoner1_1", 50,"uni"],
-	//["Common Clothes 2","U_C_Commoner1_2", 50,"uni"],
-	//["Common Clothes 3","U_C_Commoner1_2", 50,"uni"],
-	["Polo Red/White","U_C_Poloshirt_redwhite", 50,"uni"],
-	["Polo Salmon","U_C_Poloshirt_salmon", 50,"uni"],
-	["Polo tri-color","U_C_Poloshirt_tricolour", 50,"uni"],
-	["Polo Blue","U_C_Poloshirt_blue", 50,"uni"],
-	["Polo Burgundy","U_C_Poloshirt_burgundy", 50,"uni"],
-	["Polo Stripped","U_C_Poloshirt_stripped", 50,"uni"],
-	["Underwear","U_BasicBody", 20,"uni"]
-	//["Underwear 1","U_NikosBody", 20,"uni"],
-	//["Underwear 2","U_MillerBody", 20,"uni"],
-	//["Underwear 3","U_KerryBody", 20,"uni"],
-	//["Underwear 4","U_AttisBody", 20,"uni"],
-	//["Underwear 5","U_AntigonaBody", 20,"uni"]
+	["Rebreather Green","V_RebreatherIA", 250,"vest"]
+	//["Camouflaged Vest","V_TacVestCamo_khk", 100,"vest"],
+	//["Raven Vest","V_TacVestIR_blk", 100,"vest"],
+];
+
+genItemArray=
+[
+	["GPS","ItemGPS", 100,"item"],
+	["Binoculars","Binocular",100,"binoc"],
+	["NV Goggles","NVGoggles",100,"binoc"],
+	["Diving Goggles","G_Diving",100,"gogg"],
+	["Rangefinder","Rangefinder",300,"binoc"],   
+	["Laser Designator","Laserdesignator",500,"binoc"],
+	["Laser Batteries","Laserbatteries",20,"item"],
+	["Mine Detector","MineDetector",200,"item"],
+	["First Aid","FirstAidKit", 100,"item"],
+	["Medkit","Medikit", 550,"item"],
+	["Toolkit","ToolKit", 550,"item"]
 ];
 
 //Text name, classname, buy cost, spawn type, color
@@ -485,7 +501,7 @@ generalStore =
 	["Water","water",localize "STR_WL_ShopDescriptions_Water","client\icons\water.paa",50,25],
 	["Canned Food","canfood",localize "STR_WL_ShopDescriptions_CanFood","client\icons\cannedfood.paa",50,25],
 	["Repair Kit","repairkits",localize "STR_WL_ShopDescriptions_RepairKit","client\icons\briefcase.paa",300,150],
-	//["Medical Kit","medkits",localize "STR_WL_ShopDescriptions_MedKit","client\icons\medkit.paa",400,200],
+	["Medical Kit","medkits",localize "STR_WL_ShopDescriptions_MedKit","client\icons\medkit.paa",400,200],
 	["Jerry Can (Full)","fuelFull",localize "STR_WL_ShopDescriptions_fuelFull","client\icons\jerrycan.paa",150,75],
 	["Jerry Can (Empty)","fuelEmpty",localize "STR_WL_ShopDescriptions_fuelEmpty","client\icons\jerrycan.paa",50,25]
 ];

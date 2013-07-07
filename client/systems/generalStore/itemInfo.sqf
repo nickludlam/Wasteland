@@ -27,25 +27,37 @@ _itemText = _itemlist lbText _selectedItem;
 
 //Check which state we want to be in.
 _switchText = Ctrltext _buysell;
-if(_switchText == "Buy") then
-{
-	{
-	    if(_itemText == _x select 0) then{
-			_price = _x select 4;
-            _picLink = _x select 3;
-            _picture ctrlSetText _picLink;
-            _itemInfo ctrlSetStructuredText parseText ((_x select 2));
-			_itemlisttext ctrlSetText format ["Price: $%1", _price];	
-		}
-	}forEach generalStore;
-} else {	
-	{
-	    if(_itemText == _x select 0) then{
-			_price = _x select 5;
-            _picLink = _x select 3;
-            _picture ctrlSetText _picLink;
-            _itemInfo ctrlSetStructuredText parseText ((_x select 2));
-			_itemlisttext ctrlSetText format ["Price: $%1", _price];	
-		}
-	}forEach generalStore;
-};
+{if(_itemText == _x select 0) then{
+	_price = _x select 2;
+	
+	_itemlisttext ctrlSetText format ["Price: $%1", _price];
+	breakTo "main"	
+}}forEach headArray;
+
+{if(_itemText == _x select 0) then{
+	_price = _x select 2;
+	
+	_itemlisttext ctrlSetText format ["Price: $%1", _price];	
+	breakTo "main"
+}}forEach uniformArray;
+
+{if(_itemText == _x select 0) then{
+	_price = _x select 2;
+	
+	_itemlisttext ctrlSetText format ["Price: $%1", _price];
+	breakTo "main"	
+}}forEach genItemArray;
+
+{if(_itemText == _x select 0) then{
+	_price = _x select 2;
+	
+	_itemlisttext ctrlSetText format ["Price: $%1", _price];	
+	breakTo "main"	
+}}forEach backpackArray;
+
+{if(_itemText == _x select 0) then{
+	_price = _x select 4;
+	
+	_itemlisttext ctrlSetText format ["Price: $%1", _price];
+	breakTo "main"	
+}}forEach generalStore;
