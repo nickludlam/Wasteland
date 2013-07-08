@@ -295,7 +295,7 @@ private["_cumulativePlayerFatigue",
 		else
 		{
 		hungerLevel = hungerLevel - 5;
-		if(hungerLevel < 2) then {player setDamage 1.3133	7; hint parseText "<t size='2' color='#ff0000'>Warning</t><br/><br/>You have starved to death.";};
+		if(hungerLevel < 2) then {player setDamage 1.31337; hint parseText "<t size='2' color='#ff0000'>Warning</t><br/><br/>You have starved to death.";};
 		switch(true) do {
 			case (hungerLevel <= 10 && hungerLevel >= 5): {hint parseText format["<t size='2' color='#ff0000'>Warning</t><br/><br/>You are now starving to death, you will slowly lose health, find something to eat quickly!", hungerLevel];};
 			case (hungerLevel <= 20 && hungerLevel >= 15): {hint parseText format["<t size='2' color='#ff0000'>Warning</t><br/><br/>You are starting to starve, you need to find something to eat otherwise you will start to lose health!", hungerLevel];};

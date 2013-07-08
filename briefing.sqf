@@ -242,6 +242,8 @@ player createDiaryRecord["changelog",
 - Running exhaustion mechanic added.<br/>
 - Moved Airfield spawn.<br/>
 - Added persistent gun store markers so for when the gun store circles disappear.<br/>
+- General Store updated.<br/>
+- RPG AA taken out because 1) AA for RPG isn't ubiquitously thought of to exist. 2) Forces Titan usage.<br/>
 "
 ]
 ];
