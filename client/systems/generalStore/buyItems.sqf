@@ -136,6 +136,12 @@ _itemText = lbText  [genstore_item_list, (lbCurSel genstore_item_list)];
 						removeHeadgear player;
                         player addHeadgear _class;
                     };
+					case "gogg":
+					{
+						_vestName = goggles player;
+                        removeGoggles player;
+                        player addgoggles _class;
+					};
                     case default
                     {
                         
