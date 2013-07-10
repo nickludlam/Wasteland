@@ -22,6 +22,8 @@ CVG_weapons = CVG_weapons + CVG_Launchers;
 
 sideMissionPos = "";
 mainMissionPos = "";
+bountyMissionPos = "";
+moneyMissionPos = "";
 
 currentVehicles = [];
 publicVariable "currentVehicles";
@@ -160,8 +162,7 @@ storeOwners =
 	["East_VS", [5538.2,4710.21,77.3378],"East VS"],
 	["South_VS", [5538.2,4710.21,77.3378],"South VS"],
 	["West_VS", [5538.2,4710.21,77.3378],"West VS"]
-];
- 
+]; 
                 
 MissionSpawnMarkers = [
             ["Mission_1",false],

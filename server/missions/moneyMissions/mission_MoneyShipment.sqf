@@ -1,16 +1,16 @@
 //shipment of money starts at the docks and goes to General Store Docks
 //create two hunters and two little birds and make them move to the general store on the east side
 private ["_missionMarkerName","_missionType","_picture","_vehicleName","_laid1","_laid2","_laid","_hint","_waypoint","_waypoints","_grouphsq","_vehicles","_marker","_failed","_startTime","_numWaypoints","_ammobox","_createVehicle","_leader", "_soldier1","_soldier2","_soldier3","_marker1","_marker2","_marker3"];
-#include "mainMissionDefines.sqf"
+#include "moneyMissionDefines.sqf"
 
 _missionMarkerName = "Money_Shipment";
 _missionType = "Money Shipment";
 
-diag_log format["WASTELAND SERVER - Main Mission Started: %1", _missionType];
+diag_log format["WASTELAND SERVER - Money Mission Started: %1", _missionType];
 
-diag_log format["WASTELAND SERVER - Main Mission Waiting to run: %1", _missionType];
-[mainMissionDelayTime] call createWaitCondition;
-diag_log format["WASTELAND SERVER - Main Mission Resumed: %1", _missionType];
+diag_log format["WASTELAND SERVER - Money Mission Waiting to run: %1", _missionType];
+[moneyMissionDelayTime] call createWaitCondition;
+diag_log format["WASTELAND SERVER - Money Mission Resumed: %1", _missionType];
 
 _grouphsq = createGroup civilian;
 
@@ -81,12 +81,12 @@ _marker3 setMarkerText "Money Shipment";
 
 _picture = getText (configFile >> "CfgVehicles" >> "B_MRAP_01_gmg_F" >> "picture");
 _vehicleName = getText (configFile >> "cfgVehicles" >> "B_MRAP_01_gmg_F" >> "displayName");
-_hint = parseText format ["<t align='center' color='%4' shadow='2' size='1.75'>Main Objective</t><br/><t align='center' color='%4'>------------------------------</t><br/><t align='center' color='%5' size='1.25'>%1</t><br/><t align='center'><img size='5' image='%2'/></t><br/><t align='center' color='%5'>A <t color='%4'>%3</t> is carrying $10,000. Stop them and claim the money!</t>", _missionType, _picture, _vehicleName, mainMissionColor, subTextColor];
+_hint = parseText format ["<t align='center' color='%4' shadow='2' size='1.75'>Money Objective</t><br/><t align='center' color='%4'>------------------------------</t><br/><t align='center' color='%5' size='1.25'>%1</t><br/><t align='center'><img size='5' image='%2'/></t><br/><t align='center' color='%5'>A <t color='%4'>%3</t> is carrying $5,000. Stop them and claim the money!</t>", _missionType, _picture, _vehicleName, moneyMissionColor, subTextColor];
 messageSystem = _hint;
 if (!isDedicated) then { call serverMessage };
 publicVariable "messageSystem";
 
-diag_log format["WASTELAND SERVER - Main Mission Waiting to be Finished: %1", _missionType];
+diag_log format["WASTELAND SERVER - Money Mission Waiting to be Finished: %1", _missionType];
 
 _failed = false;
 _startTime = floor(time);
@@ -107,7 +107,7 @@ waitUntil
 	_marker2 setMarkerPos (position  _soldier2);
 	_marker3 setMarkerPos (position  _soldier3);
     
-    if ((floor time) - _startTime >= mainMissionTimeout) then { _failed = true };
+    if ((floor time) - _startTime >= moneyMissionTimeout) then { _failed = true };
     if (currentWaypoint _grouphsq >= _numWaypoints) then { _failed = true }; // Convoy got successfully to the target location
     //_unitsAlive = { alive _x } count units _grouphsq;
 	
@@ -115,7 +115,7 @@ waitUntil
 	{
 	 _pos = (getMarkerPos _marker1);
 	 _cash1 = "Land_Sack_F" createVehicle _pos; _cash setPos _pos;
-     _cash1 setVariable["money",3000,true];
+     _cash1 setVariable["money",2000,true];
      _cash1 setVariable["owner","world",true];
 	 _laid1 = 1;
 	};
@@ -124,7 +124,7 @@ waitUntil
 	{
 	 _pos = (getMarkerPos _marker2);
 	 _cash2 = "Land_Sack_F" createVehicle _pos; _cash setPos _pos;
-     _cash2 setVariable["money",3000,true];
+     _cash2 setVariable["money",2000,true];
      _cash2 setVariable["owner","world",true];
 	 _laid2 = 1;
 	};
@@ -133,7 +133,7 @@ waitUntil
 	{
 	 _pos = (getMarkerPos _marker3);
 	 _cash3 = "Land_Sack_F" createVehicle _pos; _cash setPos _pos;
-     _cash3 setVariable["money",4000,true];
+     _cash3 setVariable["money",1000,true];
      _cash3 setVariable["owner","world",true];
 	 _laid3 = 1;
 	};
@@ -158,7 +158,7 @@ if(_failed) then
     messageSystem = _hint;
     if (!isDedicated) then { call serverMessage };
     publicVariable "messageSystem";
-    diag_log format["WASTELAND SERVER - Main Mission Failed: %1",_missionType];
+    diag_log format["WASTELAND SERVER - Money Mission Failed: %1",_missionType];
 } else {
     // Mission complete
 	if(!alive _vehicle) then {deleteVehicle (_vehicle)};
@@ -169,7 +169,7 @@ if(_failed) then
     messageSystem = _hint;
     if (!isDedicated) then { call serverMessage };
     publicVariable "messageSystem";
-    diag_log format["WASTELAND SERVER - Main Mission Success: %1",_missionType];
+    diag_log format["WASTELAND SERVER - Money Mission Success: %1",_missionType];
 };
 
 deleteMarker _marker1;

@@ -1,16 +1,16 @@
 private ["_missionMarkerName","_missionType","_picture","_vehicleName","_hint","_players","_vehicles","_marker","_failed","_startTime","_numWaypoints","_ammobox","_createVehicle","_leader", "_foundPlayer"];
 
-#include "mainMissionDefines.sqf"
+#include "bountyMissionDefines.sqf"
 
 _missionMarkerName = "Bounty_Marker";
 _missionType = "Bounty Hunt";
 _startTime = floor(time);
 
-diag_log format["WASTELAND SERVER - Main Mission Started: %1", _missionType];
+diag_log format["WASTELAND SERVER - Bounty Mission Started: %1", _missionType];
 
-diag_log format["WASTELAND SERVER - Main Mission Waiting to run: %1", _missionType];
-[mainMissionDelayTime] call createWaitCondition;
-diag_log format["WASTELAND SERVER - Main Mission Resumed: %1", _missionType];
+diag_log format["WASTELAND SERVER - Bounty Mission Waiting to run: %1", _missionType];
+[bountyMissionDelayTime] call createWaitCondition;
+diag_log format["WASTELAND SERVER - Bounty Mission Resumed: %1", _missionType];
 
 //select a random player
 _players = playableUnits;
@@ -27,7 +27,7 @@ if(isNil "_foundPlayer") then
 	exit
 };
 
-_hint = parseText format ["<t align='center' color='%2' shadow='2' size='1.75'>Bounty Hunt</t><br/><t align='center' color='%2'>------------------------------</t><br/><t color='%3' size='1.0'>%1 has a bounty on his head. You have 30 minutes to kill him! Killer gets $10,000 and his side gets $1000 per person. If he's protected he gets the $10,000 and his side gets $1,000 per person.</t>", name _foundPlayer, mainMissionColor, subTextColor];
+_hint = parseText format ["<t align='center' color='%2' shadow='2' size='1.75'>Bounty Hunt</t><br/><t align='center' color='%2'>------------------------------</t><br/><t color='%3' size='1.0'>%1 has a bounty on his head. You have 30 minutes to kill him! Killer gets $10,000 and his side gets $1,000 per person. If he's protected he gets the $10,000 and his side gets $1,000 per person.</t>", name _foundPlayer, bountyMissionColor, subTextColor];
 messageSystem = _hint;
 if (!isDedicated) then { call serverMessage };
 publicVariable "messageSystem";
@@ -63,7 +63,7 @@ waitUntil
 	//check to see if we've timed out
     _failed = 0;
 	_currTime = floor(time);
-    if (_currTime - _startTime >= mainBountyTimeout) then { _failed = 2 };
+    if (_currTime - _startTime >= bountyMissionTimeout) then { _failed = 2 };
     
 	//check to see if this player has been killed by someone
 	if(!isNil "bKiller") then
@@ -130,7 +130,7 @@ if(_failed > 1) then
 	bKiller = nil;
 	bKillerName = nil;
 	bKillerSide = nil;
-    diag_log format["WASTELAND SERVER - Main Mission Failed: %1",_missionType];
+    diag_log format["WASTELAND SERVER - Bounty Mission Failed: %1",_missionType];
 };
 if(_failed == 1)then
 {
@@ -160,7 +160,7 @@ if(_failed == 1)then
    _sideName = "Blufor";
 	if(bKillerSide == east) then{ _sideName = "Opfor";}
 	else{ _sideName = "Independent";};
-	_hint = parseText format ["<t align='center' color='%2' shadow='2' size='1.75'>Objective Complete</t><br/><t align='center' color='%2'>------------------------------</t><br/><t align='center' color='%6' size='1.25'>%1</t><br/><t align='center'><img size='5' image='%2'/></t><br/><t align='center' color='%3'>%1 has been killed by %4! %5 has earned $1000 for each member and %4 has earned $10000!</t>", _playerName, successMissionColor, subTextColor, bKillerName, _sideName, failMissionColor];
+	_hint = parseText format ["<t align='center' color='%2' shadow='2' size='1.75'>Objective Complete</t><br/><t align='center' color='%2'>------------------------------</t><br/><t align='center' color='%6' size='1.25'>%1</t><br/><t align='center'><img size='5' image='%2'/></t><br/><t align='center' color='%3'>%1 has been killed by %4! %5 has earned $1,000 for each member and %4 has earned $10,000!</t>", _playerName, successMissionColor, subTextColor, bKillerName, _sideName, failMissionColor];
     messageSystem = _hint;
     if (!isDedicated) then { call serverMessage };
     publicVariable "messageSystem";
@@ -169,7 +169,7 @@ if(_failed == 1)then
 	bKiller = nil;
 	bKillerName = nil;
 	bKillerSide = nil;
-    diag_log format["WASTELAND SERVER - Main Mission Success: %1",_missionType];
+    diag_log format["WASTELAND SERVER - Bounty Mission Success: %1",_missionType];
 };
 MissionSpawnMarkers select _randomIndex set[1, false];
 [_missionMarkerName] call deleteClientMarker;

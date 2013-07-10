@@ -3,9 +3,9 @@
 //	@file Author: [404] Deadbeat, [404] Costlyy, [GoT] JoSchaap, Sanjo
 //	@file Created: 08/12/2012 15:19
 
-#include "sideMissions\sideMissionDefines.sqf";
-
 if (!isServer) exitWith {};
+
+#include "sideMissions\sideMissionDefines.sqf";
 
 private ["_SideMissions","_mission","_missionType","_notPlayedSideMissions","_nextMissionIndex","_missionRunning","_hint"];
 
@@ -15,9 +15,7 @@ _SideMissions = [[mission_WepCache,"mission_WepCache"],
 				[mission_HostileHelicopter,"mission_HostileHelicopter"],
 				[mission_MiniConvoy,"mission_MiniConvoy"],
 				[mission_AirWreck,"mission_AirWreck"],
-				[mission_MobMoney, "mission_MobMoney"],
 				[mission_SerialKiller,"mission_SerialKiller"],
-				[mission_SunkenTreasure, "mission_SunkenTreasure"],
 				[mission_SunkenSupplys, "mission_SunkenSupplys"],
 				[mission_SniperTeam, "mission_SniperTeam"]];
 //USED FOR TESTING
