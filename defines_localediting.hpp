@@ -15,3 +15,6 @@
 #define FATIGUE_TIRED -2
 #define FATIGUE_RESTING -1
 #endif
+
+// If you want the "copy position" player menu option (for making waypoints!)
+#define __PLAYER_MENU_COPY_POSITION__ 1

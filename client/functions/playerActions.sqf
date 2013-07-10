@@ -5,6 +5,8 @@
 //  @file Modified: 07/12/2012 23:35
 //	@file Args:
 
+#include "defines.hpp" // Global definitions file
+
 aActionsIDs = [];
 
 //Fuel can actions.
@@ -24,7 +26,10 @@ aActionsIDs = aActionsIDs + [player addAction["Fill Water Bottle", "noscript.sqf
 aActionsIDs = aActionsIDs + [player addAction["Pickup Money", "client\actions\pickupMoney.sqf", [], 1, false, false, "", 'player distance (nearestobjects [player, ["Land_Sack_F"],  5] select 0) < 5']];
 aActionsIDs = aActionsIDs + [player addAction["<img image=""client\icons\save.paa""/> <t color=""#3f71d7"">Save Player</t>", "server\statSave\saveLoop.sqf", [], 1, false, false, "", 'stance player == "PRONE"']];
 //aActionsIDs = aActionsIDs + [player addAction["Get Stance", "noscript.sqf", 'hint format["Your stance is: %1", stance player];', 1, false, false, "", '']];
-//aActionsIDs = aActionsIDs + [player addAction["Copy Position", "client\actions\copyPosition.sqf", [], 1, false, false, "", '']];
+
+#ifdef __PLAYER_MENU_COPY_POSITION__
+aActionsIDs = aActionsIDs + [player addAction["Copy Position", "client\actions\copyPosition.sqf", [], 1, false, false, "", '']];
+#endif
 
 //Pickup SpawnBeacon (Satelit)
 //aActionsIDs = aActionsIDs + [player addAction[("<t color=""#E01B1B"">Destroy spawn beacon</t>"), "client\actions\pickupBeacon.sqf", 1, 1, false, false, "", '_currBeacon = (nearestobjects [player, ["Satelit"],  5]); player distance (_currBeacon select 0) < 5; ((nearestObjects[player, ["Satelit"], 3] select 0) getVariable "ownerUID") == (getPlayerUID player) OR str(playerSide) != ((nearestObjects[player, ["Satelit"], 3] select 0) getVariable "faction") OR ((nearestObjects[player, ["Satelit"], 3] select 0) getVariable "faction") == "WORLD"']];
