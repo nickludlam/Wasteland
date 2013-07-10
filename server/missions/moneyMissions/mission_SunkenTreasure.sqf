@@ -4,7 +4,7 @@
 //	@file Created: 08/12/2012 15:19
 //	@file Args:
 
-#include "sideMissionDefines.sqf";
+#include "moneyMissionDefines.sqf";
 
 if(!isServer) exitwith {};
 
