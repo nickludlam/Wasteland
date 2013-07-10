@@ -94,17 +94,7 @@ _itemText = lbText  [genstore_item_list, (lbCurSel genstore_item_list)];
                 {
                 	case "binoc":
                     {
-                        if((_playerSlots select 5) >= 1) then
-						{
-							player addWeapon _class;
-						}
-						else
-						{
-							{if(_x select 1 == _class) then{_price = _x select 2; _name = _x select 0;};}forEach backpackArray;
-							hint format["You do not have space for this item %1",_name];
-							_handleMoney = 0;
-							breakTo "main"
-						};
+						player addWeapon _class;
                     };
                     case "item":
                     {

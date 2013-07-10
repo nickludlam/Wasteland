@@ -246,6 +246,7 @@ player createDiaryRecord["changelog",
 - RPG AA taken out because 1) AA for RPG isn't ubiquitously thought of to exist. 2) Forces Titan usage.<br/>
 - Money missions separated into their own time scale.<br/>
 - Bounty Hunt missions separated into their own time scale.<br/>
+- Goggles, Binoculars, and Laser Designator fixed in general store.<br/>
 "
 ]
 ];
