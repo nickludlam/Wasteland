@@ -247,6 +247,9 @@ player createDiaryRecord["changelog",
 - Money missions separated into their own time scale.<br/>
 - Bounty Hunt missions separated into their own time scale.<br/>
 - Goggles, Binoculars, and Laser Designator fixed in general store.<br/>
+- Laser Designator price increased.<br/>
+- Interval between Bounty Hunts increased to 30 minutes.<br/>
+- Money mission's reward decreased to compensate for frequency.<br/>
 "
 ]
 ];

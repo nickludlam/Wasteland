@@ -160,7 +160,7 @@ if(_failed == 1)then
    _sideName = "Blufor";
 	if(bKillerSide == east) then{ _sideName = "Opfor";}
 	else{ _sideName = "Independent";};
-	_hint = parseText format ["<t align='center' color='%2' shadow='2' size='1.75'>Objective Complete</t><br/><t align='center' color='%2'>------------------------------</t><br/><t align='center' color='%6' size='1.25'>%1</t><br/><t align='center'><img size='5' image='%2'/></t><br/><t align='center' color='%3'>%1 has been killed by %4! %5 has earned $1000 for each member and %4 has earned $10000!</t>", _playerName, successMissionColor, subTextColor, bKillerName, _sideName, failMissionColor];
+	_hint = parseText format ["<t align='center' color='%2' shadow='2' size='1.75'>Objective Complete</t><br/><t align='center' color='%2'>------------------------------</t><br/><t align='center' color='%6' size='1.25'>%1</t><br/><t align='center'><img size='5' image='%2'/></t><br/><t align='center' color='%3'>%1 has been killed by %4! %5 has earned $1,000 for each member and %4 has earned $10,000!</t>", _playerName, successMissionColor, subTextColor, bKillerName, _sideName, failMissionColor];
     messageSystem = _hint;
     if (!isDedicated) then { call serverMessage };
     publicVariable "messageSystem";

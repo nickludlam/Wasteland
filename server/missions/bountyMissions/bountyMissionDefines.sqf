@@ -13,7 +13,7 @@
 #else
 
 	#define bountyMissionTimeout 1800
-	#define bountyMissionDelayTime 900
+	#define bountyMissionDelayTime 1800
 
 #endif
 

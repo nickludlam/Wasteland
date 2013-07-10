@@ -407,7 +407,7 @@ genItemArray=
 	["NV Goggles","NVGoggles",100,"binoc"],
 	["Diving Goggles","G_Diving",100,"gogg"],
 	["Rangefinder","Rangefinder",300,"binoc"],   
-	["Laser Designator","Laserdesignator",500,"binoc"],
+	["Laser Designator","Laserdesignator",3000,"binoc"],
 	//["Laser Batteries","Laserbatteries",20,"item"],
 	["Mine Detector","MineDetector",200,"item"],
 	["First Aid","FirstAidKit", 100,"item"],
