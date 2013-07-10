@@ -1,5 +1,9 @@
 _object = _this;
 
+
+// If we're not in a vehicle, dont continue
+if (_object isKindOf "Man") exitwith {};
+
 _type = typeOf _object;
 
 x_reload_time_factor = 5;
@@ -80,6 +84,6 @@ while {fuel _object < 0.99} do {
 	sleep 0.01;
 };
 sleep x_reload_time_factor;
-_object vehicleChat format ["%1 is ready...", _type];
+_object vehicleChat format ["%1 is ready!", _type];
 
 if (true) exitWith {};
