@@ -18,8 +18,6 @@ _MainMissions = [
 				 [mission_SeaConvoy, "mission_SeaConvoy"],
 				 [mission_CivHeli,"mission_CivHeli"],
 				 [mission_Convoy,"mission_Convoy"],
-				 [mission_MoneyShipment, "mission_MoneyShipment"],
-				 [mission_Bounty, "mission_Bounty"],
                  [mission_APC, "mission_APC"]
                 ];
 //_MainMissions = [[mission_HostileHeliFormation,"mission_HostileHeliFormation"]];//,

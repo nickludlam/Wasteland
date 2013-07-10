@@ -54,6 +54,8 @@ copy "%USERPROFILE%\Documents\GitHub\Wasteland\defines_servermode.hpp" %TEMP%\%L
 copy "%USERPROFILE%\Documents\GitHub\Wasteland\defines_servermode.hpp" %TEMP%\%LOCAL_MISSION_NAME%\server\functions\defines.hpp
 copy "%USERPROFILE%\Documents\GitHub\Wasteland\defines_servermode.hpp" %TEMP%\%LOCAL_MISSION_NAME%\server\missions\sideMissions\defines.hpp
 copy "%USERPROFILE%\Documents\GitHub\Wasteland\defines_servermode.hpp" %TEMP%\%LOCAL_MISSION_NAME%\server\missions\mainMissions\defines.hpp
+copy "%USERPROFILE%\Documents\GitHub\Wasteland\defines_servermode.hpp" %TEMP%\%LOCAL_MISSION_NAME%\server\missions\bountyMissions\defines.hpp
+copy "%USERPROFILE%\Documents\GitHub\Wasteland\defines_servermode.hpp" %TEMP%\%LOCAL_MISSION_NAME%\server\missions\moneyMissions\defines.hpp
 
 echo Copied to %TEMP%\%LOCAL_MISSION_NAME%
 

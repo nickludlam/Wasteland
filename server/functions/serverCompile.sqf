@@ -16,11 +16,9 @@ mission_LightArmVeh = compile preprocessFileLineNumbers "server\missions\mainMis
 mission_CivHeli = compile preprocessFileLineNumbers "server\missions\mainMissions\mission_CivHeli.sqf";
 mission_HostileHeliFormation = compile preprocessFileLineNumbers "server\missions\mainMissions\mission_HostileHeliFormation.sqf";
 mission_Convoy = compile preprocessFileLineNumbers "server\missions\mainMissions\mission_Convoy.sqf";
-mission_MoneyShipment = compile preprocessFileLineNumbers "server\missions\mainMissions\mission_MoneyShipment.sqf";
 mission_SeaConvoy = compile preprocessFileLineNumbers "server\missions\mainMissions\mission_SeaConvoy.sqf";
 mission_APC = compile preprocessFileLineNumbers "server\missions\mainMissions\mission_APC.sqf";
 //mission_Insurgence = compile preprocessFileLineNumbers "server\missions\mainMissions\mission_Insurgence.sqf";
-mission_Bounty = compile preprocessFileLineNumbers "server\missions\mainMissions\mission_BountyHunt.sqf";
 
 /*
 mission_APC = compile preprocessFileLineNumbers "server\missions\mainMissions\mission_APC.sqf";
@@ -31,14 +29,20 @@ mission_RadarTruck = compile preprocessFileLineNumbers "server\missions\mainMiss
 mission_SupplyDrop = compile preprocessFileLineNumbers "server\missions\mainMissions\mission_SupplyDrop.sqf";
 */
 
+//Money Mission Compiles
+mission_MoneyShipment = compile preprocessFileLineNumbers "server\missions\moneyMissions\mission_MoneyShipment.sqf";
+mission_SunkenTreasure = compile preprocessFileLineNumbers "server\missions\moneyMissions\mission_SunkenTreasure.sqf";
+mission_MobMoney = compile preprocessFileLineNumbers "server\missions\moneyMissions\mission_MobMoney.sqf";
+
+//Bounty Mission Compiles
+mission_Bounty = compile preprocessFileLineNumbers "server\missions\bountyMissions\mission_BountyHunt.sqf";
+
 //Side Mission Compiles
 mission_AirWreck = compile preprocessFileLineNumbers "server\missions\sideMissions\mission_AirWreck.sqf";
 mission_WepCache = compile preprocessFileLineNumbers "server\missions\sideMissions\mission_WepCache.sqf";
 mission_MiniConvoy = compile preprocessFileLineNumbers "server\missions\sideMissions\mission_MiniConvoy.sqf";
 mission_HostileHelicopter = compile preprocessFileLineNumbers "server\missions\sideMissions\mission_HostileHelicopter.sqf";
 mission_SerialKiller = compile preprocessFileLineNumbers "server\missions\sideMissions\mission_SerialKiller.sqf";
-mission_MobMoney = compile preprocessFileLineNumbers "server\missions\sideMissions\mission_MobMoney.sqf";
-mission_SunkenTreasure = compile preprocessFileLineNumbers "server\missions\sideMissions\mission_SunkenTreasure.sqf";
 mission_SniperTeam = compile preprocessFileLineNumbers "server\missions\sideMissions\mission_SniperTeam.sqf";
 mission_SunkenSupplys = compile preprocessFileLineNumbers "server\missions\sideMissions\mission_SunkenSupplys.sqf";
 //mission_Truck = compile preprocessFileLineNumbers "server\missions\sideMissions\mission_Truck.sqf";
