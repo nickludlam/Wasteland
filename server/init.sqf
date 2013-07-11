@@ -63,9 +63,9 @@ if (sideMissions == 1) then {
     sleep 5;
     [] execVM "server\missions\mainMissionController.sqf";
 	sleep 5;
-	[] execVM "server\missions\bountyMissionController.sqf";
-	sleep 5;
 	[] execVM "server\missions\moneyMissionController.sqf";
+	sleep 5;
+	[] execVM "server\missions\bountyMissionController.sqf";
 };
 
 if (isDedicated) then {
