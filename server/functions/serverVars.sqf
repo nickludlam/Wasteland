@@ -121,6 +121,7 @@ vehicleWeapons = ["arifle_SDAR_F",
 
 vehicleAddition = [
 			"Zasleh2",
+			"muzzle_snds_acp",
 			"muzzle_snds_H",
 			"muzzle_snds_L",
 			"muzzle_snds_M",
