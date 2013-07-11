@@ -48,10 +48,19 @@ default
 //_player addEventHandler ["killed", "[_this select 0, _this select 1] execVM 'client\clientEvents\handleKill.sqf'"];
 
 //_player addBackpack (["B_AssaultPack_dgtl","B_AssaultPack_rgr","B_AssaultPack_sgg","B_AssaultPack_blk","B_AssaultPack_mcamo"]call BIS_fnc_selectRandom);
-_player addMagazine "16Rnd_9x21_Mag";
-_player addMagazine "16Rnd_9x21_Mag";
-_player addMagazine "16Rnd_9x21_Mag";
 _gun = (["hgun_P07_F","hgun_Rook40_F","hgun_ACPC2_F"] call BIS_fnc_selectRandom);
+
+// ACP takes different ammo now
+if (_gun == "hgun_ACPC2_F") then {
+	_player addMagazine "9Rnd_45ACP_Mag";
+	_player addMagazine "9Rnd_45ACP_Mag";
+	_player addMagazine "9Rnd_45ACP_Mag";
+} else {
+	_player addMagazine "16Rnd_9x21_Mag";
+	_player addMagazine "16Rnd_9x21_Mag";
+	_player addMagazine "16Rnd_9x21_Mag";
+};
+
 _player addWeapon _gun;
 
 _player addrating 1000000;

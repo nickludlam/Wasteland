@@ -91,6 +91,7 @@ ammoArray =
 [
 	["9mm 16Rnd Mag","16Rnd_9x21_Mag",15],
 	["9mm 30Rnd Mag","30Rnd_9x21_Mag",30],
+	["9mm 9Rnd ACP-C2 Mag","9Rnd_45ACP_Mag",30],
 	["9mm 30Rnd Vermin Mag","30Rnd_45ACP_MAG_SMG_01",30],
 	["9mm 30Rnd VerminTracers (Green) Mag","30Rnd_45ACP_Mag_SMG_01_tracer_green",30],
 	["5.56mm 20Rnd Dual Purpose Mag","20Rnd_556x45_UW_mag",15],
@@ -149,7 +150,8 @@ ammoArray =
 //Text name, classname, buy cost, item class
 accessoriesArray =
 [
-	["Suppressor 9mm","muzzle_snds_L", 250,"item"],
+	["Suppressor 9mm","muzzle_snds_L", 120, "item"],
+	["Suppressor ACP", "muzzle_snds_acp", 120, "item"],
 	["Suppressor 5.56mm", "muzzle_snds_M", 250, "item"],
 	["Suppressor 6.5mm","muzzle_snds_H", 250,"item"],
 	["LMG Suppressor 6.5mm","muzzle_snds_H_MG", 250,"item"],
@@ -482,8 +484,9 @@ boatsArray =
 
 submarinesArray = 
 [
-	["SDV Submarine", "B_SDV_01_F", 1500, "submarine", 750],
-	["SDV Submarine", "O_SDV_01_F", 1500, "submarine", 750]
+	["SDV Submarine Blue", "B_SDV_01_F", 1500, "submarine", 750],
+	["SDV Submarine Red", "O_SDV_01_F", 1500, "submarine", 750],
+	["SDV Submarine Green", "I_SDV_01_F", 1500, "submarine", 750]
 ];
 
 colorsArray =
