@@ -1,16 +1,24 @@
-private ["_missionMarkerName","_missionType","_picture","_vehicleName","_hint","_players","_vehicles","_marker","_failed","_startTime","_numWaypoints","_ammobox","_createVehicle","_leader", "_foundPlayer"];
+private ["_missionMarkerName","_missionType","_hint","_players","_marker","_count", "_foundPlayer", "_mission_state", "_playerName", "_playerSide", "_startTime", "_currTime", "_foundPlayer"];
 
 #include "bountyMissionDefines.sqf"
 
+#define BOUNTY_MISSION_ACTIVE 0
+#define BOUNTY_MISSION_END_KILLED 1
+#define BOUNTY_MISSION_END_SURVIVED 2
+#define BOUNTY_MISSION_END_TEAMKILLED 3
+#define BOUNTY_MISSION_END_SUICIDE 4
+
 _missionMarkerName = "Bounty_Marker";
 _missionType = "Bounty Hunt";
+_missionEndStateNames = ["was killed", "survived", "was teamkilled", "suicided"];
+
 _startTime = floor(time);
 
-diag_log format["WASTELAND SERVER - Bounty Mission Started: %1", _missionType];
+diag_log format["WASTELAND SERVER - Bounty Mission '%1' started", _missionType];
 
-diag_log format["WASTELAND SERVER - Bounty Mission Waiting to run: %1", _missionType];
+diag_log format["WASTELAND SERVER - Bounty Mission '%1' waiting to run", _missionType];
 [bountyMissionDelayTime] call createWaitCondition;
-diag_log format["WASTELAND SERVER - Bounty Mission Resumed: %1", _missionType];
+diag_log format["WASTELAND SERVER - Bounty Mission '%1' resumed", _missionType];
 
 //select a random player
 _players = playableUnits;
@@ -21,7 +29,7 @@ _foundPlayer = _players select _random;
 if(isNil "_foundPlayer") then
 {
 	_hint = parseText format ["<t align='center' color='%3' shadow='2' size='1.75'>Objective Failed</t><br/><t align='center' color='%2'>------------------------------</t><br/><t align='center' color='%3' size='1.25'>Trouble Finding Bounty!</t><br/><br/><t align='center' color='%3'>Maybe we'll play next time!</t>", failMissionColor, subTextColor];
-	    messageSystem = _hint;
+	messageSystem = _hint;
     if (!isDedicated) then { call serverMessage };
     publicVariable "messageSystem";
 	exit
@@ -45,8 +53,9 @@ _foundPlayer addMPEventHandler ["mpkilled", {[_this] call server_BountyDied;}];
 _playerName = name _foundPlayer;
 _playerSide = side _foundPlayer;
 _iterations = 0;
-_failed = 0;
+_mission_state = BOUNTY_MISSION_ACTIVE;
 //failed conditions 0 - null, 1-pass, 2-timeout, 3-tk, 4-suic
+
 waitUntil
 {
 	//only run the check every 10 seconds
@@ -61,85 +70,48 @@ waitUntil
 	};
 	
 	//check to see if we've timed out
-    _failed = 0;
+    _mission_state = 0;
 	_currTime = floor(time);
-    if (_currTime - _startTime >= bountyMissionTimeout) then { _failed = 2 };
+    if (_currTime - _startTime >= bountyMissionTimeout) then { _mission_state = BOUNTY_MISSION_END_SURVIVED };
     
 	//check to see if this player has been killed by someone
 	if(!isNil "bKiller") then
 	{ 
-		_failed = 1;
-		if(bKillerName == _playerName) then { _failed = 4;};
-		if(bKillerSide == _playerSide) then { _failed = 3;};
+		_mission_state = BOUNTY_MISSION_END_KILLED;
+		if(bKillerName == _playerName) then { _mission_state = BOUNTY_MISSION_END_SUICIDE;};
+		if(bKillerSide == _playerSide) then { _mission_state = BOUNTY_MISSION_END_TEAMKILLED;};
 	};
    
-    _failed > 0
+    _mission_state != BOUNTY_MISSION_ACTIVE
 };
 
-//if this is a fail case
-if(_failed > 1) then
+// We're here, so now we're no longer active
+
+ 
+//properly get the killer and target side names for use below
+_killerSideName =
+switch (bKillerSide) do 
 {
-	diag_log "Bounty Hunt Failed";
-	
-	//remove the event
-	 _foundPlayer removeAllMPEventHandlers "mpkilled"; 
-	 
-    //if this was a timeout then the bounty team gets the reward
-	if(_failed == 2) then
-	{
-		_playerMoney = _foundPlayer getVariable "cmoney";
-		_playerMoney = _playerMoney + 10000;
-		_foundPlayer setVariable["cmoney", _playerMoney, true];
-		_hint = parseText format ["<t align='center' color='%2' shadow='2' size='1.75'>Objective Failed</t><br/><t align='center' color='%2'>------------------------------</t><br/><t align='center' color='%2' size='1.25'>%1 lives!</t><br/><br/><t align='center' color='%3'>%1 gets $10,000 and every member of his side get $1,000!</t>", _playerName, failMissionColor, subTextColor];
-		{
-			if(side _x == _playerSide)then
-			{
-				if(_playerName != name _x) then
-				{
-					_playerMoney = _x getVariable "cmoney";
-					_playerMoney = _playerMoney + 1000;
-					_x setVariable["cmoney",_playerMoney,true];
-				};
-			};
-		}foreach playableUnits
-	};
-	
-	//if this is a teamkill the bounty team gets punished
-	if(_failed == 3) then
-	{
-		{
-			if(side _x == bKillerSide)then
-			{
-				_x setVariable["cmoney", 0, true];
-				removeAllWeapons _x;
-			};
-		}foreach playableUnits;
-		_hint = parseText format ["<t align='center' color='%2' shadow='2' size='1.75'>Objective Failed</t><br/><t align='center' color='%2'>------------------------------</t><br/><t align='center' color='%3' size='1.25'>%1 was teamkilled!</t><br/><br/><t align='center' color='%3'>Naughty naughty team players. As a penalty you have all lost your weapons and money!</t>", _playerName, failMissionColor, subTextColor];
-	};
-	
-	//if this is a suicide then nothing happens
-	if(_failed == 4) then
-	{
-		_hint = parseText format ["<t align='center' color='%2' shadow='2' size='1.75'>Objective Failed</t><br/><t align='center' color='%2'>------------------------------</t><br/><t align='center' color='%3' size='1.25'>%1 Suicided!</t><br/><br/><t align='center' color='%3'>Be more careful next time!</t>", _playerName, failMissionColor, subTextColor];
-	};
-    messageSystem = _hint;
-    if (!isDedicated) then { call serverMessage };
-    publicVariable "messageSystem";
-	
-	//reset the bountykiller variables
-	bKiller = nil;
-	bKillerName = nil;
-	bKillerSide = nil;
-    diag_log format["WASTELAND SERVER - Bounty Mission Failed: %1",_missionType];
+	case west: {"Blufor"}; 
+	case east: {"Opfor"};
+	default {"Gfor"};
 };
-if(_failed == 1)then
+
+_playerSideName = 
+switch (_playerSide) do 
 {
+	case west: {"Blufor"}; 
+	case east: {"Opfor"};
+	default {"Gfor"};
+};
+
+
+if (_mission_state == BOUNTY_MISSION_END_KILLED) then {
+
+	// Mission success: The bounty was killed, so issue awards
 
 	diag_log "Mission Completed";
-	
-	//remove the event handlers
-	_foundPlayer removeAllMPEventHandlers "mpkilled"; 
-    
+
 	//the player and his team reap the rewards
 	_playerMoney = bKiller getVariable "cmoney";
 	_playerMoney = _playerMoney + 10000;
@@ -155,22 +127,76 @@ if(_failed == 1)then
 			};
 		};
 	}foreach playableUnits;
-   
-   //properlyl get the side name to display to the clients
-   _sideName = "Blufor";
-	if(bKillerSide == east) then{ _sideName = "Opfor";}
-	else{ _sideName = "Independent";};
-	_hint = parseText format ["<t align='center' color='%2' shadow='2' size='1.75'>Objective Complete</t><br/><t align='center' color='%2'>------------------------------</t><br/><t align='center' color='%6' size='1.25'>%1</t><br/><t align='center'><img size='5' image='%2'/></t><br/><t align='center' color='%3'>%1 has been killed by %4! %5 has earned $1,000 for each member and %4 has earned $10,000!</t>", _playerName, successMissionColor, subTextColor, bKillerName, _sideName, failMissionColor];
-    messageSystem = _hint;
-    if (!isDedicated) then { call serverMessage };
-    publicVariable "messageSystem";
+
+	_hint = parseText format ["<t align='center' color='%2' shadow='2' size='1.75'>Objective Complete</t><br/><t align='center' color='%2'>------------------------------</t><br/><t align='center' color='%6' size='1.25'>%1</t><br/><t align='center'><img size='5' image='%2'/></t><br/><t align='center' color='%3'>%1 has been killed by %4! %5 has earned $1,000 for each member and %4 has earned $10,000!</t>", _playerName, successMissionColor, subTextColor, bKillerName, _killerSideName, failMissionColor];
+
+} else {
+	// Mission failed: Survived/Teamkilled/Suicided
+
+	diag_log "Bounty Hunt Failed";
+
+	// Phew, bounty target survived
+	if (_mission_state == BOUNTY_MISSION_END_SURVIVED) then {
+
+		// Money for survivor + extra money for team
+		_playerMoney = _foundPlayer getVariable "cmoney";
+		_playerMoney = _playerMoney + 10000;
+		_foundPlayer setVariable["cmoney", _playerMoney, true];
+		{
+			if(side _x == _playerSide)then
+			{
+				if(_playerName != name _x) then
+				{
+					_playerMoney = _x getVariable "cmoney";
+					_playerMoney = _playerMoney + 1000;
+					_x setVariable["cmoney",_playerMoney,true];
+				};
+			};
+		}foreach playableUnits;
+
+		_hint = parseText format ["<t align='center' color='%2' shadow='2' size='1.75'>Objective Failed</t><br/><t align='center' color='%2'>------------------------------</t><br/><t align='center' color='%2' size='1.25'>%1 lives!</t><br/><br/><t align='center' color='%3'>%1 gets $10,000 and every member of %4 get $1,000!</t>", _playerName, failMissionColor, subTextColor, _playerSideName];
+	};
+
+	// Unlucky
+	if (_mission_state == BOUNTY_MISSION_END_TEAMKILLED) then {
+
+		// Loop over each player on that side and remove their money and guns
+		{
+			if(side _x == bKillerSide)then
+			{
+				_x setVariable["cmoney", 0, true];
+				removeAllWeapons _x;
+			};
+		}foreach playableUnits;
+
+		_hint = parseText format ["<t align='center' color='%2' shadow='2' size='1.75'>Objective Failed</t><br/><t align='center' color='%2'>------------------------------</t><br/><t align='center' color='%3' size='1.25'>%1 was teamkilled!</t><br/><br/><t align='center' color='%3'>Naughty naughty team players. As a penalty you have all lost your weapons and money!</t>", _playerName, failMissionColor, subTextColor];
+	};
+
+	// Dumbass
+	if (_mission_state == BOUNTY_MISSION_END_SUICIDE) then {
+		_hint = parseText format ["<t align='center' color='%2' shadow='2' size='1.75'>Objective Failed</t><br/><t align='center' color='%2'>------------------------------</t><br/><t align='center' color='%3' size='1.25'>Chicken!!</t><br/><br/><t align='center' color='%3'>%1 took the coward's way out and committed suicide!</t>", _playerName, failMissionColor, subTextColor];
+	};
 	
-	//reset the bounty killer variables
-	bKiller = nil;
-	bKillerName = nil;
-	bKillerSide = nil;
-    diag_log format["WASTELAND SERVER - Bounty Mission Success: %1",_missionType];
 };
+
+// Broadcast the chosen message
+messageSystem = _hint;
+if (!isDedicated) then { call serverMessage };
+publicVariable "messageSystem";
+
+// COMMON CLEAN UP ///////////////////////////////////////////////
+
+//remove the event
+_foundPlayer removeAllMPEventHandlers "mpkilled"; 
+
+//reset the bountykiller variables
+bKiller = nil;
+bKillerName = nil;
+bKillerSide = nil;
+
+// Clean up marker
 MissionSpawnMarkers select _randomIndex set[1, false];
 [_missionMarkerName] call deleteClientMarker;
 deleteMarker _marker;
+
+diag_log format["WASTELAND SERVER - Bounty Mission '%1' ended: Target %2",_missionType, _missionEndStateNames select (_mission_state - 1)];
