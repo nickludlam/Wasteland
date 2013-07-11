@@ -47,7 +47,7 @@ diag_log format["WASTELAND SERVER - Side Mission Waiting to be Finished: %1",_mi
 _startTime = floor(time);
 waitUntil
 {
-    sleep 1; 
+    sleep 10; 
 	_playerPresent = false;
     _currTime = floor(time);
     if(_currTime - _startTime >= sideMissionTimeout) then {_result = 1;};
@@ -63,7 +63,7 @@ if(_result == 1) then
 	{if (vehicle _x != _x) then { deleteVehicle vehicle _x; }; deleteVehicle _x;}forEach units CivGrpS;
 	{deleteVehicle _x;}forEach units CivGrpS;
     deleteGroup CivGrpS;
-    _hint = parseText format ["<t align='center' color='%2' shadow='2' size='1.75'>Objective Failed</t><br/><t align='center' color='%2'>------------------------------</t><br/><t align='center' color='%2' size='1.25'>%1</t><br/><t align='center' color='%3'>FAIL! The sunken supplies disapeared!</t>", _missionType, failMissionColor, subTextColor];
+    _hint = parseText format ["<t align='center' color='%2' shadow='2' size='1.75'>Objective Failed</t><br/><t align='center' color='%2'>------------------------------</t><br/><t align='center' color='%2' size='1.25'>%1</t><br/><t align='center' color='%3'>FAIL! The sunken supplies are gone!</t>", _missionType, failMissionColor, subTextColor];
 	messageSystem = _hint;
     publicVariable "messageSystem";
     diag_log format["WASTELAND SERVER - Side Mission Failed: %1",_missionType];

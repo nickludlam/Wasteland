@@ -250,6 +250,8 @@ player createDiaryRecord["changelog",
 - Laser Designator price increased.<br/>
 - Interval between Bounty Hunts increased to 30 minutes.<br/>
 - Money mission's reward decreased to compensate for frequency.<br/>
+- Bounty Hunt mission fixed?<br/>
+- Hostile Heli Formation taken out.<br/>
 "
 ]
 ];

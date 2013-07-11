@@ -60,8 +60,7 @@ waitUntil
 {
     sleep 10; 
 	_playerPresent = false;
-	 _currTime = floor(time);
-   
+	 _currTime = floor(time);   
     if(_currTime - _startTime >= mainMissionTimeout) then {_result = 1;};
     {if((isPlayer _x) AND (_x distance _vehicle <= missionRadiusTrigger)) then {_playerPresent = true};}forEach playableUnits;
 	_unitsAlive = ({alive _x} count units CivGrpM);

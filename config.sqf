@@ -56,7 +56,7 @@ launcherArray =
 	["PCML","launch_NLAW_F",800,400],
 	["RPG-42 Alamut","launch_RPG32_F",800,400],
 	["Titan MPRL","launch_Titan_F",1000,500],
-	["Titan MPRL Compact","launch_Titan_short_F",1000,500]
+	["Titan MPRL Compact","launch_Titan_short_F",900,500]
 ]; 
 
 throwputArray =
@@ -139,9 +139,9 @@ ammoArray =
 	["3Rnd 3GL Smoke Rounds (Orange)","3Rnd_SmokeOrange_Grenade_shell",75],
 	["PCML Missile","NLAW_F",800],
 	["RPG-42 Missile","RPG32_F",550],
-	//["RPG-42 AA Missile","RPG32_AA_F",1000],
+	["RPG-42 AA Missile","RPG32_AA_F",1000],
 	["Titan AA Missile","Titan_AA",1000],
-	["Titan AT Missile","Titan_AT",550],
+	["Titan AT Missile","Titan_AT",800],
 	["Titan AP Missile","Titan_AP",550]
 ];
 

@@ -14,7 +14,6 @@ diag_log format["WASTELAND SERVER - Started Main Mission State"];
 _MainMissions = [
                  [mission_ArmedHeli,"mission_ArmedHeli"],
 				 [mission_LightArmVeh,"mission_LightArmVeh"],
-				 [mission_HostileHeliFormation,"mission_HostileHeliFormation"],
 				 [mission_SeaConvoy, "mission_SeaConvoy"],
 				 [mission_CivHeli,"mission_CivHeli"],
 				 [mission_Convoy,"mission_Convoy"],
@@ -23,6 +22,7 @@ _MainMissions = [
 //_MainMissions = [[mission_HostileHeliFormation,"mission_HostileHeliFormation"]];//,
 //				   [mission_APC,"mission_APC"]];[mission_MoneyShipment, "mission_MoneyShipment"]
 //[mission_Outpost,"mission_Outpost"][mission_Insurgence, "mission_Insurgence"]
+//				 [mission_HostileHeliFormation,"mission_HostileHeliFormation"],
 _notPlayedMainMissions = +_MainMissions;
 
 while {true} do

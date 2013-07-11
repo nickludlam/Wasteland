@@ -12,8 +12,6 @@ _missionMarkerName = "Bounty_Marker";
 _missionType = "Bounty Hunt";
 _missionEndStateNames = ["was killed", "survived", "was teamkilled", "suicided"];
 
-_startTime = floor(time);
-
 diag_log format["WASTELAND SERVER - Bounty Mission '%1' started", _missionType];
 
 diag_log format["WASTELAND SERVER - Bounty Mission '%1' waiting to run", _missionType];
@@ -53,6 +51,7 @@ _foundPlayer addMPEventHandler ["mpkilled", {[_this] call server_BountyDied;}];
 _playerName = name _foundPlayer;
 _playerSide = side _foundPlayer;
 _iterations = 0;
+_startTime = floor(time);
 _mission_state = BOUNTY_MISSION_ACTIVE;
 //failed conditions 0 - null, 1-pass, 2-timeout, 3-tk, 4-suic
 
@@ -70,10 +69,9 @@ waitUntil
 	};
 	
 	//check to see if we've timed out
-    _mission_state = 0;
-	_currTime = floor(time);
-    if (_currTime - _startTime >= bountyMissionTimeout) then { _mission_state = BOUNTY_MISSION_END_SURVIVED };
-    
+	_currTime = (floor time);
+    if (_currTime - _startTime >= bountyMissionTimeout) then { _mission_state = BOUNTY_MISSION_END_SURVIVED; };
+
 	//check to see if this player has been killed by someone
 	if(!isNil "bKiller") then
 	{ 
@@ -81,7 +79,6 @@ waitUntil
 		if(bKillerName == _playerName) then { _mission_state = BOUNTY_MISSION_END_SUICIDE;};
 		if(bKillerSide == _playerSide) then { _mission_state = BOUNTY_MISSION_END_TEAMKILLED;};
 	};
-   
     _mission_state != BOUNTY_MISSION_ACTIVE
 };
 
