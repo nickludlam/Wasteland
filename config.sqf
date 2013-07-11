@@ -91,9 +91,9 @@ ammoArray =
 [
 	["9mm 16Rnd Mag","16Rnd_9x21_Mag",15],
 	["9mm 30Rnd Mag","30Rnd_9x21_Mag",30],
-	["9mm 9Rnd ACP-C2 Mag","9Rnd_45ACP_Mag",30],
-	["9mm 30Rnd Vermin Mag","30Rnd_45ACP_MAG_SMG_01",30],
-	["9mm 30Rnd VerminTracers (Green) Mag","30Rnd_45ACP_Mag_SMG_01_tracer_green",30],
+	[".45 ACP 9Rnd Mag","9Rnd_45ACP_Mag",30],
+	[".45 ACP 30Rnd Vermin Mag","30Rnd_45ACP_MAG_SMG_01",30],
+	[".45 ACP 30Rnd VerminTracers (Green) Mag","30Rnd_45ACP_Mag_SMG_01_tracer_green",30],
 	["5.56mm 20Rnd Dual Purpose Mag","20Rnd_556x45_UW_mag",15],
 	["5.56mm 30Rnd STANAG Mag","30Rnd_556x45_Stanag",20],
 	["5.56mm 30Rnd Tracer (Red) Mag","30Rnd_556x45_Stanag_Tracer_Red",20],
@@ -140,7 +140,6 @@ ammoArray =
 	["3Rnd 3GL Smoke Rounds (Orange)","3Rnd_SmokeOrange_Grenade_shell",75],
 	["PCML Missile","NLAW_F",800],
 	["RPG-42 Missile","RPG32_F",550],
-	["RPG-42 AA Missile","RPG32_AA_F",1000],
 	["Titan AA Missile","Titan_AA",1000],
 	["Titan AT Missile","Titan_AT",800],
 	["Titan AP Missile","Titan_AP",550]

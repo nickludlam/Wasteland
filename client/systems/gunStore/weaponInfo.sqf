@@ -146,18 +146,7 @@ if(_itemText == _x select 0) then
 	{
 		_compatible = _compatible + getArray( (if ( _x == "this" ) then { _weapon } else { _weapon >> _x }) >> "magazines")
     } forEach getArray(_weapon >> "muzzles");
-	
-	{
-		if(_x != "RPG32_AA_F") then
-		{
-			_name = getText(configFile >> "CfgMagazines" >> _x >> "displayname");
-			_conf = (configFile >>  "CfgMagazines" >> _x);
-			_picture = getText(_conf >> "picture");
-			_ammolistIndex = _ammolist lbAdd format["%1",_name];
-			_ammolist lbSetPicture [_ammolistIndex,_picture];
-		};
-	}foreach _compatible;
-    
+	    
 	_gunlisttext ctrlSetText format ["Price: $%1", _price];	
 }}forEach launcherArray;
 
