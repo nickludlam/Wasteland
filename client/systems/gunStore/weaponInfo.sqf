@@ -136,19 +136,26 @@ if(_itemText == _x select 0) then
 {
 	_weap_type = _x select 1; 
 	_price = _x select 2;
-    
 	_weapon = (configFile >> "CfgWeapons" >> _weap_type);
-	
 	_compatible = [];
 	lbClear _ammolist;
-	
+
 	_compatible = [];
 	{
 		_compatible = _compatible + getArray( (if ( _x == "this" ) then { _weapon } else { _weapon >> _x }) >> "magazines")
     } forEach getArray(_weapon >> "muzzles");
-	    
+
+	{
+		_name = getText(configFile >> "CfgMagazines" >> _x >> "displayname");
+		_conf = (configFile >>  "CfgMagazines" >> _x);
+		_picture = getText(_conf >> "picture");
+		_ammolistIndex = _ammolist lbAdd format["%1",_name];
+		_ammolist lbSetPicture [_ammolistIndex,_picture];
+	}foreach _compatible;
+    
 	_gunlisttext ctrlSetText format ["Price: $%1", _price];	
 }}forEach launcherArray;
+
 
 {if(_itemText == _x select 0) then
 {
