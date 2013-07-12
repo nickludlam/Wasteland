@@ -146,11 +146,15 @@ if(_itemText == _x select 0) then
     } forEach getArray(_weapon >> "muzzles");
 
 	{
-		_name = getText(configFile >> "CfgMagazines" >> _x >> "displayname");
-		_conf = (configFile >>  "CfgMagazines" >> _x);
-		_picture = getText(_conf >> "picture");
-		_ammolistIndex = _ammolist lbAdd format["%1",_name];
-		_ammolist lbSetPicture [_ammolistIndex,_picture];
+		if(_x != "RPG32_AA_F") then
+		{
+
+			_name = getText(configFile >> "CfgMagazines" >> _x >> "displayname");
+			_conf = (configFile >>  "CfgMagazines" >> _x);
+			_picture = getText(_conf >> "picture");
+			_ammolistIndex = _ammolist lbAdd format["%1",_name];
+			_ammolist lbSetPicture [_ammolistIndex,_picture];
+		};
 	}foreach _compatible;
     
 	_gunlisttext ctrlSetText format ["Price: $%1", _price];	
