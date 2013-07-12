@@ -16,14 +16,14 @@ _missionMarkerName = "Treasure_Marker";
 _missionType = "Sunken Treasure";
 _startTime = floor(time);
 
-diag_log format["WASTELAND SERVER - Side Mission Started: %1",_missionType];
+diag_log format["WASTELAND SERVER - Money Mission Started: %1",_missionType];
 
 _rand = floor (random 9);
 _posRand =	(getMarkerPos format ["treasure_%1", _rand]);
 
-diag_log format["WASTELAND SERVER - Side Mission Waiting to run: %1",_missionType];
-[sideMissionDelayTime] call createWaitCondition;
-diag_log format["WASTELAND SERVER - Side Mission Resumed: %1",_missionType];
+diag_log format["WASTELAND SERVER - Money Mission Waiting to run: %1",_missionType];
+[moneyMissionDelayTime] call createWaitCondition;
+diag_log format["WASTELAND SERVER - Money Mission Resumed: %1",_missionType];
 
 _ZCoor = -38.8307;
 switch((_rand)) do
@@ -109,18 +109,18 @@ _createVehicle = {
 _vehicles = [];
 _vehicles set [0, ["O_Boat_Armed_01_hmg_F", [(_posRand select 0), (_posRand select 1), 0], _fix, 110, _group] call _createVehicle];
 
-_hint = parseText format ["<t align='center' color='%2' shadow='2' size='1.75'>Side Objective</t><br/><t align='center' color='%2'>------------------------------</t><br/><t align='center' color='%3' size='1.25'>%1</t><br/><t align='center' color='%3'>$10,000 in sunken treasure has been located. Go get it!</t>", _missionType,  sideMissionColor, subTextColor];
+_hint = parseText format ["<t align='center' color='%2' shadow='2' size='1.75'>Money Objective</t><br/><t align='center' color='%2'>------------------------------</t><br/><t align='center' color='%3' size='1.25'>%1</t><br/><t align='center' color='%3'>$10,000 in sunken treasure has been located. Go get it!</t>", _missionType,  moneyMissionColor, subTextColor];
 messageSystem = _hint;
 publicVariable "messageSystem";
 
-diag_log format["WASTELAND SERVER - Side Mission Waiting to be Finished: %1",_missionType];
+diag_log format["WASTELAND SERVER - Money Mission Waiting to be Finished: %1",_missionType];
 _startTime = floor(netTime);
 waitUntil
 {
     sleep 10; 
 	_playerPresent = false;
     _currTime = floor(time);
-    if(_currTime - _startTime >= sideMissionTimeout) then {_result = 1;};
+    if(_currTime - _startTime >= moneyMissionTimeout) then {_result = 1;};
 	//if(alive _cash0) then {_allMoneyUp = 0;}
 	if(alive _treas0)then {_allMoneyUp = 0;}
 	else {_allMoneyUp = 1;};
@@ -137,7 +137,7 @@ if(_result == 1) then
     _hint = parseText format ["<t align='center' color='%2' shadow='2' size='1.75'>Objective Failed</t><br/><t align='center' color='%2'>------------------------------</t><br/><t align='center' color='%2' size='1.25'>%1</t><br/><t align='center' color='%3'>Objective failed, better luck next time</t>", _missionType, failMissionColor, subTextColor];
 	messageSystem = _hint;
     publicVariable "messageSystem";
-    diag_log format["WASTELAND SERVER - Side Mission Failed: %1",_missionType];
+    diag_log format["WASTELAND SERVER - Money Mission Failed: %1",_missionType];
 } else {
 	//Mission Complete.
 		_unitsAlive = { alive _x } count units _group;
@@ -161,7 +161,7 @@ if(_result == 1) then
     _hint = parseText format ["<t align='center' color='%2' shadow='2' size='1.75'>Objective Complete</t><br/><t align='center' color='%2'>------------------------------</t><br/><t align='center' color='%3' size='1.25'>%1</t><br/><t align='center' color='%3'>The money is yours! Help out your team!</t>", _missionType, successMissionColor, subTextColor];
 	messageSystem = _hint;
     publicVariable "messageSystem";
-    diag_log format["WASTELAND SERVER - Side Mission Success: %1",_missionType];
+    diag_log format["WASTELAND SERVER - Money Mission Success: %1",_missionType];
 };
 
 //Reset Mission Spot.
