@@ -26,6 +26,46 @@ _playerMoneyText = _Dialog displayCtrl vehshop_money;
 _colorText = lbText [vehshop_color_list, (lbCurSel vehshop_color_list)];
 _itemText = lbText  [vehshop_veh_list, (lbCurSel vehshop_veh_list)];
 _handleMoney = 1;
+_texturePath = "";
+
+_applyVehProperties = 
+{
+    private ["_car","_colorText","_texturePath", "_veh_type", "_vehPos"];
+	_car = _this select 0;
+	_colorText = _this select 1;
+	_texturePath = _this select 2;
+	_veh_type = _this select 3;
+	_vehPos = _this select 4;
+	
+	_car = createVehicle [_veh_type,_vehPos, [], 0, "CAN_COLLIDE"];
+	
+	//_veh setDir _dir;
+	_car setVariable ["newVehicle",1,true];
+	_car setVelocity [0,0,0];
+	
+	//if they chose a color set the color					
+	if(_colorText == "Orange Camo") then {_texturePath ="images\camo_fack.jpg";};
+	if(_colorText == "Red Camo") then {_texturePath = "images\camo_deser.jpg";};
+	if(_colorText == "Yellow Camo") then {_texturePath = "images\camo_fuel.jpg";};
+	if(_colorText == "Pink Camo") then {_texturePath = "images\camo_pank.jpg";};
+	_car setVariable ["textureName", _texturePath];
+	if(!isDedicated) then {call serverPaintApply};
+	vehiclePaintSystem = [_car, _texturePath,[]];
+	publicVariable "vehiclePaintSystem";
+
+	//tell the vehicle to delete itself after dying
+	_car addEventHandler ["Killed",{(_this select 0) spawn {sleep 180; deleteVehicle _this}}];
+	
+	//enable vehicle locking
+	if(!isDedicated) then {call serverVehicleLockApply };
+	vehicleLockApplySystem = _car;
+	publicVariable "vehicleLockApplySystem";
+	
+	//enable missile warning
+	if(!isDedicated) then {call serverMissileWarnApply };
+	vehicleMissileWarnSystem = _car;
+	publicVariable "vehicleMissileWarnSystem";
+};
 
 switch(_switch) do 
 {
@@ -46,25 +86,7 @@ switch(_switch) do
 				_veh_type = _class;
 				_old_veh = nearestObjects [_vehPos, ["AllVehicles"], 5];
 				{deleteVehicle _x} forEach _old_veh;
-				if(_Dospawn == 1) then
-				{
-					_car = createVehicle [_veh_type,_vehPos, [], 0, "CAN_COLLIDE"];
-	
-					//_veh setDir _dir;
-					_car setVariable ["newVehicle",1,true];
-					_car setVelocity [0,0,0];
-					
-					//if they chose a color set the color
-					if(_colorText == "Orange Camo") then {_car setObjectTexture [0, "images\fack.jpg"];};
-					if(_colorText == "Red Camo") then {_car setObjectTexture [0, "images\deser.jpg"];};
-					if(_colorText == "Yellow Camo") then {_car setObjectTexture [0, "images\fuel.jpg"];};
-					if(_colorText == "Pink Camo") then {_car setObjectTexture [0, "images\pank.jpg"];};
-					
-					//enable vehicle locking
-					vehiclelock = _car addAction ["Unlock / Lock","server\functions\unlocklock.sqf",[],7,true,true,"","(_target distance _this) < 7"];
-					_car addEventHandler ["Killed",{(_this select 0) spawn {sleep 180; deleteVehicle _this}}];
-					_car addEventHandler ["IncomingMissile", "[name (_this select 2)] execVM 'incomingAlarm.sqf'"];
-				};
+				if(_Dospawn == 1) then{ [_car, _colorText, _texturePath, _veh_type, _vehPos] call _applyVehProperties; };
 			};
 		}forEach landArray;
 		
@@ -82,25 +104,7 @@ switch(_switch) do
 				_veh_type = _class;
 				_old_veh = nearestObjects [_vehPos, ["AllVehicles"], 5];
 				{deleteVehicle _x} forEach _old_veh;
-				if(_Dospawn == 1) then
-				{
-					_car = createVehicle [_veh_type,_vehPos, [], 0, "CAN_COLLIDE"];
-	
-					//_veh setDir _dir;
-					_car setVariable ["newVehicle",1,true];
-					_car setVelocity [0,0,0];
-					
-					//if they chose a color set the color
-					if(_colorText == "Orange Camo") then {_car setObjectTexture [0, "images\camo_fack.jpg"];};
-					if(_colorText == "Red Camo") then {_car setObjectTexture [0, "images\camo_deser.jpg"];};
-					if(_colorText == "Yellow Camo") then {_car setObjectTexture [0, "images\camo_fuel.jpg"];};
-					if(_colorText == "Pink Camo") then {_car setObjectTexture [0, "images\camo_pank.jpg"];};
-					
-					//enable vehicle locking
-					vehiclelock = _car addAction ["Unlock / Lock","server\functions\unlocklock.sqf",[],7,true,true,"","(_target distance _this) < 7"];
-					_car addEventHandler ["Killed",{(_this select 0) spawn {sleep 180; deleteVehicle _this}}];
-					_car addEventHandler ["IncomingMissile", "[name (_this select 2)] execVM 'incomingAlarm.sqf'"];
-				};
+				if(_Dospawn == 1) then{ [_car, _colorText, _texturePath, _veh_type, _vehPos] call _applyVehProperties; };
 			};
 		}forEach armoredArray;
 		
@@ -118,26 +122,7 @@ switch(_switch) do
 				_veh_type = _class;
 				_old_veh = nearestObjects [_vehPos, ["AllVehicles"], 5];
 				{deleteVehicle _x} forEach _old_veh;
-				if(_Dospawn == 1) then
-				{
-					_car = createVehicle [_veh_type,_vehPos, [], 0, "CAN_COLLIDE"];
-	
-					//_veh setDir _dir;
-					_car setVariable ["newVehicle",1,true];
-					_car setVelocity [0,0,0];
-					
-					//if they chose a color set the color
-					//if they chose a color set the color
-					if(_colorText == "Orange Camo") then {_car setObjectTexture [0, "images\camo_fack.jpg"];};
-					if(_colorText == "Red Camo") then {_car setObjectTexture [0, "images\camo_deser.jpg"];};
-					if(_colorText == "Yellow Camo") then {_car setObjectTexture [0, "images\camo_fuel.jpg"];};
-					if(_colorText == "Pink Camo") then {_car setObjectTexture [0, "images\camo_pank.jpg"];};
-					
-					//enable vehicle locking
-					vehiclelock = _car addAction ["Unlock / Lock","server\functions\unlocklock.sqf",[],7,true,true,"","(_target distance _this) < 7"];
-					_car addEventHandler ["Killed",{(_this select 0) spawn {sleep 180; deleteVehicle _this}}];
-					_car addEventHandler ["IncomingMissile", "[name (_this select 2)] execVM 'incomingAlarm.sqf'"];
-				};
+				if(_Dospawn == 1) then{ [_car, _colorText, _texturePath, _veh_type, _vehPos] call _applyVehProperties; };
 			};
 		}forEach tanksArray;
 		
@@ -155,26 +140,7 @@ switch(_switch) do
 				_veh_type = _class;
 				_old_veh = nearestObjects [_vehPos, ["AllVehicles"], 5];
 				{deleteVehicle _x} forEach _old_veh;
-				if(_Dospawn == 1) then
-				{
-					_car = createVehicle [_veh_type,_vehPos, [], 0, "CAN_COLLIDE"];
-	
-					//_veh setDir _dir;
-					_car setVariable ["newVehicle",1,true];
-					_car setVelocity [0,0,0];
-					
-					//if they chose a color set the color
-					//if they chose a color set the color
-					if(_colorText == "Orange Camo") then {_car setObjectTexture [0, "images\camo_fack.jpg"];};
-					if(_colorText == "Red Camo") then {_car setObjectTexture [0, "images\camo_deser.jpg"];};
-					if(_colorText == "Yellow Camo") then {_car setObjectTexture [0, "images\camo_fuel.jpg"];};
-					if(_colorText == "Pink Camo") then {_car setObjectTexture [0, "images\camo_pank.jpg"];};
-					
-					//enable vehicle locking
-					vehiclelock = _car addAction ["Unlock / Lock","server\functions\unlocklock.sqf",[],7,true,true,"","(_target distance _this) < 7"];
-					_car addEventHandler ["Killed",{(_this select 0) spawn {sleep 180; deleteVehicle _this}}];
-					_car addEventHandler ["IncomingMissile", "[name (_this select 2)] execVM 'incomingAlarm.sqf'"];
-				};
+				if(_Dospawn == 1) then{ [_car, _colorText, _texturePath, _veh_type, _vehPos] call _applyVehProperties; };
 			};
 		}forEach helicoptersArray;
 		
@@ -192,26 +158,7 @@ switch(_switch) do
 				_veh_type = _class;
 				_old_veh = nearestObjects [_vehPos, ["AllVehicles"], 5];
 				{deleteVehicle _x} forEach _old_veh;
-				if(_Dospawn == 1) then
-				{
-					_car = createVehicle [_veh_type,_vehPos, [], 0, "CAN_COLLIDE"];
-	
-					//_veh setDir _dir;
-					_car setVariable ["newVehicle",1,true];
-					_car setVelocity [0,0,0];
-					
-					//if they chose a color set the color
-					//if they chose a color set the color
-					if(_colorText == "Orange Camo") then {_car setObjectTexture [0, "images\camo_fack.jpg"];};
-					if(_colorText == "Red Camo") then {_car setObjectTexture [0, "images\camo_deser.jpg"];};
-					if(_colorText == "Yellow Camo") then {_car setObjectTexture [0, "images\camo_fuel.jpg"];};
-					if(_colorText == "Pink Camo") then {_car setObjectTexture [0, "images\camo_pank.jpg"];};
-					
-					//enable vehicle locking
-					vehiclelock = _car addAction ["Unlock / Lock","server\functions\unlocklock.sqf",[],7,true,true,"","(_target distance _this) < 7"];
-					_car addEventHandler ["Killed",{(_this select 0) spawn {sleep 180; deleteVehicle _this}}];
-					_car addEventHandler ["IncomingMissile", "[name (_this select 2)] execVM 'incomingAlarm.sqf'"];
-				};
+				if(_Dospawn == 1) then{ [_car, _colorText, _texturePath, _veh_type, _vehPos] call _applyVehProperties; };
 			};
 		}forEach jetsArray;
 				
@@ -229,25 +176,7 @@ switch(_switch) do
 				_veh_type = _class;
 				_old_veh = nearestObjects [_vehPos, ["AllVehicles"], 5];
 				{deleteVehicle _x} forEach _old_veh;
-				if(_Dospawn == 1) then
-				{
-					_car = createVehicle [_veh_type,_vehPos, [], 0, "CAN_COLLIDE"];
-	
-					//_veh setDir _dir;
-					_car setVariable ["newVehicle",1,true];
-					_car setVelocity [0,0,0];
-					
-					//if they chose a color set the color
-					if(_colorText == "Orange Camo") then {_car setObjectTexture [0, "images\camo_fack.jpg"];};
-					if(_colorText == "Red Camo") then {_car setObjectTexture [0, "images\camo_deser.jpg"];};
-					if(_colorText == "Yellow Camo") then {_car setObjectTexture [0, "images\camo_fuel.jpg"];};
-					if(_colorText == "Pink Camo") then {_car setObjectTexture [0, "images\camo_pank.jpg"];};
-					
-					//enable vehicle locking
-					vehiclelock = _car addAction ["Unlock / Lock","server\functions\unlocklock.sqf",[],7,true,true,"","(_target distance _this) < 7"];
-					_car addEventHandler ["Killed",{(_this select 0) spawn {sleep 180; deleteVehicle _this}}];
-					_car addEventHandler ["IncomingMissile", "[name (_this select 2)] execVM 'incomingAlarm.sqf'"];
-				};
+				if(_Dospawn == 1) then{ [_car, _colorText, _texturePath, _veh_type, _vehPos] call _applyVehProperties; };
 			};
 		}forEach boatsArray;
 		
@@ -265,29 +194,12 @@ switch(_switch) do
 				_veh_type = _class;
 				_old_veh = nearestObjects [_vehPos, ["AllVehicles"], 5];
 				{deleteVehicle _x} forEach _old_veh;
-				if(_Dospawn == 1) then
-				{
-					_car = createVehicle [_veh_type,_vehPos, [], 0, "CAN_COLLIDE"];
-	
-					//_veh setDir _dir;
-					_car setVariable ["newVehicle",1,true];
-					_car setVelocity [0,0,0];
-					
-					//if they chose a color set the color
-					if(_colorText == "Orange Camo") then {_car setObjectTexture [0, "images\camo_fack.jpg"];};
-					if(_colorText == "Red Camo") then {_car setObjectTexture [0, "images\camo_deser.jpg"];};
-					if(_colorText == "Yellow Camo") then {_car setObjectTexture [0, "images\camo_fuel.jpg"];};
-					if(_colorText == "Pink Camo") then {_car setObjectTexture [0, "images\camo_pank.jpg"];};
-					
-					//enable vehicle locking
-					vehiclelock = _car addAction ["Unlock / Lock","server\functions\unlocklock.sqf",[],7,true,true,"","(_target distance _this) < 7"];
-					_car addEventHandler ["Killed",{(_this select 0) spawn {sleep 180; deleteVehicle _this}}];
-					_car addEventHandler ["IncomingMissile", "[name (_this select 2)] execVM 'incomingAlarm.sqf'"];
-				};
+				if(_Dospawn == 1) then{ [_car, _colorText, _texturePath, _veh_type, _vehPos] call _applyVehProperties; };
 			};
 		}forEach submarinesArray;
 	};
 };
+
 if(_handleMoney ==1) then
 {
 	hint format["%1 spawned outside.", _itemText];

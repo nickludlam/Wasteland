@@ -5,6 +5,7 @@
 //	@file Args:
 
 _player = _this;
+
 //Player initialization
 _player setskill 0;
 {_player disableAI _x} foreach ["move","anim","target","autotarget"];
@@ -19,6 +20,8 @@ removeVest _player;
 removeBackpack _player;
 removeHeadgear _player;
 removeGoggles _player;
+_player unassignItem "NVGoggles"; 
+_player removeItem "NVGoggles"; 
 
 switch (str(playerSide)) do
 {
@@ -43,9 +46,6 @@ default
 		_player addVest (["V_HarnessO_brn","V_HarnessOGL_brn"] call BIS_fnc_selectRandom);
     };
 };
-
-//_player removeAllEventHandlers "killed";
-//_player addEventHandler ["killed", "[_this select 0, _this select 1] execVM 'client\clientEvents\handleKill.sqf'"];
 
 //_player addBackpack (["B_AssaultPack_dgtl","B_AssaultPack_rgr","B_AssaultPack_sgg","B_AssaultPack_blk","B_AssaultPack_mcamo"]call BIS_fnc_selectRandom);
 _gun = (["hgun_P07_F","hgun_Rook40_F","hgun_ACPC2_F"] call BIS_fnc_selectRandom);

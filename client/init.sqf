@@ -92,12 +92,16 @@ waituntil {!(IsNull (findDisplay 46))};
 
 "currentDate" addPublicVariableEventHandler {[] call timeSync};
 "messageSystem" addPublicVariableEventHandler {[] call serverMessage};
-"clientMissionMarkers" addPublicVariableEventHandler {[] call updateMissionsMarkers};
-"clientRadarMarkers" addPublicVariableEventHandler {[] call updateRadarMarkers};
 "pvar_teamKillList" addPublicVariableEventHandler {[] call updateTeamKiller};
+"clientPaintSystem" addPublicVariableEventHandler {[] call clientPaintApply};
+"clientRadarMarkers" addPublicVariableEventHandler {[] call updateRadarMarkers};
+"clientMissionMarkers" addPublicVariableEventHandler {[] call updateMissionsMarkers};
+"clientMissileWarnSystem" addPublicVariableEventHandler {[] call clientMissileWarnApply};
+"clientVehiclLockApplySystem" addPublicVariableEventHandler {[] call clientVehicleLockApply};
 "publicVar_teamkillMessage" addPublicVariableEventHandler {if(local(_this select 1)) then {[] spawn teamkillMessage;};};
 
 //client Executes
+//[] execVM "client\functions\initBoughtVehicles.sqf";
 [] execVM "client\functions\initSurvival.sqf";
 [] execVM "client\systems\hud\playerHud.sqf";
 [] execVM "client\functions\createTownMarkers.sqf";

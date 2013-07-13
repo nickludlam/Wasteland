@@ -12,13 +12,16 @@ serverSpawning = 1;
 buildingsloot = 1;
 
 //Execute Server Side Scripts.
-//vfats =[3.5] spawn compile preprocessFile ("server\functions\VFATS_SRV.sqf");
+_serverCompiledScripts = [] execVM "server\functions\serverCompile.sqf";
+
 [] execVM "server\admins.sqf";
 [] execVM "server\functions\serverVars.sqf";
-_serverCompiledScripts = [] execVM "server\functions\serverCompile.sqf";
 [] execVM "server\functions\broadcaster.sqf";
 [] execVM "server\functions\relations.sqf";
 [] execVM "server\functions\serverTimeSync.sqf";
+"vehiclePaintSystem" addPublicVariableEventHandler {[] call serverPaintApply};
+"vehicleMissileWarnSystem" addPublicVariableEventHandler {[] call serverMissileWarnApply};
+"vehicleLockApplySystem" addPublicVariableEventHandler {[] call serverVehicleLockApply};
 waitUntil{scriptDone _serverCompiledScripts};
 
 execVM "server\statSave\serverGather.sqf";

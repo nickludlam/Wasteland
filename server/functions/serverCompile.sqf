@@ -88,6 +88,11 @@ cleanupLoop = compile preprocessFileLineNumbers "server\functions\cleanupLoop.sq
 initGunStores = compile preprocessFileLineNumbers "server\functions\initStoreOwners.sqf";
 immRebuild = compile preprocessFileLineNumbers "server\functions\immrebuild.sqf";
 
+//client forwards
+serverPaintApply = compile preprocessFileLineNumbers "server\functions\serverPaintApply.sqf";
+serverMissileWarnApply = compile preprocessFileLineNumbers "server\functions\serverMissileWarnApply.sqf";
+serverVehicleLockApply = compile preprocessFileLineNumbers "server\functions\serverVehicleLockApply.sqf";
+
 //Player Management
 server_playerDied = compile preprocessFileLineNumbers "server\functions\serverPlayerDied.sqf";
 //server_playerKilled = compile preprocessFileLineNumbers "server\functions\serverKilled.sqf";
