@@ -43,7 +43,18 @@ _applyVehProperties =
 	_car setVariable ["newVehicle",1,true];
 	_car setVelocity [0,0,0];
 	
-	//if they chose a color set the color					
+	//if they chose a color set the color
+	if(_colorText == "Orange") then { _texturePath = '#(argb,8,8,3)color(0.82,0.2,0,1)';};
+	if(_colorText == "Red") then { _texturePath = '#(argb,8,8,3)color(0.79,0.03,0,1)';};
+	if(_colorText == "Pink") then { _texturePath = '#(argb,8,8,3)color(0.91,0.53,0.57,1)';};
+	if(_colorText == "Yellow") then { _texturePath = '#(argb,8,8,3)color(1,0.97,0.17,1)';};
+	if(_colorText == "Purple") then { _texturePath = '#(argb,8,8,3)color(0.43,0.18,0.67,1)';};
+	if(_colorText == "Blue") then { _texturePath = '#(argb,8,8,3)color(0,0.1,0.8,1)';};
+	if(_colorText == "Dark Blue") then { _texturePath = '#(argb,8,8,3)color(0.03,0.02,0.35,1)';};
+	if(_colorText == "Green") then { _texturePath = '#(argb,8,8,3)color(0.01,0.64,0,1)';};
+	if(_colorText == "Black") then { _texturePath = '#(argb,8,8,3)color(0,0,0,1)';};
+	if(_colorText == "White") then { _texturePath = '#(argb,8,8,3)color(1,1,1,1)';};
+	if(_colorText == "Teal") then { _texturePath = '#(argb,8,8,3)color(0,0.93,0.86,1)';};
 	if(_colorText == "Orange Camo") then {_texturePath ="images\camo_fack.jpg";};
 	if(_colorText == "Red Camo") then {_texturePath = "images\camo_deser.jpg";};
 	if(_colorText == "Yellow Camo") then {_texturePath = "images\camo_fuel.jpg";};
@@ -57,9 +68,6 @@ _applyVehProperties =
 	_car addEventHandler ["Killed",{(_this select 0) spawn {sleep 180; deleteVehicle _this}}];
 	
 	//enable vehicle locking
-	//if(!isDedicated) then {call serverVehicleLockApply };
-	//vehicleLockApplySystem = _car;
-	//publicVariable "vehicleLockApplySystem";
 	_car addAction ["Unlock / Lock","server\functions\unlocklock.sqf",[],7,true,true,"","(_target distance _this) < 7"];
 	
 	//enable missile warning

@@ -14,9 +14,6 @@ _weap_type = "";
 _picture = "";
 _price = 0;
 
-// Grab access to the controls
-
-
 //Check Items Price
 {if(_itemText == _x select 0) then{
 

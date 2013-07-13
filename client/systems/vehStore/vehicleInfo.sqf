@@ -73,115 +73,19 @@ _vehText ctrlSetText "";
 	_vehText ctrlSetText format ["Price: $%1", _price];	
 }}forEach submarinesArray;
 
+_NoColorVehs = ["Offroad","HEMTT Open","HEMTT Covered","Ifrit","Ifrit HMG","Ifrit GMG","Strider","Strider HMG","Strider GMG","MSE-3 Marid","AH-99 Blackfoot","Assault Boat Blue","SDV Submarine Blue"];
+_RGBVehicles = ["Quadbike Blue","Quadbike Red","Quadbike Green","Quadbike Civilian","Zamak Open","Zamak Covered","Assault Boat Red","Assault Boat Green","Rescue Blue","Rescue Red","Rescue Civilian","UH-80 Ghosthawk","SDV Submarine Green","SDV Submarine Red"];
+
 {
-	_shouldShow = _x select 1;
+	if(_itemText in _NoColorVehs) exitWith{};
+	
+	_isRGB = _x select 1;
 	_isDumb = false;
-	switch(_itemText) do
-	{
-		case "Quadbike Blue":
-		{
-			_isDumb = true;
-		};
-		case "Quadbike Red":
-		{
-			_isDumb = true;
-		};
-		case "Quadbike Green":
-		{
-			_isDumb = true;
-		};
-		case "Quadbike Civilian":
-		{
-			_isDumb = true;
-		};
-		case "Offroad":
-		{
-			_isDumb = true;
-		};
-		case "HEMTT Open":
-		{
-			_isDumb = true;
-		};
-		case "HEMTT Covered":
-		{
-			_isDumb = true;
-		};
-		case "Zamak Open":
-		{
-			_isDumb = true;
-		};
-		case "Zamak Covered":
-		{
-			_isDumb = true;
-		};
-		case "Ifrit":
-		{
-			_isDumb = true;
-		};
-		case "Ifrit HMG":
-		{
-			_isDumb = true;
-		};
-		case "Ifrit GMG":
-		{
-			_isDumb = true;
-		};
-		case "Strider":
-		{
-			_isDumb = true;
-		};
-		case "Strider HMG":
-		{
-			_isDumb = true;
-		};
-		case "Strider GMG":
-		{
-			_isDumb = true;
-		};
-		case "MSE-3 Marid":
-		{
-			_isDumb = true;
-		};
-		case "Assault Boat Blue":
-		{
-			_isDumb = true;
-		};
-		case "Assault Boat Red":
-		{
-			_isDumb = true;
-		};
-		case "Assault Boat Green":
-		{
-			_isDumb = true;
-		};
-		case "Rescue Blue":
-		{
-			_isDumb = true;
-		};
-		case "Rescue Red":
-		{
-			_isDumb = true;
-		};
-		case "Rescue Civilian":
-		{
-			_isDumb = true;
-		};
-		case "AH-99 Blackfoot":
-		{
-			_isDumb = true;
-		};
-		case "UH-80 Ghosthawk":
-		{
-			_isDumb = true;
-		};
-		case "SDV Submarine":
-		{
-			_isDumb = true;
-		};
-	};
+	if(_itemText in _RGBVehicles) then {_isDumb = true;};
+	
 	if(_itemText != "") then
 	{
-		if((str(_isDumb) == "true") AND (str(_shouldShow) == "false")) then { _isDumb = true;}
+		if((str(_isDumb) == "true") AND (str(_isRGB) == "false")) then { _isDumb = true;}
 		else {_colorlistIndex = _colorlist lbAdd format["%1",_x select 0];};
 	};
 }foreach colorsArray;

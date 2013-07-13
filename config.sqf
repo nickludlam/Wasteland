@@ -488,8 +488,20 @@ submarinesArray =
 	["SDV Submarine Green", "I_SDV_01_F", 1500, "submarine", 750]
 ];
 
+//color, isARGB
 colorsArray =
 [
+	["Black", true],
+	["White", true],
+	["Orange", true],
+	["Red", true],
+	["Pink", true],
+	["Yellow", true],
+	["Purple", true],
+	["Blue", true],
+	["Dark Blue", true],
+	["Teal", true],
+	["Green", true],
 	["Orange Camo", false],
 	["Red Camo", false],
 	["Yellow Camo", false],
