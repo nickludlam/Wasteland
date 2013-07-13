@@ -12,3 +12,7 @@
 #define FATIGUE_TIRED -2
 #define FATIGUE_RESTING -1
 #endif
+
+// Randomize
+#define __MONEY_VAR_NAME__ "12345playermoney"
+#define __MONEYBAG_VAR_NAME__ "ABCDEFbagmoney"

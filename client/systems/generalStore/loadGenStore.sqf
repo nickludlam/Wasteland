@@ -5,6 +5,7 @@
 //	@file Created: 20/11/2012 05:13
 //	@file Args:
 
+#include "defines.hpp"
 #include "dialog\genstoreDefines.sqf";
 disableSerialization;
 
@@ -13,5 +14,5 @@ genStoreCart = 0;
 
 _Dialog = findDisplay genstore_DIALOG;
 _playerMoney = _Dialog displayCtrl genstore_money;
-_money = player getVariable "cmoney";
+_money = player getVariable __MONEY_VAR_NAME__;
 _playerMoney CtrlsetText format["Cash: $%1", _money];

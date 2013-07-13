@@ -4,6 +4,8 @@
 //	@file Created: 20/11/2012 05:19
 //	@file Args:
 
+#include "defines.hpp"
+
 #define playerMenuDialog 55500
 #define playerMenuPlayerList 55505
 #define playerMenuSpectateButton 55506
@@ -126,7 +128,7 @@ if ((_uid in moderators) OR (_uid in administrators) OR (_uid in serverAdministr
 	        {
 			    if(getPlayerUID _x == _targetUID) then
 			    {
-  					_x setVariable["cmoney",0,true];
+  					_x setVariable[__MONEY_VAR_NAME__,0,true];
 			    };
 			}forEach playableUnits;       		
 	    };

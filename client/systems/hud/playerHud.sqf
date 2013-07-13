@@ -68,7 +68,7 @@ while {true} do
         _stamina = format ["%1", (100 - _percentSprintFatigue)];
     };
 
-    _vitals ctrlSetStructuredText parseText format ["%1 <img size='0.8' image='client\icons\%2'/><br/>%3 <img size='0.8' image='client\icons\1.paa'/><br/>%4 <img size='0.8' image='client\icons\water.paa'/><br/>%5 <img size='0.8' image='client\icons\food.paa'/><br/>%6 <img size='0.8' image='client\icons\money.paa'/>", _stamina, _runningIconName, _health, thirstLevel, hungerLevel, (player getVariable "cmoney")];
+    _vitals ctrlSetStructuredText parseText format ["%1 <img size='0.8' image='client\icons\%2'/><br/>%3 <img size='0.8' image='client\icons\1.paa'/><br/>%4 <img size='0.8' image='client\icons\water.paa'/><br/>%5 <img size='0.8' image='client\icons\food.paa'/><br/>%6 <img size='0.8' image='client\icons\money.paa'/>", _stamina, _runningIconName, _health, thirstLevel, hungerLevel, (player getVariable __MONEY_VAR_NAME__)];
     _vitals ctrlCommit 0;
         
     if(player != vehicle player) then

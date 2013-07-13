@@ -4,6 +4,7 @@
 //	@file Created: 06/15/2012 05:13
 //	@file Args:
 
+#include "defines.hpp"
 #include "dialog\vehstoreDefines.sqf";
 disableSerialization;
 
@@ -12,7 +13,7 @@ gunStoreCart = 0;
 
 _Dialog = findDisplay vehshop_DIALOG;
 _playerMoney = _Dialog displayCtrl vehshop_money;
-_money = player getVariable "cmoney";
+_money = player getVariable __MONEY_VAR_NAME__;
 _playerMoney CtrlsetText format["Cash: $%1", _money];
 _owner = _this select 0;
 currentOwnerName = name _owner;

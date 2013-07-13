@@ -4,6 +4,7 @@
 //	@file Author: His_Shadow
 //	@file Created: 06/14/2013 05:13
 
+#include "defines.hpp"
 #include "dialog\vehstoreDefines.sqf";
 //#include "addons\proving_ground\defs.hpp"
 #define MESSAGE_VEHICLE_PROPERTIES_APPLY 0
@@ -18,7 +19,7 @@ private ["_name"];
 //Initialize Values
 _switch = _this select 0;
 
-_playerMoney = player getVariable "cmoney";
+_playerMoney = player getVariable __MONEY_VAR_NAME__;
 _price = 0;
 
 // Grab access to the controls
@@ -209,6 +210,6 @@ switch(_switch) do
 if(_handleMoney ==1) then
 {
 	hint format["%1 spawned outside.", _itemText];
-	player setVariable["cmoney",_playerMoney - _price,true];
-	_playerMoneyText CtrlsetText format["Cash: $%1", player getVariable "cmoney"];
+	player setVariable[__MONEY_VAR_NAME__,_playerMoney - _price,true];
+	_playerMoneyText CtrlsetText format["Cash: $%1", player getVariable __MONEY_VAR_NAME__];
 };

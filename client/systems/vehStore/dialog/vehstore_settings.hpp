@@ -99,20 +99,6 @@ class vehshopd {
 			};
 		};
 
-        //class BuyToCrate2: w_RscButton
-		//{
-		//	idc = -1;
-		//	onButtonClick = "[] execVM 'client\systems\vehStore\sellVehicle.sqf'";
-		//	text = "Sell Vehicle";
-        //
-		//	x = 0.5 * safezoneW + safezoneX;
-		//	y = 0.750 * safezoneH + safezoneY;
-		//	w = 0.072 * safezoneW;
-		//	h = 0.040 * safezoneH;
-		//	color[] = {0.2,0.90,0.2,1};
-        //
-		//};
-
 		class BuyToPlayer: w_RscButton
 		{
 			idc = -1;

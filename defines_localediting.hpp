@@ -18,3 +18,7 @@
 
 // If you want the "copy position" player menu option (for making waypoints!)
 #define __PLAYER_MENU_COPY_POSITION__ 1
+
+// Randomize
+#define __MONEY_VAR_NAME__ "12345playermoney"
+#define __MONEYBAG_VAR_NAME__ "ABCDEFbagmoney"

@@ -1,3 +1,5 @@
+#include "defines.hpp"
+
 //waitUntil {statsLoaded == 1;};
 //while {true} do
 //{
@@ -6,7 +8,7 @@
 	if(str(playerSetupComplete) == "true") then
 	{
 		[getPlayerUID player, getPlayerUID player, "Account Name", name player] call fn_SaveToServer;
-		[getPlayerUID player, getPlayerUID player, "Money", player getVariable "cmoney"] call fn_SaveToServer;
+		[getPlayerUID player, getPlayerUID player, "Money", player getVariable __MONEY_VAR_NAME__] call fn_SaveToServer;
 		[getPlayerUID player, getPlayerUID player, "Health", damage player] call fn_SaveToServer;
 		[getPlayerUID player, getPlayerUID player, "Side", str(side player)] call fn_SaveToServer;
 		[getPlayerUID player, getPlayerUID player, "CanFood", player getVariable "canfood"] call fn_SaveToServer;

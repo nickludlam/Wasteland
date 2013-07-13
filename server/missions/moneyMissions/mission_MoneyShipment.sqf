@@ -1,7 +1,10 @@
 //shipment of money starts at the docks and goes to General Store Docks
 //create two hunters and two little birds and make them move to the general store on the east side
-private ["_missionMarkerName","_missionType","_picture","_vehicleName","_laid1","_laid2","_laid","_hint","_waypoint","_waypoints","_grouphsq","_vehicles","_marker","_failed","_startTime","_numWaypoints","_ammobox","_createVehicle","_leader", "_soldier1","_soldier2","_soldier3","_marker1","_marker2","_marker3"];
+
+#include "defines.hpp"
 #include "moneyMissionDefines.sqf"
+
+private ["_missionMarkerName","_missionType","_picture","_vehicleName","_laid1","_laid2","_laid","_hint","_waypoint","_waypoints","_grouphsq","_vehicles","_marker","_failed","_startTime","_numWaypoints","_ammobox","_createVehicle","_leader", "_soldier1","_soldier2","_soldier3","_marker1","_marker2","_marker3"];
 
 _missionMarkerName = "Money_Shipment";
 _missionType = "Money Shipment";
@@ -115,7 +118,7 @@ waitUntil
 	{
 	 _pos = (getMarkerPos _marker1);
 	 _cash1 = "Land_Sack_F" createVehicle _pos; _cash setPos _pos;
-     _cash1 setVariable["money",2000,true];
+     _cash1 setVariable[__MONEYBAG_VAR_NAME__,2000,true];
      _cash1 setVariable["owner","world",true];
 	 _laid1 = 1;
 	};
@@ -124,7 +127,7 @@ waitUntil
 	{
 	 _pos = (getMarkerPos _marker2);
 	 _cash2 = "Land_Sack_F" createVehicle _pos; _cash setPos _pos;
-     _cash2 setVariable["money",2000,true];
+     _cash2 setVariable[__MONEYBAG_VAR_NAME__,2000,true];
      _cash2 setVariable["owner","world",true];
 	 _laid2 = 1;
 	};
@@ -133,7 +136,7 @@ waitUntil
 	{
 	 _pos = (getMarkerPos _marker3);
 	 _cash3 = "Land_Sack_F" createVehicle _pos; _cash setPos _pos;
-     _cash3 setVariable["money",1000,true];
+     _cash3 setVariable[__MONEYBAG_VAR_NAME__,1000,true];
      _cash3 setVariable["owner","world",true];
 	 _laid3 = 1;
 	};

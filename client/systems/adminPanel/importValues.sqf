@@ -4,6 +4,8 @@
 //	@file Created: 20/11/2012 05:19
 //	@file Args:
 
+#include "defines.hpp"
+
 #define vehicleManagementDialog 12000
 #define vehicleManagementListBox 12001
 #define vehicleWeaponsText 12003
@@ -70,7 +72,7 @@ if ((_uid in moderators) OR (_uid in administrators) OR (_uid in serverAdministr
 	    {
 	        if (str(_x) == _data1) exitwith {
 	            _itemsText ctrlSetText format["Items: %1",weapons _x];
-	            _currentGunText ctrlSetText format["Money: %1",_x getVariable "cmoney"];
+	            _currentGunText ctrlSetText format["Money: %1",_x getVariable __MONEY_VAR_NAME__];
 	            _skinText ctrlSetText format["Skin: %1",typeOf(_x)];
 	            _posText ctrlSetText format["Position: %1",position _x];
 		    	_uidText ctrlSetText format["UID: %1",(getPlayerUID _x)];

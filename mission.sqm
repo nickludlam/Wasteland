@@ -9368,7 +9368,7 @@ class Mission
 			timeoutMax=300;
 			interruptable=1;
 			age="UNKNOWN";
-			expActiv="""s1_80"" setmarkercolor ""colorblue"";titleText [""Blufor has captured GodMode's Garage"",""PLAIN"", 3]; titleFadeOut 3;  _handle = player execVM ""cmoneyB.sqf""; ";
+			expActiv="""s1_80"" setmarkercolor ""colorblue"";titleText [""Blufor has captured GodMode's Garage"",""PLAIN"", 3]; titleFadeOut 3;  _handle = [west, 200] execVM ""giveCaptureMoney.sqf""; ";
 			class Effects
 			{
 				voice="HintsOpen";
@@ -9385,7 +9385,7 @@ class Mission
 			timeoutMax=300;
 			interruptable=1;
 			age="UNKNOWN";
-			expActiv="""s1_80"" setmarkercolor ""colorred"";titleText [""Opfor has captured GodMode's Garage"",""PLAIN"", 3]; titleFadeOut 3;  _handle = player execVM ""cmoneyO.sqf""; ";
+			expActiv="""s1_80"" setmarkercolor ""colorred"";titleText [""Opfor has captured GodMode's Garage"",""PLAIN"", 3]; titleFadeOut 3;  _handle = [east, 200] execVM ""giveCaptureMoney.sqf""; ";
 			class Effects
 			{
 				voice="HintsOpen";
@@ -9405,7 +9405,7 @@ class Mission
 			timeoutMax=300;
 			interruptable=1;
 			age="UNKNOWN";
-			expActiv="""s1_81"" setmarkercolor ""colorblue"";titleText [""Blufor has captured Girna"",""PLAIN"", 3]; titleFadeOut 3;  _handle = player execVM ""cmoneyB.sqf""; ";
+			expActiv="""s1_81"" setmarkercolor ""colorblue"";titleText [""Blufor has captured Girna"",""PLAIN"", 3]; titleFadeOut 3;  _handle = [west, 200] execVM ""giveCaptureMoney.sqf""; ";
 			class Effects
 			{
 				voice="HintsOpen";
@@ -9425,7 +9425,7 @@ class Mission
 			timeoutMax=300;
 			interruptable=1;
 			age="UNKNOWN";
-			expActiv="""s1_81"" setmarkercolor ""colorred"";titleText [""Opfor has captured Girna"",""PLAIN"", 3]; titleFadeOut 3;  _handle = player execVM ""cmoneyO.sqf""; ";
+			expActiv="""s1_81"" setmarkercolor ""colorred"";titleText [""Opfor has captured Girna"",""PLAIN"", 3]; titleFadeOut 3;  _handle = [east, 200] execVM ""giveCaptureMoney.sqf""; ";
 			class Effects
 			{
 				voice="HintsOpen";
@@ -9445,7 +9445,7 @@ class Mission
 			timeoutMax=300;
 			interruptable=1;
 			age="UNKNOWN";
-			expActiv="""s1_81"" setmarkercolor ""colorgreen"";titleText [""Gfor has captured Girna"",""PLAIN"", 3]; titleFadeOut 3;  _handle = player execVM ""cmoneyI.sqf""; ";
+			expActiv="""s1_81"" setmarkercolor ""colorgreen"";titleText [""Gfor has captured Girna"",""PLAIN"", 3]; titleFadeOut 3;  _handle = [resistance, 200] execVM ""giveCaptureMoney.sqf""; ";
 			class Effects
 			{
 				voice="HintsOpen";
@@ -9464,7 +9464,7 @@ class Mission
 			timeoutMax=300;
 			interruptable=1;
 			age="UNKNOWN";
-			expActiv="""s1_82"" setmarkercolor ""colorblue"";titleText [""Blufor has captured North Agia Marina"",""PLAIN"", 3]; titleFadeOut 3;  _handle = player execVM ""cmoneyB.sqf""; ";
+			expActiv="""s1_82"" setmarkercolor ""colorblue"";titleText [""Blufor has captured North Agia Marina"",""PLAIN"", 3]; titleFadeOut 3;  _handle = [west, 200] execVM ""giveCaptureMoney.sqf""; ";
 			class Effects
 			{
 				voice="HintsOpen";
@@ -9483,7 +9483,7 @@ class Mission
 			timeoutMax=300;
 			interruptable=1;
 			age="UNKNOWN";
-			expActiv="""s1_82"" setmarkercolor ""colorred"";titleText [""Opfor has captured North Agia Marina"",""PLAIN"", 3]; titleFadeOut 3;  _handle = player execVM ""cmoneyO.sqf""; ";
+			expActiv="""s1_82"" setmarkercolor ""colorred"";titleText [""Opfor has captured North Agia Marina"",""PLAIN"", 3]; titleFadeOut 3;  _handle = [east, 200] execVM ""giveCaptureMoney.sqf""; ";
 			class Effects
 			{
 				voice="HintsOpen";
@@ -9502,7 +9502,7 @@ class Mission
 			timeoutMax=300;
 			interruptable=1;
 			age="UNKNOWN";
-			expActiv="""s1_82"" setmarkercolor ""colorgreen"";titleText [""Gfor has captured North Agia Marina Garage"",""PLAIN"", 3]; titleFadeOut 3;  _handle = player execVM ""cmoneyI.sqf""; ";
+			expActiv="""s1_82"" setmarkercolor ""colorgreen"";titleText [""Gfor has captured North Agia Marina Garage"",""PLAIN"", 3]; titleFadeOut 3;  _handle = [resistance, 200] execVM ""giveCaptureMoney.sqf""; ";
 			class Effects
 			{
 				voice="HintsOpen";
@@ -9522,7 +9522,7 @@ class Mission
 			timeoutMax=300;
 			interruptable=1;
 			age="UNKNOWN";
-			expActiv="""s1_83"" setmarkercolor ""colorblue"";titleText [""Blufor has captured Air Station Mike"",""PLAIN"", 3]; titleFadeOut 3;  _handle = player execVM ""cmoneyB.sqf""; ";
+			expActiv="""s1_83"" setmarkercolor ""colorblue"";titleText [""Blufor has captured Air Station Mike"",""PLAIN"", 3]; titleFadeOut 3;  _handle = [west, 200] execVM ""giveCaptureMoney.sqf""; ";
 			class Effects
 			{
 				voice="HintsOpen";
@@ -9542,7 +9542,7 @@ class Mission
 			timeoutMax=300;
 			interruptable=1;
 			age="UNKNOWN";
-			expActiv="""s1_83"" setmarkercolor ""colorred"";titleText [""Opfor has captured Air Station Mike"",""PLAIN"", 3]; titleFadeOut 3;  _handle = player execVM ""cmoneyO.sqf""; ";
+			expActiv="""s1_83"" setmarkercolor ""colorred"";titleText [""Opfor has captured Air Station Mike"",""PLAIN"", 3]; titleFadeOut 3;  _handle = [east, 200] execVM ""giveCaptureMoney.sqf""; ";
 			class Effects
 			{
 				voice="HintsOpen";
@@ -9561,7 +9561,7 @@ class Mission
 			timeoutMax=300;
 			interruptable=1;
 			age="UNKNOWN";
-			expActiv="""s1_84"" setmarkercolor ""colorblue"";titleText [""Blufor has captured Kamino Firing Range"",""PLAIN"", 3]; titleFadeOut 3;  _handle = player execVM ""cmoneyB.sqf""; ";
+			expActiv="""s1_84"" setmarkercolor ""colorblue"";titleText [""Blufor has captured Kamino Firing Range"",""PLAIN"", 3]; titleFadeOut 3;  _handle = [west, 200] execVM ""giveCaptureMoney.sqf""; ";
 			class Effects
 			{
 				voice="HintsOpen";
@@ -9580,7 +9580,7 @@ class Mission
 			timeoutMax=300;
 			interruptable=1;
 			age="UNKNOWN";
-			expActiv="""s1_84"" setmarkercolor ""colorgreen"";titleText [""Gfor has captured Kamino Firing Range"",""PLAIN"", 3]; titleFadeOut 3;  _handle = player execVM ""cmoneyI.sqf""; ";
+			expActiv="""s1_84"" setmarkercolor ""colorgreen"";titleText [""Gfor has captured Kamino Firing Range"",""PLAIN"", 3]; titleFadeOut 3;  _handle = [resistance, 200] execVM ""giveCaptureMoney.sqf""; ";
 			class Effects
 			{
 				voice="HintsOpen";
@@ -9599,7 +9599,7 @@ class Mission
 			timeoutMax=300;
 			interruptable=1;
 			age="UNKNOWN";
-			expActiv="""s1_86"" setmarkercolor ""colorblue"";titleText [""Blufor has captured Camp Maxwell"",""PLAIN"", 3]; titleFadeOut 3;  _handle = player execVM ""cmoneyB.sqf""; ";
+			expActiv="""s1_86"" setmarkercolor ""colorblue"";titleText [""Blufor has captured Camp Maxwell"",""PLAIN"", 3]; titleFadeOut 3;  _handle = [west, 200] execVM ""giveCaptureMoney.sqf""; ";
 			class Effects
 			{
 				voice="HintsOpen";
@@ -9618,7 +9618,7 @@ class Mission
 			timeoutMax=300;
 			interruptable=1;
 			age="UNKNOWN";
-			expActiv="""s1_86"" setmarkercolor ""colorred"";titleText [""Opfor has captured Camp Maxwell"",""PLAIN"", 3]; titleFadeOut 3;  _handle = player execVM ""cmoneyO.sqf""; ";
+			expActiv="""s1_86"" setmarkercolor ""colorred"";titleText [""Opfor has captured Camp Maxwell"",""PLAIN"", 3]; titleFadeOut 3;  _handle = [east, 200] execVM ""giveCaptureMoney.sqf""; ";
 			class Effects
 			{
 				voice="HintsOpen";
@@ -9636,7 +9636,7 @@ class Mission
 			timeoutMax=300;
 			interruptable=1;
 			age="UNKNOWN";
-			expActiv="""s1_87"" setmarkercolor ""colorblue"";titleText [""Blufor has captured Camp Rogain"",""PLAIN"", 3]; titleFadeOut 3;  _handle = player execVM ""cmoneyB.sqf""; ";
+			expActiv="""s1_87"" setmarkercolor ""colorblue"";titleText [""Blufor has captured Camp Rogain"",""PLAIN"", 3]; titleFadeOut 3;  _handle = [west, 200] execVM ""giveCaptureMoney.sqf""; ";
 			class Effects
 			{
 				voice="HintsOpen";
@@ -9654,7 +9654,7 @@ class Mission
 			timeoutMax=300;
 			interruptable=1;
 			age="UNKNOWN";
-			expActiv="""s1_87"" setmarkercolor ""colorred"";titleText [""Opfor has captured Camp Rogain"",""PLAIN"", 3]; titleFadeOut 3;  _handle = player execVM ""cmoneyO.sqf""; ";
+			expActiv="""s1_87"" setmarkercolor ""colorred"";titleText [""Opfor has captured Camp Rogain"",""PLAIN"", 3]; titleFadeOut 3;  _handle = [east, 200] execVM ""giveCaptureMoney.sqf""; ";
 			class Effects
 			{
 				voice="HintsOpen";
@@ -9672,7 +9672,7 @@ class Mission
 			timeoutMax=300;
 			interruptable=1;
 			age="UNKNOWN";
-			expActiv="""s1_88"" setmarkercolor ""colorblue"";titleText [""Blufor has captured Camp Tempest"",""PLAIN"", 3]; titleFadeOut 3;  _handle = player execVM ""cmoneyB.sqf""; ";
+			expActiv="""s1_88"" setmarkercolor ""colorblue"";titleText [""Blufor has captured Camp Tempest"",""PLAIN"", 3]; titleFadeOut 3;  _handle = [west, 200] execVM ""giveCaptureMoney.sqf""; ";
 			class Effects
 			{
 				voice="HintsOpen";
@@ -9690,7 +9690,7 @@ class Mission
 			timeoutMax=300;
 			interruptable=1;
 			age="UNKNOWN";
-			expActiv="""s1_88"" setmarkercolor ""colorred"";titleText [""Opfor has captured Camp Tempest"",""PLAIN"", 3]; titleFadeOut 3;  _handle = player execVM ""cmoneyO.sqf""; ";
+			expActiv="""s1_88"" setmarkercolor ""colorred"";titleText [""Opfor has captured Camp Tempest"",""PLAIN"", 3]; titleFadeOut 3;  _handle = [east, 200] execVM ""giveCaptureMoney.sqf""; ";
 			class Effects
 			{
 				voice="HintsOpen";
@@ -9708,7 +9708,7 @@ class Mission
 			timeoutMax=300;
 			interruptable=1;
 			age="UNKNOWN";
-			expActiv="""s1_89"" setmarkercolor ""colorblue"";titleText [""Blufor has captured Agios Cephas"",""PLAIN"", 3]; titleFadeOut 3;  _handle = player execVM ""cmoneyB.sqf""; ";
+			expActiv="""s1_89"" setmarkercolor ""colorblue"";titleText [""Blufor has captured Agios Cephas"",""PLAIN"", 3]; titleFadeOut 3;  _handle = [west, 200] execVM ""giveCaptureMoney.sqf""; ";
 			class Effects
 			{
 				voice="HintsOpen";
@@ -9726,7 +9726,7 @@ class Mission
 			timeoutMax=300;
 			interruptable=1;
 			age="UNKNOWN";
-			expActiv="""s1_89"" setmarkercolor ""colorred"";titleText [""Opfor has captured Agios Cephas"",""PLAIN"", 3]; titleFadeOut 3;  _handle = player execVM ""cmoneyO.sqf""; ";
+			expActiv="""s1_89"" setmarkercolor ""colorred"";titleText [""Opfor has captured Agios Cephas"",""PLAIN"", 3]; titleFadeOut 3;  _handle = [east, 200] execVM ""giveCaptureMoney.sqf""; ";
 			class Effects
 			{
 				voice="HintsOpen";
@@ -9785,7 +9785,7 @@ class Mission
 			timeoutMax=300;
 			interruptable=1;
 			age="UNKNOWN";
-			expActiv="""s1_84"" setmarkercolor ""colorred"";titleText [""Opfor has captured Kamino Firing Range"",""PLAIN"", 3]; titleFadeOut 3;  _handle = player execVM ""cmoneyO.sqf""; ";
+			expActiv="""s1_84"" setmarkercolor ""colorred"";titleText [""Opfor has captured Kamino Firing Range"",""PLAIN"", 3]; titleFadeOut 3;  _handle = [east, 200] execVM ""giveCaptureMoney.sqf""; ";
 			class Effects
 			{
 				voice="HintsOpen";
@@ -9803,7 +9803,7 @@ class Mission
 			timeoutMax=300;
 			interruptable=1;
 			age="UNKNOWN";
-			expActiv="""s1_87"" setmarkercolor ""colorgreen"";titleText [""Gfor has captured Camp Rogain"",""PLAIN"", 3]; titleFadeOut 3;  _handle = player execVM ""cmoneyI.sqf""; ";
+			expActiv="""s1_87"" setmarkercolor ""colorgreen"";titleText [""Gfor has captured Camp Rogain"",""PLAIN"", 3]; titleFadeOut 3;  _handle = [resistance, 200] execVM ""giveCaptureMoney.sqf""; ";
 			class Effects
 			{
 				voice="HintsOpen";
@@ -9823,7 +9823,7 @@ class Mission
 			timeoutMax=300;
 			interruptable=1;
 			age="UNKNOWN";
-			expActiv="""s1_83"" setmarkercolor ""colorgreen"";titleText [""Gfor has captured Air Station Mike"",""PLAIN"", 3]; titleFadeOut 3;  _handle = player execVM ""cmoneyI.sqf""; ";
+			expActiv="""s1_83"" setmarkercolor ""colorgreen"";titleText [""Gfor has captured Air Station Mike"",""PLAIN"", 3]; titleFadeOut 3;  _handle = [resistance, 200] execVM ""giveCaptureMoney.sqf""; ";
 			class Effects
 			{
 				voice="HintsOpen";
@@ -9841,7 +9841,7 @@ class Mission
 			timeoutMax=300;
 			interruptable=1;
 			age="UNKNOWN";
-			expActiv="""s1_88"" setmarkercolor ""colorgreen"";titleText [""Gfor has captured Camp Tempest"",""PLAIN"", 3]; titleFadeOut 3;  _handle = player execVM ""cmoneyI.sqf""; ";
+			expActiv="""s1_88"" setmarkercolor ""colorgreen"";titleText [""Gfor has captured Camp Tempest"",""PLAIN"", 3]; titleFadeOut 3;  _handle = [resistance, 200] execVM ""giveCaptureMoney.sqf""; ";
 			class Effects
 			{
 				voice="HintsOpen";
@@ -9860,7 +9860,7 @@ class Mission
 			timeoutMax=300;
 			interruptable=1;
 			age="UNKNOWN";
-			expActiv="""s1_86"" setmarkercolor ""colorgreen"";titleText [""Gfor has captured Camp Maxwell"",""PLAIN"", 3]; titleFadeOut 3;  _handle = player execVM ""cmoneyI.sqf""; ";
+			expActiv="""s1_86"" setmarkercolor ""colorgreen"";titleText [""Gfor has captured Camp Maxwell"",""PLAIN"", 3]; titleFadeOut 3;  _handle = [resistance, 200] execVM ""giveCaptureMoney.sqf""; ";
 			class Effects
 			{
 				voice="HintsOpen";
@@ -9878,7 +9878,7 @@ class Mission
 			timeoutMax=300;
 			interruptable=1;
 			age="UNKNOWN";
-			expActiv="""s1_89"" setmarkercolor ""colorgreen"";titleText [""Gfor has captured Agios Cephas"",""PLAIN"", 3]; titleFadeOut 3;  _handle = player execVM ""cmoneyI.sqf""; ";
+			expActiv="""s1_89"" setmarkercolor ""colorgreen"";titleText [""Gfor has captured Agios Cephas"",""PLAIN"", 3]; titleFadeOut 3;  _handle = [resistance, 200] execVM ""giveCaptureMoney.sqf""; ";
 			class Effects
 			{
 				voice="HintsOpen";
@@ -9895,7 +9895,7 @@ class Mission
 			timeoutMax=300;
 			interruptable=1;
 			age="UNKNOWN";
-			expActiv="""s1_80"" setmarkercolor ""colorgreen"";titleText [""Gfor has captured GodMode's Garage"",""PLAIN"", 3]; titleFadeOut 3; _handle = player execVM ""cmoneyI.sqf"";  ";
+			expActiv="""s1_80"" setmarkercolor ""colorgreen"";titleText [""Gfor has captured GodMode's Garage"",""PLAIN"", 3]; titleFadeOut 3; _handle = [resistance, 200] execVM ""giveCaptureMoney.sqf"";  ";
 			class Effects
 			{
 				voice="HintsOpen";
@@ -9914,7 +9914,7 @@ class Mission
 			timeoutMax=300;
 			interruptable=1;
 			age="UNKNOWN";
-			expActiv="""s1_11"" setmarkercolor ""colorblue"";titleText [""Blufor has captured PalmBeatz Impoundlot"",""PLAIN"", 3]; titleFadeOut 3;  _handle = player execVM ""cmoneyB.sqf""; ";
+			expActiv="""s1_11"" setmarkercolor ""colorblue"";titleText [""Blufor has captured PalmBeatz Impoundlot"",""PLAIN"", 3]; titleFadeOut 3;  _handle = [west, 200] execVM ""giveCaptureMoney.sqf""; ";
 			class Effects
 			{
 				voice="HintsOpen";
@@ -9933,7 +9933,7 @@ class Mission
 			timeoutMax=300;
 			interruptable=1;
 			age="UNKNOWN";
-			expActiv="""s1_11"" setmarkercolor ""colorred"";titleText [""Opfor has captured PalmBeatz Impoundlot"",""PLAIN"", 3]; titleFadeOut 3;  _handle = player execVM ""cmoneyO.sqf""; ";
+			expActiv="""s1_11"" setmarkercolor ""colorred"";titleText [""Opfor has captured PalmBeatz Impoundlot"",""PLAIN"", 3]; titleFadeOut 3;  _handle = [east, 200] execVM ""giveCaptureMoney.sqf""; ";
 			class Effects
 			{
 				voice="HintsOpen";
@@ -9952,7 +9952,7 @@ class Mission
 			timeoutMax=300;
 			interruptable=1;
 			age="UNKNOWN";
-			expActiv="""s1_11"" setmarkercolor ""colorgreen"";titleText [""Gfor has captured PalmBeatz Impoundlot"",""PLAIN"", 3]; titleFadeOut 3; _handle = player execVM ""cmoneyI.sqf"";  ";
+			expActiv="""s1_11"" setmarkercolor ""colorgreen"";titleText [""Gfor has captured PalmBeatz Impoundlot"",""PLAIN"", 3]; titleFadeOut 3; _handle = [resistance, 200] execVM ""giveCaptureMoney.sqf"";  ";
 			class Effects
 			{
 				voice="HintsOpen";
@@ -9970,7 +9970,7 @@ class Mission
 			timeoutMax=300;
 			interruptable=1;
 			age="UNKNOWN";
-			expActiv="""S2"" setmarkercolor ""colorblue"";titleText [""Blufor has captured Jay Cove"",""PLAIN"", 3]; titleFadeOut 3;  _handle = player execVM ""cmoneyB.sqf""; ";
+			expActiv="""S2"" setmarkercolor ""colorblue"";titleText [""Blufor has captured Jay Cove"",""PLAIN"", 3]; titleFadeOut 3;  _handle = [west, 200] execVM ""giveCaptureMoney.sqf""; ";
 			class Effects
 			{
 				voice="HintsOpen";
@@ -9988,7 +9988,7 @@ class Mission
 			timeoutMax=300;
 			interruptable=1;
 			age="UNKNOWN";
-			expActiv="""S2"" setmarkercolor ""colorred"";titleText [""Opfor has captured Jay Cove"",""PLAIN"", 3]; titleFadeOut 3;  _handle = player execVM ""cmoneyO.sqf""; ";
+			expActiv="""S2"" setmarkercolor ""colorred"";titleText [""Opfor has captured Jay Cove"",""PLAIN"", 3]; titleFadeOut 3;  _handle = [east, 200] execVM ""giveCaptureMoney.sqf""; ";
 			class Effects
 			{
 				voice="HintsOpen";
@@ -10006,7 +10006,7 @@ class Mission
 			timeoutMax=300;
 			interruptable=1;
 			age="UNKNOWN";
-			expActiv="""S2"" setmarkercolor ""colorgreen"";titleText [""Gfor has captured Jay Cove"",""PLAIN"", 3]; titleFadeOut 3; _handle = player execVM ""cmoneyI.sqf"";  ";
+			expActiv="""S2"" setmarkercolor ""colorgreen"";titleText [""Gfor has captured Jay Cove"",""PLAIN"", 3]; titleFadeOut 3; _handle = [resistance, 200] execVM ""giveCaptureMoney.sqf"";  ";
 			class Effects
 			{
 				voice="HintsOpen";
@@ -10024,7 +10024,7 @@ class Mission
 			timeoutMax=300;
 			interruptable=1;
 			age="UNKNOWN";
-			expActiv="""S3"" setmarkercolor ""colorblue"";titleText [""Blufor has captured the Drug Smugglers Den"",""PLAIN"", 3]; titleFadeOut 3;  _handle = player execVM ""cmoneyB.sqf""; ";
+			expActiv="""S3"" setmarkercolor ""colorblue"";titleText [""Blufor has captured the Drug Smugglers Den"",""PLAIN"", 3]; titleFadeOut 3;  _handle = [west, 200] execVM ""giveCaptureMoney.sqf""; ";
 			class Effects
 			{
 				voice="HintsOpen";
@@ -10042,7 +10042,7 @@ class Mission
 			timeoutMax=300;
 			interruptable=1;
 			age="UNKNOWN";
-			expActiv="""S3"" setmarkercolor ""colorred"";titleText [""Opfor has captured the  Drug Smugglers Den"",""PLAIN"", 3]; titleFadeOut 3;  _handle = player execVM ""cmoneyO.sqf""; ";
+			expActiv="""S3"" setmarkercolor ""colorred"";titleText [""Opfor has captured the  Drug Smugglers Den"",""PLAIN"", 3]; titleFadeOut 3;  _handle = [east, 200] execVM ""giveCaptureMoney.sqf""; ";
 			class Effects
 			{
 				voice="HintsOpen";
@@ -10060,7 +10060,7 @@ class Mission
 			timeoutMax=300;
 			interruptable=1;
 			age="UNKNOWN";
-			expActiv="""S3"" setmarkercolor ""colorgreen"";titleText [""Gfor has captured the Drug Smugglers Den"",""PLAIN"", 3]; titleFadeOut 3; _handle = player execVM ""cmoneyI.sqf"";  ";
+			expActiv="""S3"" setmarkercolor ""colorgreen"";titleText [""Gfor has captured the Drug Smugglers Den"",""PLAIN"", 3]; titleFadeOut 3; _handle = [resistance, 200] execVM ""giveCaptureMoney.sqf"";  ";
 			class Effects
 			{
 				voice="HintsOpen";
@@ -10099,7 +10099,7 @@ class Mission
 			timeoutMax=300;
 			interruptable=1;
 			age="UNKNOWN";
-			expActiv="""S101"" setmarkercolor ""colorblue"";titleText [""Blufor has captured the Old Transmission Station"",""PLAIN"", 3]; titleFadeOut 3;  _handle = player execVM ""cmoneyB.sqf""; ";
+			expActiv="""S101"" setmarkercolor ""colorblue"";titleText [""Blufor has captured the Old Transmission Station"",""PLAIN"", 3]; titleFadeOut 3;  _handle = [west, 200] execVM ""giveCaptureMoney.sqf""; ";
 			class Effects
 			{
 				voice="HintsOpen";
@@ -10118,7 +10118,7 @@ class Mission
 			timeoutMax=300;
 			interruptable=1;
 			age="UNKNOWN";
-			expActiv="""S101"" setmarkercolor ""colorred"";titleText [""Opfor has captured the Old Transmission Station"",""PLAIN"", 3]; titleFadeOut 3;  _handle = player execVM ""cmoneyO.sqf""; ";
+			expActiv="""S101"" setmarkercolor ""colorred"";titleText [""Opfor has captured the Old Transmission Station"",""PLAIN"", 3]; titleFadeOut 3;  _handle = [east, 200] execVM ""giveCaptureMoney.sqf""; ";
 			class Effects
 			{
 				voice="HintsOpen";
@@ -10137,7 +10137,7 @@ class Mission
 			timeoutMax=300;
 			interruptable=1;
 			age="UNKNOWN";
-			expActiv="""S101"" setmarkercolor ""colorgreen"";titleText [""Gfor has captured the Old Transmission Station"",""PLAIN"", 3]; titleFadeOut 3; _handle = player execVM ""cmoneyI.sqf"";  ";
+			expActiv="""S101"" setmarkercolor ""colorgreen"";titleText [""Gfor has captured the Old Transmission Station"",""PLAIN"", 3]; titleFadeOut 3; _handle = [resistance, 200] execVM ""giveCaptureMoney.sqf"";  ";
 			class Effects
 			{
 				voice="HintsOpen";
@@ -10157,7 +10157,7 @@ class Mission
 			timeoutMax=300;
 			interruptable=1;
 			age="UNKNOWN";
-			expActiv="""S1011"" setmarkercolor ""colorblue"";titleText [""Blufor has captured the Airfield North"",""PLAIN"", 3]; titleFadeOut 3;  _handle = player execVM ""cmoneyBAF.sqf""; ";
+			expActiv="""S1011"" setmarkercolor ""colorblue"";titleText [""Blufor has captured the Airfield North"",""PLAIN"", 3]; titleFadeOut 3;  _handle = [west, 500] execVM ""giveCaptureMoney.sqf""; ";
 			class Effects
 			{
 				voice="HintsOpen";
@@ -10177,7 +10177,7 @@ class Mission
 			timeoutMax=300;
 			interruptable=1;
 			age="UNKNOWN";
-			expActiv="""S1011"" setmarkercolor ""colorred"";titleText [""Opfor has captured the Airfield North"",""PLAIN"", 3]; titleFadeOut 3;  _handle = player execVM ""cmoneyOAF.sqf""; ";
+			expActiv="""S1011"" setmarkercolor ""colorred"";titleText [""Opfor has captured the Airfield North"",""PLAIN"", 3]; titleFadeOut 3;  _handle = [east, 500] execVM ""giveCaptureMoney.sqf""; ";
 			class Effects
 			{
 				voice="HintsOpen";
@@ -10197,7 +10197,7 @@ class Mission
 			timeoutMax=300;
 			interruptable=1;
 			age="UNKNOWN";
-			expActiv="""S1011"" setmarkercolor ""colorgreen"";titleText [""Gfor has captured the Airfield North"",""PLAIN"", 3]; titleFadeOut 3; _handle = player execVM ""cmoneyIAF.sqf"";  ";
+			expActiv="""S1011"" setmarkercolor ""colorgreen"";titleText [""Gfor has captured the Airfield North"",""PLAIN"", 3]; titleFadeOut 3; _handle = [resistance, 500] execVM ""giveCaptureMoney.sqf"";  ";
 			class Effects
 			{
 				voice="HintsOpen";
@@ -10217,7 +10217,7 @@ class Mission
 			timeoutMax=300;
 			interruptable=1;
 			age="UNKNOWN";
-			expActiv="""S1012"" setmarkercolor ""colorblue"";titleText [""Blufor has captured the Airfield South"",""PLAIN"", 3]; titleFadeOut 3;  _handle = player execVM ""cmoneyBAF.sqf""; ";
+			expActiv="""S1012"" setmarkercolor ""colorblue"";titleText [""Blufor has captured the Airfield South"",""PLAIN"", 3]; titleFadeOut 3;  _handle = [west, 500] execVM ""giveCaptureMoney.sqf""; ";
 			class Effects
 			{
 				voice="HintsOpen";
@@ -10237,7 +10237,7 @@ class Mission
 			timeoutMax=300;
 			interruptable=1;
 			age="UNKNOWN";
-			expActiv="""S1012"" setmarkercolor ""colorred"";titleText [""Opfor has captured the Airfield South"",""PLAIN"", 3]; titleFadeOut 3;  _handle = player execVM ""cmoneyOAF.sqf""; ";
+			expActiv="""S1012"" setmarkercolor ""colorred"";titleText [""Opfor has captured the Airfield South"",""PLAIN"", 3]; titleFadeOut 3;  _handle = [east, 500] execVM ""giveCaptureMoney.sqf""; ";
 			class Effects
 			{
 				voice="HintsOpen";
@@ -10257,7 +10257,7 @@ class Mission
 			timeoutMax=300;
 			interruptable=1;
 			age="UNKNOWN";
-			expActiv="""S1012"" setmarkercolor ""colorgreen"";titleText [""Gfor has captured the Airfield South"",""PLAIN"", 3]; titleFadeOut 3; _handle = player execVM ""cmoneyIAF.sqf"";  ";
+			expActiv="""S1012"" setmarkercolor ""colorgreen"";titleText [""Gfor has captured the Airfield South"",""PLAIN"", 3]; titleFadeOut 3; _handle = [resistance, 500] execVM ""giveCaptureMoney.sqf"";  ";
 			class Effects
 			{
 				voice="HintsOpen";
@@ -10343,7 +10343,7 @@ class Mission
 			timeoutMax=300;
 			interruptable=1;
 			age="UNKNOWN";
-			expActiv="""sLZ"" setmarkercolor ""colorblue"";titleText [""Blufor has captured LZ Connor "",""PLAIN"", 3]; titleFadeOut 3;  _handle = player execVM ""cmoneyB.sqf""; ";
+			expActiv="""sLZ"" setmarkercolor ""colorblue"";titleText [""Blufor has captured LZ Connor "",""PLAIN"", 3]; titleFadeOut 3;  _handle = [west, 200] execVM ""giveCaptureMoney.sqf""; ";
 			class Effects
 			{
 				voice="HintsOpen";
@@ -10361,7 +10361,7 @@ class Mission
 			timeoutMax=300;
 			interruptable=1;
 			age="UNKNOWN";
-			expActiv="""sLZ"" setmarkercolor ""colorred"";titleText [""Opfor has captured LZ Connor"",""PLAIN"", 3]; titleFadeOut 3;  _handle = player execVM ""cmoneyO.sqf""; ";
+			expActiv="""sLZ"" setmarkercolor ""colorred"";titleText [""Opfor has captured LZ Connor"",""PLAIN"", 3]; titleFadeOut 3;  _handle = [east, 200] execVM ""giveCaptureMoney.sqf""; ";
 			class Effects
 			{
 				voice="HintsOpen";
@@ -10379,7 +10379,7 @@ class Mission
 			timeoutMax=300;
 			interruptable=1;
 			age="UNKNOWN";
-			expActiv="""sLZ"" setmarkercolor ""colorgreen"";titleText [""Gfor has captured LZ Connor"",""PLAIN"", 3]; titleFadeOut 3;  _handle = player execVM ""cmoneyI.sqf""; ";
+			expActiv="""sLZ"" setmarkercolor ""colorgreen"";titleText [""Gfor has captured LZ Connor"",""PLAIN"", 3]; titleFadeOut 3;  _handle = [resistance, 200] execVM ""giveCaptureMoney.sqf""; ";
 			class Effects
 			{
 				voice="HintsOpen";
@@ -10397,7 +10397,7 @@ class Mission
 			timeoutMax=300;
 			interruptable=1;
 			age="UNKNOWN";
-			expActiv="""sAGG"" setmarkercolor ""colorblue"";titleText [""Blufor has captured Agios Loannis"",""PLAIN"", 3]; titleFadeOut 3;  _handle = player execVM ""cmoneyB.sqf""; ";
+			expActiv="""sAGG"" setmarkercolor ""colorblue"";titleText [""Blufor has captured Agios Loannis"",""PLAIN"", 3]; titleFadeOut 3;  _handle = [west, 200] execVM ""giveCaptureMoney.sqf""; ";
 			class Effects
 			{
 				voice="HintsOpen";
@@ -10415,7 +10415,7 @@ class Mission
 			timeoutMax=300;
 			interruptable=1;
 			age="UNKNOWN";
-			expActiv="""sAGG"" setmarkercolor ""colorred"";titleText [""Opfor has captured Agios Loannis"",""PLAIN"", 3]; titleFadeOut 3;  _handle = player execVM ""cmoneyO.sqf""; ";
+			expActiv="""sAGG"" setmarkercolor ""colorred"";titleText [""Opfor has captured Agios Loannis"",""PLAIN"", 3]; titleFadeOut 3;  _handle = [east, 200] execVM ""giveCaptureMoney.sqf""; ";
 			class Effects
 			{
 				voice="HintsOpen";
@@ -10433,7 +10433,7 @@ class Mission
 			timeoutMax=300;
 			interruptable=1;
 			age="UNKNOWN";
-			expActiv="""sAGG"" setmarkercolor ""colorgreen"";titleText [""Gfor has captured Agios Loannis"",""PLAIN"", 3]; titleFadeOut 3;  _handle = player execVM ""cmoneyI.sqf""; ";
+			expActiv="""sAGG"" setmarkercolor ""colorgreen"";titleText [""Gfor has captured Agios Loannis"",""PLAIN"", 3]; titleFadeOut 3;  _handle = [resistance, 200] execVM ""giveCaptureMoney.sqf""; ";
 			class Effects
 			{
 				voice="HintsOpen";
@@ -10452,7 +10452,7 @@ class Mission
 			timeoutMax=300;
 			interruptable=1;
 			age="UNKNOWN";
-			expActiv="""s1_8N"" setmarkercolor ""colorblue"";titleText [""Blufor has captured South Agia Marina"",""PLAIN"", 3]; titleFadeOut 3;  _handle = player execVM ""cmoneyB.sqf""; ";
+			expActiv="""s1_8N"" setmarkercolor ""colorblue"";titleText [""Blufor has captured South Agia Marina"",""PLAIN"", 3]; titleFadeOut 3;  _handle = [west, 200] execVM ""giveCaptureMoney.sqf""; ";
 			class Effects
 			{
 				voice="HintsOpen";
@@ -10471,7 +10471,7 @@ class Mission
 			timeoutMax=300;
 			interruptable=1;
 			age="UNKNOWN";
-			expActiv="""s1_8N"" setmarkercolor ""colorred"";titleText [""Opfor has captured South Agia Marina"",""PLAIN"", 3]; titleFadeOut 3;  _handle = player execVM ""cmoneyO.sqf""; ";
+			expActiv="""s1_8N"" setmarkercolor ""colorred"";titleText [""Opfor has captured South Agia Marina"",""PLAIN"", 3]; titleFadeOut 3;  _handle = [east, 200] execVM ""giveCaptureMoney.sqf""; ";
 			class Effects
 			{
 				voice="HintsOpen";
@@ -10490,7 +10490,7 @@ class Mission
 			timeoutMax=300;
 			interruptable=1;
 			age="UNKNOWN";
-			expActiv="""s1_8N"" setmarkercolor ""colorgreen"";titleText [""Gfor has captured South Agia Marina Garage"",""PLAIN"", 3]; titleFadeOut 3;  _handle = player execVM ""cmoneyI.sqf""; ";
+			expActiv="""s1_8N"" setmarkercolor ""colorgreen"";titleText [""Gfor has captured South Agia Marina Garage"",""PLAIN"", 3]; titleFadeOut 3;  _handle = [resistance, 200] execVM ""giveCaptureMoney.sqf""; ";
 			class Effects
 			{
 				voice="HintsOpen";
@@ -10609,7 +10609,7 @@ class Mission
 			timeoutMax=300;
 			interruptable=1;
 			age="UNKNOWN";
-			expActiv="""shouse"" setmarkercolor ""colorblue"";titleText [""Blufor has captured the Crossop's Favela"",""PLAIN"", 3]; titleFadeOut 3;  _handle = player execVM ""cmoneyBAF.sqf""; ";
+			expActiv="""shouse"" setmarkercolor ""colorblue"";titleText [""Blufor has captured the Crossop's Favela"",""PLAIN"", 3]; titleFadeOut 3;  _handle = [west, 500] execVM ""giveCaptureMoney.sqf""; ";
 			class Effects
 			{
 				voice="HintsOpen";
@@ -10628,7 +10628,7 @@ class Mission
 			timeoutMax=300;
 			interruptable=1;
 			age="UNKNOWN";
-			expActiv="""shouse"" setmarkercolor ""colorred"";titleText [""Opfor has captured the Crossop's Favela"",""PLAIN"", 3]; titleFadeOut 3;  _handle = player execVM ""cmoneyOAF.sqf""; ";
+			expActiv="""shouse"" setmarkercolor ""colorred"";titleText [""Opfor has captured the Crossop's Favela"",""PLAIN"", 3]; titleFadeOut 3;  _handle = [east, 500] execVM ""giveCaptureMoney.sqf""; ";
 			class Effects
 			{
 				voice="HintsOpen";
@@ -10647,7 +10647,7 @@ class Mission
 			timeoutMax=300;
 			interruptable=1;
 			age="UNKNOWN";
-			expActiv="""shouse"" setmarkercolor ""colorgreen"";titleText [""Gfor has captured the Crossop's Favela"",""PLAIN"", 3]; titleFadeOut 3; _handle = player execVM ""cmoneyIAF.sqf"";  ";
+			expActiv="""shouse"" setmarkercolor ""colorgreen"";titleText [""Gfor has captured the Crossop's Favela"",""PLAIN"", 3]; titleFadeOut 3; _handle = [resistance, 500] execVM ""giveCaptureMoney.sqf"";  ";
 			class Effects
 			{
 				voice="HintsOpen";
@@ -10904,7 +10904,7 @@ class Mission
 			timeoutMax=300;
 			interruptable=1;
 			age="UNKNOWN";
-			expActiv="""S2_1"" setmarkercolor ""colorred"";titleText [""Opfor has captured Shadow's Light"",""PLAIN"", 3]; titleFadeOut 3;  _handle = player execVM ""cmoneyO.sqf""; ";
+			expActiv="""S2_1"" setmarkercolor ""colorred"";titleText [""Opfor has captured Shadow's Light"",""PLAIN"", 3]; titleFadeOut 3;  _handle = [east, 200] execVM ""giveCaptureMoney.sqf""; ";
 			class Effects
 			{
 				voice="HintsOpen";
@@ -10924,7 +10924,7 @@ class Mission
 			timeoutMax=300;
 			interruptable=1;
 			age="UNKNOWN";
-			expActiv="""S2_1"" setmarkercolor ""colorgreen"";titleText [""Gfor has captured Shadow's Light"",""PLAIN"", 3]; titleFadeOut 3; _handle = player execVM ""cmoneyI.sqf"";  ";
+			expActiv="""S2_1"" setmarkercolor ""colorgreen"";titleText [""Gfor has captured Shadow's Light"",""PLAIN"", 3]; titleFadeOut 3; _handle = [resistance, 200] execVM ""giveCaptureMoney.sqf"";  ";
 			class Effects
 			{
 				voice="HintsOpen";
@@ -10944,7 +10944,7 @@ class Mission
 			timeoutMax=300;
 			interruptable=1;
 			age="UNKNOWN";
-			expActiv="""S2_1"" setmarkercolor ""colorblue"";titleText [""Blufor has captured Shadow's Light"",""PLAIN"", 3]; titleFadeOut 3;  _handle = player execVM ""cmoneyB.sqf""; ";
+			expActiv="""S2_1"" setmarkercolor ""colorblue"";titleText [""Blufor has captured Shadow's Light"",""PLAIN"", 3]; titleFadeOut 3;  _handle = [west, 200] execVM ""giveCaptureMoney.sqf""; ";
 			class Effects
 			{
 				voice="HintsOpen";
@@ -10962,7 +10962,7 @@ class Mission
 			timeoutMax=300;
 			interruptable=1;
 			age="UNKNOWN";
-			expActiv="""S2_1_1"" setmarkercolor ""colorred"";titleText [""Opfor has captured Kamino Settlement"",""PLAIN"", 3]; titleFadeOut 3;  _handle = player execVM ""cmoneyO.sqf""; ";
+			expActiv="""S2_1_1"" setmarkercolor ""colorred"";titleText [""Opfor has captured Kamino Settlement"",""PLAIN"", 3]; titleFadeOut 3;  _handle = [east, 200] execVM ""giveCaptureMoney.sqf""; ";
 			class Effects
 			{
 				voice="HintsOpen";
@@ -10980,7 +10980,7 @@ class Mission
 			timeoutMax=300;
 			interruptable=1;
 			age="UNKNOWN";
-			expActiv="""S2_1_1"" setmarkercolor ""colorgreen"";titleText [""Gfor has captured Kamino Settlement"",""PLAIN"", 3]; titleFadeOut 3; _handle = player execVM ""cmoneyI.sqf"";  ";
+			expActiv="""S2_1_1"" setmarkercolor ""colorgreen"";titleText [""Gfor has captured Kamino Settlement"",""PLAIN"", 3]; titleFadeOut 3; _handle = [resistance, 200] execVM ""giveCaptureMoney.sqf"";  ";
 			class Effects
 			{
 				voice="HintsOpen";
@@ -10998,7 +10998,7 @@ class Mission
 			timeoutMax=300;
 			interruptable=1;
 			age="UNKNOWN";
-			expActiv="""S2_1_1"" setmarkercolor ""colorblue"";titleText [""Blufor has captured Kamino Settlement"",""PLAIN"", 3]; titleFadeOut 3;  _handle = player execVM ""cmoneyB.sqf""; ";
+			expActiv="""S2_1_1"" setmarkercolor ""colorblue"";titleText [""Blufor has captured Kamino Settlement"",""PLAIN"", 3]; titleFadeOut 3;  _handle = [west, 200] execVM ""giveCaptureMoney.sqf""; ";
 			class Effects
 			{
 				voice="HintsOpen";
@@ -11017,7 +11017,7 @@ class Mission
 			timeoutMax=300;
 			interruptable=1;
 			age="UNKNOWN";
-			expActiv="""s1_85"" setmarkercolor ""colorblue"";titleText [""Blufor has captured Kill Farm"",""PLAIN"", 3]; titleFadeOut 3;  _handle = player execVM ""cmoneyB.sqf""; ";
+			expActiv="""s1_85"" setmarkercolor ""colorblue"";titleText [""Blufor has captured Kill Farm"",""PLAIN"", 3]; titleFadeOut 3;  _handle = [west, 200] execVM ""giveCaptureMoney.sqf""; ";
 			class Effects
 			{
 				voice="HintsOpen";
@@ -11036,7 +11036,7 @@ class Mission
 			timeoutMax=300;
 			interruptable=1;
 			age="UNKNOWN";
-			expActiv="""s1_85"" setmarkercolor ""colorred"";titleText [""Opfor has captured Kill Farm"",""PLAIN"", 3]; titleFadeOut 3;  _handle = player execVM ""cmoneyO.sqf""; ";
+			expActiv="""s1_85"" setmarkercolor ""colorred"";titleText [""Opfor has captured Kill Farm"",""PLAIN"", 3]; titleFadeOut 3;  _handle = [east, 200] execVM ""giveCaptureMoney.sqf""; ";
 			class Effects
 			{
 				voice="HintsOpen";
@@ -11055,7 +11055,7 @@ class Mission
 			timeoutMax=300;
 			interruptable=1;
 			age="UNKNOWN";
-			expActiv="""s1_85"" setmarkercolor ""colorgreen"";titleText [""Gfor has captured Kill Farm"",""PLAIN"", 3]; titleFadeOut 3;  _handle = player execVM ""cmoneyI.sqf""; ";
+			expActiv="""s1_85"" setmarkercolor ""colorgreen"";titleText [""Gfor has captured Kill Farm"",""PLAIN"", 3]; titleFadeOut 3;  _handle = [resistance, 200] execVM ""giveCaptureMoney.sqf""; ";
 			class Effects
 			{
 				voice="HintsOpen";
@@ -11142,7 +11142,7 @@ class Mission
 			timeoutMax=300;
 			interruptable=1;
 			age="UNKNOWN";
-			expActiv="""s1_83_1"" setmarkercolor ""colorblue"";titleText [""Blufor has captured LZ Baldy"",""PLAIN"", 3]; titleFadeOut 3;  _handle = player execVM ""cmoneyB.sqf""; ";
+			expActiv="""s1_83_1"" setmarkercolor ""colorblue"";titleText [""Blufor has captured LZ Baldy"",""PLAIN"", 3]; titleFadeOut 3;  _handle = [west, 200] execVM ""giveCaptureMoney.sqf""; ";
 			class Effects
 			{
 				voice="HintsOpen";
@@ -11162,7 +11162,7 @@ class Mission
 			timeoutMax=300;
 			interruptable=1;
 			age="UNKNOWN";
-			expActiv="""s1_83_1"" setmarkercolor ""colorred"";titleText [""Opfor has captured LZ Baldy"",""PLAIN"", 3]; titleFadeOut 3;  _handle = player execVM ""cmoneyO.sqf""; ";
+			expActiv="""s1_83_1"" setmarkercolor ""colorred"";titleText [""Opfor has captured LZ Baldy"",""PLAIN"", 3]; titleFadeOut 3;  _handle = [east, 200] execVM ""giveCaptureMoney.sqf""; ";
 			class Effects
 			{
 				voice="HintsOpen";
@@ -11182,7 +11182,7 @@ class Mission
 			timeoutMax=300;
 			interruptable=1;
 			age="UNKNOWN";
-			expActiv="""s1_83_1"" setmarkercolor ""colorgreen"";titleText [""Gfor has captured LZ Baldy"",""PLAIN"", 3]; titleFadeOut 3;  _handle = player execVM ""cmoneyI.sqf""; ";
+			expActiv="""s1_83_1"" setmarkercolor ""colorgreen"";titleText [""Gfor has captured LZ Baldy"",""PLAIN"", 3]; titleFadeOut 3;  _handle = [resistance, 200] execVM ""giveCaptureMoney.sqf""; ";
 			class Effects
 			{
 				voice="HintsOpen";
@@ -11202,7 +11202,7 @@ class Mission
 			timeoutMax=300;
 			interruptable=1;
 			age="UNKNOWN";
-			expActiv="""s1_83_1_1"" setmarkercolor ""colorblue"";titleText [""Blufor has captured Pythos"",""PLAIN"", 3]; titleFadeOut 3;  _handle = player execVM ""cmoneyB.sqf""; ";
+			expActiv="""s1_83_1_1"" setmarkercolor ""colorblue"";titleText [""Blufor has captured Pythos"",""PLAIN"", 3]; titleFadeOut 3;  _handle = [west, 200] execVM ""giveCaptureMoney.sqf""; ";
 			class Effects
 			{
 				voice="HintsOpen";
@@ -11222,7 +11222,7 @@ class Mission
 			timeoutMax=300;
 			interruptable=1;
 			age="UNKNOWN";
-			expActiv="""s1_83_1_1"" setmarkercolor ""colorred"";titleText [""Opfor has captured Pythos"",""PLAIN"", 3]; titleFadeOut 3;  _handle = player execVM ""cmoneyO.sqf""; ";
+			expActiv="""s1_83_1_1"" setmarkercolor ""colorred"";titleText [""Opfor has captured Pythos"",""PLAIN"", 3]; titleFadeOut 3;  _handle = [east, 200] execVM ""giveCaptureMoney.sqf""; ";
 			class Effects
 			{
 				voice="HintsOpen";
@@ -11242,7 +11242,7 @@ class Mission
 			timeoutMax=300;
 			interruptable=1;
 			age="UNKNOWN";
-			expActiv="""s1_83_1_1"" setmarkercolor ""colorgreen"";titleText [""Gfor has captured Pythos"",""PLAIN"", 3]; titleFadeOut 3;  _handle = player execVM ""cmoneyI.sqf""; ";
+			expActiv="""s1_83_1_1"" setmarkercolor ""colorgreen"";titleText [""Gfor has captured Pythos"",""PLAIN"", 3]; titleFadeOut 3;  _handle = [resistance, 200] execVM ""giveCaptureMoney.sqf""; ";
 			class Effects
 			{
 				voice="HintsOpen";

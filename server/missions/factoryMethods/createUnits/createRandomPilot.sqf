@@ -13,7 +13,7 @@ private ["_soldierTypes","_uniformTypes","_vestTypes","_helmetTypes","_weaponTyp
 
 _soldierTypes = ["C_man_1","C_man_1_2_F","C_man_1_3_F","C_man_polo_1_F","C_man_polo_2_F","C_man_polo_3_F","C_man_polo_4_F","C_man_polo_5_F","C_man_polo_6_F"];
 _uniformTypes = ["U_O_CombatUniform_ocamo", "U_B_CombatUniform_wdl_vest", "U_B_CombatUniform_wdl", "U_I_CombatUniform", "U_I_OfficerUniform", "U_B_CombatUniform_mcam_worn"];
-_vestTypes = ["V_TacVest_brn","V_TacVest_camo","V_TacVest_oli","V_TacVest_khk","V_TacVest_blk_POLICE"];
+_vestTypes = ["V_TacVest_blk","V_TacVest_brn","V_TacVest_camo","V_TacVest_oli","V_TacVest_khk"];
 _helmetTypes = ["H_CrewHelmetHeli_B","H_CrewHelmetHeli_O","H_CrewHelmetHeli_I","H_PilotHelmetHeli_B","H_PilotHelmetHeli_O","H_PilotHelmetHeli_I","H_PilotHelmetFighter_B","H_PilotHelmetFighter_O"];
 //_pistolTypes = [];
 _weaponTypes = ["arifle_TRG20_F","LMG_Mk200_F","arifle_MXM_F","arifle_MX_GL_F"];

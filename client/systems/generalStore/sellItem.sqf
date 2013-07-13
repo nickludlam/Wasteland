@@ -5,11 +5,12 @@
 //	@file Created: 20/11/2012 05:13
 //	@file Args:
 
+#include "defines.hpp"
 #include "dialog\genstoreDefines.sqf";
 disableSerialization;
 
 //Initialize Values
-_playerMoney = player getVariable "cmoney";
+_playerMoney = player getVariable __MONEY_VAR_NAME__;
 _size = 0;
 
 // Grab access to the controls
@@ -37,6 +38,6 @@ if(_itemText == "Jerry Can (Empty)") then {player setVariable["fuelEmpty",(playe
 if(_itemText == "Spawn Beacon") then {player setVariable["spawnBeacon",(player getVariable "spawnBeacon") - 1,false];};
 if(_itemText == "Camo Net") then {player setVariable["camonet",(player getVariable "camonet") - 1,false];};
 
-player setVariable["cmoney",_playerMoney + _price,true];
-_playerMoneyText CtrlsetText format["Cash: $%1", player getVariable "cmoney"];
+player setVariable[__MONEY_VAR_NAME__,_playerMoney + _price,true];
+_playerMoneyText CtrlsetText format["Cash: $%1", player getVariable __MONEY_VAR_NAME__];
 [] execVM "client\systems\generalStore\getInventory.sqf";

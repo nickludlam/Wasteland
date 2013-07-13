@@ -5,6 +5,8 @@
 //	@file Created: 20/11/2012 05:13
 //	@file Args:
 
+#include "defines.hpp"
+
 //Initialize Values
 private["_primary","_magazine","_weapon_value","_magSell"];
 _magSell = 0;
@@ -33,5 +35,5 @@ if(isNil {_weapon_value}) exitWith {hint "The store does not want this item."};
 player removeWeapon _primary;
 player removeMagazines _magazine;
 
-player setVariable ["cmoney", (player getVariable ["cmoney", 0]) + _weapon_value, true];
+player setVariable [__MONEY_VAR_NAME__, (player getVariable [__MONEY_VAR_NAME__, 0]) + _weapon_value, true];
 hint format["You sold your gun for $%1", _weapon_value];

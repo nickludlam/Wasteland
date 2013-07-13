@@ -5,6 +5,7 @@
 //	@file Created: 20/11/2012 05:13
 //	@file Args: [int (0 = buy to player 1 = buy to crate)]
 
+#include "defines.hpp"
 #include "dialog\gunstoreDefines.sqf";
 //#include "addons\proving_ground\defs.hpp"
 #define GET_DISPLAY (findDisplay balca_debug_VC_IDD)
@@ -12,7 +13,6 @@
 #define GET_SELECTED_DATA(a) ([##a] call {_idc = _this select 0;_selection = (lbSelection GET_CTRL(_idc) select 0);if (isNil {_selection}) then {_selection = 0};(GET_CTRL(_idc) lbData _selection)})
 #define KINDOF_ARRAY(a,b) [##a,##b] call {_veh = _this select 0;_types = _this select 1;_res = false; {if (_veh isKindOf _x) exitwith { _res = true };} forEach _types;_res}
 disableSerialization;
-//if(gunStoreCart > (player getVariable "cmoney")) exitWith {hint "You do not have enough money"};
 
 private ["_name"];
 
@@ -27,7 +27,7 @@ _dialog = findDisplay gunshop_DIALOG;
 _ammoList = _dialog displayCtrl gunshop_ammo_list;
 _totalText = _dialog displayCtrl gunshop_total;
 _playerMoneyText = _Dialog displayCtrl gunshop_money;
-_playerMoney = player getVariable "cmoney";
+_playerMoney = player getVariable __MONEY_VAR_NAME__;
 _playerSlots = [];
 _size = lbSize _cartlist;
 _itemText = "";
@@ -83,8 +83,8 @@ switch(_switch) do
 
 if(_handleMoney == 1) then
 {
-	player setVariable["cmoney",_playerMoney - _price,true];
-	_playerMoneyText CtrlsetText format["Cash: $%1", player getVariable "cmoney"];
+	player setVariable[__MONEY_VAR_NAME__,_playerMoney - _price,true];
+	_playerMoneyText CtrlsetText format["Cash: $%1", player getVariable __MONEY_VAR_NAME__];
 };
 
 //gunStoreCart = 0;

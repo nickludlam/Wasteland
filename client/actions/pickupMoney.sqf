@@ -4,6 +4,8 @@
 //	@file Date modified: 07/12/2012 05:19
 //	@file Args:
 
+#include "defines.hpp"
+
 // Check if mutex lock is active.
 if(mutexScriptInProgress) exitWith 
 {
@@ -43,7 +45,7 @@ for "_iteration" from 1 to _lockDuration do
 	{
 		player switchMove "AinvPknlMstpSlayWrflDnon_medic";
 	};
-		    
+
 	_lockDuration = _lockDuration - 1;
 	sleep 1;
     		    
@@ -64,10 +66,11 @@ for "_iteration" from 1 to _lockDuration do
 			mutexScriptInProgress = false;
             _moneyObject setVariable ["owner", "world", true];
 		} else {
-                        _money = 0;
-			_money = ((nearestobjects [getpos player, ["Land_Sack_F"],  5] select 0) getVariable "money");
+			_money = 0;
+			_money = ((nearestobjects [getpos player, ["Land_Sack_F"],  5] select 0) getVariable [__MONEYBAG_VAR_NAME__, 0]);
 			deleteVehicle (nearestobjects [getpos player, ["Land_Sack_F"],  5] select 0);
-			player setVariable["cmoney", (player getVariable "cmoney")+_money,true];          
+
+			player setVariable[__MONEY_VAR_NAME__, (player getVariable __MONEY_VAR_NAME__)+_money,true];          
 			player globalChat format["You have picked up $%1",_money];
 			mutexScriptInProgress = false;
 			player switchMove _originalState;

@@ -58,10 +58,10 @@ if(isNil 'computedMoney') then
 	player setVariable["computedMoney", 0, true];
 };
 
-if(player getVariable "cmoney" == 100) then 
+if(player getVariable __MONEY_VAR_NAME__ == 100) then 
 {
 	if(computedMoney > 0) then {player globalChat format["Thank you for your donation. You have spawned with $%1 extra cash.", computedMoney];};
-	player setVariable["cmoney",100 + computedMoney,true];
+	player setVariable[__MONEY_VAR_NAME__,100 + computedMoney,true];
 };
 
 waitUntil {!isNil "positionLoaded"};

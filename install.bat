@@ -47,8 +47,14 @@ xcopy /q /s /y %SOURCE_DIR%\* %TEMP%\%LOCAL_MISSION_NAME%
 :: Copy defines_servermode.hpp to the directories which use defines.hpp
 copy "%USERPROFILE%\Documents\GitHub\Wasteland\defines_servermode.hpp" %TEMP%\%LOCAL_MISSION_NAME%\defines.hpp > nul
 copy "%USERPROFILE%\Documents\GitHub\Wasteland\defines_servermode.hpp" %TEMP%\%LOCAL_MISSION_NAME%\client\defines.hpp > nul
+copy "%USERPROFILE%\Documents\GitHub\Wasteland\defines_servermode.hpp" %TEMP%\%LOCAL_MISSION_NAME%\client\actions\defines.hpp > nul
+copy "%USERPROFILE%\Documents\GitHub\Wasteland\defines_servermode.hpp" %TEMP%\%LOCAL_MISSION_NAME%\client\clientEvents\defines.hpp > nul
 copy "%USERPROFILE%\Documents\GitHub\Wasteland\defines_servermode.hpp" %TEMP%\%LOCAL_MISSION_NAME%\client\functions\defines.hpp > nul
 copy "%USERPROFILE%\Documents\GitHub\Wasteland\defines_servermode.hpp" %TEMP%\%LOCAL_MISSION_NAME%\client\systems\adminPanel\defines.hpp > nul
+copy "%USERPROFILE%\Documents\GitHub\Wasteland\defines_servermode.hpp" %TEMP%\%LOCAL_MISSION_NAME%\client\systems\vehStore\defines.hpp > nul
+copy "%USERPROFILE%\Documents\GitHub\Wasteland\defines_servermode.hpp" %TEMP%\%LOCAL_MISSION_NAME%\client\systems\gunStore\defines.hpp > nul
+copy "%USERPROFILE%\Documents\GitHub\Wasteland\defines_servermode.hpp" %TEMP%\%LOCAL_MISSION_NAME%\client\systems\generalStore\defines.hpp > nul
+copy "%USERPROFILE%\Documents\GitHub\Wasteland\defines_servermode.hpp" %TEMP%\%LOCAL_MISSION_NAME%\client\systems\playerMenu\defines.hpp > nul
 copy "%USERPROFILE%\Documents\GitHub\Wasteland\defines_servermode.hpp" %TEMP%\%LOCAL_MISSION_NAME%\client\systems\hud\defines.hpp > nul
 copy "%USERPROFILE%\Documents\GitHub\Wasteland\defines_servermode.hpp" %TEMP%\%LOCAL_MISSION_NAME%\server\defines.hpp > nul
 copy "%USERPROFILE%\Documents\GitHub\Wasteland\defines_servermode.hpp" %TEMP%\%LOCAL_MISSION_NAME%\server\functions\defines.hpp > nul
@@ -56,6 +62,7 @@ copy "%USERPROFILE%\Documents\GitHub\Wasteland\defines_servermode.hpp" %TEMP%\%L
 copy "%USERPROFILE%\Documents\GitHub\Wasteland\defines_servermode.hpp" %TEMP%\%LOCAL_MISSION_NAME%\server\missions\mainMissions\defines.hpp > nul
 copy "%USERPROFILE%\Documents\GitHub\Wasteland\defines_servermode.hpp" %TEMP%\%LOCAL_MISSION_NAME%\server\missions\bountyMissions\defines.hpp > nul
 copy "%USERPROFILE%\Documents\GitHub\Wasteland\defines_servermode.hpp" %TEMP%\%LOCAL_MISSION_NAME%\server\missions\moneyMissions\defines.hpp > nul
+copy "%USERPROFILE%\Documents\GitHub\Wasteland\defines_servermode.hpp" %TEMP%\%LOCAL_MISSION_NAME%\server\statSave\defines.hpp > nul
 
 echo Copied to %TEMP%\%LOCAL_MISSION_NAME%
 
@@ -77,8 +84,14 @@ xcopy /q /s /y %SOURCE_DIR% %TEST_DESTINATION_DIR%
 :: Copy defines_localediting.hpp to the directories which use defines.hpp
 copy "%USERPROFILE%\Documents\GitHub\Wasteland\defines_localediting.hpp" %TEST_DESTINATION_DIR%\defines.hpp > nul
 copy "%USERPROFILE%\Documents\GitHub\Wasteland\defines_localediting.hpp" %TEST_DESTINATION_DIR%\client\defines.hpp > nul
+copy "%USERPROFILE%\Documents\GitHub\Wasteland\defines_localediting.hpp" %TEST_DESTINATION_DIR%\client\actions\defines.hpp > nul
+copy "%USERPROFILE%\Documents\GitHub\Wasteland\defines_localediting.hpp" %TEST_DESTINATION_DIR%\client\clientEvents\defines.hpp > nul
 copy "%USERPROFILE%\Documents\GitHub\Wasteland\defines_localediting.hpp" %TEST_DESTINATION_DIR%\client\functions\defines.hpp > nul
 copy "%USERPROFILE%\Documents\GitHub\Wasteland\defines_localediting.hpp" %TEST_DESTINATION_DIR%\client\systems\adminPanel\defines.hpp > nul
+copy "%USERPROFILE%\Documents\GitHub\Wasteland\defines_localediting.hpp" %TEST_DESTINATION_DIR%\client\systems\vehStore\defines.hpp > nul
+copy "%USERPROFILE%\Documents\GitHub\Wasteland\defines_localediting.hpp" %TEST_DESTINATION_DIR%\client\systems\gunStore\defines.hpp > nul
+copy "%USERPROFILE%\Documents\GitHub\Wasteland\defines_localediting.hpp" %TEST_DESTINATION_DIR%\client\systems\generalStore\defines.hpp > nul
+copy "%USERPROFILE%\Documents\GitHub\Wasteland\defines_localediting.hpp" %TEST_DESTINATION_DIR%\client\systems\playerMenu\defines.hpp > nul
 copy "%USERPROFILE%\Documents\GitHub\Wasteland\defines_localediting.hpp" %TEST_DESTINATION_DIR%\client\systems\hud\defines.hpp > nul
 copy "%USERPROFILE%\Documents\GitHub\Wasteland\defines_localediting.hpp" %TEST_DESTINATION_DIR%\server\defines.hpp > nul
 copy "%USERPROFILE%\Documents\GitHub\Wasteland\defines_localediting.hpp" %TEST_DESTINATION_DIR%\server\functions\defines.hpp > nul
@@ -86,6 +99,7 @@ copy "%USERPROFILE%\Documents\GitHub\Wasteland\defines_localediting.hpp" %TEST_D
 copy "%USERPROFILE%\Documents\GitHub\Wasteland\defines_localediting.hpp" %TEST_DESTINATION_DIR%\server\missions\mainMissions\defines.hpp > nul
 copy "%USERPROFILE%\Documents\GitHub\Wasteland\defines_localediting.hpp" %TEST_DESTINATION_DIR%\server\missions\bountyMissions\defines.hpp > nul
 copy "%USERPROFILE%\Documents\GitHub\Wasteland\defines_localediting.hpp" %TEST_DESTINATION_DIR%\server\missions\moneyMissions\defines.hpp > nul
+copy "%USERPROFILE%\Documents\GitHub\Wasteland\defines_localediting.hpp" %TEST_DESTINATION_DIR%\server\statSave\defines.hpp > nul
 
 echo Mission copied to %TEST_DESTINATION_DIR%
 

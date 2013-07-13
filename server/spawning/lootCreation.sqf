@@ -1,13 +1,12 @@
     //Random weapons and items spawning script for wasteland missions.
     //Author : Ed!, [GoT] JoSchaap
 
-    _odd1 = 49;       //The odds that a building is selected to place loot.
-    _odd2 = 25;       //The odds that the selected building's spots will have loot(almost like odds per room).
-    _itemtoweaponratio = 10;    //The chances of an item like food,money etc. will spawn instead of a weapon.
-    randomweaponspawnminmoney = 30;  //The minimum amount of money that can spawn.
-    randomweaponspawnmaxmoney = 130; //The maximum amount of money that can spawn.
-    randomweapontestint = 0.01;   //Sets the intervals in which weaponpositions are tested. (Lower = slower, but more accurate. Higher = faster, but less accurate.)
 
+
+_odd1 = 49;       //The odds that a building is selected to place loot.
+_odd2 = 25;       //The odds that the selected building's spots will have loot(almost like odds per room).
+_itemtoweaponratio = 10;    //The chances of an item like food,money etc. will spawn instead of a weapon.
+randomweapontestint = 0.01;   //Sets the intervals in which weaponpositions are tested. (Lower = slower, but more accurate. Higher = faster, but less accurate.)
 
 randomweapon_weaponlist = [
 ["arifle_MX_F","30Rnd_65x39_caseless_mag"],
@@ -23,58 +22,52 @@ randomweapon_weaponlist = [
 ];
  
 randomweapon_itemlist = [
-"Land_Sack_F",
-"Land_Basket_F",			//Water
-"Land_Bucket_F"				//Food
+  "Land_Basket_F",			//Water
+  "Land_Bucket_F"				//Food
 ];
 
 
-    randomweaponspawnweapon = {
-     _position = _this;
-     _selectedgroup = (floor(random(count randomweapon_weaponlist)));
-     _weapon = randomweapon_weaponlist select _selectedgroup select 0;
-     _weaponholder = createVehicle ["groundWeaponHolder", _position, [], 0, "CAN_COLLIDE"];
-     _weaponholder addWeaponCargoGlobal [_weapon, 1];
-     if((count((randomweapon_weaponlist) select _selectedgroup)) > 1) then {
-     for[{_rm = 0}, {_rm < (2 + floor(random(3)))}, {_rm = _rm + 1}] do {
-     _mag = randomweapon_weaponlist select _selectedgroup select ((floor(random((count(randomweapon_weaponlist select _selectedgroup) - 1)))) + 1);
-     _weaponholder addMagazineCargoGlobal [_mag, 1]; 
-     };
-     };
-     _weaponholder setPos _position;
+randomweaponspawnweapon = {
+  _position = _this;
+  _selectedgroup = (floor(random(count randomweapon_weaponlist)));
+  _weapon = randomweapon_weaponlist select _selectedgroup select 0;
+  _weaponholder = createVehicle ["groundWeaponHolder", _position, [], 0, "CAN_COLLIDE"];
+  _weaponholder addWeaponCargoGlobal [_weapon, 1];
+  if((count((randomweapon_weaponlist) select _selectedgroup)) > 1) then {
+    for[{_rm = 0}, {_rm < (2 + floor(random(3)))}, {_rm = _rm + 1}] do {
+      _mag = randomweapon_weaponlist select _selectedgroup select ((floor(random((count(randomweapon_weaponlist select _selectedgroup) - 1)))) + 1);
+      _weaponholder addMagazineCargoGlobal [_mag, 1]; 
     };
+  };
+ _weaponholder setPos _position;
+};
 
-    randomweaponspawnitem = {
-     _position = _this;
-     _selectedgroup = (floor(random(count randomweapon_itemlist)));
-     _class = randomweapon_itemlist select _selectedgroup;
-     _item = createVehicle [_class, _position, [], 0, "CAN_COLLIDE"];
-     if(_class == "Land_Sack_F") then {
-      _amountmoney = floor(random(randomweaponspawnmaxmoney - randomweaponspawnminmoney)) + randomweaponspawnminmoney;
-      _item setVariable ["money", _amountmoney, true];
-      _item setVariable ["owner", "world", true];
-     };
-     _item setPos _position;
-    };
+randomweaponspawnitem = {
+ _position = _this;
+ _selectedgroup = (floor(random(count randomweapon_itemlist)));
+ _class = randomweapon_itemlist select _selectedgroup;
+ _item = createVehicle [_class, _position, [], 0, "CAN_COLLIDE"];
+ _item setPos _position;
+};
 
 
-    _pos = [0,0];
-    randomweapon_buildings = nearestObjects [_pos, ["house"], 60000];
-	_do = 1;
+_pos = [0,0];
+randomweapon_buildings = nearestObjects [_pos, ["house"], 60000];
+_do = 1;
 while{_do == 1} do
 {
-    sleep 30;
-    {
-     _building = _x;
-     _buildingpos = [];
-     _endloop = false;
-     _poscount = 0;
-     while {!_endloop} do {
+  sleep 30;
+  {
+    _building = _x;
+    _buildingpos = [];
+    _endloop = false;
+    _poscount = 0;
+    while {!_endloop} do {
       if(((_building buildingPos _poscount) select 0) != 0 && ((_building buildingPos _poscount) select 1) != 0) then {
-       _buildingpos = _buildingpos + [_building buildingPos _poscount];
-       _poscount = _poscount + 1;
+        _buildingpos = _buildingpos + [_building buildingPos _poscount];
+        _poscount = _poscount + 1;
       } else {
-       _endloop = true;
+        _endloop = true;
       };
      };
      _num = (random 100);

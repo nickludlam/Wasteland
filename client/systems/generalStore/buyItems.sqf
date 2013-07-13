@@ -5,13 +5,14 @@
 //	@file Created: 20/11/2012 05:13
 //	@file Args: [int (0 = buy to player 1 = buy to crate)]
 
+#include "defines.hpp"
 #include "dialog\genstoreDefines.sqf";
 disableSerialization;
 
-if(genStoreCart > (player getVariable "cmoney")) exitWith {hint "You do not have enough money"};
+if(genStoreCart > (player getVariable __MONEY_VAR_NAME__)) exitWith {hint "You do not have enough money"};
 
 //Initialize Values
-_playerMoney = player getVariable "cmoney";
+_playerMoney = player getVariable __MONEY_VAR_NAME__;
 _size = 0;
 _price = 0;
 
@@ -236,6 +237,6 @@ _itemText = lbText  [genstore_item_list, (lbCurSel genstore_item_list)];
 
 if(_handleMoney == 1) then
 {
-	player setVariable["cmoney",_playerMoney - _price,true];
-	_playerMoneyText CtrlsetText format["Cash: $%1", player getVariable "cmoney"];
+	player setVariable[__MONEY_VAR_NAME__,_playerMoney - _price,true];
+	_playerMoneyText CtrlsetText format["Cash: $%1", player getVariable __MONEY_VAR_NAME__];
 }

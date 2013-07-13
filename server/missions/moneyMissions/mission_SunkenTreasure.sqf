@@ -4,6 +4,7 @@
 //	@file Created: 08/12/2012 15:19
 //	@file Args:
 
+#include "defines.hpp"
 #include "moneyMissionDefines.sqf";
 
 if(!isServer) exitwith {};
@@ -69,7 +70,7 @@ switch((_rand)) do
 _fix = [_posRand select 0, _posRand select 1, _ZCoor];
 _treas0 = createVehicle ["Land_Sack_F", _fix, [], 0, "CAN_COLLIDE"];
 _treas0 setPos _fix;
-_treas0 setVariable["money",10000,true];
+_treas0 setVariable[__MONEYBAG_VAR_NAME__,10000,true];
 _treas0 setVariable["owner","world",true];
 
 ["SunkenTreasure0",(position _treas0),_missionType] call createClientMarker;

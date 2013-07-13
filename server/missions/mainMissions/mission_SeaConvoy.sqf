@@ -1,5 +1,6 @@
 private ["_missionMarkerName","_missionType","_picture","_vehicleName","_hint","_waypoint","_waypoints","_group","_vehicles","_marker","_failed","_startTime","_numWaypoints","_ammobox","_createVehicle","_leader"];
 
+#include "defines.hpp"
 #include "mainMissionDefines.sqf"
 
 _missionMarkerName = "SeaPatrol_Marker";
@@ -242,7 +243,7 @@ if(_failed) then
 	
     // Mission complete
 	_cash0 = createVehicle ["Land_Sack_F", (getMarkerPos _marker), [], 0, "CAN_COLLIDE"]; 
-	_cash0 setVariable["money",5000,true];
+	_cash0 setVariable[__MONEYBAG_VAR_NAME__,5000,true];
 	_cash0 setVariable["owner","world",true];
 	
     _ammobox = "Box_NATO_Wps_F" createVehicle getMarkerPos _marker;

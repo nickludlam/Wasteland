@@ -4,6 +4,8 @@
 //	@file Created: 20/11/2012 05:19
 //	@file Args:
 
+#include "defines.hpp"
+
 _player = _this;
 
 //Player initialization
@@ -83,7 +85,7 @@ else
 };
 
 _player setVariable["computedMoney", computedMoney, true];
-_player setVariable["cmoney",_money,true];
+_player setVariable[__MONEY_VAR_NAME__,_money,true];
 _player setVariable["canfood",1,false];
 _player setVariable["medkits",1,false];
 _player setVariable["water",1,false];

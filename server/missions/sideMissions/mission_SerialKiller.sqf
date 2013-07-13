@@ -41,7 +41,7 @@ _vehicle = ["C_Offroad_01_F",[4501.53,6778.33,108.319],195, _groupsm] call _crea
 _leader = driver _vehicle;
 _groupsm selectLeader _leader;
 _leader setRank "LIEUTENANT";
-removeUniform _leader;
+//removeUniform _leader;  // He needs uniform to store ammo
 removeVest _leader;
 removeBackpack _leader;
 removeHeadgear _leader;

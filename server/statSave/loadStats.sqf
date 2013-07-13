@@ -1,3 +1,5 @@
+#include "defines.hpp"
+
 //===========================================================================
 loadFromDBClient =
 {
@@ -24,7 +26,7 @@ loadFromDBClient =
 	if(_varName == 'ComputedMoney') then {player setVariable["computedMoney",_varValue,true]; moneyLoaded = 1;};
 	if(_varName == 'Health') then {player setDamage _varValue;};
 	if(_varName == 'Goggles') then {player addGoggles _varValue;};
-	//if(_varName == 'Money') then {player setVariable["cmoney",_varValue,true];};
+	//if(_varName == 'Money') then {player setVariable[__MONEY_VAR_NAME__,_varValue,true];};
 	if(_varName == 'CanFood') then {player setVariable["canfood",_varValue,true];};
 	if(_varName == 'Medkits') then {player setVariable["medkits",_varValue,true];};
 	if(_varName == 'Water') then {player setVariable["water",_varValue,true];};

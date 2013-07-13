@@ -4,9 +4,11 @@
 //	@file Created: 20/11/2012 05:19
 //	@file Args:
 
+#include "defines.hpp"
+
 _player = (_this select 0) select 0;
 _killer = (_this select 0) select 1;
-if(isnil {_player getVariable "cmoney"}) then {_player setVariable["cmoney",0,true];};
+if(isnil {_player getVariable __MONEY_VAR_NAME__}) then {_player setVariable[__MONEY_VAR_NAME__,0,true];};
 //diag_log (unitBackpack _player);
 //clearMagazineCargoGlobal (unitBackpack _player);
 //removebackpack _player;
@@ -71,12 +73,12 @@ _to_delete_quick = [];
 
 //get the donation money and subtract it from their total
 _mTotal = 0;
-_mTotal = _player getVariable "cmoney";
+_mTotal = _player getVariable __MONEY_VAR_NAME__;
 _mTotal = _mTotal - computedMoney;
 if(_mTotal <= 0) then {_mTotal = 0;};
 if(_mTotal > 0) then {
 	_m = "Land_Sack_F" createVehicle (position _player);
-	_m setVariable["money", _mTotal, true];
+	_m setVariable[__MONEYBAG_VAR_NAME__, _mTotal, true];
 	_m setVariable ["owner", "world", true];
 	_to_delete = _to_delete + [_m];
 };

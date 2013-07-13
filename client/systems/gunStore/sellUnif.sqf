@@ -3,6 +3,8 @@
 //	@file Name: sellUnif.sqf
 //	@file Author: [GoT] JoSchaap
 
+#include "defines.hpp"
+
 //Initialize Values
 private["_uniform","_clothes_value","_total"];
 _total = 0;
@@ -13,7 +15,7 @@ _uniform = uniform player;
 
 if(_uniform != "") then {
 	removeUniform player;
-	player setVariable ["cmoney", (player getVariable ["cmoney", 0]) + _clothes_value, true];
+	player setVariable __MONEY_VAR_NAME__, (player getVariable [__MONEY_VAR_NAME__, 0]) + _clothes_value, true];
 	_total = (_total + _clothes_value);
 	};
 

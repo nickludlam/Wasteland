@@ -3,6 +3,8 @@
 //	@file Name: sellVest.sqf
 //	@file Author: [GoT] JoSchaap
 
+#include "defines.hpp"
+
 //Initialize Values
 private["_vest","_clothes_value","_total"];
 _total = 0;
@@ -12,7 +14,7 @@ _vest = vest player;
 
 if(_vest != "") then {
 	removeVest player;
-	player setVariable ["cmoney", (player getVariable ["cmoney", 0]) + _clothes_value, true];
+	player setVariable [__MONEY_VAR_NAME__, (player getVariable [__MONEY_VAR_NAME__, 0]) + _clothes_value, true];
 	_total = (_total + _clothes_value);
 	};
 

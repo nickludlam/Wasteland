@@ -1,6 +1,7 @@
-private ["_missionMarkerName","_missionType","_hint","_players","_marker","_count", "_foundPlayer", "_mission_state", "_playerName", "_playerSide", "_startTime", "_currTime", "_foundPlayer"];
-
+#include "defines.hpp"
 #include "bountyMissionDefines.sqf"
+
+private ["_missionMarkerName","_missionType","_hint","_players","_marker","_count", "_foundPlayer", "_mission_state", "_playerName", "_playerSide", "_startTime", "_currTime", "_foundPlayer"];
 
 #define BOUNTY_MISSION_ACTIVE 0
 #define BOUNTY_MISSION_END_KILLED 1
@@ -21,17 +22,49 @@ diag_log format["WASTELAND SERVER - Bounty Mission '%1' resumed", _missionType];
 //select a random player
 _players = playableUnits;
 _count = count _players;
-_random = floor(random _count);
-_foundPlayer = nil;
-_foundPlayer = _players select _random;
-if(isNil "_foundPlayer") then
+
+// Find out how many players are currently alive
+_alivePlayerCount = 0;
+for "_x" from 0 to (_count -1) do {
+	_p = _players select _x;
+	if (alive _p) then {
+		_alivePlayerCount = _alivePlayerCount + 1;
+	};
+};
+
+diag_log format ["Alive player count is %1", _alivePlayerCount];
+
+// If there are literally NO alive players, bail here
+if(_alivePlayerCount == 0) then
 {
 	_hint = parseText format ["<t align='center' color='%3' shadow='2' size='1.75'>Objective Failed</t><br/><t align='center' color='%2'>------------------------------</t><br/><t align='center' color='%3' size='1.25'>Trouble Finding Bounty!</t><br/><br/><t align='center' color='%3'>Maybe we'll play next time!</t>", failMissionColor, subTextColor];
 	messageSystem = _hint;
     if (!isDedicated) then { call serverMessage };
     publicVariable "messageSystem";
-	exit
 };
+
+// Fuck this language
+if (_alivePlayerCount == 0) exitWith {};
+
+// Keep looping over players until we find an alive one
+_finished = 0;
+	scopeName "main";
+while {true} do {
+	_random = floor(random _count);
+	_potentialPlayer = _players select _random;
+	diag_log format ["Eval %1", _potentialPlayer];
+
+	if (alive _potentialPlayer) then {
+		diag_log format ["Player %1 is alive!", _potentialPlayer];
+		_foundPlayer = _potentialPlayer;
+		_finished = 1;
+	};
+
+	if (_finished == 1) then {breakTo "main"}; // Breaks all scopes and return to "main"
+	sleep 0.1;
+};
+
+diag_log format ["Player is %1", _foundPlayer];
 
 _hint = parseText format ["<t align='center' color='%2' shadow='2' size='1.75'>Bounty Hunt</t><br/><t align='center' color='%2'>------------------------------</t><br/><t color='%3' size='1.0'>%1 has a bounty on his head. You have 30 minutes to kill him! Killer gets $10,000 and his side gets $1,000 per person. If he's protected he gets the $10,000 and his side gets $1,000 per person.</t>", name _foundPlayer, bountyMissionColor, subTextColor];
 messageSystem = _hint;
@@ -114,17 +147,17 @@ if (_mission_state == BOUNTY_MISSION_END_KILLED) then {
 	diag_log "Mission Completed";
 
 	//the player and his team reap the rewards
-	_playerMoney = bKiller getVariable "cmoney";
+	_playerMoney = bKiller getVariable __MONEY_VAR_NAME__;
 	_playerMoney = _playerMoney + 10000;
-	bKiller setVariable["cmoney", _playerMoney, true];
+	bKiller setVariable[__MONEY_VAR_NAME__, _playerMoney, true];
 	{
 		if(side _x == bKillerSide) then
 		{
 			if(bKillerName != name _x) then
 			{
-				_playerMoney = _x getVariable "cmoney";
+				_playerMoney = _x getVariable __MONEY_VAR_NAME__;
 				_playerMoney = _playerMoney + 1000;
-				_x setVariable["cmoney",_playerMoney,true];
+				_x setVariable[__MONEY_VAR_NAME__,_playerMoney,true];
 			};
 		};
 	}foreach playableUnits;
@@ -140,17 +173,17 @@ if (_mission_state == BOUNTY_MISSION_END_KILLED) then {
 	if (_mission_state == BOUNTY_MISSION_END_SURVIVED) then {
 
 		// Money for survivor + extra money for team
-		_playerMoney = _foundPlayer getVariable "cmoney";
+		_playerMoney = _foundPlayer getVariable __MONEY_VAR_NAME__;
 		_playerMoney = _playerMoney + 10000;
-		_foundPlayer setVariable["cmoney", _playerMoney, true];
+		_foundPlayer setVariable[__MONEY_VAR_NAME__, _playerMoney, true];
 		{
 			if(side _x == _playerSide)then
 			{
 				if(_playerName != name _x) then
 				{
-					_playerMoney = _x getVariable "cmoney";
+					_playerMoney = _x getVariable __MONEY_VAR_NAME__;
 					_playerMoney = _playerMoney + 1000;
-					_x setVariable["cmoney",_playerMoney,true];
+					_x setVariable[__MONEY_VAR_NAME__,_playerMoney,true];
 				};
 			};
 		}foreach playableUnits;
@@ -165,7 +198,7 @@ if (_mission_state == BOUNTY_MISSION_END_KILLED) then {
 		{
 			if(side _x == bKillerSide)then
 			{
-				_x setVariable["cmoney", 0, true];
+				_x setVariable[__MONEY_VAR_NAME__, 0, true];
 				removeAllWeapons _x;
 			};
 		}foreach playableUnits;
