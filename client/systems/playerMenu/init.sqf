@@ -24,9 +24,10 @@ _foodtext ctrlSettext format["%1 / 100", round(hungerLevel)];
 _watertext ctrlSetText format["%1 / 100", round(thirstLevel)];
 _moneytext ctrlSetText _moneyStr;
 
-//lbClear _mvalue;
-// First entry is all money
-_mIndex = _mvalue lbadd format["$%1", _moneyStr]; _mvalue lbSetData [0, _moneyStr];
+// First entry is all money if they have more than none!
+if (_moneyStr > 0) then {
+	_mIndex = _mvalue lbadd format["$%1", _moneyStr]; _mvalue lbSetData [0, _moneyStr];
+};
 _mIndex = _mvalue lbadd "$100"; _mvalue lbSetData [(lbSize _mvalue)-1, "100"];
 _mIndex = _mvalue lbadd "$200"; _mvalue lbSetData [(lbSize _mvalue)-1, "200"];
 _mIndex = _mvalue lbadd "$400"; _mvalue lbSetData [(lbSize _mvalue)-1, "400"];
@@ -38,7 +39,7 @@ _mIndex = _mvalue lbadd "$4000"; _mvalue lbSetData [(lbSize _mvalue)-1, "4000"];
 _mIndex = _mvalue lbadd "$5000"; _mvalue lbSetData [(lbSize _mvalue)-1, "5000"];
 
 // Select element 0 by default
-lbSetCurSel [_mvalue, 0];
+lbSetCurSel [_mvalue, 0]; // Does this even fuckin work
 
 //  enabled groups for bluefor/opfor for sthud usage (uncomment this to undo it) - JoSchaap
 // if(str(playerSide) == "west" || str(playerSide) == "east") then
