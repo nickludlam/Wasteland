@@ -97,7 +97,7 @@ waituntil {!(IsNull (findDisplay 46))};
 "clientRadarMarkers" addPublicVariableEventHandler {[] call updateRadarMarkers};
 "clientMissionMarkers" addPublicVariableEventHandler {[] call updateMissionsMarkers};
 "clientMissileWarnSystem" addPublicVariableEventHandler {[] call clientMissileWarnApply};
-"clientVehiclLockApplySystem" addPublicVariableEventHandler {[] call clientVehicleLockApply};
+//"clientVehiclLockApplySystem" addPublicVariableEventHandler {[] call clientVehicleLockApply};
 "publicVar_teamkillMessage" addPublicVariableEventHandler {if(local(_this select 1)) then {[] spawn teamkillMessage;};};
 
 //client Executes

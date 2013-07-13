@@ -21,7 +21,7 @@ _serverCompiledScripts = [] execVM "server\functions\serverCompile.sqf";
 [] execVM "server\functions\serverTimeSync.sqf";
 "vehiclePaintSystem" addPublicVariableEventHandler {[] call serverPaintApply};
 "vehicleMissileWarnSystem" addPublicVariableEventHandler {[] call serverMissileWarnApply};
-"vehicleLockApplySystem" addPublicVariableEventHandler {[] call serverVehicleLockApply};
+//"vehicleLockApplySystem" addPublicVariableEventHandler {[] call serverVehicleLockApply};
 waitUntil{scriptDone _serverCompiledScripts};
 
 execVM "server\statSave\serverGather.sqf";

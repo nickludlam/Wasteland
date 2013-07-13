@@ -57,9 +57,10 @@ _applyVehProperties =
 	_car addEventHandler ["Killed",{(_this select 0) spawn {sleep 180; deleteVehicle _this}}];
 	
 	//enable vehicle locking
-	if(!isDedicated) then {call serverVehicleLockApply };
-	vehicleLockApplySystem = _car;
-	publicVariable "vehicleLockApplySystem";
+	//if(!isDedicated) then {call serverVehicleLockApply };
+	//vehicleLockApplySystem = _car;
+	//publicVariable "vehicleLockApplySystem";
+	_car addAction ["Unlock / Lock","server\functions\unlocklock.sqf",[],7,true,true,"","(_target distance _this) < 7"];
 	
 	//enable missile warning
 	if(!isDedicated) then {call serverMissileWarnApply };
