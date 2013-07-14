@@ -71,6 +71,7 @@ _player switchMove "amovpknlmstpsraswpstdnon_gear";
 thirstLevel = 100;
 hungerLevel = 100;
 fatigueLevel = 0;
+playerSpawnTime = time; // Used to know if the player has died while in sleepy loops (hunger/thirst)
 
 //decide whether we need to create the donation money
 _money = 0;
@@ -89,7 +90,6 @@ _player setVariable[__MONEY_VAR_NAME__,_money,true];
 _player setVariable["canfood",1,false];
 _player setVariable["medkits",1,false];
 _player setVariable["water",1,false];
-_player setVariable["fuel",0,false];
 _player setVariable["repairkits",1,false];
 _player setVariable["fuelFull", 0, false];
 _player setVariable["fuelEmpty", 1, false];

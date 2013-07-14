@@ -146,7 +146,7 @@ class Mission
 		wavesForced=1;
 		windForced=1;
 		year=2013;
-		month=7;
+		month=8;
 		day=26;
 		hour=5;
 		minute=10;

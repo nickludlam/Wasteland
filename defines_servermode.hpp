@@ -1,5 +1,17 @@
 // Global defines for standalone server mode. Copied in place by install.bat
 
+// SHADOW'S NEW MESSAGING SYSTEM//////////////////////////////////////////////
+//
+// This serves as a registry for all the new messages we can broadcast to
+// connected clients.
+//
+// See clientRelayHandler.sqf for more info
+//
+#define MESSAGE_VEHICLE_PROPERTIES_APPLY 0
+#define MESSAGE_BROADCAST_MSG_TO_PLAYER 1
+#define MESSAGE_BROADCAST_MSG_TO_ALL 2
+
+
 // Uncomment this when testing in the standalone server
 //#define __DEBUG__
 
@@ -13,6 +25,10 @@
 #define FATIGUE_RESTING -1
 #endif
 
-// Randomize
-#define __MONEY_VAR_NAME__ "12345playermoney"
-#define __MONEYBAG_VAR_NAME__ "ABCDEFbagmoney"
+// How often we decrement units from peoples food and water
+#define HUNGER_DECREMENT_INTERVAL 900
+#define THIRST_DECREMENT_INTERVAL 600
+
+// Randomize money variables to stop hackers
+#define __MONEY_VAR_NAME__ "12345playermoneyvar"
+#define __MONEYBAG_VAR_NAME__ "ABCDEFbagmoneyvar"

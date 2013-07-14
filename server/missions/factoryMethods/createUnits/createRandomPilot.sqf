@@ -22,12 +22,9 @@ _weaponTypes = ["arifle_TRG20_F","LMG_Mk200_F","arifle_MXM_F","arifle_MX_GL_F"];
 _group = _this select 0;
 _position = _this select 1;
 
-_soldier = _group createUnit [_soldierTypes call BIS_fnc_selectRandom, _position, [], 0, "NONE"];
+_soldier = _group createUnit [_soldierTypes call BIS_fnc_selectRandom, _position, [], 5, "FORM"];
 diag_log format ["createRandomPilot created %1", _soldier];
-_vest = _vestTypes call BIS_fnc_selectRandom;
-diag_log format ["createRandomPilot adding vest %1", _vest];
-
-_soldier addVest _vest;
+_soldier addVest _vestTypes call BIS_fnc_selectRandom;
 _soldier addUniform (_uniformTypes call BIS_fnc_selectRandom);
 _soldier addHeadgear (_helmetTypes call BIS_fnc_selectRandom);
 _soldier setskill ["Endurance",1];

@@ -303,40 +303,84 @@ private["_cumulativePlayerFatigue",
 #endif
 
 [] spawn  {
+	_hungerDecrementInterval = HUNGER_DECREMENT_INTERVAL;
+
 	while{true} do
 	{
-		sleep 900;
+		// Same as sleep(HUNGER_DECREMENT_INTERVAL) but its interruptible by player death
+		_sleepCounter = _hungerDecrementInterval;
+		_initialPlayerSpawnTime = playerSpawnTime;
+		while {(_sleepCounter > 0)} do {
+			// Decrement our counter every 60 seconds until we hit zero. Allows for player respawns since we check playerSpawnTime
+			sleep 60;
+
+			//diag_log format ["checking initialPlayerSpawnTime != playerSpawnTime (%1, %2)", _initialPlayerSpawnTime, playerSpawnTime];
+
+			if (_initialPlayerSpawnTime != playerSpawnTime) then {
+				// Player has since spawned, so reset our counter
+				//diag_log format ["player spawned. resetting sleepy loop"];
+				_initialPlayerSpawnTime = playerSpawnTime;
+				_sleepCounter = _hungerDecrementInterval;
+			};
+
+			_sleepCounter = _sleepCounter - 60;
+			//diag_log format ["_sleepCounter is now %1", _sleepCounter];			
+		};
 		waitUntil {!respawnDialogActive};
 		if(hungerLevel < 2) then {player setDamage 1.31337; hint parseText "<t size='2' color='#ff0000'>Warning</t><br/><br/>You have starved to death.";}
 		else
 		{
-		hungerLevel = hungerLevel - 10;
-		if(hungerLevel < 2) then {player setDamage 1.31337; hint parseText "<t size='2' color='#ff0000'>Warning</t><br/><br/>You have starved to death.";};
-		switch(true) do {
-			case (hungerLevel <= 10 && hungerLevel >= 5): {hint parseText format["<t size='2' color='#ff0000'>Warning</t><br/><br/>You are now starving to death, you will slowly lose health, find something to eat quickly!", hungerLevel];};
-			case (hungerLevel <= 20 && hungerLevel >= 15): {hint parseText format["<t size='2' color='#ff0000'>Warning</t><br/><br/>You are starting to starve, you need to find something to eat otherwise you will start to lose health!", hungerLevel];};
-			case (hungerLevel <= 30 && hungerLevel >= 25): {hint format["You haven't eaten anything in awhile, your hunger level is currently: %1\n\n You should find something to eat soon!", hungerLevel];};
-			case (hungerLevel <= 50 && hungerLevel >= 45): {hint format["You haven't eaten anything in awhile, your hunger level is currently: %1\n\n You should find something to eat soon!", hungerLevel];};
+			hungerLevel = hungerLevel - 10;
+			if(hungerLevel < 2) then {player setDamage 1.31337; hint parseText "<t size='2' color='#ff0000'>Warning</t><br/><br/>You have starved to death.";};
+			switch(true) do {
+				case (hungerLevel <= 10 && hungerLevel >= 5): {hint parseText format["<t size='2' color='#ff0000'>Warning</t><br/><br/>You are now starving to death, you will slowly lose health, find something to eat quickly!", hungerLevel];};
+				case (hungerLevel <= 20 && hungerLevel >= 15): {hint parseText format["<t size='2' color='#ff0000'>Warning</t><br/><br/>You are starting to starve, you need to find something to eat otherwise you will start to lose health!", hungerLevel];};
+				case (hungerLevel <= 30 && hungerLevel >= 25): {hint format["You haven't eaten anything in awhile, your hunger level is currently: %1\n\n You should find something to eat soon!", hungerLevel];};
+				case (hungerLevel <= 50 && hungerLevel >= 45): {hint format["You haven't eaten anything in awhile, your hunger level is currently: %1\n\n You should find something to eat soon!", hungerLevel];};
 			};
 		};
 	};
 };
 
 [] spawn  {
+	_thirstDecrementInterval = THIRST_DECREMENT_INTERVAL;
+
 	while{true} do
 	{
-	sleep 600;
-	waitUntil {!respawnDialogActive};
-	if(thirstLevel < 2) then {player setDamage 1.31337; hint parseText "<t size='2' color='#ff0000'>Warning</t><br/><br/>You have died from dehydration.";}
-	else
-	{
-		thirstLevel = thirstLevel - 10;
-		if(thirstLevel < 2) then {player setDamage 1.31337; hint parseText "<t size='2' color='#ff0000'>Warning</t><br/><br/>You have died from dehydration.";};
-		switch(true) do {
-			case (thirstLevel <= 10 && thirstLevel >= 5): {hint parseText format["<t size='2' color='#ff0000'>Warning</t><br/><br/>You are now suffering from severe dehydration find something to drink quickly!", thirstLevel];};
-			case (thirstLevel <= 20 && thirstLevel >= 15): {hint parseText format["<t size='2' color='#ff0000'>Warning</t><br/><br/>You haven't drank anything in along time, you should find someting to drink soon or you'll start to die from dehydration!", thirstLevel];};
-			case (thirstLevel <= 30 && thirstLevel >= 25): {hint format["You haven't drank anything in awhile, your thirst level is %1\n\nYou should find something to drink soon.", thirstLevel];};
-			case (thirstLevel <= 50 && thirstLevel >= 45): {hint format["You haven't drank anything in awhile, your thirst level is %1", thirstLevel];};
+		private ["_sleepCounter", "_initialPlayerSpawnTime"];
+
+		// Same as sleep(THIRST_DECREMENT_INTERVAL) but its interruptible by player death
+		_sleepCounter = _thirstDecrementInterval;
+		_initialPlayerSpawnTime = playerSpawnTime;
+
+		while {(_sleepCounter > 0)} do {
+			// Decrement our counter every 60 seconds until we hit zero. Allows for player respawns since we check playerSpawnTime
+			sleep 60;
+
+			//diag_log format ["checking initialPlayerSpawnTime != playerSpawnTime (%1, %2)", _initialPlayerSpawnTime, playerSpawnTime];
+
+			if (_initialPlayerSpawnTime != playerSpawnTime) then {
+				// Player has since spawned, so reset our counter
+				//diag_log format ["player spawned. resetting sleepy loop"];
+				_initialPlayerSpawnTime = playerSpawnTime;
+				_sleepCounter = _thirstDecrementInterval;
+			};
+
+			_sleepCounter = _sleepCounter - 60;
+			//diag_log format ["_sleepCounter is now %1", _sleepCounter];			
+		};
+
+		waitUntil {!respawnDialogActive};
+		if(thirstLevel < 2) then {player setDamage 1.31337; hint parseText "<t size='2' color='#ff0000'>Warning</t><br/><br/>You have died from dehydration.";}
+		else
+		{
+			thirstLevel = thirstLevel - 10;
+			if(thirstLevel < 2) then {player setDamage 1.31337; hint parseText "<t size='2' color='#ff0000'>Warning</t><br/><br/>You have died from dehydration.";};
+			switch(true) do {
+				case (thirstLevel <= 10 && thirstLevel >= 5): {hint parseText format["<t size='2' color='#ff0000'>Warning</t><br/><br/>You are now suffering from severe dehydration find something to drink quickly!", thirstLevel];};
+				case (thirstLevel <= 20 && thirstLevel >= 15): {hint parseText format["<t size='2' color='#ff0000'>Warning</t><br/><br/>You haven't drank anything in along time, you should find someting to drink soon or you'll start to die from dehydration!", thirstLevel];};
+				case (thirstLevel <= 30 && thirstLevel >= 25): {hint format["You haven't drank anything in awhile, your thirst level is %1\n\nYou should find something to drink soon.", thirstLevel];};
+				case (thirstLevel <= 50 && thirstLevel >= 45): {hint format["You haven't drank anything in awhile, your thirst level is %1", thirstLevel];};
 			};
 		};
 	};

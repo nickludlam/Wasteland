@@ -24,7 +24,8 @@ if ((_uid in moderators) OR (_uid in serverAdministrators)) then {
 	_switch = _this select 0;
 	_index = lbCurSel _playerListBox;
 	_playerData = _playerListBox lbData _index;
-	
+	_check = 0;
+
 	{
 		if (str(_x) == _playerData) then {
 			_target = _x;
@@ -32,7 +33,7 @@ if ((_uid in moderators) OR (_uid in serverAdministrators)) then {
 		};
 	}forEach playableUnits;
 	
-	if (_check == 0) then {exit;};
+	if (_check == 0) then {player globalChat "Select a player first"; exit;};
 	
 	switch (_switch) do
 	{
@@ -73,16 +74,27 @@ if ((_uid in moderators) OR (_uid in serverAdministrators)) then {
 			};
 		};
 		case 1: //Warn
-		{
+		{	
+			// CONVERTED TO USE SHADOW'S NEW serverRelayHandler SYSTEM
+	        _adminName = name player;
 			_warnText = ctrlText _warnMessage;
-	        _playerName = name player;
-			[_target, format["if (name player == ""%2"") then {titleText [""Admin %3: %1"", ""plain""]; titleFadeOut 10;};",_warnText,name _target,_playerName], false] spawn fn_vehicleInit;
-	         //processInitCommands;
-	         //clearVehicleInit _target;
+			_destPlayerUID = getPlayerUID _target;
+
+			if (_warnText != "") then {
+				_msg = format["ADMIN MESSAGE FROM %1:  %2", _adminName, _warnText];
+				diag_log format ["Msg system sending from %1 -> %2 (UID %3):  %4", _adminName, name _target, _destPlayerUID, _msg];
+
+				if(!isDedicated) then {call serverRelayHandler};
+				serverRelaySystem = [MESSAGE_BROADCAST_MSG_TO_PLAYER, _destPlayerUID, _msg];
+				publicVariable "serverRelaySystem";
+			} else {
+				player globalChat "Type in a message to send";
+			};
 		};
 	    case 2: //Slay
 	    {
-			[_target, format["if (name player == ""%1"") then {player setdamage 1; Endmission ""END1"";failMission ""END1"";forceEnd; deletevehicle player;};",name _target], false] spawn fn_vehicleInit;
+	    	player globalChat "Not working currently";
+			//[_target, format["if (name player == ""%1"") then {player setdamage 1; Endmission ""END1"";failMission ""END1"";forceEnd; deletevehicle player;};",name _target], false] spawn fn_vehicleInit;
 			 //processInitCommands;
 			 //clearVehicleInit _target;
 	    };
