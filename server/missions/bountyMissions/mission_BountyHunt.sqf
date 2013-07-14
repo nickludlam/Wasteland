@@ -91,7 +91,9 @@ switch (bKillerSide) do
 {
 	case west: {"Blufor"}; 
 	case east: {"Opfor"};
-	default {"Gfor"};
+	case civilian: {"A.I."};
+	case independent: {"Gfor"};
+	default {"Unknown"};
 };
 
 _playerSideName = 
@@ -99,7 +101,9 @@ switch (_playerSide) do
 {
 	case west: {"Blufor"}; 
 	case east: {"Opfor"};
-	default {"Gfor"};
+	case civilian: {"A.I."};
+	case independent: {"Gfor"};
+	default {"Unknown"};
 };
 
 
