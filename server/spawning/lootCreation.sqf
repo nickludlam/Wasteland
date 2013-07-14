@@ -23,7 +23,8 @@ randomweapon_weaponlist = [
  
 randomOtherObjects = [
   "Land_CanisterPlastic_F",		//Water
-  "Land_Sacks_goods_F"				//Food
+  "Land_Basket_F"             // Single food unit
+  //"Land_Sacks_goods_F"				//Food
 ];
 
 randomweaponspawnweapon = {

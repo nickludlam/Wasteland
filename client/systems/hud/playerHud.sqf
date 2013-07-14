@@ -74,7 +74,7 @@ while {true} do
 
     // Flash the health colour on the HUD according to it going up, down or the same
     _healthTextColor = "#FFFFFF";
-
+    _foodWaterTextColor = "#FFFFFF";
     if (_health != _lastHealthReading) then {
         // Health change. Up or down?
         if (_health < _lastHealthReading) then {
@@ -83,10 +83,14 @@ while {true} do
         } else {
             // Gone up. Green flash
             _healthTextColor = "#17FF17";
+            if (_health - _lastHealthReading == 1) then {
+                // Its because of food + water, so colour them too
+                _foodWaterTextColor = "#17FF17";
+            };
         };
     };
 
-    _vitals ctrlSetStructuredText parseText format ["%1 <img size='0.8' image='client\icons\%2'/><br/><t color='%7'>%3</t> <img size='0.8' image='client\icons\1.paa'/><br/>%4 <img size='0.8' image='client\icons\water.paa'/><br/>%5 <img size='0.8' image='client\icons\food.paa'/><br/>%6 <img size='0.8' image='client\icons\money.paa'/>", _stamina, _runningIconName, _health, thirstLevel, hungerLevel, (player getVariable __MONEY_VAR_NAME__), _healthTextColor];
+    _vitals ctrlSetStructuredText parseText format ["%1 <img size='0.8' image='client\icons\%2'/><br/><t color='%7'>%3</t> <img size='0.8' image='client\icons\1.paa'/><br/><t color='%8'>%4</t> <img size='0.8' image='client\icons\water.paa'/><br/><t color='%8'>%5</t> <img size='0.8' image='client\icons\food.paa'/><br/>%6 <img size='0.8' image='client\icons\money.paa'/>", _stamina, _runningIconName, _health, thirstLevel, hungerLevel, (player getVariable __MONEY_VAR_NAME__), _healthTextColor, _foodWaterTextColor];
     _vitals ctrlCommit 0;
         
     if(player != vehicle player) then

@@ -141,8 +141,8 @@ FZF_IC_FOOD_WATER_Icons =
     _units = [];
     _uc = 0;
 
-    _objects = nearestObjects [_currPos, ["Land_CanisterPlastic_F"], 4000];    
-    _objects = _objects + nearestObjects [_currPos, ["Land_Sacks_goods_F"], 4000];    
+    _objects = nearestObjects [_currPos, ["Land_Basket_F"], 8000];    
+    //_objects = _objects + nearestObjects [_currPos, ["Land_Sacks_goods_F"], 4000];    
 
 	{
 		_units set [_uc, _x];
@@ -185,7 +185,7 @@ FZF_IC_FOOD_WATER_Icons =
 		};
 		
         _distance = _pos distance player;
-		if (_distance > 1 && _distance < 2000) then { //rules out the player and players too far away.
+		if (_distance > 1 && _distance < 8000) then { //rules out the player and players too far away.
 		_pos set [2, (_pos select 2) + 1.5];
 		_screen = worldToScreen _pos;
 		_picon = _pIcons select _index;

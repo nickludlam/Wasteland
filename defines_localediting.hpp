@@ -24,4 +24,5 @@
 #define __MONEYBAG_VAR_NAME__ "ABCDEFbagmoney"
 
 // X-Ray vision
-#define __DEBUG_VIEW_CUSTOM_OBJECTS__ 1
+// Beest says: This needs additional work + UI to make it work with any objects
+// #define __DEBUG_VIEW_CUSTOM_OBJECTS__ 1
