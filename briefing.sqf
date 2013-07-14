@@ -238,7 +238,7 @@ player createDiaryRecord["changelog",
 [
 "2.2 Bewilderbeest & His_Shadow -",
 "<br/><br/>
-- Being at 100 Food & Water will slowly heal you if you're at 75 health or above<br/>
+- Having 100 Food & Water will mean you heal minor wounds (75 health or above) [inspired by Sa-Matra!]<br/>
 - Made a more secure money system<br/>
 - Removed random world-spawn money<br/>
 - Added more food and water spawns<br/>
