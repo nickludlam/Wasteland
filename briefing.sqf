@@ -236,19 +236,6 @@ player createDiaryRecord["changelog",
 
 player createDiaryRecord["changelog",
 [
-"2.2 Bewilderbeest & His_Shadow -",
-"<br/><br/>
-- Having 100 Food & Water will mean you heal minor wounds (75 health or above) [inspired by Sa-Matra!]<br/>
-- Made a more secure money system<br/>
-- Removed random world-spawn money<br/>
-- Added more food and water spawns<br/>
-- You can now drop all your money in one go<br/>
-"
-]
-];
-
-player createDiaryRecord["changelog",
-[
 "2.1 Bewilderbeest & His_Shadow -",
 "<br/><br/>
 - Sprint meter added.<br/>
@@ -265,6 +252,20 @@ player createDiaryRecord["changelog",
 - Money mission's reward decreased to compensate for frequency.<br/>
 - Bounty Hunt mission fixed?<br/>
 - Hostile Heli Formation taken out.<br/>
+"
+]
+];
+
+
+player createDiaryRecord["changelog",
+[
+"2.2 Bewilderbeest & His_Shadow -",
+"<br/><br/>
+- Having 100 Food & Water will mean you heal minor wounds (75 health or above) [inspired by Sa-Matra!]<br/>
+- Made a more secure money system<br/>
+- Removed random world-spawn money<br/>
+- Added more food and water spawns<br/>
+- You can now drop all your money in one go<br/>
 "
 ]
 ];
