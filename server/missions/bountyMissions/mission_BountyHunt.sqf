@@ -62,7 +62,17 @@ while {true} do {
 	sleep 0.1;
 };
 
-_hint = parseText format ["<t align='center' color='%2' shadow='2' size='1.75'>Bounty Hunt</t><br/><t align='center' color='%2'>------------------------------</t><br/><t color='%3' size='1.0'>%1 has a bounty on his head. You have 30 minutes to kill him! Killer gets $10,000 and his side gets $1,000 per person. If he's protected he gets the $10,000 and his side gets $1,000 per person.</t>", name _foundPlayer, bountyMissionColor, subTextColor];
+_playerSideName = 
+switch (_playerSide) do 
+{
+	case west: {"Blufor"}; 
+	case east: {"Opfor"};
+	case civilian: {"A.I."};
+	case independent: {"Gfor"};
+	default {"Unknown"};
+};
+
+_hint = parseText format ["<t align='center' color='%2' shadow='2' size='1.75'>Bounty Hunt</t><br/><t align='center' color='%2'>------------------------------</t><br/><t color='%3' size='1.0'>%1 on %4 has a bounty on his head. You have 30 minutes to kill him! Killer gets $10,000 and his side gets $1,000 per person. If he's protected he gets the $10,000 and his side gets $1,000 per person.</t>", name _foundPlayer, bountyMissionColor, subTextColor, _playerSideName];
 messageSystem = _hint;
 if (!isDedicated) then { call serverMessage };
 publicVariable "messageSystem";
@@ -117,16 +127,6 @@ waitUntil
 //properly get the killer and target side names for use below
 _killerSideName =
 switch (bKillerSide) do 
-{
-	case west: {"Blufor"}; 
-	case east: {"Opfor"};
-	case civilian: {"A.I."};
-	case independent: {"Gfor"};
-	default {"Unknown"};
-};
-
-_playerSideName = 
-switch (_playerSide) do 
 {
 	case west: {"Blufor"}; 
 	case east: {"Opfor"};
@@ -195,7 +195,7 @@ if (_mission_state == BOUNTY_MISSION_END_KILLED) then {
 			};
 		}foreach playableUnits;
 
-		_hint = parseText format ["<t align='center' color='%2' shadow='2' size='1.75'>Objective Failed</t><br/><t align='center' color='%2'>------------------------------</t><br/><t align='center' color='%3' size='1.25'>%1 was teamkilled!</t><br/><br/><t align='center' color='%3'>Naughty naughty team players. As a penalty you have all lost your weapons and money!</t>", _playerName, failMissionColor, subTextColor];
+		_hint = parseText format ["<t align='center' color='%2' shadow='2' size='1.75'>Objective Failed</t><br/><t align='center' color='%2'>------------------------------</t><br/><t align='center' color='%3' size='1.25'>%1 was teamkilled!</t><br/><br/><t align='center' color='%3'>Naughty naughty team players. As a penalty %4 has lost all their weapons and money!</t>", _playerName, failMissionColor, subTextColor, _playerSideName];
 	};
 
 	// Dumbass
