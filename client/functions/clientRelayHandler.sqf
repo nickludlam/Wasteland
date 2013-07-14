@@ -34,7 +34,7 @@ _msgToPlayer =
 	diag_log format["_msgToPlayer checking %1 == %2", _playerUID, _curUID];
 	if (_playerUID == _curUID) then {
 		// Display the message
-		titleText [_msg, "plain"]; sleep 5; titleFadeOut 5;
+		titleText [_msg, "plain"]; titleFadeOut 10;
 	};
 };
 
