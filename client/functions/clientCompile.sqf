@@ -24,8 +24,7 @@ timeSync = compile preprocessFileLineNumbers "client\functions\clientTimeSync.sq
 serverMessage = compile preprocessFileLineNumbers "client\functions\serverMessage.sqf";
 clientPaintApply = compile preprocessFileLineNumbers "client\functions\clientPaintApply.sqf";
 clientMissileWarnApply = compile preprocessFileLineNumbers "client\functions\clientMissileWarnApply.sqf";
-//clientVehicleLockApply = compile preprocessFileLineNumbers "client\functions\clientVehicleLockApply.sqf";
-
+clientRelayHandler = compile preprocessFileLineNumbers "client\functions\clientRelayHandler.sqf";
 
 // Update scripts
 updateTeamKiller = compile preprocessFileLineNumbers "client\functions\updateTeamKiller.sqf";

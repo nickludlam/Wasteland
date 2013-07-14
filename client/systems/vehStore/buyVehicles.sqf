@@ -6,6 +6,7 @@
 
 #include "dialog\vehstoreDefines.sqf";
 //#include "addons\proving_ground\defs.hpp"
+#define MESSAGE_VEHICLE_PROPERTIES_APPLY 0
 #define GET_DISPLAY (findDisplay balca_debug_VC_IDD)
 #define GET_CTRL(a) (GET_DISPLAY displayCtrl ##a)
 #define GET_SELECTED_DATA(a) ([##a] call {_idc = _this select 0;_selection = (lbSelection GET_CTRL(_idc) select 0);if (isNil {_selection}) then {_selection = 0};(GET_CTRL(_idc) lbData _selection)})
@@ -60,20 +61,16 @@ _applyVehProperties =
 	if(_colorText == "Yellow Camo") then {_texturePath = "images\camo_fuel.jpg";};
 	if(_colorText == "Pink Camo") then {_texturePath = "images\camo_pank.jpg";};
 	_car setVariable ["textureName", _texturePath];
-	if(!isDedicated) then {call serverPaintApply};
-	vehiclePaintSystem = [_car, _texturePath,[]];
-	publicVariable "vehiclePaintSystem";
+	
+	if(!isDedicated) then {call serverRelayHandler};
+	serverRelaySystem = [MESSAGE_VEHICLE_PROPERTIES_APPLY, _car, _texturePath];
+	publicVariable "serverRelaySystem";
 
 	//tell the vehicle to delete itself after dying
 	_car addEventHandler ["Killed",{(_this select 0) spawn {sleep 180; deleteVehicle _this}}];
 	
 	//enable vehicle locking
 	_car addAction ["Unlock / Lock","server\functions\unlocklock.sqf",[],7,true,true,"","(_target distance _this) < 7"];
-	
-	//enable missile warning
-	if(!isDedicated) then {call serverMissileWarnApply };
-	vehicleMissileWarnSystem = _car;
-	publicVariable "vehicleMissileWarnSystem";
 };
 
 switch(_switch) do 
