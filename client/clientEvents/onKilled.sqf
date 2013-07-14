@@ -77,6 +77,8 @@ _mTotal = _player getVariable __MONEY_VAR_NAME__;
 _mTotal = _mTotal - computedMoney;
 if(_mTotal <= 0) then {_mTotal = 0;};
 if(_mTotal > 0) then {
+	// 15% tax on death!
+	_mTotal = _mTotal - (_mTotal * .15);
 	_m = "Land_Sack_F" createVehicle (position _player);
 	_m setVariable[__MONEYBAG_VAR_NAME__, _mTotal, true];
 	_m setVariable ["owner", "world", true];
