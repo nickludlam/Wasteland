@@ -18,7 +18,6 @@ _applyMissile =
 {
 	private["_car"];
 	_car = _this select 0;
-	player globalChat format["Missile apply: %1", _car];
 	_car addEventHandler ["IncomingMissile", "[_this] execVM 'incomingAlarm.sqf'"];
 };
 
