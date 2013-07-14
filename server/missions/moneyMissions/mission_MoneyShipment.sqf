@@ -20,6 +20,8 @@ _grouphsq = createGroup civilian;
 _vehicle = "B_MRAP_01_gmg_F" createVehicle [2090.59,5823.05,5.41];
 _vehicle addEventHandler ["IncomingMissile", "hint format['Incoming Missile Launched By: %1', name (_this select 2)]"];
 _vehicle setDir 91;
+_vehicle setVariable ["newVehicle",1,true];
+
 clearMagazineCargoGlobal _vehicle;
 clearWeaponCargoGlobal _vehicle;
 _grouphsq addVehicle _vehicle;

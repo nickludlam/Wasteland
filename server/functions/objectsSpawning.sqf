@@ -19,7 +19,7 @@ for "_i" from 1 to 134 do
     _pos = getMarkerPos format ["Spawn_%1", _x];
     
     _newpos = [_pos, 21, 40, 1, 0, 60 * (pi / 180), 0] call BIS_fnc_findSafePos;
-    [_newpos] call objectCreation; 
+    [_newpos, nil] call objectCreation; 
     _placed set [_i, _x];
     _counter = _counter + 1;
 };

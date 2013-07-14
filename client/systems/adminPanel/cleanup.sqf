@@ -1,4 +1,5 @@
-{if (_x isKindOf "Man") then {deleteVehicle _x}} forEach allDead
+{if (_x isKindOf "Man") then {deleteVehicle _x}} forEach allDead;
+{if (damage _x == 1 and _x isKindOf "Car") then {deleteVehicle _x}} foreach vehicles;
 
 //private ["_delcode", "_currentworld", "_oldworld", "_newworld", "_notalive"];
 //_delcode = {

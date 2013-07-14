@@ -86,6 +86,8 @@ objectList = ["Land_Sacks_goods_F",
 			"Land_HBarrierBig_F",
 			"Land_Pipes_Large_F",
 			"Land_CargoBox_V1_F"];
+
+comestibleList = ["Land_Sacks_goods_F", "Land_CanisterPlastic_F"];
                                          
 //Object List - Random Spawns.
 staticWeaponsList = ["B_MK6"];

@@ -5,7 +5,7 @@
 
 _odd1 = 49;       //The odds that a building is selected to place loot.
 _odd2 = 25;       //The odds that the selected building's spots will have loot(almost like odds per room).
-_itemtoweaponratio = 10;    //The chances of an item like food,money etc. will spawn instead of a weapon.
+_itemtoweaponratio = 5;    //The % chances of food spawning instead of a weapon.
 randomweapontestint = 0.01;   //Sets the intervals in which weaponpositions are tested. (Lower = slower, but more accurate. Higher = faster, but less accurate.)
 
 randomweapon_weaponlist = [
@@ -21,11 +21,10 @@ randomweapon_weaponlist = [
 ["SMG_02_F", "30Rnd_9x21_Mag"]
 ];
  
-randomweapon_itemlist = [
-  "Land_Basket_F",			//Water
-  "Land_Bucket_F"				//Food
+randomOtherObjects = [
+  "Land_CanisterPlastic_F",		//Water
+  "Land_Sacks_goods_F"				//Food
 ];
-
 
 randomweaponspawnweapon = {
   _position = _this;
@@ -42,12 +41,25 @@ randomweaponspawnweapon = {
  _weaponholder setPos _position;
 };
 
-randomweaponspawnitem = {
- _position = _this;
- _selectedgroup = (floor(random(count randomweapon_itemlist)));
- _class = randomweapon_itemlist select _selectedgroup;
- _item = createVehicle [_class, _position, [], 0, "CAN_COLLIDE"];
- _item setPos _position;
+randomSpawnOther = {
+  _position = _this;
+  _selectedindex = (floor(random(count randomOtherObjects)));
+  _class = randomOtherObjects select _selectedindex;
+  _item = createVehicle [_class, _position, [], 0, "CAN_COLLIDE"];
+  _item setVariable["R3F_LOG_disabled",false];
+
+  switch (_class) do
+  {
+    case "Land_CanisterPlastic_F": {
+        _item setVariable["water",20,true];
+    };
+    case "Land_Sacks_goods_F": {
+        _item setVariable["food",20,true];
+    };
+  };
+
+  diag_log format ["randomSpawnOther: %1", _item];
+  _item setPos _position;
 };
 
 
@@ -55,7 +67,7 @@ _pos = [0,0];
 randomweapon_buildings = nearestObjects [_pos, ["house"], 60000];
 _do = 1;
 while{_do == 1} do
-{
+{ 
   sleep 30;
   {
     _building = _x;
@@ -98,7 +110,7 @@ while{_do == 1} do
          _posnew = [_posnew select 0,_posnew select 1,(_posnew select 2) + 0.05];
          _woi = floor(random(100));
          if(_woi < _itemtoweaponratio) then {
-          _posnew call randomweaponspawnitem;
+          _posnew call randomSpawnOther;
          } else {
           _posnew call randomweaponspawnweapon;
          };

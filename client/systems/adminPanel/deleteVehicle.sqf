@@ -11,7 +11,7 @@ disableSerialization;
 
 private ["_switch","_vehicleType","_vehicleSummary","_vehicle","_selectedItem","_selectedItemData"];
 _uid = getPlayerUID player;
-if ((_uid in moderators) OR (_uid in administrators) OR (_uid in serverAdministrators)) then {
+if ((_uid in moderators) OR (_uid in serverAdministrators)) then {
 	_allVehicles = vehicles;
 	
 	_dialog = findDisplay vehicleManagementDialog;

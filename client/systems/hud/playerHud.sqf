@@ -8,9 +8,11 @@
 #include "defines.hpp"
 
 disableSerialization;
-private["_ui","_fatigue", "_hud","_food","_water"];
+private["_ui","_fatigue", "_hud","_food","_water", "_lastHealthReading", "_sprintFatigue", "_percentSprintFatigue", "_runningIconName", "_stamina", "_counter", "_modulo"];
 
 _counter = 0; // used for flashing UI elements, with the _modulo var
+
+_lastHealthReading = 100; // Used to flash the health reading when it changes
 
 while {true} do
 {
@@ -28,8 +30,10 @@ while {true} do
     _health = round (_health * (10 ^ _decimalPlaces)) / (10 ^ _decimalPlaces);
     _health = 100 - (_health * 100);
 
-    // Weird and experimental. percentage stamina. Total is 200%, which is full sprint
-    // capability, no running thirst 
+    // If fatigue is over 0.5 then the player can't sprint
+    // Our meter is normalised from 0 -> 0.5  to 0 -> 1.0
+    //
+    // Then we take the inverse and call that our sprint meter
     _sprintFatigue = getFatigue player;
     if (_sprintFatigue > 0.5) then {
         _sprintFatigue = 0.5;
@@ -68,7 +72,21 @@ while {true} do
         _stamina = format ["%1", (100 - _percentSprintFatigue)];
     };
 
-    _vitals ctrlSetStructuredText parseText format ["%1 <img size='0.8' image='client\icons\%2'/><br/>%3 <img size='0.8' image='client\icons\1.paa'/><br/>%4 <img size='0.8' image='client\icons\water.paa'/><br/>%5 <img size='0.8' image='client\icons\food.paa'/><br/>%6 <img size='0.8' image='client\icons\money.paa'/>", _stamina, _runningIconName, _health, thirstLevel, hungerLevel, (player getVariable __MONEY_VAR_NAME__)];
+    // Flash the health colour on the HUD according to it going up, down or the same
+    _healthTextColor = "#FFFFFF";
+
+    if (_health != _lastHealthReading) then {
+        // Health change. Up or down?
+        if (_health < _lastHealthReading) then {
+            // Gone down. Red flash
+            _healthTextColor = "#FF1717";
+        } else {
+            // Gone up. Green flash
+            _healthTextColor = "#17FF17";
+        };
+    };
+
+    _vitals ctrlSetStructuredText parseText format ["%1 <img size='0.8' image='client\icons\%2'/><br/><t color='%7'>%3</t> <img size='0.8' image='client\icons\1.paa'/><br/>%4 <img size='0.8' image='client\icons\water.paa'/><br/>%5 <img size='0.8' image='client\icons\food.paa'/><br/>%6 <img size='0.8' image='client\icons\money.paa'/>", _stamina, _runningIconName, _health, thirstLevel, hungerLevel, (player getVariable __MONEY_VAR_NAME__), _healthTextColor];
     _vitals ctrlCommit 0;
         
     if(player != vehicle player) then
@@ -104,6 +122,9 @@ while {true} do
         _hudVehicle ctrlSetPosition [_x, _y, 0.4, 0.65];
         _hudVehicle ctrlCommit 0;
     };
-        
+
+    // Make sure we keep a record of the health value from this iteration
+    _lastHealthReading = _health;
+
     sleep 1;
 };

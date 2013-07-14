@@ -22,3 +22,6 @@
 // Randomize
 #define __MONEY_VAR_NAME__ "12345playermoney"
 #define __MONEYBAG_VAR_NAME__ "ABCDEFbagmoney"
+
+// X-Ray vision
+#define __DEBUG_VIEW_CUSTOM_OBJECTS__ 1

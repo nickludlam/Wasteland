@@ -35,14 +35,14 @@ private["_cumulativePlayerFatigue",
 
 	// MATHS!
 	_cumulativePlayerFatigue = [];
-	_defaultMaxEntries = 18;		   // Number of entries in our averaging array
+	_defaultMaxEntries = 16;		   // Number of entries in our averaging array
 	_sleepInterval = 10;               // Sleep between sampling fatigue
 	_fatigueRecoveryLevel = 0.50;      // Value above which we give the player recovery message 
-	_fatigueTiredThreshold = 0.92;     // UI transition warning
+	_fatigueTiredThreshold = 0.94;     // UI transition warning
 	_fatigueWarningThreshold = 0.98;   // Value above which we warn the player
 	_fatigueExhaustionThreshold = 1;   // Value above which the avg fatigue will cause thirst
-	_extraThirstDecrement = 4;         // Value to decrement each period from the player's water level
-	_extraHungerDecrement = 1;         // Value to decrement each period from the player'spawn food level
+	_extraThirstDecrement = 8;         // Value to decrement each period from the player's water level
+	_extraHungerDecrement = 3;         // Value to decrement each period from the player'spawn food level
 
 	// Modifiers
 	_primaryWeaponModifier = 2;
@@ -57,8 +57,24 @@ private["_cumulativePlayerFatigue",
 	_tiredEffectApplied = 0;
 	_exhaustedEffectApplied = 0;
 
+	// Replenishment system
+	_satedHealthUnitIncrement = 0.01;
+
 	while {true} do
 	{
+		// New system to bump health up by an amount if the player is at 100 food and water
+		if (thirstLevel == 100 and hungerLevel == 100) then {
+			_decimalPlaces = 2;
+    		_playerDamage = damage player;
+    		_playerDamagePercent = round (_playerDamage * (10 ^ _decimalPlaces)) / (10 ^ _decimalPlaces);
+    		_health = 100 - (_playerDamagePercent * 100);
+
+			if (_health >= 75 and damage player < 100) then {
+				player setDamage (_playerDamage - _satedHealthUnitIncrement);
+			};
+		};
+
+
 		// 3 mins of running unemcumbered gets you to 1.0 fagigue
 		// 2 minutes of running with a full loadout + ghillie gets the same
 
@@ -289,12 +305,12 @@ private["_cumulativePlayerFatigue",
 [] spawn  {
 	while{true} do
 	{
-		sleep 600;
+		sleep 900;
 		waitUntil {!respawnDialogActive};
 		if(hungerLevel < 2) then {player setDamage 1.31337; hint parseText "<t size='2' color='#ff0000'>Warning</t><br/><br/>You have starved to death.";}
 		else
 		{
-		hungerLevel = hungerLevel - 5;
+		hungerLevel = hungerLevel - 10;
 		if(hungerLevel < 2) then {player setDamage 1.31337; hint parseText "<t size='2' color='#ff0000'>Warning</t><br/><br/>You have starved to death.";};
 		switch(true) do {
 			case (hungerLevel <= 10 && hungerLevel >= 5): {hint parseText format["<t size='2' color='#ff0000'>Warning</t><br/><br/>You are now starving to death, you will slowly lose health, find something to eat quickly!", hungerLevel];};
@@ -309,12 +325,12 @@ private["_cumulativePlayerFatigue",
 [] spawn  {
 	while{true} do
 	{
-	sleep 400;
+	sleep 600;
 	waitUntil {!respawnDialogActive};
 	if(thirstLevel < 2) then {player setDamage 1.31337; hint parseText "<t size='2' color='#ff0000'>Warning</t><br/><br/>You have died from dehydration.";}
 	else
 	{
-		thirstLevel = thirstLevel - 5;
+		thirstLevel = thirstLevel - 10;
 		if(thirstLevel < 2) then {player setDamage 1.31337; hint parseText "<t size='2' color='#ff0000'>Warning</t><br/><br/>You have died from dehydration.";};
 		switch(true) do {
 			case (thirstLevel <= 10 && thirstLevel >= 5): {hint parseText format["<t size='2' color='#ff0000'>Warning</t><br/><br/>You are now suffering from severe dehydration find something to drink quickly!", thirstLevel];};

@@ -42,6 +42,7 @@ _vehicle addEventHandler ["IncomingMissile", "hint format['Incoming Missile Laun
 
 //Vehicle Class, Posistion, Fuel, Ammo, Damage
 _vehicle = [_vehicleClass,_randomPos,0.5,1,0,"NONE"] call createMissionVehicle; 
+_vehicle setVariable ["newVehicle",1,true];
 
 _picture = getText (configFile >> "cfgVehicles" >> typeOf _vehicle >> "picture");
 _vehicleName = getText (configFile >> "cfgVehicles" >> typeOf _vehicle >> "displayName");

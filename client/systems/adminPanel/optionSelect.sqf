@@ -12,18 +12,16 @@
 #define adminMenu_option 50001
 disableSerialization;
 
-private ["_panelType","_displayAdmin","_displayMod","_displayServerAdmin","_displayDebug","_modSelect","_adminSelect","_serverAdminSelect","_debugSelect"];
+private ["_panelType","_displayMod","_displayServerAdmin","_displayDebug","_modSelect","_adminSelect","_serverAdminSelect","_debugSelect"];
 _uid = getPlayerUID player;
-if ((_uid in moderators) OR (_uid in administrators) OR (_uid in serverAdministrators)) then {
+if ((_uid in moderators) OR (_uid in serverAdministrators)) then {
 	_panelType = _this select 0;
 	
-	_displayAdmin = uiNamespace getVariable "AdminMenu";
 	_displayMod = uiNamespace getVariable "ModMenu";
 	_displayServerAdmin = uiNamespace getVariable "ServerAdminMenu";
 	_displayDebug = uiNamespace getVariable "DebugMenu";
 	
 	_modSelect = _displayMod displayCtrl modMenu_option;
-	_adminSelect = _displayAdmin displayCtrl adminMenu_option;
 	_serverAdminSelect = _displayServerAdmin displayCtrl serverAdminMenu_option;
 	_debugSelect = _displayDebug displayCtrl debugMenu_option;
 	
@@ -43,37 +41,9 @@ if ((_uid in moderators) OR (_uid in administrators) OR (_uid in serverAdministr
 					closeDialog 0;
 					execVM "client\systems\adminPanel\vehicleManagement.sqf";
 				};
-				case 2: //Building Repair
-			    {
-                   [] execVM "client\functions\immRebuild.sqf";
-			    };
-				case 3: //store owner init
-				{
-					[] execVM "server\functions\initStoreOwners.sqf";
-				};
 			};
 		};
-		case 1: //Administrator panel
-		{
-			switch (lbCurSel _adminSelect) do
-			{
-			    case 0: //Player Menu
-				{
-	                closeDialog 0;
-					execVM "client\systems\adminPanel\playerMenu.sqf";
-				};
-				case 1: //Full Vehicle Management
-				{
-	                closeDialog 0;
-					execVM "client\systems\adminPanel\vehicleManagement.sqf";
-				};
-			    case 2: //Tags
-			    {
-					execVM "client\systems\adminPanel\playerTags.sqf";
-			    };
-			};
-		};
-	    case 2: //Server Administrator panel
+	    case 1: //Server Administrator panel
 	    {
 			switch (lbCurSel _serverAdminSelect) do
 			{
@@ -109,7 +79,7 @@ if ((_uid in moderators) OR (_uid in administrators) OR (_uid in serverAdministr
 			    };
 			};
 	    };
-	    case 3: //Debug panel
+	    case 2: //Debug panel
 	    {      
 			switch (lbCurSel _debugSelect) do
 			{
@@ -180,18 +150,8 @@ if ((_uid in moderators) OR (_uid in administrators) OR (_uid in serverAdministr
 				};
 	            case 7: //Test Function
 			    {
-                   _lootspawnz = [] execVM "server\spawning\respawn.sqf";
+			    	// 
 			    };
-				case 8: //Building Repair
-			    {
-                   //[] execVM "client\functions\immRebuild.sqf";
-				   [] call immRebuild;
-			    };
-				case 9: //store owner init
-				{
-					//[] execVM "server\functions\initStoreOwners.sqf";
-					[] call initGunStores;
-				};
 			};		
 	    };
 	};

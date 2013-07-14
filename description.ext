@@ -11,7 +11,7 @@ class Header
 	maxPlayers=60;
 };
 author="His_Shadow & Bewilderbeest- See Credits";
-OnLoadName = "KoS Wasteland v2.1";
+OnLoadName = "KoS Wasteland v2.2";
 OnLoadMission = "Weapons spawn inside and beside buildings. Capture the yellow territories by staying in them for 5 minutes. Press M for more info.";
 //Dialog includes
 #include "addons\R3F_ARTY_AND_LOG\desc_include.h"
@@ -21,7 +21,6 @@ OnLoadMission = "Weapons spawn inside and beside buildings. Capture the yellow t
 #include "client\systems\gunStore\dialog\gunshop_settings.hpp"
 #include "client\systems\generalStore\dialog\genstore_settings.hpp"
 #include "client\systems\vehStore\dialog\vehstore_settings.hpp"
-#include "client\systems\adminPanel\dialog\adminMenu.hpp"
 #include "client\systems\adminPanel\dialog\modMenu.hpp"
 #include "client\systems\adminPanel\dialog\serverAdminMenu.hpp"
 #include "client\systems\adminPanel\dialog\debugMenu.hpp"

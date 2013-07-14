@@ -8,7 +8,8 @@ disableSerialization;
 
 private["_Dialog","_foodtext","_watertext","_moneytext","_mvalue","_rogue", "_moneyStr"];
 
-_moneyStr = format["%1", player getVariable __MONEY_VAR_NAME__];
+_money = player getVariable __MONEY_VAR_NAME__;
+_moneyStr = format["%1", _money];
 
 _playerDialog = createDialog "playerSettings";
 
@@ -25,7 +26,7 @@ _watertext ctrlSetText format["%1 / 100", round(thirstLevel)];
 _moneytext ctrlSetText _moneyStr;
 
 // First entry is all money if they have more than none!
-if (_moneyStr > 0) then {
+if (_money > 0) then {
 	_mIndex = _mvalue lbadd format["$%1", _moneyStr]; _mvalue lbSetData [0, _moneyStr];
 };
 _mIndex = _mvalue lbadd "$100"; _mvalue lbSetData [(lbSize _mvalue)-1, "100"];

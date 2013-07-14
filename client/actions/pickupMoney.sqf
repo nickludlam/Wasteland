@@ -66,8 +66,7 @@ for "_iteration" from 1 to _lockDuration do
 			mutexScriptInProgress = false;
             _moneyObject setVariable ["owner", "world", true];
 		} else {
-			_money = 0;
-			_money = ((nearestobjects [getpos player, ["Land_Sack_F"],  5] select 0) getVariable [__MONEYBAG_VAR_NAME__, 0]);
+			_money = round((nearestobjects [getpos player, ["Land_Sack_F"],  5] select 0) getVariable [__MONEYBAG_VAR_NAME__, 0]);
 			deleteVehicle (nearestobjects [getpos player, ["Land_Sack_F"],  5] select 0);
 
 			player setVariable[__MONEY_VAR_NAME__, (player getVariable __MONEY_VAR_NAME__)+_money,true];          

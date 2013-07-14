@@ -6,8 +6,9 @@
 
 if(!X_Server) exitWith {};
 
-private ["_counter","_pos","_markerName","_marker","_amountOfVehicles","_hint"];
+private ["_counter", "_comestibleBias", "_pos","_newpos", "_comestibleBias"];
 _counter = 0;
+_comestibleBias = 0.15;
 
 for "_i" from 1 to 118 do
 {
@@ -15,7 +16,13 @@ for "_i" from 1 to 118 do
     _pos = getMarkerPos format ["Spawn_%1", _x];
     
     _newpos = [_pos, 31, 50, 1, 0, 60 * (pi / 180), 0] call BIS_fnc_findSafePos;
-    [_newpos] call objectCreation; 
+
+	if (random 1 <= _comestibleBias) then {
+		diag_log format["Spawning food or water for iter %1", _counter];
+	    [_newpos, comestibleList] call objectCreation;
+	} else {
+	    [_newpos, nil] call objectCreation; 
+	};
     
     _counter = _counter + 2;
 };

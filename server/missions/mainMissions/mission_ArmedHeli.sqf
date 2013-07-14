@@ -67,6 +67,7 @@ waitUntil
 
 _vehicle setVehicleLock "UNLOCKED";
 _vehicle setVariable ["R3F_LOG_disabled", false, true];
+_vehicle setVariable ["newVehicle",1,true];
 
 if(_result == 1) then
 {

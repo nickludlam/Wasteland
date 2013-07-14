@@ -31,18 +31,21 @@ _cash0 setPos _posRand;
 _cash0 setPos ((_objects select 0) buildingPos 0);
 _cash0 setVariable[__MONEYBAG_VAR_NAME__,2000,true];
 _cash0 setVariable["owner","world",true];
+_cash0 setVariable ["newVehicle",1,true];
 
 _cash1 = createVehicle ["Land_Sack_F", _posRand, [], 0, "CAN_COLLIDE"]; 
 _cash1 setPos _posRand;
 _cash1 setPos ((_objects select 0) buildingPos 1);
 _cash1 setVariable[__MONEYBAG_VAR_NAME__,2000,true];
 _cash1 setVariable["owner","world",true];
+_cash1 setVariable ["newVehicle",1,true];
 
 _cash2 = createVehicle ["Land_Sack_F", _posRand, [], 0, "CAN_COLLIDE"]; 
 _cash2 setPos _posRand;
 _cash2 setPos ((_objects select 0) buildingPos 2);
 _cash2 setVariable[__MONEYBAG_VAR_NAME__,1000,true];
 _cash2 setVariable["owner","world",true];
+_cash2 setVariable ["newVehicle",1,true];
 
 ["MoneyShipment0",(position _cash0),_missionType] call createClientMarker;
 ["MoneyShipment1",(position _cash1),_missionType] call createClientMarker;

@@ -1,5 +1,5 @@
 /*
- * Creates a random civilian soldier.
+ * Creates a random pilot.
  *
  * Arguments: [ position, group, init, skill, rank]: Array
  *    position: Position - Location unit is created at.
@@ -23,7 +23,11 @@ _group = _this select 0;
 _position = _this select 1;
 
 _soldier = _group createUnit [_soldierTypes call BIS_fnc_selectRandom, _position, [], 0, "NONE"];
-_soldier addVest (_vestTypes call BIS_fnc_selectRandom);
+diag_log format ["createRandomPilot created %1", _soldier];
+_vest = _vestTypes call BIS_fnc_selectRandom;
+diag_log format ["createRandomPilot adding vest %1", _vest];
+
+_soldier addVest _vest;
 _soldier addUniform (_uniformTypes call BIS_fnc_selectRandom);
 _soldier addHeadgear (_helmetTypes call BIS_fnc_selectRandom);
 _soldier setskill ["Endurance",1];

@@ -32,7 +32,7 @@ for "_x" from 0 to (_count -1) do {
 	};
 };
 
-diag_log format ["Alive player count is %1", _alivePlayerCount];
+//diag_log format ["Alive player count is %1", _alivePlayerCount];
 
 // If there are literally NO alive players, bail here
 if(_alivePlayerCount == 0) then
@@ -52,10 +52,8 @@ _finished = 0;
 while {true} do {
 	_random = floor(random _count);
 	_potentialPlayer = _players select _random;
-	diag_log format ["Eval %1", _potentialPlayer];
 
 	if (alive _potentialPlayer) then {
-		diag_log format ["Player %1 is alive!", _potentialPlayer];
 		_foundPlayer = _potentialPlayer;
 		_finished = 1;
 	};
@@ -63,8 +61,6 @@ while {true} do {
 	if (_finished == 1) then {breakTo "main"}; // Breaks all scopes and return to "main"
 	sleep 0.1;
 };
-
-diag_log format ["Player is %1", _foundPlayer];
 
 _hint = parseText format ["<t align='center' color='%2' shadow='2' size='1.75'>Bounty Hunt</t><br/><t align='center' color='%2'>------------------------------</t><br/><t color='%3' size='1.0'>%1 has a bounty on his head. You have 30 minutes to kill him! Killer gets $10,000 and his side gets $1,000 per person. If he's protected he gets the $10,000 and his side gets $1,000 per person.</t>", name _foundPlayer, bountyMissionColor, subTextColor];
 messageSystem = _hint;
@@ -144,8 +140,6 @@ if (_mission_state == BOUNTY_MISSION_END_KILLED) then {
 
 	// Mission success: The bounty was killed, so issue awards
 
-	diag_log "Mission Completed";
-
 	//the player and his team reap the rewards
 	_playerMoney = bKiller getVariable __MONEY_VAR_NAME__;
 	_playerMoney = _playerMoney + 10000;
@@ -166,8 +160,6 @@ if (_mission_state == BOUNTY_MISSION_END_KILLED) then {
 
 } else {
 	// Mission failed: Survived/Teamkilled/Suicided
-
-	diag_log "Bounty Hunt Failed";
 
 	// Phew, bounty target survived
 	if (_mission_state == BOUNTY_MISSION_END_SURVIVED) then {

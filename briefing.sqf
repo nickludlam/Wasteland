@@ -236,6 +236,19 @@ player createDiaryRecord["changelog",
 
 player createDiaryRecord["changelog",
 [
+"2.2 Bewilderbeest & His_Shadow -",
+"<br/><br/>
+- Being at 100 Food & Water will slowly heal you if you're at 75 health or above<br/>
+- Made a more secure money system<br/>
+- Removed random world-spawn money<br/>
+- Added more food and water spawns<br/>
+- You can now drop all your money in one go<br/>
+"
+]
+];
+
+player createDiaryRecord["changelog",
+[
 "2.1 Bewilderbeest & His_Shadow -",
 "<br/><br/>
 - Sprint meter added.<br/>
