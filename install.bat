@@ -56,6 +56,7 @@ copy "%USERPROFILE%\Documents\GitHub\Wasteland\defines_servermode.hpp" %TEMP%\%L
 copy "%USERPROFILE%\Documents\GitHub\Wasteland\defines_servermode.hpp" %TEMP%\%LOCAL_MISSION_NAME%\client\systems\generalStore\defines.hpp > nul
 copy "%USERPROFILE%\Documents\GitHub\Wasteland\defines_servermode.hpp" %TEMP%\%LOCAL_MISSION_NAME%\client\systems\playerMenu\defines.hpp > nul
 copy "%USERPROFILE%\Documents\GitHub\Wasteland\defines_servermode.hpp" %TEMP%\%LOCAL_MISSION_NAME%\client\systems\hud\defines.hpp > nul
+copy "%USERPROFILE%\Documents\GitHub\Wasteland\defines_servermode.hpp" %TEMP%\%LOCAL_MISSION_NAME%\client\systems\groups\defines.hpp > nul
 copy "%USERPROFILE%\Documents\GitHub\Wasteland\defines_servermode.hpp" %TEMP%\%LOCAL_MISSION_NAME%\server\defines.hpp > nul
 copy "%USERPROFILE%\Documents\GitHub\Wasteland\defines_servermode.hpp" %TEMP%\%LOCAL_MISSION_NAME%\server\functions\defines.hpp > nul
 copy "%USERPROFILE%\Documents\GitHub\Wasteland\defines_servermode.hpp" %TEMP%\%LOCAL_MISSION_NAME%\server\missions\sideMissions\defines.hpp > nul
@@ -92,6 +93,7 @@ copy "%USERPROFILE%\Documents\GitHub\Wasteland\defines_localediting.hpp" %TEST_D
 copy "%USERPROFILE%\Documents\GitHub\Wasteland\defines_localediting.hpp" %TEST_DESTINATION_DIR%\client\systems\gunStore\defines.hpp > nul
 copy "%USERPROFILE%\Documents\GitHub\Wasteland\defines_localediting.hpp" %TEST_DESTINATION_DIR%\client\systems\generalStore\defines.hpp > nul
 copy "%USERPROFILE%\Documents\GitHub\Wasteland\defines_localediting.hpp" %TEST_DESTINATION_DIR%\client\systems\playerMenu\defines.hpp > nul
+copy "%USERPROFILE%\Documents\GitHub\Wasteland\defines_localediting.hpp" %TEST_DESTINATION_DIR%\client\systems\groups\defines.hpp > nul
 copy "%USERPROFILE%\Documents\GitHub\Wasteland\defines_localediting.hpp" %TEST_DESTINATION_DIR%\client\systems\hud\defines.hpp > nul
 copy "%USERPROFILE%\Documents\GitHub\Wasteland\defines_localediting.hpp" %TEST_DESTINATION_DIR%\server\defines.hpp > nul
 copy "%USERPROFILE%\Documents\GitHub\Wasteland\defines_localediting.hpp" %TEST_DESTINATION_DIR%\server\functions\defines.hpp > nul

@@ -2,7 +2,7 @@
 //	@file Name: inviteToGroup.sqf
 //	@file Author: [404] Deadbeat
 //	@file Created: 20/11/2012 05:19
-
+#include "defines.hpp"
 if(player != leader group player) exitWith {player globalChat format["you are not the leader and can't invite people"];};
 
 #define groupManagementDialog 55510
@@ -38,6 +38,10 @@ diag_log "Invite to group: After the checks";
 currentInvites set [count currentInvites,[getPlayerUID player,getPlayerUID _target]];
 publicVariableServer "currentInvites"; 
 
-[nil,_target,"loc", rTITLETEXT, format["You have been invited to join %1's group",name player], "PLAIN", 0] call RE;
+_msg = format["You have been invited to join %1's group", name player];
+_destPlayerUID = getPlayerUID _target;
+if(!isDedicated) then {call serverRelayHandler};
+serverRelaySystem = [MESSAGE_BROADCAST_MSG_TO_PLAYER, MESSAGE_BROADCAST_MSG_TYPE_GCHAT, _destPlayerUID, _msg];
+publicVariable "serverRelaySystem";
 
 player globalChat format["you have invited %1 to join the group",name _target];

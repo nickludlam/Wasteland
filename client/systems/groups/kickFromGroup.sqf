@@ -2,7 +2,7 @@
 //	@file Name: kickFromGroup.sqf
 //	@file Author: [404] Deadbeat
 //	@file Created: 20/11/2012 05:19
-
+#include "defines.hpp"
 #define groupManagementDialog 55510
 #define groupManagementGroupList 55512
 
@@ -27,3 +27,9 @@ if (_check == 0) exitWith {player globalChat "You must select someone to kick fi
 [_target] join grpNull;
 
 player globalChat format["You have kicked %1 from the group.",name _target];
+
+_msg = format["You have been kicked from %1's group", name player];
+_destPlayerUID = getPlayerUID _target;
+if(!isDedicated) then {call serverRelayHandler};
+serverRelaySystem = [MESSAGE_BROADCAST_MSG_TO_PLAYER, MESSAGE_BROADCAST_MSG_TYPE_GCHAT, _destPlayerUID, _msg];
+publicVariable "serverRelaySystem";

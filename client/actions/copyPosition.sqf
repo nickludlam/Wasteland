@@ -1,1 +1,1 @@
-copytoclipboard str (getpos player) 
+copytoclipboard str (getPosASL player) 

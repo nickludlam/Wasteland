@@ -267,6 +267,8 @@ player createDiaryRecord["changelog",
 - Added more food and water spawns<br/>
 - You can now drop all your money in one go<br/>
 - You drop 85% of your money on death, Bewilderbeest and His_Shadow take the rest as Stratis Federal tax. Don't get killed<br/>
+- New General Store in Kamino Settlement.<br/>
+- Empty crates are purchasable in the stores.<br/>
 "
 ]
 ];

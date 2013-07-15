@@ -163,7 +163,9 @@ accessoriesArray =
 	["RCO Sight","optic_Hamr", 500,"item"],
 	["ARCO Sight","optic_Arco", 500,"item"],
 	["MRCO Sight","optic_MRCO", 500,"item"],
-	["SOS Sight","optic_SOS", 2000,"item"]	
+	["SOS Sight","optic_SOS", 2000,"item"],
+	["Empty Crate","Box_NATO_Ammo_F", 250,"ammocrate"]
+	//["Empty Weapon Crate","Box_NATO_Wps_F", 50,"weaponcrate"]
 ]; 
 
 backpackArray =
@@ -413,7 +415,9 @@ genItemArray=
 	["Mine Detector","MineDetector",200,"item"],
 	["First Aid","FirstAidKit", 100,"item"],
 	["Medkit","Medikit", 550,"item"],
-	["Toolkit","ToolKit", 550,"item"]
+	["Toolkit","ToolKit", 550,"item"],
+	["Empty Crate","Box_NATO_Ammo_F", 250,"ammocrate"]
+	//["Empty Weapon Crate","Box_NATO_Wps_F", 250,"weaponcrate"]
 ];
 
 //Text name, classname, buy cost, spawn type, color

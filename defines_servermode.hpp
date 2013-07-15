@@ -11,6 +11,19 @@
 #define MESSAGE_BROADCAST_MSG_TO_PLAYER 1
 #define MESSAGE_BROADCAST_MSG_TO_ALL 2
 
+// Message Type Definitions
+/*
+	Defines what kind of message we are sending
+*/
+#define MESSAGE_BROADCAST_MSG_TYPE_TITLE 11
+#define MESSAGE_BROADCAST_MSG_TYPE_GCHAT 12
+
+// Purchased Crate Types
+/*
+	Defines what kind of crate was purchased
+*/
+#define PURCHASED_CRATE_TYPE_AMMO 60
+#define PURCHASED_CRATE_TYPE_WEAPON 61
 
 // Uncomment this when testing in the standalone server
 //#define __DEBUG__

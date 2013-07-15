@@ -95,6 +95,15 @@ class CfgIdentities
         pitch = 1.1;
     };
 	
+	class North_Gen
+    {
+        name = "North Gen";
+        face = "Face10";
+        glasses = "None";
+        speaker = "Male01ENG";
+        pitch = 1.1;
+    };
+	
 	class East_Gen
     {
         name = "East Gen";
@@ -174,6 +183,5 @@ class CfgIdentities
         glasses = "None";
         speaker = "Male01ENG";
         pitch = 1.1;
-    };
-	
+    };	
 };

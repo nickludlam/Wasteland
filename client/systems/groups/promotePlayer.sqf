@@ -3,6 +3,8 @@
 //	@file Author: [501] His_Shadow
 //	@file Created: 05/14/2013 01:54
 
+#include "defines.hpp"
+
 if(player != leader group player) exitWith {player globalChat format["you are not the leader and can't promote people"];};
 
 #define groupManagementDialog 55510
@@ -71,7 +73,11 @@ if(_cont == 1) then
 		[player] join (group _target);
 		
 		//notify the clients
-		[nil,_target,"loc", rTITLETEXT, "You have been promoted to group leader.", "PLAIN", 0] call RE;
+		_destPlayerUID = getPlayerUID _target;
+		_msg = "You have been promoted to group leader.";
+		if(!isDedicated) then {call serverRelayHandler};
+		serverRelaySystem = [MESSAGE_BROADCAST_MSG_TO_PLAYER, MESSAGE_BROADCAST_MSG_TYPE_GCHAT, _destPlayerUID, _msg];
+		publicVariable "serverRelaySystem";
 		player globalChat format["You have promoted %1 to group leader",name _target];
 	}
 	else

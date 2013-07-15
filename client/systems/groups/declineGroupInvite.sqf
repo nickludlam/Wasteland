@@ -26,7 +26,11 @@ private["_inviterUID","_inviter"];
 
 if(_groupExists) then
 {
-	_inviter globalChat format["%1 has declined your invite.", name player];
+	_destPlayerUID = getPlayerUID _inviter;
+	_msg = format["%1 has declined your invite.", name player];
+	if(!isDedicated) then {call serverRelayHandler};
+	serverRelaySystem = [MESSAGE_BROADCAST_MSG_TO_PLAYER, MESSAGE_BROADCAST_MSG_TYPE_GCHAT, _destPlayerUID, _msg];
+	publicVariable "serverRelaySystem";
 } else {
 	player globalChat format["The group no longer exists"];
 	};

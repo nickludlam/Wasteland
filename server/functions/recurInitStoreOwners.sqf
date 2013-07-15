@@ -31,6 +31,7 @@ while{_run} do
 							case "North VS":{_x setPos (_building buildingPos 4);};
 							case "South VS":{_x setPos (_building buildingPos 1);};
 							case "East GS":{_x setPos (_building buildingPos 6);};
+							case "North Gen":{_x setPos (_building buildingPos 0);};
 							case "West Gen":{_x setPos (_building buildingPos 0);};
 							case "East Gen":{_x setPos (_building buildingPos 6);};
 							case "East GenS":{_x setPos (_building buildingPos 0);};

@@ -62,6 +62,7 @@ while {true} do {
 	sleep 0.1;
 };
 
+_playerSide = side _foundPlayer;
 _playerSideName = 
 switch (_playerSide) do 
 {
@@ -88,7 +89,6 @@ _foundPlayer addMPEventHandler ["mpkilled", {[_this] call server_BountyDied;}];
 
 //get the variables so that if _foundPlayer instance changes we aren't fucked
 _playerName = name _foundPlayer;
-_playerSide = side _foundPlayer;
 _iterations = 0;
 _startTime = floor(time);
 _mission_state = BOUNTY_MISSION_ACTIVE;

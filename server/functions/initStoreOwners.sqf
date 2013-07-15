@@ -36,6 +36,7 @@ private ["_pos", "_name", "_men", "_run", "_fPos", "_fName", "_markerName", "_mP
 					case "West VS":{_x setPos (_building buildingPos 1);};
 					case "North VS":{_x setPos (_building buildingPos 4);};
 					case "South VS":{_x setPos (_building buildingPos 1);};
+					case "North Gen":{_x setPos (_building buildingPos 1);};
 					case "West Gen":{_x setPos (_building buildingPos 0);};
 					case "East Gen":{_x setPos (_building buildingPos 6);};
 					case "East GenS":{_x setPos (_building buildingPos 0);};

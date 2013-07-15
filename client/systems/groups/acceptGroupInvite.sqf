@@ -2,6 +2,7 @@
 //	@file Name: acceptGroupInvite.sqf
 //	@file Author: [404] Deadbeat
 //	@file Created: 20/11/2012 05:19
+#include "defines.hpp"
 
 private["_inviterUID","_inviter"];
 
@@ -30,7 +31,14 @@ if(_groupExists) then
 {
 	[player] join (group _inviter);
     player globalChat format["You have accepted the invite."];
-	_inviter globalChat format["%1 has accepted your invite.", name player];
+	
+	//broadcast that the player has accepted the invite to the inviter
+	_destPlayerUID = getPlayerUID _inviter;
+	_accepterName = name player;
+	_msg = format["%1 has accepted your invite", _accepterName];
+	if(!isDedicated) then {call serverRelayHandler};
+	serverRelaySystem = [MESSAGE_BROADCAST_MSG_TO_PLAYER, MESSAGE_BROADCAST_MSG_TYPE_GCHAT, _destPlayerUID, _msg];
+	publicVariable "serverRelaySystem";
 } else {
 	player globalChat format["The group no longer exists."];    
 }; 

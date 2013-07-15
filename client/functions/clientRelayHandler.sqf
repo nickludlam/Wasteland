@@ -25,23 +25,24 @@ _applyMissile =
 
 _msgToPlayer =
 {
-
-	private ["_playerUID", "_curUID", "_msg"];
-	_playerUID = _this select 0;
-	_msg = _this select 1;
+	private ["_type", "_playerUID", "_msg", "_curUID"];
+	_type = _this select 0;
+	_playerUID = _this select 1;
+	_msg = _this select 2;
 
 	_curUID = getPlayerUID player;
 	diag_log format["_msgToPlayer checking %1 == %2", _playerUID, _curUID];
-	if (_playerUID == _curUID) then {
-		// Display the message
-		titleText [_msg, "plain"]; titleFadeOut 10;
-	};
+	if (_playerUID != _curUID) exitWith {};
+	
+	if(_type == MESSAGE_BROADCAST_MSG_TYPE_TITLE) then{	titleText [_msg, "plain"]; titleFadeOut 10;};
+	if(_type == MESSAGE_BROADCAST_MSG_TYPE_GCHAT) then { player globalChat _msg; };
 };
 
 _msgToAllPlayers =
 {
-	private ["_msg"];
-	_msg = _this select 0;
+	private ["_type", "_msg"];
+	_type = _this select 0;
+	_msg = _this select 1;
 
 	diag_log format["_msgToAllPlayers %1", _msg];
 	hint _msg;
@@ -62,15 +63,16 @@ switch(_function) do
 
 	case MESSAGE_BROADCAST_MSG_TO_PLAYER:
 	{
-		_playerUID = serverRelaySystem select 1;
-		_msg = serverRelaySystem select 2;
-		[_playerUID, _msg] call _msgToPlayer;
+		_type = serverRelaySystem select 1;
+		_playerUID = serverRelaySystem select 2;
+		_msg = serverRelaySystem select 3;
+		[_type, _playerUID, _msg] call _msgToPlayer;
 	};
 
 	// NB: NOT YET FUNCTIONAL
 	case MESSAGE_BROADCAST_MSG_TO_ALL:
 	{
-		_msg = serverRelaySystem select 1;
+		_msg = serverRelaySystem select 2;
 		[_msg] call _msgToAllPlayers;
 	};
 };
