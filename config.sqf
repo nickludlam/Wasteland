@@ -451,7 +451,9 @@ armoredArray =
 
 tanksArray =
 [
-
+	// New vehicles in the dev branch
+	//["IFV-6c Panther","B_APC_Tracked_01_rcws_F",17000,"vehicle",""],
+	//["BTR-K Kamysh","O_APC_Tracked_02_cannon_F",17000,"vehicle",""]
 ];
 
 helicoptersArray =
