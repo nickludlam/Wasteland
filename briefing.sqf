@@ -269,6 +269,8 @@ player createDiaryRecord["changelog",
 - You drop 85% of your money on death, Bewilderbeest and His_Shadow take the rest as Stratis Federal tax. Don't get killed<br/>
 - New General Store in Kamino Settlement.<br/>
 - Empty crates are purchasable in the stores.<br/>
+- Transparent vehicles when bought without paint from vehicle stores fixed.<br/>
+- Server uptime added to player menu.<br/>
 "
 ]
 ];
