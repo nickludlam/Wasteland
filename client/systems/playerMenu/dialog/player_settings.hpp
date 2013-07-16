@@ -77,6 +77,14 @@ class playerSettings {
 			sizeEx = 0.025;
 			x = 0.03; y = 0.40;
 			w = 0.3; h = 0.02;
+		};	
+
+		class uptimeText : w_RscText {	
+			idc = uptime_text;
+			text = "TESTING TESTING";
+			sizeEx = 0.030;
+			x = 0.49; y = 0.69;
+			w = 0.225; h = 0.02;
 		};			
 	};
 	
@@ -116,8 +124,10 @@ class playerSettings {
 		};
 		
 		class CloseButton : w_RscButton {
+			idc = close_button;
 			text = "Close";
-			onButtonClick = "closeDialog 0;";
+			onButtonClick = "[] execVM 'client\systems\playerMenu\closePlayerMenu.sqf'";
+			//onButtonClick = "closeDialog 0;";
 			x = 0.02; y = 0.68;
 			w = 0.125; h = 0.033 * safezoneH;
 			color[] = {0.95,0.1,0.1,1};

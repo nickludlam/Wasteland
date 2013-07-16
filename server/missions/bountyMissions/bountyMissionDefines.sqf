@@ -7,14 +7,14 @@
 
 #ifdef __DEBUG__
 
-	#define bountyMissionTimeout 1800
+	#define bountyMissionTimeout 30
 	#define bountyMissionDelayTime 0
 
 #else
 
 	#define bountyMissionTimeout 1800
 	#define bountyMissionDelayTime 1800
-
+//1800
 #endif
 
 #define missionRadiusTrigger 50

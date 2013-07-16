@@ -41,8 +41,7 @@ _msgToPlayer =
 _msgToAllPlayers =
 {
 	private ["_type", "_msg"];
-	_type = _this select 0;
-	_msg = _this select 1;
+	_msg = _this select 0;
 
 	diag_log format["_msgToAllPlayers %1", _msg];
 	hint _msg;
@@ -72,7 +71,7 @@ switch(_function) do
 	// NB: NOT YET FUNCTIONAL
 	case MESSAGE_BROADCAST_MSG_TO_ALL:
 	{
-		_msg = serverRelaySystem select 2;
+		_msg = serverRelaySystem select 1;
 		[_msg] call _msgToAllPlayers;
 	};
 };

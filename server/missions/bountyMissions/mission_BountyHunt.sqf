@@ -90,15 +90,15 @@ _foundPlayer addMPEventHandler ["mpkilled", {[_this] call server_BountyDied;}];
 //get the variables so that if _foundPlayer instance changes we aren't fucked
 _playerName = name _foundPlayer;
 _iterations = 0;
-_startTime = floor(time);
 _mission_state = BOUNTY_MISSION_ACTIVE;
 //failed conditions 0 - null, 1-pass, 2-timeout, 3-tk, 4-suic
 
+_startTime = floor(time);
 waitUntil
 {
 	//only run the check every 10 seconds
     sleep 10; 
-	
+		
 	//only update the marker every 60 seconds
     _iterations = _iterations + 1;
 	if(_iterations == 6) then
@@ -120,9 +120,6 @@ waitUntil
 	};
     _mission_state != BOUNTY_MISSION_ACTIVE
 };
-
-// We're here, so now we're no longer active
-
  
 //properly get the killer and target side names for use below
 _killerSideName =
@@ -135,11 +132,8 @@ switch (bKillerSide) do
 	default {"Unknown"};
 };
 
-
 if (_mission_state == BOUNTY_MISSION_END_KILLED) then {
-
 	// Mission success: The bounty was killed, so issue awards
-
 	//the player and his team reap the rewards
 	_playerMoney = bKiller getVariable __MONEY_VAR_NAME__;
 	_playerMoney = _playerMoney + 10000;
@@ -160,7 +154,6 @@ if (_mission_state == BOUNTY_MISSION_END_KILLED) then {
 
 } else {
 	// Mission failed: Survived/Teamkilled/Suicided
-
 	// Phew, bounty target survived
 	if (_mission_state == BOUNTY_MISSION_END_SURVIVED) then {
 
@@ -185,7 +178,6 @@ if (_mission_state == BOUNTY_MISSION_END_KILLED) then {
 
 	// Unlucky
 	if (_mission_state == BOUNTY_MISSION_END_TEAMKILLED) then {
-
 		// Loop over each player on that side and remove their money and guns
 		{
 			if(side _x == bKillerSide)then

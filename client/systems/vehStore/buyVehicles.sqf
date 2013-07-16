@@ -62,9 +62,12 @@ _applyVehProperties =
 	if(_colorText == "Pink Camo") then {_texturePath = "images\camo_pank.jpg";};
 	_car setVariable ["textureName", _texturePath];
 	
-	if(!isDedicated) then {call serverRelayHandler};
-	serverRelaySystem = [MESSAGE_VEHICLE_PROPERTIES_APPLY, _car, _texturePath];
-	publicVariable "serverRelaySystem";
+	if(_texturePath != "") then
+	{
+		if(!isDedicated) then {call serverRelayHandler};
+		serverRelaySystem = [MESSAGE_VEHICLE_PROPERTIES_APPLY, _car, _texturePath];
+		publicVariable "serverRelaySystem";
+	};
 
 	//tell the vehicle to delete itself after dying
 	_car addEventHandler ["Killed",{(_this select 0) spawn {sleep 180; deleteVehicle _this}}];

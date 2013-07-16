@@ -38,6 +38,7 @@ loadGunStore = compile preprocessFileLineNumbers "client\systems\gunStore\loadGu
 loadVehStore = compile preprocessFileLineNumbers "client\systems\vehStore\loadvehStore.sqf";
 client_respawnDialog = compile preprocessFileLineNumbers "client\functions\loadRespawnDialog.sqf";
 loadGeneralStore = compile preprocessFileLineNumbers "client\systems\generalStore\loadGenStore.sqf";
+pMenuKeyPressed = compile preprocessFile "client\systems\playerMenu\keyPressed.sqf";
 
 player groupChat "Client Compile Complete";
 sleep 1;

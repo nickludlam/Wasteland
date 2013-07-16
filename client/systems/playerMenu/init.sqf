@@ -10,10 +10,12 @@ private["_Dialog","_foodtext","_watertext","_moneytext","_mvalue","_rogue", "_mo
 
 _money = player getVariable __MONEY_VAR_NAME__;
 _moneyStr = format["%1", _money];
+pMenuActive = true;
 
 _playerDialog = createDialog "playerSettings";
 
 _Dialog = findDisplay playersys_DIALOG;
+_Dialog displaySetEventHandler ["KeyDown", "_this call pMenuKeyPressed"];
 _foodtext = _Dialog displayCtrl food_text;
 _watertext = _Dialog displayCtrl water_text;
 _moneytext = _Dialog displayCtrl money_text;
@@ -47,3 +49,10 @@ lbSetCurSel [_mvalue, 0]; // Does this even fuckin work
 // {
 // 	_groupButton ctrlShow false;    
 // };
+
+while {pMenuActive} do
+{
+    _uptimeText = [time/60/60] call BIS_fnc_timeToString;
+    _uptime ctrlSetText format["Server Uptime: %1", _uptimeText];
+	sleep 0.1;
+};
