@@ -89,7 +89,9 @@ _foundPlayer addMPEventHandler ["mpkilled", {[_this] call server_BountyDied;}];
 
 //get the variables so that if _foundPlayer instance changes we aren't fucked
 _playerName = name _foundPlayer;
+_destPlayerUID = getPlayerUID _foundPlayer;
 _iterations = 0;
+_timeLeftIterations = 0;
 _mission_state = BOUNTY_MISSION_ACTIVE;
 //failed conditions 0 - null, 1-pass, 2-timeout, 3-tk, 4-suic
 
@@ -101,6 +103,7 @@ waitUntil
 		
 	//only update the marker every 60 seconds
     _iterations = _iterations + 1;
+	_timeLeftIterations = _timeLeftIterations + 1;
 	if(_iterations == 6) then
 	{
 		_iterations = 0;
@@ -109,6 +112,23 @@ waitUntil
 	
 	//check to see if we've timed out
 	_currTime = (floor time);
+	if(_timeLeftIterations == 42) then
+	{
+		_timeLeftIterations = 0;
+		_mins = (bountyMissionTimeout - (_currTime - _startTime));
+		_units = "seconds";
+		if(_mins > 60) then
+		{
+			_mins = _mins / 60;
+			_mins =  round _mins;
+			_units = "minutes";
+			if(_mins == 1) then {_units = "minute";};
+		};
+		_hint = parseText format ["<t align='center' color='%2' shadow='2' size='1.75'>Bounty Hunt Update</t><br/><t align='center' color='%2'>------------------------------</t><br/><t color='%3' size='1.0'>%1 on %4 has a bounty on his head.<br/> There is only %5 %6 left.</t>", name _foundPlayer, bountyMissionColor, subTextColor, _playerSideName, _mins, _units];
+		messageSystem = _hint;
+		if (!isDedicated) then { call serverMessage };
+		publicVariable "messageSystem";
+	};
     if (_currTime - _startTime >= bountyMissionTimeout) then { _mission_state = BOUNTY_MISSION_END_SURVIVED; };
 
 	//check to see if this player has been killed by someone

@@ -11,10 +11,8 @@ diag_log format["WASTELAND SERVER - Side Mission Waiting to run: %1", _missionTy
 [sideMissionDelayTime] call createWaitCondition;
 diag_log format["WASTELAND SERVER - Side Mission Resumed: %1", _missionType];
 
-_groupsm = createGroup civilian;
-
 _createVehicle = {
-    private ["_type","_position","_direction","_groupsm","_vehicle","_soldier"];
+    private ["_type","_position","_direction","_groupsm","_vehicle","_soldier", "_soldier2", "_soldier3", "_soldier1"];
     
     _type = _this select 0;
     _position = _this select 1;
@@ -28,35 +26,27 @@ _createVehicle = {
     
     _soldier = [_groupsm, _position] call createRandomPilot; 
     _soldier moveInDriver _vehicle;
-	if(_type == "O_Heli_Attack_02_F") then
-	{
-		_soldier2 = [_grouphsq, _position] call createRandomPilot;
-		_soldier2 moveInGunner _vehicle;
-	};
-	if(_type == "O_Heli_Attack_02_black_F") then
-	{
-		_soldier2 = [_grouphsq, _position] call createRandomPilot;
-		_soldier2 moveInGunner _vehicle;
-	};
+	
+	_soldier1 = nil;
+	_soldier2 = nil;
+	_soldier3 = nil;
+	if(_type in ["O_Heli_Attack_02_F", "O_Heli_Attack_02_black_F"]) then { _soldier1 = [_groupsm, _position] call createRandomPilot; };
 	if(_type == "B_Heli_Transport_01_F") then
 	{
-		_soldier2 = [_grouphsq, _position] call createRandomPilot;
-		_soldier2 moveInGunner _vehicle;
-		_soldier3 = [_grouphsq, _position] call createRandomPilot;
+		_soldier2 = [_groupsm, _position] call createRandomPilot;
+		_soldier3 = [_groupsm, _position] call createRandomPilot;
 		_soldier3 assignAsGunner _vehicle;
-		_soldier3 moveInCargo _vehicle;
 	};
-	if(_type == "B_Heli_Attack_01_F") then
-	{
-		_soldier1 = [_grouphsq, _position] call createRandomPilot;
-		_soldier1 moveInCargo _vehicle;
-	};
-	
+	if(_type == "B_Heli_Attack_01_F") then { _soldier3 = [_groupsm, _position] call createRandomPilot; };
+	if (!isNil "_soldier1") then {_soldier1 moveInGunner _vehicle;};
+	if (!isNil "_soldier2") then {_soldier2 moveInGunner _vehicle;};
+	if (!isNil "_soldier3") then {_soldier3 moveInCargo _vehicle;};
     _vehicle
 };
 
 _vehicles = [];
 _vehicleClass = ["B_Heli_Transport_01_F","B_Heli_Light_01_armed_F","O_Heli_Light_02_F","B_Heli_Attack_01_F", "O_Heli_Attack_02_F", "O_Heli_Attack_02_black_F"] call BIS_fnc_selectRandom;
+_groupsm = createGroup civilian;
 _vehicles set [0, [_vehicleClass, [2436.24,847.9,0.00133419], 110, _groupsm] call _createVehicle];
 
 _leader = driver (_vehicles select 0);
@@ -69,21 +59,34 @@ _groupsm setFormation "STAG COLUMN";
 _groupsm setSpeedMode "LIMITED";
 
 _waypoints = [
-    [7096.54,5961.44,0.0016098],
-    [6421.47,5425.19,0.00143147],
-    [4368.64,3818.18,0.00146484],
-    [5027.28,5904.69,0.00134277],
-    [2695.63,5802.37,0.00144649],
-    [1955.14,3525.81,0.00142336],
-    [2984.66,1869.46,0.00144958],
-    [4601.99,5296.73,0.00160217],
-    [4368.64,3818.18,0.00146484],
-    [5027.28,5904.69,0.00134277],
-    [2695.63,5802.37,0.00144649],
-    [1955.14,3525.81,0.00142336],
-    [2984.66,1869.46,0.00144958],
-    [4601.99,5296.73,0.00160217],
-    [1886.15,5728.88,0.00145006]
+	[2684.03,1023.94,0.0016098],
+	[2832.09,2095.15,0.0016098],
+	[1957.78,2472.15,18.9732],
+	[2894.1,2203.47,82.2332],
+	[3546.84,2043.99,30.1277],
+	[3005.17,2661.56,158.849],
+	[1986.16,2725.49,2.71976],
+	[3033.41,2933.82,184.359],
+	[4276.98,2678.09,2.54875],
+	[5380.24,3778.89,4.272],
+	[4309.09,4311.8,171.08],
+	[3547.16,4899.02,198.805],
+	[2025.93,5316.72,3.00144],
+	[2113.17,5819.55,5.44485],
+	[3066.7,6034.5,4.6925],
+	[4611.05,5302.76,129.993],
+	[5155.14,4971.72,215.788],
+	[5522.43,4715.22,77.9704],
+	[5522.43,4715.22,77.9704],
+	[6396.9,5359.07,8.02473],
+	[7081.3,5939.09,7.8737],
+	[6054.19,5596.88,18.4],
+	[5019.93,5912.98,208.608],
+	[4503.45,6790.5,106.502],
+	[3245.63,6826.87,4.09818],
+	[3678.8,7600.36,50.6566],
+	[3797.66,4300.41,128.483],
+	[2618.91,550.284,51.626]
 ];
 {
     _waypoint = _groupsm addWaypoint [_x, 0];

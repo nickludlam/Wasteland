@@ -14,6 +14,8 @@
 
 	#define bountyMissionTimeout 1800
 	#define bountyMissionDelayTime 1800
+	//#define bountyMissionTimeout 230
+	//#define bountyMissionDelayTime 0
 //1800
 #endif
 
