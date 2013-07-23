@@ -354,8 +354,8 @@ uniformArray=
 	["Polo tri-color","U_C_Poloshirt_tricolour", 50,"uni"],
 	["Polo Blue","U_C_Poloshirt_blue", 50,"uni"],
 	["Polo Burgundy","U_C_Poloshirt_burgundy", 50,"uni"],
-	["Polo Stripped","U_C_Poloshirt_stripped", 50,"uni"],
-	["Underwear","U_BasicBody", 20,"uni"]
+	["Polo Stripped","U_C_Poloshirt_stripped", 50,"uni"]
+	//["Underwear","U_BasicBody", 20,"uni"]
 	//["Underwear 1","U_NikosBody", 20,"uni"],
 	//["Underwear 2","U_MillerBody", 20,"uni"],
 	//["Underwear 3","U_KerryBody", 20,"uni"],
@@ -385,8 +385,8 @@ vestArray=
 	["LBV Gren Harness", "V_HarnessOGL_brn", 250, "vest"],
 	//["LBV Gren Harness (Gray)", "V_HarnessOGL_gry", 250, "vest"],
 	["Chest Rig (Khaki)","V_Chestrig_khk", 300,"vest"],
-	["Slash Bandolier (Coyote)","V_BandollierB_cbr", 100,"vest"],
-	["Slash Bandolier (Green)","V_BandollierB_rgr", 100,"vest"],
+	//["Slash Bandolier (Coyote)","V_BandollierB_cbr", 100,"vest"],
+	//["Slash Bandolier (Green)","V_BandollierB_rgr", 100,"vest"],
 	["Slash Bandolier (Khaki)","V_BandollierB_khk", 100,"vest"],
 	["Slash Bandolier (Olive)","V_BandollierB_oli", 100,"vest"],
 	["Tactical Vest (Black)","V_TacVest_blk", 100,"vest"],
