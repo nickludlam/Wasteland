@@ -16,9 +16,7 @@ _MoneyMissions = [
 				 [mission_MobMoney, "mission_MobMoney"],
 				 [mission_SunkenTreasure, "mission_SunkenTreasure"]
                 ];
-//_MoneyMissions = [[mission_HostileHeliFormation,"mission_HostileHeliFormation"]];//,
-//				   [mission_APC,"mission_APC"]];[mission_MoneyShipment, "mission_MoneyShipment"]
-//[mission_Outpost,"mission_Outpost"][mission_Insurgence, "mission_Insurgence"]
+//_MoneyMissions = [[mission_MoneyShipment, "mission_MoneyShipment"]];
 _notPlayedMoneyMissions = +_MoneyMissions;
 
 while {true} do

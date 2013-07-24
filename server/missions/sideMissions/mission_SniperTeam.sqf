@@ -68,7 +68,7 @@ if(_result == 1) then
 	_randomPos = [0,0,0];
 	{_randomPos = position _x; deleteVehicle _x;}forEach units CivGrpS;
     deleteGroup CivGrpS;
-	_sbox = createVehicle ["Box_NATO_Support_F",[(_randomPos select 0), (_randomPos select 1),0],[], 0, "NONE"];
+	_sbox = createVehicle ["Box_EAST_WpsSpecial_F",[(_randomPos select 0), (_randomPos select 1),0],[], 0, "NONE"];
     [_sbox,"mission_Main_A3snipers"] call fn_refillbox;
     _hint = parseText format ["<t align='center' color='%2' shadow='2' size='1.75'>Objective Complete</t><br/><t align='center' color='%2'>------------------------------</t><br/><t align='center' color='%3' size='1.25'>%1</t><br/><t align='center' color='%3'>The snipers have been taken out.</t>", _missionType, successMissionColor, subTextColor];
 	messageSystem = _hint;

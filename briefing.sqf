@@ -271,6 +271,9 @@ player createDiaryRecord["changelog",
 - Empty crates are purchasable in the stores.<br/>
 - Transparent vehicles when bought without paint from vehicle stores fixed.<br/>
 - Server uptime added to player menu.<br/>
+- When pressing tilde the player menu no longer lags.<br/>
+- Mission crate rewards now have better equipment.<br/>
+- Sniper team now features 4 snipers.<br/>
 "
 ]
 ];

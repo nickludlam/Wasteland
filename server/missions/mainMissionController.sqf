@@ -19,7 +19,7 @@ _MainMissions = [
 				 [mission_Convoy,"mission_Convoy"],
                  [mission_APC, "mission_APC"]
                 ];
-//_MainMissions = [[mission_HostileHeliFormation,"mission_HostileHeliFormation"]];//,
+//_MainMissions = [[mission_ArmedHeli,"mission_ArmedHeli"]];//,
 //				   [mission_APC,"mission_APC"]];[mission_MoneyShipment, "mission_MoneyShipment"]
 //[mission_Outpost,"mission_Outpost"][mission_Insurgence, "mission_Insurgence"]
 //				 [mission_HostileHeliFormation,"mission_HostileHeliFormation"],

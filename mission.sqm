@@ -9950,7 +9950,7 @@ class Mission
 			timeoutMax=300;
 			interruptable=1;
 			age="UNKNOWN";
-			expActiv="""s1_11"" setmarkercolor ""colorblue"";titleText [""Blufor has captured PalmBeatz Impoundlot"",""PLAIN"", 3]; titleFadeOut 3;  _handle = [west, 200] execVM ""giveCaptureMoney.sqf""; ";
+			expActiv="""s1_11"" setmarkercolor ""colorblue"";titleText [""Blufor has captured Davis' Impoundlot"",""PLAIN"", 3]; titleFadeOut 3;  _handle = [west, 200] execVM ""giveCaptureMoney.sqf""; ";
 			class Effects
 			{
 				voice="HintsOpen";
@@ -9969,7 +9969,7 @@ class Mission
 			timeoutMax=300;
 			interruptable=1;
 			age="UNKNOWN";
-			expActiv="""s1_11"" setmarkercolor ""colorred"";titleText [""Opfor has captured PalmBeatz Impoundlot"",""PLAIN"", 3]; titleFadeOut 3;  _handle = [east, 200] execVM ""giveCaptureMoney.sqf""; ";
+			expActiv="""s1_11"" setmarkercolor ""colorred"";titleText [""Opfor has captured Davis' Impoundlot"",""PLAIN"", 3]; titleFadeOut 3;  _handle = [east, 200] execVM ""giveCaptureMoney.sqf""; ";
 			class Effects
 			{
 				voice="HintsOpen";
@@ -9988,7 +9988,7 @@ class Mission
 			timeoutMax=300;
 			interruptable=1;
 			age="UNKNOWN";
-			expActiv="""s1_11"" setmarkercolor ""colorgreen"";titleText [""Gfor has captured PalmBeatz Impoundlot"",""PLAIN"", 3]; titleFadeOut 3; _handle = [resistance, 200] execVM ""giveCaptureMoney.sqf"";  ";
+			expActiv="""s1_11"" setmarkercolor ""colorgreen"";titleText [""Gfor has captured Davis' Impoundlot"",""PLAIN"", 3]; titleFadeOut 3; _handle = [resistance, 200] execVM ""giveCaptureMoney.sqf"";  ";
 			class Effects
 			{
 				voice="HintsOpen";

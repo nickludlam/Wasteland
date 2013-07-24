@@ -44,6 +44,9 @@ _box = createVehicle ["Box_NATO_Support_F",[(_randomPos select 0), (_randomPos s
 _box2 = createVehicle ["Box_East_Support_F",[(_randomPos select 0), (_randomPos select 1) - 10,0],[], 0, "NONE"];
 [_box2,"mission_Side_USSpecial"] call fn_refillbox;
 
+_box3 = createVehicle ["Box_IND_WpsSpecial_F",[(_randomPos select 0), (_randomPos select 1) - 15,0],[], 0, "NONE"];
+[_box3,"mission_Mid_BAF"] call fn_refillbox;
+
 _hint = parseText format ["<t align='center' color='%2' shadow='2' size='1.75'>Side Objective</t><br/><t align='center' color='%2'>------------------------------</t><br/><t align='center' color='%3' size='1.25'>%1</t><br/><t align='center' color='%3'>A supply drop has been spotted near the marker</t>", _missionType,  sideMissionColor, subTextColor];
 messageSystem = _hint;
 publicVariable "messageSystem";

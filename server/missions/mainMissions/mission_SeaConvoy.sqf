@@ -246,11 +246,12 @@ if(_failed) then
 	_cash0 setVariable[__MONEYBAG_VAR_NAME__,5000,true];
 	_cash0 setVariable["owner","world",true];
 	
-    _ammobox = "Box_NATO_Wps_F" createVehicle getMarkerPos _marker;
+    _ammobox = "Box_NATO_WpsSpecial_F" createVehicle getMarkerPos _marker;
     clearMagazineCargoGlobal _ammobox;
     clearWeaponCargoGlobal _ammobox; 
     [_ammobox,"mission_USSpecial2"] call fn_refillbox;
-    _ammobox2 = "Box_NATO_Wps_F" createVehicle getMarkerPos _marker;
+	
+    _ammobox2 = "Box_EAST_WpsSpecial_F" createVehicle getMarkerPos _marker;
     clearMagazineCargoGlobal _ammobox2;
     clearWeaponCargoGlobal _ammobox2; 
     [_ammobox2,"mission_USLaunchers2"] call fn_refillbox;

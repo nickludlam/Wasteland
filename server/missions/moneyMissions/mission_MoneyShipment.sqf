@@ -22,9 +22,17 @@ _vehicle addEventHandler ["IncomingMissile", "hint format['Incoming Missile Laun
 _vehicle setDir 91;
 _vehicle setVariable ["newVehicle",1,true];
 
+_vehicle2 = "B_MRAP_01_hmg_F" createVehicle [2057.48,5829.53,5.39773];
+_vehicle2 addEventHandler ["IncomingMissile", "hint format['Incoming Missile Launched By: %1', name (_this select 2)]"];
+_vehicle2 setDir 91;
+_vehicle2 setVariable ["newVehicle",1,true];
+
 clearMagazineCargoGlobal _vehicle;
 clearWeaponCargoGlobal _vehicle;
+clearMagazineCargoGlobal _vehicle2;
+clearWeaponCargoGlobal _vehicle2;
 _grouphsq addVehicle _vehicle;
+_grouphsq addVehicle _vehicle2;
 
 _soldier1 = [_grouphsq, [2090.59,5823.05,5.41]] call createRandomSoldier; 
 _soldier1 moveInDriver _vehicle;
@@ -32,6 +40,13 @@ _soldier2 = [_grouphsq, [2090.59,5823.05,5.41]] call createRandomSoldier;
 _soldier2 moveInCargo [_vehicle, 0];
 _soldier3 = [_grouphsq, [2090.59,5823.05,5.41]] call createRandomSoldier;
 _soldier3 moveInTurret [_vehicle, [0,0]];
+
+_soldier4 = [_grouphsq, [2057.48,5829.53,5.39773]] call createRandomSoldier; 
+_soldier4 moveInDriver _vehicle2;
+_soldier5 = [_grouphsq, [2057.48,5829.53,5.39773]] call createRandomSoldier; 
+_soldier5 moveInCargo [_vehicle2, 0];
+_soldier6 = [_grouphsq, [2057.48,5829.53,5.39773]] call createRandomSoldier;
+_soldier6 moveInTurret [_vehicle2, [0,0]];
 
 _leader = driver (_vehicle);
 _grouphsq selectLeader _leader;
@@ -84,9 +99,27 @@ _marker3 setMarkerSize [1.25, 1.25];
 _marker3 setMarkerColor "ColorRed";
 _marker3 setMarkerText "Money Shipment";
 
+_marker4 = createMarker ["MoneyShipment4", position _soldier4];
+_marker4 setMarkerType "mil_destroy";
+_marker4 setMarkerSize [1.25, 1.25];
+_marker4 setMarkerColor "ColorRed";
+_marker4 setMarkerText "Money Shipment";
+
+_marker5 = createMarker ["MoneyShipment5", position _soldier5];
+_marker5 setMarkerType "mil_destroy";
+_marker5 setMarkerSize [1.25, 1.25];
+_marker5 setMarkerColor "ColorRed";
+_marker5 setMarkerText "Money Shipment";
+
+_marker6 = createMarker ["MoneyShipment6", position _soldier6];
+_marker6 setMarkerType "mil_destroy";
+_marker6 setMarkerSize [1.25, 1.25];
+_marker6 setMarkerColor "ColorRed";
+_marker6 setMarkerText "Money Shipment";
+
 _picture = getText (configFile >> "CfgVehicles" >> "B_MRAP_01_gmg_F" >> "picture");
 _vehicleName = getText (configFile >> "cfgVehicles" >> "B_MRAP_01_gmg_F" >> "displayName");
-_hint = parseText format ["<t align='center' color='%4' shadow='2' size='1.75'>Money Objective</t><br/><t align='center' color='%4'>------------------------------</t><br/><t align='center' color='%5' size='1.25'>%1</t><br/><t align='center'><img size='5' image='%2'/></t><br/><t align='center' color='%5'>A <t color='%4'>%3</t> is carrying $5,000. Stop them and claim the money!</t>", _missionType, _picture, _vehicleName, moneyMissionColor, subTextColor];
+_hint = parseText format ["<t align='center' color='%4' shadow='2' size='1.75'>Money Objective</t><br/><t align='center' color='%4'>------------------------------</t><br/><t align='center' color='%5' size='1.25'>%1</t><br/><t align='center'><img size='5' image='%2'/></t><br/><t align='center' color='%5'>A <t color='%4'>%3</t> is carrying $10,000. Stop them and claim the money!</t>", _missionType, _picture, _vehicleName, moneyMissionColor, subTextColor];
 messageSystem = _hint;
 if (!isDedicated) then { call serverMessage };
 publicVariable "messageSystem";
@@ -99,9 +132,16 @@ _numWaypoints = count waypoints _grouphsq;
 _laid1 = 0;
 _laid2 = 0;
 _laid3 = 0;
+_laid4 = 0;
+_laid5 = 0;
+_laid6 = 0;
 _cash1 = nil;
 _cash2 = nil;
 _cash3 = nil;
+_cash4 = nil;
+_cash5 = nil;
+_cash6 = nil;
+
 waitUntil
 {
     private ["_unitsAlive"];
@@ -111,6 +151,9 @@ waitUntil
     _marker1 setMarkerPos (position  _soldier1);
 	_marker2 setMarkerPos (position  _soldier2);
 	_marker3 setMarkerPos (position  _soldier3);
+	_marker4 setMarkerPos (position  _soldier4);
+	_marker5 setMarkerPos (position  _soldier5);
+	_marker6 setMarkerPos (position  _soldier6);
     
     if ((floor time) - _startTime >= moneyMissionTimeout) then { _failed = true };
     if (currentWaypoint _grouphsq >= _numWaypoints) then { _failed = true }; // Convoy got successfully to the target location
@@ -119,7 +162,7 @@ waitUntil
 	if((!alive _soldier1) AND (_laid1 == 0)) then
 	{
 	 _pos = (getMarkerPos _marker1);
-	 _cash1 = "Land_Sack_F" createVehicle _pos; _cash setPos _pos;
+	 _cash1 = "Land_Sack_F" createVehicle _pos; _cash1 setPos _pos;
      _cash1 setVariable[__MONEYBAG_VAR_NAME__,2000,true];
      _cash1 setVariable["owner","world",true];
 	 _laid1 = 1;
@@ -128,7 +171,7 @@ waitUntil
 	if((!alive _soldier2) AND (_laid2 == 0))then
 	{
 	 _pos = (getMarkerPos _marker2);
-	 _cash2 = "Land_Sack_F" createVehicle _pos; _cash setPos _pos;
+	 _cash2 = "Land_Sack_F" createVehicle _pos; _cash2 setPos _pos;
      _cash2 setVariable[__MONEYBAG_VAR_NAME__,2000,true];
      _cash2 setVariable["owner","world",true];
 	 _laid2 = 1;
@@ -137,14 +180,41 @@ waitUntil
 	if((!alive _soldier3) AND (_laid3 == 0))then
 	{
 	 _pos = (getMarkerPos _marker3);
-	 _cash3 = "Land_Sack_F" createVehicle _pos; _cash setPos _pos;
-     _cash3 setVariable[__MONEYBAG_VAR_NAME__,1000,true];
+	 _cash3 = "Land_Sack_F" createVehicle _pos; _cash3 setPos _pos;
+     _cash3 setVariable[__MONEYBAG_VAR_NAME__,2000,true];
      _cash3 setVariable["owner","world",true];
 	 _laid3 = 1;
 	};
 	
+	if((!alive _soldier4) AND (_laid4 == 0)) then
+	{
+	 _pos = (getMarkerPos _marker4);
+	 _cash4 = "Land_Sack_F" createVehicle _pos; _cash4 setPos _pos;
+     _cash4 setVariable[__MONEYBAG_VAR_NAME__,2000,true];
+     _cash4 setVariable["owner","world",true];
+	 _laid4 = 1;
+	};
+	
+	if((!alive _soldier5) AND (_laid5 == 0))then
+	{
+	 _pos = (getMarkerPos _marker5);
+	 _cash5 = "Land_Sack_F" createVehicle _pos; _cash5 setPos _pos;
+     _cash5 setVariable[__MONEYBAG_VAR_NAME__,1000,true];
+     _cash5 setVariable["owner","world",true];
+	 _laid5 = 1;
+	};
+	
+	if((!alive _soldier6) AND (_laid6 == 0))then
+	{
+	 _pos = (getMarkerPos _marker6);
+	 _cash6 = "Land_Sack_F" createVehicle _pos; _cash6 setPos _pos;
+     _cash6 setVariable[__MONEYBAG_VAR_NAME__,1000,true];
+     _cash6 setVariable["owner","world",true];
+	 _laid6 = 1;
+	};
+	
 	_moneyUp = false;
-	if((_laid1 == 1) AND (_laid2 == 1) AND (_laid3 == 1) AND (!alive _cash1) AND (!alive _cash2) AND (!alive _cash3)) then
+	if((_laid1 == 1) AND (_laid2 == 1) AND (_laid3 == 1) AND (_laid4 == 1) AND (_laid5 == 1) AND (_laid6 == 1) AND (!alive _cash1) AND (!alive _cash2) AND (!alive _cash3) AND (!alive _cash4) AND (!alive _cash5) AND (!alive _cash6)) then
 	{
 	 _moneyUp = true;
 	}
@@ -157,6 +227,7 @@ if(_failed) then
 {	
     // Mission failed
     deleteVehicle (_vehicle);
+	deleteVehicle (_vehicle2);
 	{deleteVehicle _x;}forEach units _grouphsq; 
 	deleteGroup _grouphsq; 
     _hint = parseText format ["<t align='center' color='%4' shadow='2' size='1.75'>Objective Failed</t><br/><t align='center' color='%4'>------------------------------</t><br/><t align='center' color='%5' size='1.25'>%1</t><br/><t align='center'><img size='5' image='%2'/></t><br/><t align='center' color='%5'>Objective failed, better luck next time.</t>", _missionType, _picture, _vehicleName, failMissionColor, subTextColor];
@@ -167,6 +238,7 @@ if(_failed) then
 } else {
     // Mission complete
 	if(!alive _vehicle) then {deleteVehicle (_vehicle)};
+	if(!alive _vehicle2) then {deleteVehicle (_vehicle2)};
 	{deleteVehicle _x;}forEach units _grouphsq; 
 	deleteGroup _grouphsq; 
 	
@@ -180,4 +252,7 @@ if(_failed) then
 deleteMarker _marker1;
 deleteMarker _marker2;
 deleteMarker _marker3;
+deleteMarker _marker4;
+deleteMarker _marker5;
+deleteMarker _marker6;
 

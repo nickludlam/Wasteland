@@ -55,8 +55,8 @@ launcherArray =
     //Rocket
 	["PCML","launch_NLAW_F",800,400],
 	["RPG-42 Alamut","launch_RPG32_F",800,400],
-	["Titan MPRL","launch_Titan_F",1000,500],
-	["Titan MPRL Compact","launch_Titan_short_F",900,500]
+	["Titan MPRL Compact","launch_Titan_short_F",900,500],
+	["Titan MPRL","launch_Titan_F",1000,500]
 ]; 
 
 throwputArray =

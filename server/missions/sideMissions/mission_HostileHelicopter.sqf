@@ -143,12 +143,14 @@ if(_failed) then
     publicVariable "messageSystem";
     diag_log format["WASTELAND SERVER - Side Mission Failed: %1",_missionType];
 } else {
-    // Mission complete
-	{if(!alive _x) then {deleteVehicle _x;};}forEach _vehicles;
-    _ammobox = "Box_NATO_Wps_F" createVehicle getMarkerPos _marker;
-    clearMagazineCargoGlobal _ammobox;
-    clearWeaponCargoGlobal _ammobox; 
-    [_ammobox,"mission_Side_USSpecial"] call fn_refillbox;
+    // Mission complete	
+	{
+		_pos = getPosASL _x;
+		_ammobox = "Box_IND_Wps_F" createVehicle [_pos select 0, _pos select 1, (_pos select 2) -10];
+		[_ammobox,"mission_Mid_BAF"] call fn_refillbox;
+		if(!alive _x) then {deleteVehicle _x;};
+	}forEach _vehicles;
+	
     _hint = parseText format ["<t align='center' color='%4' shadow='2' size='1.75'>PATROL IS DOWN</t><br/><t align='center' color='%4'>------------------------------</t><br/><t align='center' color='%5' size='1.25'>%1</t><br/><t align='center'><img size='5' image='%2'/></t><br/><t align='center' color='%5'>The sky is clear agian, the enemy patrol was taken out!</t>", _missionType, _picture, _vehicleName, successMissionColor, subTextColor];
     messageSystem = _hint;
     if (!isDedicated) then { call serverMessage };

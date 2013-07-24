@@ -29,21 +29,21 @@ _cash0 = createVehicle ["Land_Sack_F", _posRand, [], 0, "CAN_COLLIDE"];
 _objects =  nearestObjects [_cash0, ["house"], 30];
 _cash0 setPos _posRand;
 _cash0 setPos ((_objects select 0) buildingPos 0);
-_cash0 setVariable[__MONEYBAG_VAR_NAME__,2000,true];
+_cash0 setVariable[__MONEYBAG_VAR_NAME__,3000,true];
 _cash0 setVariable["owner","world",true];
 _cash0 setVariable ["newVehicle",1,true];
 
 _cash1 = createVehicle ["Land_Sack_F", _posRand, [], 0, "CAN_COLLIDE"]; 
 _cash1 setPos _posRand;
 _cash1 setPos ((_objects select 0) buildingPos 1);
-_cash1 setVariable[__MONEYBAG_VAR_NAME__,2000,true];
+_cash1 setVariable[__MONEYBAG_VAR_NAME__,3000,true];
 _cash1 setVariable["owner","world",true];
 _cash1 setVariable ["newVehicle",1,true];
 
 _cash2 = createVehicle ["Land_Sack_F", _posRand, [], 0, "CAN_COLLIDE"]; 
 _cash2 setPos _posRand;
 _cash2 setPos ((_objects select 0) buildingPos 2);
-_cash2 setVariable[__MONEYBAG_VAR_NAME__,1000,true];
+_cash2 setVariable[__MONEYBAG_VAR_NAME__,4000,true];
 _cash2 setVariable["owner","world",true];
 _cash2 setVariable ["newVehicle",1,true];
 
@@ -68,7 +68,7 @@ _cash2 setVariable ["newVehicle",1,true];
 //_marker setMarkerColor "ColorRed";
 //_marker setMarkerText _missionType;
 
-_hint = parseText format ["<t align='center' color='%2' shadow='2' size='1.75'>Money Objective</t><br/><t align='center' color='%2'>------------------------------</t><br/><t align='center' color='%3' size='1.25'>%1</t><br/><t align='center' color='%3'>$5,000 in mob money has been spotted. Go get it!</t>", _missionType,  moneyMissionColor, subTextColor];
+_hint = parseText format ["<t align='center' color='%2' shadow='2' size='1.75'>Money Objective</t><br/><t align='center' color='%2'>------------------------------</t><br/><t align='center' color='%3' size='1.25'>%1</t><br/><t align='center' color='%3'>$10,000 in mob money has been spotted. Go get it!</t>", _missionType,  moneyMissionColor, subTextColor];
 messageSystem = _hint;
 publicVariable "messageSystem";
 

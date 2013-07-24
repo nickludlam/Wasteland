@@ -316,6 +316,7 @@ R3F_LOG_CFG_objets_deplacables = [
 	"O_Lifeboat",
     "C_Rubberboat",
 	"O_Boat_Transport_01_F",
+	"I_Boat_Transport_01_F",
 	"Land_Sack_F",
 	"Land_Coil_F",
 	"Land_Pipes_Large_F",
