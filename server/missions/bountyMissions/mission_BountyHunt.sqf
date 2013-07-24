@@ -117,6 +117,7 @@ waitUntil
 		_timeLeftIterations = 0;
 		_mins = (bountyMissionTimeout - (_currTime - _startTime));
 		_units = "seconds";
+		_junction = "are";
 		if(_mins > 60) then
 		{
 			_mins = _mins / 60;
@@ -124,7 +125,8 @@ waitUntil
 			_units = "minutes";
 			if(_mins == 1) then {_units = "minute";};
 		};
-		_hint = parseText format ["<t align='center' color='%2' shadow='2' size='1.75'>Bounty Hunt Update</t><br/><t align='center' color='%2'>------------------------------</t><br/><t color='%3' size='1.0'>%1 on %4 has a bounty on his head.<br/> There is only %5 %6 left.</t>", name _foundPlayer, bountyMissionColor, subTextColor, _playerSideName, _mins, _units];
+		if(_mins == 1) then {_junction = "is";};
+		_hint = parseText format ["<t align='center' color='%2' shadow='2' size='1.75'>Bounty Hunt Update</t><br/><t align='center' color='%2'>------------------------------</t><br/><t color='%3' size='1.0'>%1 on %4 has a bounty on his head.<br/> There %7 only %5 %6 left.</t>", name _foundPlayer, bountyMissionColor, subTextColor, _playerSideName, _mins, _units, _junction];
 		messageSystem = _hint;
 		if (!isDedicated) then { call serverMessage };
 		publicVariable "messageSystem";
