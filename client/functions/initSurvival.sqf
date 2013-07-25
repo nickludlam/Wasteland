@@ -25,7 +25,9 @@ private["_cumulativePlayerFatigue",
         "_tiredEffectApplied",
         "_exhaustedEffectApplied",
         "_speed",
-        "_hndl"];
+        "_hndl",
+		"_satedHealthUnitIncrement",
+		"_decimalPlaces"];
 
 [] spawn {
 	//diag_log format ["DEBUG: Starting fatigue checks"];
