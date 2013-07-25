@@ -1,7 +1,8 @@
 #include "defines.hpp"
 #include "bountyMissionDefines.sqf"
 
-private ["_missionMarkerName","_missionType","_hint","_players","_marker","_count", "_foundPlayer", "_mission_state", "_playerName", "_playerSide", "_startTime", "_currTime", "_foundPlayer"];
+private ["_missionMarkerName","_missionType","_hint","_players","_marker","_count", "_foundPlayer", "_mission_state", "_playerName", "_playerSide", "_startTime", "_currTime","_missionEndStateNames","_alivePlayerCount"
+,"_finished","_p", "_destPlayerUID"];
 
 #define BOUNTY_MISSION_ACTIVE 0
 #define BOUNTY_MISSION_END_KILLED 1

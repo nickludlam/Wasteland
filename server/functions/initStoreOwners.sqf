@@ -1,10 +1,10 @@
 
 if(!X_Server) exitWith {};
-private ["_pos", "_name", "_men", "_run", "_fPos", "_fName", "_markerName", "_mPos", "_objects", "_building", "_xName"];
+private ["_pos", "_name", "_men", "_run", "_fPos", "_fName", "_markerName", "_mPos", "_objects", "_building", "_xName", "_bDeskDirMod", "_pDir", "_createStoreArea"];
 
-createStoreArea = 
+_createStoreArea = 
 {
-	private ["_storeOwner", "_bPos", "_pDir", "_pDDirMod", "_fName"];
+	private ["_storeOwner", "_bPos", "_pDir", "_pDDirMod", "_fName", "_chair", "_desk", "_base", "_deskPos"];
 	
 	//grab our arguments
 	_storeOwner = _this select 0;
@@ -91,7 +91,7 @@ createStoreArea =
 					default{_bPos = (_building buildingPos 0);};
 				};
 				_pDir = (getDir _x);
-				[_x, _bPos, _pDir, _bDeskDirMod, _fName] call createStoreArea;
+				[_x, _bPos, _pDir, _bDeskDirMod, _fName] call _createStoreArea;
 			};
 		};
 	}foreach _men;
