@@ -274,6 +274,7 @@ player createDiaryRecord["changelog",
 - When pressing tilde the player menu no longer lags.<br/>
 - Mission crate rewards now have better equipment.<br/>
 - Sniper team now features 4 snipers.<br/>
+- Many undefined variable fixes!<br/>
 "
 ]
 ];

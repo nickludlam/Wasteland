@@ -4,7 +4,46 @@
 #include "defines.hpp"
 #include "moneyMissionDefines.sqf"
 
-private ["_missionMarkerName","_missionType","_picture","_vehicleName","_laid1","_laid2","_laid","_hint","_waypoint","_waypoints","_grouphsq","_vehicles","_marker","_failed","_startTime","_numWaypoints","_ammobox","_createVehicle","_leader", "_soldier1","_soldier2","_soldier3","_marker1","_marker2","_marker3"];
+private ["_missionMarkerName",
+         "_missionType",
+         "_picture",
+         "_vehicle",
+         "_vehicle2",
+         "_vehicleName",
+         "_laid1",
+         "_laid2",
+         "_laid3",
+         "_laid4",
+         "_laid5",
+         "_laid6",
+         "_cash1",
+         "_cash2",
+         "_cash3",
+         "_cash4",
+         "_cash5",
+         "_cash6",
+         "_hint",
+         "_waypoint",
+         "_waypoints",
+         "_grouphsq",
+         "_marker",
+         "_failed",
+         "_startTime",
+         "_numWaypoints",
+         "_leader",
+         "_soldier1",
+         "_soldier2",
+         "_soldier3",
+         "_soldier4",
+         "_soldier5",
+         "_soldier6",
+         "_marker1",
+         "_marker2",
+         "_marker3",
+         "_marker4",
+         "_marker5",
+         "_marker6"
+         ];
 
 _missionMarkerName = "Money_Shipment";
 _missionType = "Money Shipment";
@@ -144,7 +183,7 @@ _cash6 = nil;
 
 waitUntil
 {
-    private ["_unitsAlive"];
+    private ["_unitsAlive", "_moneyUp"];
     
     sleep 10; 
     
@@ -214,7 +253,18 @@ waitUntil
 	};
 	
 	_moneyUp = false;
-	if((_laid1 == 1) AND (_laid2 == 1) AND (_laid3 == 1) AND (_laid4 == 1) AND (_laid5 == 1) AND (_laid6 == 1) AND (!alive _cash1) AND (!alive _cash2) AND (!alive _cash3) AND (!alive _cash4) AND (!alive _cash5) AND (!alive _cash6)) then
+	if((_laid1 == 1)
+		AND (_laid2 == 1)
+		AND (_laid3 == 1)
+		AND (_laid4 == 1)
+		AND (_laid5 == 1)
+		AND (_laid6 == 1)
+		AND (!isNil "_cash1")
+		AND (!isNil "_cash2")
+		AND (!isNil "_cash3")
+		AND (!isNil "_cash4")
+		AND (!isNil "_cash5")
+		AND (!isNil "_cash6")) then
 	{
 	 _moneyUp = true;
 	}

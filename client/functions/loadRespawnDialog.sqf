@@ -20,8 +20,9 @@
 waitUntil{!isnil "bis_fnc_init"};
 disableSerialization;
 
-private["_player","_city","_radius","_name","_enemyCount","_friendlyCount","_side","_dynamicControlsArray", "_enemyPresent","_inGroup","_tempArray", "_text", "_players", "_playerArray", "_display", "_respawnText", "_missionUptimeText", "_friendlyTowns",
-"_timeText", "_pos", "_rad", "_button", "_centrePos", "_onTeam"];
+private["_name","_pos", "_rad","_enemyCount","_friendlyCount","_side","_dynamicControlsArray","_inGroup","_tempArray", "_text",
+        "_players", "_playerArray", "_display", "_respawnText", "_missionUptimeText", "_friendlyTowns",
+        "_timeText","_button", "_centrePos", "_onTeam"];
 
 createDialog "RespawnSelectionDialog";
 _display = uiNamespace getVariable "RespawnSelectionDialog";
@@ -67,6 +68,9 @@ while {respawnDialogActive} do
                 _rad = _x select 1;
                 _playerArray = [];
 
+                _friendlyCount = 0;
+                _enemyCount = 0;
+                
                 {
                     if((getPos _x distance _pos) < _rad) then
                     {
@@ -78,7 +82,7 @@ while {respawnDialogActive} do
                             _enemyCount = _enemyCount + 1;
                         };
                     }; 
-                }forEach playableUnits;  
+                } forEach playableUnits;  
 
                 if((_friendlyCount > 0) AND (_enemyCount == 0)) then
                 {

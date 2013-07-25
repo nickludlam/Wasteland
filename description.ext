@@ -6,7 +6,7 @@ loadScreen = "Loading.jpg";
 aikills=1;
 class Header
 {
-	gameType=Wasteland;
+	gameType=Sandbox;
 	minPlayers=1;
 	maxPlayers=60;
 };

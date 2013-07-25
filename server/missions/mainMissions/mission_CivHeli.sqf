@@ -37,11 +37,12 @@ _marker = createMarkerLocal ["CivHeli_Marker", _randomPos];
 "CivHeli_Marker" setMarkerSizeLocal [1,1];
 "CivHeli_Marker" setMarkerTextLocal "Mission Here";
 */
+
 _vehicleClass = ["B_Heli_Light_01_F","O_Heli_Light_02_unarmed_F","I_Heli_Transport_02_F"] call BIS_fnc_selectRandom;
-_vehicle addEventHandler ["IncomingMissile", "hint format['Incoming Missile Launched By: %1', name (_this select 2)]"];
 
 //Vehicle Class, Posistion, Fuel, Ammo, Damage
 _vehicle = [_vehicleClass,_randomPos,0.5,1,0,"NONE"] call createMissionVehicle; 
+_vehicle addEventHandler ["IncomingMissile", "hint format['Incoming Missile Launched By: %1', name (_this select 2)]"];
 _vehicle setVariable ["newVehicle",1,true];
 
 _picture = getText (configFile >> "cfgVehicles" >> typeOf _vehicle >> "picture");

@@ -6,9 +6,9 @@
 
 if(!X_Server) exitWith {};
 
-private ["_counter", "_comestibleBias", "_pos","_newpos", "_comestibleBias"];
+private ["_counter", "_comestibleBias", "_pos","_newpos"];
 _counter = 0;
-_comestibleBias = 0.15;
+_comestibleBias = 0.05;
 
 for "_i" from 1 to 118 do
 {

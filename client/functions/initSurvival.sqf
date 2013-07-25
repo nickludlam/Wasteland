@@ -7,29 +7,53 @@
 
 #include "defines.hpp" // Global definitions file
 
+
 #ifdef __RUNNING_EXHAUSTION__
 
-private["_cumulativePlayerFatigue",
-        "_defaultMaxEntries",
-        "_sleepInterval",
-        "_fatigueRecoveryLevel",
-        "_fatigueTiredThreshold",
-        "_fatigueWarningThreshold",
-        "_fatigueExhaustionThreshold",
-        "_extraThirstDecrement",
-        "_extraHungerDecrement",
-        "_primaryWeaponModifier",
-        "_secondaryWeaponModifier",
-        "_triggeredTiredMessage",
-        "_triggeredExhaustionMode",
-        "_tiredEffectApplied",
-        "_exhaustedEffectApplied",
-        "_speed",
-        "_hndl",
-		"_satedHealthUnitIncrement",
-		"_decimalPlaces"];
+FNC_avgArray = {
+	private ["_array", "_total", "_avg"];
+	_array = _this select 0;
+	_total = 0;
+	{
+		// Prevent adding nil values
+		if (_x > 0) then
+		{
+			_total = _total + _x;
+		}
+	} forEach _array;
+	_avg = _total / count _array;
+	_avg
+};
 
 [] spawn {
+	private["_cumulativePlayerFatigue",
+	        "_defaultMaxEntries",
+	        "_sleepInterval",
+	        "_fatigueRecoveryLevel",
+	        "_fatigueTiredThreshold",
+	        "_fatigueWarningThreshold",
+	        "_fatigueExhaustionThreshold",
+	        "_extraThirstDecrement",
+	        "_extraHungerDecrement",
+	        "_primaryWeaponModifier",
+	        "_secondaryWeaponModifier",
+	        "_triggeredTiredMessage",
+	        "_triggeredExhaustionMode",
+	        "_tiredEffectApplied",
+	        "_exhaustedEffectApplied",
+	        "_speed",
+	        "_hndl",
+			"_satedHealthUnitIncrement",
+			"_decimalPlaces",
+			"_total",
+			"_thirstDecrementInterval",
+			"_hungerDecrementInterval",
+			"_maxEntries",
+			"_hasPrimary",
+			"_hasSecondary",
+			"_avgFatigueLevel"
+			];
+
 	//diag_log format ["DEBUG: Starting fatigue checks"];
 	
 	// We sample every _sleepInterval, and keep _maxEntries samples in total. An average is calculated, 
@@ -181,22 +205,15 @@ private["_cumulativePlayerFatigue",
 			//diag_log format ["_cumulativePlayerFatigue resized by %1", _maxEntries];
 
 			_cumulativePlayerFatigue = [curFatigueLevel] + _cumulativePlayerFatigue;
-			_cumulativePlayerFatigue resize _maxEntries;
+			if (count _cumulativePlayerFatigue > _maxEntries) then {
+				_cumulativePlayerFatigue resize _maxEntries;
+			};
 
 			//diag_log format ["_cumulativePlayerFatigue = %1", _cumulativePlayerFatigue];
 
 			// Average the samples we have of fatigue
-			_total = 0;
-			{
-				// Prevent adding nil values
-				if (_x > 0) then
-				{
-					_total = _total + _x;
-				};
-			} forEach _cumulativePlayerFatigue;
-
 			// calc mean avg
-			_avgFatigueLevel = _total / _maxEntries;
+			_avgFatigueLevel = [_cumulativePlayerFatigue] call FNC_avgArray;
 			
 			//diag_log format ["avgFatigueLevel = %1", _avgFatigueLevel];
 
@@ -271,7 +288,7 @@ private["_cumulativePlayerFatigue",
 						} else {
 							fatigueLevel = FATIGUE_TIRED;
 						};
-				};
+					};
 				};
 			}
 			else
@@ -309,6 +326,8 @@ private["_cumulativePlayerFatigue",
 
 	while{true} do
 	{
+		private ["_sleepCounter", "_initialPlayerSpawnTime"];
+
 		// Same as sleep(HUNGER_DECREMENT_INTERVAL) but its interruptible by player death
 		_sleepCounter = _hungerDecrementInterval;
 		_initialPlayerSpawnTime = playerSpawnTime;

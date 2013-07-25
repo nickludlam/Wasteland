@@ -9,13 +9,12 @@
 
 if(!isServer) exitwith {};
 
-private ["_result","_missionMarkerName","_missionType","_startTime","_returnData","_randomPos","_randomIndex","_pos0","_pos1","_allMoneyUp","_pos2","_pos3","_vehicleClass","_cash0","_cash1","_cash2","_picture","_vehicleName","_hint","_currTime","_playerPresent","_unitsAlive"];
+private ["_result","_missionMarkerName","_missionType","_startTime","_rand", "_posRand", "_ZCoor", "_fix", "_treas0", "_marker", "_group", "_vehicles", "_playerPresent", "_allMoneyUp"];
 
 //Mission Initialization.
 _result = 0;
 _missionMarkerName = "Treasure_Marker";
 _missionType = "Sunken Treasure";
-_startTime = floor(time);
 
 diag_log format["WASTELAND SERVER - Money Mission Started: %1",_missionType];
 
@@ -83,7 +82,7 @@ _marker setMarkerText _missionType;
 _group = createGroup civilian;
 
 _createVehicle = {
-    private ["_type","_position","_moneyp","_direction","_group","_vehicle","_soldier"];
+    private ["_type","_position","_moneyp","_direction","_group","_vehicle","_soldier1","_soldier2","_soldier3","_soldier4"];
     
     _type = _this select 0;
     _position = _this select 1;
@@ -117,7 +116,7 @@ messageSystem = _hint;
 publicVariable "messageSystem";
 
 diag_log format["WASTELAND SERVER - Money Mission Waiting to be Finished: %1",_missionType];
-_startTime = floor(netTime);
+_startTime = floor(time);
 waitUntil
 {
     sleep 10; 
@@ -146,6 +145,7 @@ if(_result == 1) then
 		_unitsAlive = { alive _x } count units _group;
 	if(_unitsAlive == 0) then
 	{
+		private ["_ammobox", "_ammobox2"];
 		_ammobox = "Box_NATO_Wps_F" createVehicle getMarkerPos _marker;
 		clearMagazineCargoGlobal _ammobox;
 		clearWeaponCargoGlobal _ammobox; 

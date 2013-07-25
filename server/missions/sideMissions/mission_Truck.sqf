@@ -47,7 +47,7 @@ messageSystem = _hint;
 publicVariable "messageSystem";
 
 diag_log format["WASTELAND SERVER - Side Mission Waiting to be Finished: %1",_missionType];
-_startTime = floor(netTime);
+_startTime = floor(time);
 waitUntil
 {
 	sleep 1; 

@@ -15,16 +15,16 @@ _createStoreArea =
 	_base = getPos _storeOwner;
 	
 	//create the bench NOTE: was going to use a plastic chair, but the bench looks nicer
-	_chair setVelocity [0,0,0];
 	_chair = "Land_Bench_F" createVehicle _base;
+	_chair setVelocity [0,0,0];
 	_chair setPos _bPos;
 	_chair setDir _pDir + 90;
 	
 	//create the cashier station
-	_desk setVelocity [0,0,0];
-	_deskPos = [(_bPos select 0)+1.2*sin(_pDir),(_bPos select 1)+1.2*cos(_pDir),(_bPos select 2)];
 	_desk = "Land_CashDesk_F" createVehicle _base;
+	_deskPos = [(_bPos select 0)+1.2*sin(_pDir),(_bPos select 1)+1.2*cos(_pDir),(_bPos select 2)];
 	_desk setPos _deskPos;
+	_desk setVelocity [0,0,0];
 	_desk setDir _pDDirMod;
 	_chair disableCollisionWith _desk;
 	
