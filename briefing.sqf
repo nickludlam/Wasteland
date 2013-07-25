@@ -261,7 +261,7 @@ player createDiaryRecord["changelog",
 [
 "2.2 Bewilderbeest & His_Shadow -",
 "<br/><br/>
-- Having 100 Food & Water will mean you heal minor wounds (75 health or above) [inspired by Sa-Matra!]<br/>
+- Having 100 Food &amp; Water will mean you heal minor wounds (75 health or above) [inspired by Sa-Matra!]<br/>
 - Made a more secure money system<br/>
 - Removed random world-spawn money<br/>
 - Added more food and water spawns<br/>
