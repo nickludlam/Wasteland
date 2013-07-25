@@ -8,14 +8,12 @@
 #ifdef __DEBUG__
 
 	#define bountyMissionTimeout 30
-	#define bountyMissionDelayTime 0
+	#define bountyMissionDelayTime 3600
 
 #else
 
 	#define bountyMissionTimeout 1800
 	#define bountyMissionDelayTime 1800
-	//#define bountyMissionTimeout 230
-	//#define bountyMissionDelayTime 0
 //1800
 #endif
 

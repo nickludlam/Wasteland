@@ -52,7 +52,7 @@ if (serverSpawning == 1) then {
 	sleep 0.1;
 	_initOwners = [] ExecVM "server\functions\initStoreOwners.sqf";
 	sleep 0.1;
-	_recurOwners = [] ExecVM "server\functions\recurInitStoreOwners.sqf";
+	//_recurOwners = [] ExecVM "server\functions\recurInitStoreOwners.sqf";
 	_cleanupLoop = [] ExecVM "server\functions\cleanupLoop.sqf";
 	sleep 0.1;
 };

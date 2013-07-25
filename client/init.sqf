@@ -113,6 +113,7 @@ waituntil {!(IsNull (findDisplay 46))};
 if (isNil "FZF_IC_INIT") then   {
 	call compile preprocessFileLineNumbers "client\functions\newPlayerIcons.sqf";
 };
-if(_positionLoaded == 0)then{true spawn playerSpawn;};
+if(_positionLoaded == 0)then{true spawn playerSpawn;}
+else {player switchMove "AmovPpneMstpSnonWnonDnon"};
 //true spawn playerSpawn;
 [] spawn FZF_IC_INIT;
