@@ -168,5 +168,4 @@ if(_result == 1) then
 };
 
 //Reset Mission Spot.
-MissionSpawnMarkers select _randomIndex set[1, false];
 ["SunkenTreasure0"] call deleteClientMarker;

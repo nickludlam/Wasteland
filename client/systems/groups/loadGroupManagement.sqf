@@ -25,7 +25,8 @@ closeDialog 0;
 groupManagmentActive = true;
 _start = createDialog "GroupManagement";			
 _dialog = findDisplay groupManagementDialog;
-_display displayAddEventHandler ["KeyDown", "_return = false; if(groupManagmentActive && (_this select 1) == 1) then {_return = true;}; _return"];
+_dialog displayAddEventHandler ["KeyDown", "_return = false; if(groupManagmentActive && (_this select 1) == 1) then {_return = true;}; _return"];
+
 _playerListBox = _dialog displayCtrl groupManagementPlayerList;
 _groupListBox = _dialog displayCtrl groupManagementGroupList;
 _groupPromote = _dialog displayCtrl groupManagementPromoteButton;

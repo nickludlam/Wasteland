@@ -3,13 +3,13 @@
 //	@file Author: [404] Deadbeat
 //	@file Created: 20/11/2012 05:19
 //	@file Args:
-private ["_panelType","_displayMod","_displayServerAdmin","_displayDebug","_modSelect","_adminSelect","_serverAdminSelect","_debugSelect","_curPlayerInvulnState","_uid"];
+private ["_panelType","_displayMod","_displayServerAdmin","_displayDebug","_modSelect","_serverAdminSelect","_debugSelect","_curPlayerInvulnState","_uid"];
 #include "defines.hpp"
 
 #define serverAdminMenu_option 50007
 #define modMenu_option 50005
 #define debugMenu_option 50003
-#define adminMenu_option 50001
+
 disableSerialization;
 _uid = getPlayerUID player;
 if ((_uid in moderators) OR (_uid in serverAdministrators)) then {
@@ -18,11 +18,23 @@ if ((_uid in moderators) OR (_uid in serverAdministrators)) then {
 	_displayMod = uiNamespace getVariable "ModMenu";
 	_displayServerAdmin = uiNamespace getVariable "ServerAdminMenu";
 	_displayDebug = uiNamespace getVariable "DebugMenu";
+
+	_modSelect = nil;
+	_serverAdminSelect = nil;
+	_debugSelect = nil;
 	
-	_modSelect = _displayMod displayCtrl modMenu_option;
-	_serverAdminSelect = _displayServerAdmin displayCtrl serverAdminMenu_option;
-	_debugSelect = _displayDebug displayCtrl debugMenu_option;
-	
+	if (!isNil "_displayMod") then {
+		_modSelect = _displayMod displayCtrl modMenu_option;
+	};
+
+	if (!isNil "_displayServerAdmin") then {
+		_serverAdminSelect = _displayServerAdmin displayCtrl serverAdminMenu_option;
+	};
+
+	if (!isNil "_displayDebug") then {
+		_debugSelect = _displayDebug displayCtrl debugMenu_option;
+	};
+
 	switch (_panelType) do
 	{
 	    case 0: //Moderator panel
@@ -101,7 +113,7 @@ if ((_uid in moderators) OR (_uid in serverAdministrators)) then {
 	                closeDialog 0;
 					true spawn client_respawnDialog;
 			    };
-	            case 4: //Restart Function
+	            case 4: //FPS Function
 			    {      
 					hint format["Server FPS: %1",serverFPS];
 			    };

@@ -237,7 +237,6 @@ bKillerName = nil;
 bKillerSide = nil;
 
 // Clean up marker
-MissionSpawnMarkers select _randomIndex set[1, false];
 [_missionMarkerName] call deleteClientMarker;
 deleteMarker _marker;
 

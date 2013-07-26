@@ -11,6 +11,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 private["_currentAnim","_config","_onLadder"];
+
 _currentAnim =	animationState player;
 _config = configFile >> "CfgMovesMaleSdr" >> "States" >> _currentAnim;
 _onLadder =	(getNumber (_config >> "onLadder"));
@@ -27,7 +28,7 @@ else
 	R3F_LOG_objet_selectionne = objNull;
 	
 	private ["_objet", "_est_calculateur", "_arme_principale", "_arme_principale_accessoires", "_arme_principale_magasines", "_action_menu_release_relative", "_action_menu_release_horizontal" ,
-	"_action_menu_45", "_action_menu_90", "_action_menu_180", "_azimut_canon", "_muzzles", "_magazine", "_ammo","_tempVar","_opos","_ppos","_opos2","_o",""];
+	"_action_menu_45", "_azimut_canon", "_muzzles", "_magazine", "_ammo","_tempVar","_opos","_ppos","_opos2","_o",""];
 	
 	_objet = _this select 0;
 	if(isNil {_objet getVariable "R3F_Side"}) then {
@@ -175,8 +176,8 @@ else
 			player removeAction _action_menu_release_relative;
 			player removeAction _action_menu_release_horizontal;
 			player removeAction _action_menu_45;
-			player removeAction _action_menu_90;
-			player removeAction _action_menu_180;
+			//player removeAction _action_menu_90;
+			//player removeAction _action_menu_180;
 			R3F_LOG_joueur_deplace_objet = objNull;
 			
 			_objet setVariable ["R3F_LOG_est_deplace_par", objNull, true];

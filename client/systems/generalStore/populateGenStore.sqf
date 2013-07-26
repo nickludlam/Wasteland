@@ -1,6 +1,6 @@
 
 //	@file Version: 1.0
-//	@file Name: populateGunStore.sqf
+//	@file Name: populateGenStore.sqf
 //	@file Author: [404] Deadbeat
 //	@file Created: 20/11/2012 05:13
 //	@file Args:
@@ -11,6 +11,10 @@ disableSerialization;
 private["_switch","_dialog","_itemlist","_weapon","_picture","_listIndex"];
 
 _switch = _this select 0;
+
+if (isNil "_switch") then {
+	_switch = 0;
+};
 
 // Grab access to the controls
 _dialog = findDisplay genstore_DIALOG;

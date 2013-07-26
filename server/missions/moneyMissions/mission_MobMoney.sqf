@@ -116,7 +116,6 @@ if(_result == 1) then
 };
 
 //Reset Mission Spot.
-MissionSpawnMarkers select _randomIndex set[1, false];
 ["MoneyShipment0"] call deleteClientMarker;
 ["MoneyShipment1"] call deleteClientMarker;
 ["MoneyShipment2"] call deleteClientMarker;
