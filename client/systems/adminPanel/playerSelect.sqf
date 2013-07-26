@@ -15,6 +15,8 @@ disableSerialization;
 
 private ["_dialog","_playerListBox","_spectateButton","_switch","_index","_modSelect","_playerData","_target","_check","_spectating","_camadm","_rnum","_warnText","_targetUID","_playerName"];
 _uid = getPlayerUID player;
+_camadm = nil;
+
 if ((_uid in moderators) OR (_uid in serverAdministrators)) then {
 	_dialog = findDisplay playerMenuDialog;
 	_playerListBox = _dialog displayCtrl playerMenuPlayerList;
@@ -44,7 +46,10 @@ if ((_uid in moderators) OR (_uid in serverAdministrators)) then {
 				_spectateButton ctrlSetText "Spectating";
 				player commandChat format ["Viewing %1.", name _target];
 				
-				camDestroy _camadm;
+				if (!isNil "_camadm") then {
+					camDestroy _camadm;
+				};
+
 				_camadm = "camera" camCreate ([(position vehicle _target select 0) - 5,(position vehicle _target select 1), (position vehicle _target select 2) + 10]);
 				_camadm cameraEffect ["external", "TOP"];
 				_camadm camSetTarget (vehicle _target);

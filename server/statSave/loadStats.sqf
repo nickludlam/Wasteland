@@ -6,11 +6,11 @@ loadFromDBClient =
 	private["_array", "_uid", "_varName", "_varValue", "_subValue", "_subValue2", "_magazines", "_mag", "_name", "_magazines", "_in","_exe","_backpack","_sendToServer"];
 	_array = _this;
 	_uid = _array select 0;
+	_varName = _array select 1;
+	_varValue = _array select 2;
 
 	if(((getPlayerUID player) != _uid) AND ((getPlayerUID player + "_donation" != _uid))) exitWith {if(_varName == 'ComputedMoney') then {moneyLoaded = 1;};};
 
-	_varName = _array select 1;
-	_varValue = _array select 2;
 	if(isNil '_varValue') exitWith 
 	{
 		if(_varName == 'ComputedMoney') then {moneyLoaded = 1;};
