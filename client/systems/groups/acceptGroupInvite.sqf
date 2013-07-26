@@ -6,7 +6,9 @@
 
 private["_groupExists","_inviterUID","_accepterName","_destPlayerUID","_msg"];
 
+
 //Get the inviters UID
+_inviterUID = nil;
 _groupExists = false;
 {
 	if(getPlayerUID player == _x select 1) then
