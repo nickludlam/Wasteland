@@ -3,7 +3,7 @@
 //	@file Author: [404] Deadbeat, [404] Costlyy
 //	@file Created: 28/11/2012 05:19
 //	@file Args:
-
+private["_generalStores","_unit","_markerName","_marker"];
 //_generalStores = ["General_Store1","General_Store","generalStore3","generalStore4","generalStore5"];
 _generalStores = ["generalStore1","generalStore2","generalStore3","generalStore4","generalStore5"];
 

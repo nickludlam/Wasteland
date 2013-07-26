@@ -1,4 +1,4 @@
-private["_bomb","_tmp"];
+private["_bomb","_tmp","_del"];
 _bomb = getPos (_this select 0);
 _del = _this select 0;
 

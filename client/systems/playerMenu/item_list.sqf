@@ -1,6 +1,6 @@
 #include "dialog\player_sys.sqf";
 disableSerialization;
-
+private["_dialog","_switch","_itemList","_moneytext","_itemListIndex","_str"];
 _switch = _this select 0;
 
 _dialog = findDisplay playersys_DIALOG;

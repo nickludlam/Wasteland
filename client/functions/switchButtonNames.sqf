@@ -4,7 +4,7 @@
 //	@file Author: [404] Costlyy
 //	@file Created: 08/12/2012 18:30
 //	@file Args: [int(0 = show towns | 1 = show beacons)]
-
+private "_selectedButton";
 _selectedButton = _this select 0;
 
 if(_selectedButton == 0) then {

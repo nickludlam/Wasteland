@@ -1,43 +1,6 @@
 
 if(!X_Server) exitWith {};
-private ["_pos", "_name", "_men", "_run", "_fPos", "_fName", "_markerName", "_mPos", "_objects", "_building", "_xName", "_bDeskDirMod", "_pDir", "_createStoreArea"];
-
-_createStoreArea = 
-{
-	private ["_storeOwner", "_bPos", "_pDir", "_pDDirMod", "_fName", "_chair", "_desk", "_base", "_deskPos"];
-	
-	//grab our arguments
-	_storeOwner = _this select 0;
-	_bPos = _this select 1;
-	_pDir = _this select 2;
-	_pDDirMod = _this select 3;
-	_fName = _this select 4;
-	_base = getPos _storeOwner;
-	
-	//create the bench NOTE: was going to use a plastic chair, but the bench looks nicer
-	_chair = "Land_Bench_F" createVehicle _base;
-	_chair setVelocity [0,0,0];
-	_chair setPos _bPos;
-	_chair setDir _pDir + 90;
-	
-	//create the cashier station
-	_desk = "Land_CashDesk_F" createVehicle _base;
-	_deskPos = [(_bPos select 0)+1.2*sin(_pDir),(_bPos select 1)+1.2*cos(_pDir),(_bPos select 2)];
-	_desk setPos _deskPos;
-	_desk setVelocity [0,0,0];
-	_desk setDir _pDDirMod;
-	_chair disableCollisionWith _desk;
-	
-	//set the store owner's position
-	//_storeOwner switchMove "passenger_flatground_leanright";
-	_storeOwner switchMove "passenger_flatground_crosslegs";
-	_storeOwner setVelocity [0,0,0];
-	_storeOwner setPos [(_bPos select 0), (_bPos select 1), (_bPos select 2) + .40];
-	_storeOwner setDir _pDir + 60;
-	_storeOwner moveInCargo _chair;
-	_storeOwner disableAI "MOVE"; _storeOwner disableAI "ANIM"; _storeOwner disableAI "TARGET";
-	_storeOwner attachTo [_chair,[0,-.7,.3]];
-};
+private ["_pos", "_name", "_men", "_run", "_fPos", "_fName", "_markerName", "_mPos", "_objects", "_building", "_xName", "_bDeskDirMod", "_pDir", "_createStoreArea","_chair"];
 
 {
 	_name = _x select 0;
@@ -91,7 +54,15 @@ _createStoreArea =
 					default{_bPos = (_building buildingPos 0);};
 				};
 				_pDir = (getDir _x);
-				[_x, _bPos, _pDir, _bDeskDirMod, _fName] call _createStoreArea;
+				_chair = [_x, _bPos, _pDir, _bDeskDirMod, _fName] execVM "server\functions\createStoreArea.sqf";
+				
+				_x setVelocity [0,0,0];
+				_x setPos [(_bPos select 0), (_bPos select 1), (_bPos select 2) + .40];
+				_x setDir _pDir;// + 60;
+				//_x switchMove "passenger_flatground_leanright";
+				_x switchMove "AmovPsitMstpSnonWnonDnon_ground";
+				_x attachTo [_chair,[0,-.7,-.009]];
+				_x disableAI "MOVE"; _x disableAI "ANIM"; _x disableAI "TARGET";
 			};
 		};
 	}foreach _men;

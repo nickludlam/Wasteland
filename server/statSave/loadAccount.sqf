@@ -1,3 +1,5 @@
+
+private["_donation"];
 sleep 3;
 player globalchat "Loading...";
 //Requests info from server in order to download stats

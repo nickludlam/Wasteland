@@ -7,7 +7,7 @@
 #include "defines.hpp"
 #include "dialog\gunstoreDefines.sqf";
 disableSerialization;
-
+private["_gunshopDialog","_Dialog","_playerMoney","_owner"];
 _gunshopDialog = createDialog "gunshopd";
 gunStoreCart = 0;
 

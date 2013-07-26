@@ -12,7 +12,7 @@ if(player != leader group player) exitWith {player globalChat format["you are no
 
 disableSerialization;
 
-private["_dialog","_playerListBox","_groupInvite","_target","_index","_playerData","_check","_unitCount","_isLeader","_side1","_side2","_dist","_do","_cont"];
+private["_dialog","_groupListBox","_playerListBox","_groupInvite","_target","_index","_playerData","_check","_unitCount","_isLeader","_side1","_side2","_dist","_do","_cont","_destPlayerUID","_msg"];
 
 _dialog = findDisplay groupManagementDialog;
 _groupListBox = _dialog displayCtrl groupManagementGroupList;

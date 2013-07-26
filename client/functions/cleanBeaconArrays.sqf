@@ -4,7 +4,7 @@
 //	@file Created: 08/12/2012 18:30
 //	@file Args: [string(ownerUID)]
 
-private["_currBeaconOwnerUID"];
+private["_currBeaconOwnerUID","_forEachIndex"];
 
 _currBeaconOwnerUID = _this select 0;
 

@@ -16,7 +16,7 @@ FZF_ICHud_Layer = 609;
 
 FZF_IC_Icons = 
 {
-    private ["_pIcons", "_relativePos"];
+    private ["_pIcons", "_make_icons","_remove_icon","_units","_uc","_Plicon"];
     _pIcons = player getVariable "FZF_IC_Hud_pIcons";
 
     _make_icons = false;
@@ -76,7 +76,7 @@ FZF_IC_Icons =
 	private "_index";
 	_index = 0;
     {
-        private ["_pos","_unit", "_distance", "_name"];
+        private ["_pos","_unit", "_distance", "_name","_screen","_scale","_sy","_sx","_remove_icon"];
         _unit = _x;
 		_pos = getposATL _x;
 		if(surfaceIsWater _pos) then {
@@ -132,7 +132,7 @@ FZF_IC_Icons =
 
 FZF_IC_FOOD_WATER_Icons = 
 {
-    private ["_pIcons", "_relativePos"];
+    private ["_pIcons", "_relativePos","_currPos","_make_icons","_remove_icon","_units","_uc","_objects","_Plicon"];
     _pIcons = player getVariable "FZF_IC_Hud_pIcons";
     _currPos = getPosATL player;
 
@@ -177,7 +177,7 @@ FZF_IC_FOOD_WATER_Icons =
 	private "_index";
 	_index = 0;
     {
-        private ["_pos","_unit", "_distance", "_name"];
+        private ["_pos","_unit", "_distance", "_name","_screen","_picon","_scale","_sx","_sy"];
         _unit = _x;
 		_pos = getposATL _x;
 		if(surfaceIsWater _pos) then {
@@ -234,7 +234,7 @@ FZF_IC_FOOD_WATER_Icons =
 
 FZF_IC_Hud_Debug =
 {
-    private ["_icon_text","_Plicon"];	
+    private ["_icon_text","_Plicon","_screen","_sx","_sy"];	
 	_Plicon = "client\icons\igui_side_blufor_ca.paa";
 	_icon_text = format ["<t align='left'><img image='%1'/>%2<br/></t>", _Plicon ,name cursorTarget];
 //	_icon_text = "<t align='left'>Test</t>";

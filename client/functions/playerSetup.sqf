@@ -5,7 +5,7 @@
 //	@file Args:
 
 #include "defines.hpp"
-
+private["_player", "_gun", "_money"];
 _player = _this;
 
 //Player initialization

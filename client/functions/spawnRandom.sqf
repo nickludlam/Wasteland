@@ -6,7 +6,7 @@
 
 waituntil {!isnil "bis_fnc_init"};
 
-private ["_townName","_randomLoc","_pos"];
+private ["_townName","_randomLoc","_pos","_spawnSafely","_playerSide","_playerGroup","_viableRespawnLocations","_curSpawnLoc","_curSpawnPos","_curPlayerSide","_curPlayerGroup","_spawnAvailable","_mins"];
 
 _spawnSafely = 1; // 0 for normal, or 1 if you feel lucky   
 

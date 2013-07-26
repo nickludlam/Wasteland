@@ -4,7 +4,7 @@
 //	@file Created: 20/11/2012 05:19
 
 //Get the inviters UID
-private["_inviterUID","_inviter"];
+private["_inviterUID","_inviter","_groupExists","_destPlayerUID","_msg"];
 {
 	if(getPlayerUID player == _x select 1) then
 	{

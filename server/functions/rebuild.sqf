@@ -2,7 +2,7 @@
 //this function will monitor those every 30 minutes and repair the buildings
 if(!X_Server) exitWith {};
 
-private ["_pos", "_dist", "_static", "_run"];
+private ["_pos", "_dist", "_static", "_run", "_i"];
 
 _run = true;
 while{_run} do

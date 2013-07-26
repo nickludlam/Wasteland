@@ -7,6 +7,7 @@
 
 #include "dialog\genstoreDefines.sqf";
 disableSerialization;
+private["_price","_checkWeapon","_checkAmmo","_checkAccessor","_dialog","_cartlist","_itemlist","_totalText","_buysell","_switchText","_itemText"];
 
 if (local player) then {
 

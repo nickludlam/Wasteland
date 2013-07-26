@@ -8,7 +8,7 @@
 #include "dialog\gunstoreDefines.sqf";
 
 disableSerialization;
-
+private["_weap_type","_picture","_price","_dialog","_gunlist","_ammolist","_gunlisttext","_ammoText","_selectedItem","_itemText","_weapon","_compatible","_name","_conf","_ammolistIndex"];
 //Initialize Values
 _weap_type = "";
 _picture = "";

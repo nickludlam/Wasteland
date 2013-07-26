@@ -9,7 +9,7 @@
                 
 disableSerialization;
 				
-private ["_start","_dialog","_playerListBox","_decimalPlaces","_health","_namestr","_index","_punishCount","_side"];
+private ["_start","_dialog","_playerListBox","_decimalPlaces","_health","_namestr","_index","_punishCount","_side","_lockedSide","_uid"];
 _uid = getPlayerUID player;
 if ((_uid in moderators) OR (_uid in serverAdministrators)) then {
 	_start = createDialog "PlayersMenu";

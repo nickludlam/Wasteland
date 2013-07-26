@@ -13,7 +13,7 @@
 if(isNil {dropActive}) then {dropActive = false};
 disableSerialization;
 
-private["_switch","_data","_vehicle_type","_pos","_bomb"];
+private["_switch","_data","_currState","_playerPos","_deployedCamoNet","_dir","_pos","_droppedBeacon"];
 _switch = _this select 0;
 _data = GET_SELECTED_DATA(item_list);
 switch(_switch) do 

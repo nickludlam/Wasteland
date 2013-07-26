@@ -2,7 +2,7 @@
 //	@file Name: createGunStoreMarkers.sqf
 //	@file Author: [404] Deadbeat, [404] Costlyy, [GoT] JoSchaap
 //	@file Args:
-
+private["_radius","_status","_gunStores","_col_empty","_col_enemy","_col_friendly","_col_mixed","_unit","_markerName","_pos","_setStatus","_marker","_enemyCount","_markerNameZone","_markerNameDescription","_friendlyCount","_doCheck","_forEachIndex"];
 _radius = 100;
 _status = [];
 _gunStores = ["West_GS", "West_GSA", "East_GS", "East_GSE"];

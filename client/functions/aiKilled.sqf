@@ -1,3 +1,5 @@
+
+private ["_player","_killer","_aiSide","_killerSide"];
 _player = (_this select 0);
 _killer = (_this select 1);
 

@@ -2,7 +2,7 @@
 #include "bountyMissionDefines.sqf"
 
 private ["_missionMarkerName","_missionType","_hint","_players","_marker","_count", "_foundPlayer", "_mission_state", "_playerName", "_playerSide", "_startTime", "_currTime","_missionEndStateNames","_alivePlayerCount"
-,"_finished","_p", "_destPlayerUID"];
+,"_finished","_p", "_destPlayerUID", "_playerSideName", "_iterations", "_timeLeftIterations", "_killerSideName", "_playerMoney", "_randomIndex"];
 
 #define BOUNTY_MISSION_ACTIVE 0
 #define BOUNTY_MISSION_END_KILLED 1
@@ -99,6 +99,7 @@ _mission_state = BOUNTY_MISSION_ACTIVE;
 _startTime = floor(time);
 waitUntil
 {
+	private["_mins","_units","_junction"];
 	//only run the check every 10 seconds
     sleep 10; 
 		

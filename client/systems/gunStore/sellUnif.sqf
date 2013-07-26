@@ -15,7 +15,7 @@ _uniform = uniform player;
 
 if(_uniform != "") then {
 	removeUniform player;
-	player setVariable __MONEY_VAR_NAME__, (player getVariable [__MONEY_VAR_NAME__, 0]) + _clothes_value, true];
+	player setVariable [__MONEY_VAR_NAME__, (player getVariable [__MONEY_VAR_NAME__, 0]) + _clothes_value, true];
 	_total = (_total + _clothes_value);
 	};
 

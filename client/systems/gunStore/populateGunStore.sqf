@@ -7,7 +7,7 @@
 
 #include "dialog\gunstoreDefines.sqf";
 disableSerialization;
-
+private["_switch","_dialog","_gunlisttext","_gunlist","_ammolist","_ammoBut","_ammoLbl","_weapon","_picture","_gunlistIndex"];
 _switch = _this select 0;
 
 // Grab access to the controls

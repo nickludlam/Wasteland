@@ -4,7 +4,7 @@
 //	@file Created: 06/15/2012 05:13
 //	@file Args: [CrateType] (60 = ammo, 61 = weapon)
 #include "defines.hpp"
-private["_storeOwnerID", "_storeOwnerName", "_crateType"];
+private["_storeOwnerID", "_storeOwnerName", "_crateType","_ammoClasses","_createThisFuckingCrate"];
 
 _storeOwnerID = _this select 0;
 _storeOwnerName = _this select 1;
@@ -15,7 +15,7 @@ _ammoClasses = ["Box_NATO_Ammo_F","Box_NATO_Grenades_F","Box_NATO_AmmoOrd_F","Bo
 
 _createThisFuckingCrate = 
 {
-	private["_classes", "_storeOwnerID", "_storeOwnerName"];
+	private["_classes", "_storeOwnerID", "_storeOwnerName","_class","_playerPos","_sbox"];
 	_classes = _this select 0;
 	_storeOwnerID = _this select 1;
 	_storeOwnerName = _this select 2;

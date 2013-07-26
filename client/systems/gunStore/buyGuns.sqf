@@ -14,22 +14,19 @@
 #define KINDOF_ARRAY(a,b) [##a,##b] call {_veh = _this select 0;_types = _this select 1;_res = false; {if (_veh isKindOf _x) exitwith { _res = true };} forEach _types;_res}
 disableSerialization;
 
-private ["_name"];
+private ["_name","_switch","_exe","_price","_dialog","_ammoList","_playerMoneyText","_playerMoney","_playerSlots","_itemText","_handleMoney","_class","_name","_mag","_type","_backpack","_gunsList","_weapon","_IsMagazine",
+"_vestName"];
 
 //Initialize Values
 _switch = _this select 0;
-
-_size = 0;
 _exe = 0;
 _price = 0;
 // Grab access to the controls
 _dialog = findDisplay gunshop_DIALOG;
 _gunsList = _dialog displayCtrl gunshop_gun_list;
-_totalText = _dialog displayCtrl gunshop_total;
 _playerMoneyText = _Dialog displayCtrl gunshop_money;
 _playerMoney = player getVariable __MONEY_VAR_NAME__;
 _playerSlots = [];
-_size = lbSize _cartlist;
 _itemText = "";
 _handleMoney = 1;
 

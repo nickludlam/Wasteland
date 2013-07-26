@@ -10,7 +10,7 @@ if(mutexScriptInProgress) exitWith {
 	player globalChat localize "STR_WL_Errors_InProgress";
 };
 
-private["_currVehicle","_currVehicleType","_stringEscapePercent","_iteration","_loopSpeed","_iterationAmount","_iterationPercentage"];
+private["_currVehicle","_currVehicleType","_stringEscapePercent","_iteration","_loopSpeed","_iterationAmount","_iterationPercentage","_currPlayerState","_totalDuration"];
 
 _currVehicle = nearestObjects[player, ["LandVehicle", "Air", "Ship"], 5] select 0;
 _currVehicleType = typeOf _currVehicle;

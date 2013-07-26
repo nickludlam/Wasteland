@@ -4,7 +4,7 @@
 //	@file Created: 20/11/2012 05:19
 #include "defines.hpp"
 
-private["_inviterUID","_inviter"];
+private["_groupExists","_inviterUID","_accepterName","_destPlayerUID","_msg"];
 
 //Get the inviters UID
 _groupExists = false;

@@ -9,7 +9,7 @@
 #define tkWarningText 3500
 
 20 CutRsc ["TeamKillWarningMessage", "PLAIN", 1];
-
+private["_localWarningText","_control"];
 disableSerialization;
 
 _localWarningText = uiNamespace getVariable "TeamKillWarningMessage";

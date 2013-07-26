@@ -2,7 +2,7 @@
 //	@file Name: createGunStoreMarkers.sqf
 //	@file Author: [404] Deadbeat, [404] Costlyy, [GoT] JoSchaap,[FN]Fackstah
 //	@file Args:
-
+private["_radius","_status","_capzone","_col_empty","_col_enemy","_col_friendly","_col_mixed","_unit","_setStatus","_markerNameZone","_markerNameDescription","_friendlyCount","_enemyCount","_forEachIndex"];
 _radius = 200;
 _status = [];
 _capzone = ["cap1", "cap2", "cap3","cap4", "cap5", "cap6","cap7", "cap8", "cap9","cap10", "cap11", "cap12","cap13", "cap14", "cap15","cap16", "cap17", "cap18","cap19"];

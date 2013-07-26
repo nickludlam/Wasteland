@@ -11,6 +11,7 @@ sideMissions = 1;
 serverSpawning = 1;
 buildingsloot = 1;
 
+private ["_serverCompiledScripts","_lootspawnz","_vehSpawn","_objSpawn","_objSpawn2","_boxSpawn","_boatSpawn","_buildrep","_initOwners","_cleanupLoop","_id"];
 //Execute Server Side Scripts.
 _serverCompiledScripts = [] execVM "server\functions\serverCompile.sqf";
 

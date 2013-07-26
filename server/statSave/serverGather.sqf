@@ -1,3 +1,4 @@
+private["_saveToDB","_loadFromDB"];
 _saveToDB =
 "
 	_array = _this;

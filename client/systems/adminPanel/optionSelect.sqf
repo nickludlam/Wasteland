@@ -3,7 +3,7 @@
 //	@file Author: [404] Deadbeat
 //	@file Created: 20/11/2012 05:19
 //	@file Args:
-
+private ["_panelType","_displayMod","_displayServerAdmin","_displayDebug","_modSelect","_adminSelect","_serverAdminSelect","_debugSelect","_curPlayerInvulnState","_uid"];
 #include "defines.hpp"
 
 #define serverAdminMenu_option 50007
@@ -11,8 +11,6 @@
 #define debugMenu_option 50003
 #define adminMenu_option 50001
 disableSerialization;
-
-private ["_panelType","_displayMod","_displayServerAdmin","_displayDebug","_modSelect","_adminSelect","_serverAdminSelect","_debugSelect"];
 _uid = getPlayerUID player;
 if ((_uid in moderators) OR (_uid in serverAdministrators)) then {
 	_panelType = _this select 0;

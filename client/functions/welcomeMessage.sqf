@@ -3,7 +3,7 @@
 10 cutrsc["WelcomeMessage", "PLAIN"];
 
 disableSerialization;
-
+private ["_display","_control","_teamrules","_teamicon","_teamcol","_message"];
 _display = uiNamespace getVariable "WelcomeMessage";
 _control = _display displayCtrl welcomeText;
 

@@ -4,6 +4,7 @@
 //	@file Created: 20/11/2012 05:19
 //	@file Args: [int(type of spawn)]
 
+private["_localWarningText","_control","_button","_startTime","_result","_found","_side","_wArray","_wName"];
 _switch = _this select 0;
 _button = _this select 1;
 

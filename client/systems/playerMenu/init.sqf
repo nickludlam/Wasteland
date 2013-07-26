@@ -6,7 +6,7 @@ if(dialog) exitwith{};
 
 disableSerialization;
 
-private["_Dialog","_foodtext","_watertext","_moneytext","_mvalue","_rogue", "_moneyStr"];
+private["_Dialog","_foodtext","_watertext","_moneytext","_mvalue","_rogue", "_moneyStr","_uptime","_groupButton","_mIndex","_uptimeText"];
 
 _money = player getVariable __MONEY_VAR_NAME__;
 _moneyStr = format["%1", _money];

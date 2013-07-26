@@ -6,14 +6,15 @@
 
 #include "defines.hpp"
 #include "dialog\vehstoreDefines.sqf";
-//#include "addons\proving_ground\defs.hpp"
-#define GET_DISPLAY (findDisplay balca_debug_VC_IDD)
-#define GET_CTRL(a) (GET_DISPLAY displayCtrl ##a)
-#define GET_SELECTED_DATA(a) ([##a] call {_idc = _this select 0;_selection = (lbSelection GET_CTRL(_idc) select 0);if (isNil {_selection}) then {_selection = 0};(GET_CTRL(_idc) lbData _selection)})
-#define KINDOF_ARRAY(a,b) [##a,##b] call {_veh = _this select 0;_types = _this select 1;_res = false; {if (_veh isKindOf _x) exitwith { _res = true };} forEach _types;_res}
-disableSerialization;
 
-private ["_name"];
+private ["_switch","_playerMoney","_price","_dialog","_playerMoneyText","_colorText","_itemText","_handleMoney","_applyVehProperties","_car","_veh_type","_vehPos","_DoSpawn","_old_veh","_class", "_idc","_types","_res","_selection","_veh","_dir"];
+
+//#include "addons\proving_ground\defs.hpp"
+//#define GET_DISPLAY (findDisplay balca_debug_VC_IDD)
+//#define GET_CTRL(a) (GET_DISPLAY displayCtrl ##a)
+//#define GET_SELECTED_DATA(a) ([##a] call {_idc = _this select 0;_selection = (lbSelection GET_CTRL(_idc) select 0);if (isNil {_selection}) then {_selection = 0};(GET_CTRL(_idc) lbData _selection)})
+//#define KINDOF_ARRAY(a,b) [##a,##b] call {_veh = _this select 0;_types = _this select 1;_res = false; {if (_veh isKindOf _x) exitwith { _res = true };} forEach _types;_res}
+disableSerialization;
 
 //Initialize Values
 _switch = _this select 0;
@@ -27,16 +28,14 @@ _playerMoneyText = _Dialog displayCtrl vehshop_money;
 _colorText = lbText [vehshop_color_list, (lbCurSel vehshop_color_list)];
 _itemText = lbText  [vehshop_veh_list, (lbCurSel vehshop_veh_list)];
 _handleMoney = 1;
-_texturePath = "";
 
 _applyVehProperties = 
 {
     private ["_car","_colorText","_texturePath", "_veh_type", "_vehPos"];
 	_car = _this select 0;
 	_colorText = _this select 1;
-	_texturePath = _this select 2;
-	_veh_type = _this select 3;
-	_vehPos = _this select 4;
+	_veh_type = _this select 2;
+	_vehPos = _this select 3;
 	
 	_car = createVehicle [_veh_type,_vehPos, [], 0, "CAN_COLLIDE"];
 	
@@ -95,7 +94,7 @@ switch(_switch) do
 				_veh_type = _class;
 				_old_veh = nearestObjects [_vehPos, ["AllVehicles"], 5];
 				{deleteVehicle _x} forEach _old_veh;
-				if(_Dospawn == 1) then{ [_car, _colorText, _texturePath, _veh_type, _vehPos] call _applyVehProperties; };
+				if(_Dospawn == 1) then{ [_car, _colorText, _veh_type, _vehPos] call _applyVehProperties; };
 			};
 		}forEach landArray;
 		
@@ -113,7 +112,7 @@ switch(_switch) do
 				_veh_type = _class;
 				_old_veh = nearestObjects [_vehPos, ["AllVehicles"], 5];
 				{deleteVehicle _x} forEach _old_veh;
-				if(_Dospawn == 1) then{ [_car, _colorText, _texturePath, _veh_type, _vehPos] call _applyVehProperties; };
+				if(_Dospawn == 1) then{ [_car, _colorText, _veh_type, _vehPos] call _applyVehProperties; };
 			};
 		}forEach armoredArray;
 		
@@ -131,7 +130,7 @@ switch(_switch) do
 				_veh_type = _class;
 				_old_veh = nearestObjects [_vehPos, ["AllVehicles"], 5];
 				{deleteVehicle _x} forEach _old_veh;
-				if(_Dospawn == 1) then{ [_car, _colorText, _texturePath, _veh_type, _vehPos] call _applyVehProperties; };
+				if(_Dospawn == 1) then{ [_car, _colorText, _veh_type, _vehPos] call _applyVehProperties; };
 			};
 		}forEach tanksArray;
 		
@@ -149,7 +148,7 @@ switch(_switch) do
 				_veh_type = _class;
 				_old_veh = nearestObjects [_vehPos, ["AllVehicles"], 5];
 				{deleteVehicle _x} forEach _old_veh;
-				if(_Dospawn == 1) then{ [_car, _colorText, _texturePath, _veh_type, _vehPos] call _applyVehProperties; };
+				if(_Dospawn == 1) then{ [_car, _colorText, _veh_type, _vehPos] call _applyVehProperties; };
 			};
 		}forEach helicoptersArray;
 		
@@ -167,7 +166,7 @@ switch(_switch) do
 				_veh_type = _class;
 				_old_veh = nearestObjects [_vehPos, ["AllVehicles"], 5];
 				{deleteVehicle _x} forEach _old_veh;
-				if(_Dospawn == 1) then{ [_car, _colorText, _texturePath, _veh_type, _vehPos] call _applyVehProperties; };
+				if(_Dospawn == 1) then{ [_car, _colorText, _veh_type, _vehPos] call _applyVehProperties; };
 			};
 		}forEach jetsArray;
 				
@@ -185,7 +184,7 @@ switch(_switch) do
 				_veh_type = _class;
 				_old_veh = nearestObjects [_vehPos, ["AllVehicles"], 5];
 				{deleteVehicle _x} forEach _old_veh;
-				if(_Dospawn == 1) then{ [_car, _colorText, _texturePath, _veh_type, _vehPos] call _applyVehProperties; };
+				if(_Dospawn == 1) then{ [_car, _colorText, _veh_type, _vehPos] call _applyVehProperties; };
 			};
 		}forEach boatsArray;
 		
@@ -203,7 +202,7 @@ switch(_switch) do
 				_veh_type = _class;
 				_old_veh = nearestObjects [_vehPos, ["AllVehicles"], 5];
 				{deleteVehicle _x} forEach _old_veh;
-				if(_Dospawn == 1) then{ [_car, _colorText, _texturePath, _veh_type, _vehPos] call _applyVehProperties; };
+				if(_Dospawn == 1) then{ [_car, _colorText, _veh_type, _vehPos] call _applyVehProperties; };
 			};
 		}forEach submarinesArray;
 	};

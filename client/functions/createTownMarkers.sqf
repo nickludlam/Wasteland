@@ -4,6 +4,7 @@
 //	@file Created: 28/11/2012 05:19
 //	@file Args:
 
+private["_pos","_markerName","_marker"];
 {
     _pos = getMarkerPos (_x select 0);
     _markerName = format["marker%1",_forEachIndex];

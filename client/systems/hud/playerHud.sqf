@@ -8,7 +8,8 @@
 #include "defines.hpp"
 
 disableSerialization;
-private["_ui","_fatigue", "_hud","_food","_water", "_lastHealthReading", "_sprintFatigue", "_percentSprintFatigue", "_runningIconName", "_stamina", "_counter", "_modulo"];
+private["_ui","_fatigue", "_hud","_food","_water", "_lastHealthReading", "_sprintFatigue", "_percentSprintFatigue", "_runningIconName", "_stamina", "_counter", "_modulo","_vitals","_hudVehicle","_decimalPlaces","_health","_healthTextColor",
+"_foodWaterTextColor","_tempString","_yOffset","_x","_y"];
 
 _counter = 0; // used for flashing UI elements, with the _modulo var
 

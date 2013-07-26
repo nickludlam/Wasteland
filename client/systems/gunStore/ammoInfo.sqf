@@ -9,6 +9,8 @@
 
 disableSerialization;
 
+private["_weap_type","_picture","_price","_ammolist","_dialog","_ammolist","_ammoText","_selectedItem","_itemText"];
+
 //Initialize Values
 _weap_type = "";
 _picture = "";

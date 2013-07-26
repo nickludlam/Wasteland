@@ -8,6 +8,7 @@
 #include "dialog\vehstoreDefines.sqf";
 disableSerialization;
 
+private ["_vehshopDialog","_Dialog","_playerMoney","_money","_owner"];
 _vehshopDialog = createDialog "vehshopd";
 gunStoreCart = 0;
 

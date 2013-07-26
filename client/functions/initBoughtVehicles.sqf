@@ -4,6 +4,7 @@
 //	@file Created: 07/12/2013 20:55
 //	@file Args: [vehicle]
 
+private["_textureName"];
 {
 	_textureName = _x getVariable "textureName";
 	if(isNil '_textureName') exitWith {};

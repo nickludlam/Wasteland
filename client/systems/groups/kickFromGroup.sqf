@@ -8,7 +8,7 @@
 
 disableSerialization;
 
-private["_dialog","_playerListBox","_groupInvite","_target","_index","_playerData","_check","_unitCount"];
+private["_dialog","_groupListBox","_target","_index","_playerData","_check","_unitCount","_msg","_destPlayerUID"];
 
 _dialog = findDisplay groupManagementDialog;
 _groupListBox = _dialog displayCtrl groupManagementGroupList;

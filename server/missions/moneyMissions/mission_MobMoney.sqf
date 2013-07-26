@@ -8,7 +8,8 @@
 
 if(!isServer) exitwith {};
 
-private ["_result","_missionMarkerName","_missionType","_startTime","_returnData","_randomPos","_randomIndex","_pos0","_pos1","_allMoneyUp","_pos2","_pos3","_vehicleClass","_cash0","_cash1","_cash2","_picture","_vehicleName","_hint","_currTime","_playerPresent","_unitsAlive"];
+private ["_result","_missionMarkerName","_missionType","_startTime","_returnData","_randomPos","_randomIndex","_pos0","_pos1","_allMoneyUp","_pos2","_pos3","_vehicleClass","_cash0","_cash1","_cash2","_picture",
+"_vehicleName","_hint","_currTime","_playerPresent","_unitsAlive","_rand","_posRand","_objects"];
 
 //Mission Initialization.
 _result = 0;

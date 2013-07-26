@@ -9,6 +9,9 @@
 #include "dialog\genstoreDefines.sqf";
 disableSerialization;
 
+private["_playerMoney","_size", "_price","_dialog","_itemlist","_totalText","_playerMoneyText","_handleMoney","_itemText", "_class",
+        "_vestName", "_backpackName"];
+
 if(genStoreCart > (player getVariable __MONEY_VAR_NAME__)) exitWith {hint "You do not have enough money"};
 
 //Initialize Values

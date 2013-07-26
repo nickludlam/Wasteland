@@ -1,3 +1,4 @@
+private "_save";
 _save =
 "
 	accountToServerSave = _this;

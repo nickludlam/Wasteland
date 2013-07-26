@@ -4,7 +4,7 @@
 //@file Description: The action after the teamkillee as selected an option for the teamkiller.
 //@file Args: [boolean(punish = true)]
 //@file Notes: Everyone is free to use / redistribute / modify this file. 
-
+private["_uid","_added"];
 closeDialog 0;
 if(!isPlayer(pDialogTeamkiller)) exitWith {};
 

@@ -12,7 +12,7 @@
 #define tkDialogForgive 3303
 #define tkDialogPunish 3304
 //#define tkDialogAnnounce 3305
-
+private["_dialog"];
 createDialog "TeamkillDialog";
 
 disableSerialization;

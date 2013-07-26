@@ -1,4 +1,5 @@
-private ["_missionMarkerName","_missionType","_picture","_vehicleName","_hint","_waypoint","_waypoints","_group","_vehicles","_marker","_failed","_startTime","_numWaypoints","_ammobox","_createVehicle","_leader"];
+private ["_missionMarkerName","_missionType","_picture","_vehicleName","_hint","_waypoint","_waypoints","_group","_vehicles","_marker","_failed","_startTime","_numWaypoints","_ammobox","_createVehicle","_leader","_starts0","_starts1",
+"_rand","_cash0","_ammobox2"];
 
 #include "defines.hpp"
 #include "mainMissionDefines.sqf"
@@ -15,7 +16,7 @@ diag_log format["WASTELAND SERVER - Main Mission Resumed: %1", _missionType];
 _group = createGroup civilian;
 
 _createVehicle = {
-    private ["_type","_position","_direction","_group","_vehicle","_soldier"];
+    private ["_type","_position","_direction","_group","_vehicle","_soldier", "_soldier1", "_soldier2", "_soldier3", "_soldier4"];
     
     _type = _this select 0;
     _position = _this select 1;

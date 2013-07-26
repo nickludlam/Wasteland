@@ -8,11 +8,13 @@
 #include "dialog\genstoreDefines.sqf";
 disableSerialization;
 
+private["_switch","_dialog","_itemlist","_weapon","_picture","_listIndex"];
+
 _switch = _this select 0;
 
 // Grab access to the controls
 _dialog = findDisplay genstore_DIALOG;
-_itemlisttext = _dialog displayCtrl genstore_item_TEXT;
+//_itemlisttext = _dialog displayCtrl genstore_item_TEXT;
 _itemlist = _dialog displayCtrl genstore_item_list;
 //_selllist = _dialog displayCtrl genstore_sell_list;
 //_sellbut = _dialog displayCtrl genstore_sell;

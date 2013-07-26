@@ -11,7 +11,7 @@
 #define respawn_Town_Button4 3407
 disableSerialization;
 
-private ["_townNameSelected","_townName"];
+private ["_townNameSelected","_townName","_switch","_display","_buttonZero","_buttonOne","_buttonTwo","_buttonThree","_buttonFour","_name","_pos","_rad","_mins"];
 
 _switch = _this select 0;
 

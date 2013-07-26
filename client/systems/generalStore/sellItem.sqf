@@ -8,7 +8,7 @@
 #include "defines.hpp"
 #include "dialog\genstoreDefines.sqf";
 disableSerialization;
-
+private["_playerMoney","_size","_dialog","_itemlist","_totalText","_playerMoneyText","_itemText","_price"];
 //Initialize Values
 _playerMoney = player getVariable __MONEY_VAR_NAME__;
 _size = 0;

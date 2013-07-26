@@ -9,7 +9,7 @@
 
 if(!isServer) exitwith {};
 
-private ["_result","_missionMarkerName","_missionType","_startTime","_rand", "_posRand", "_ZCoor", "_fix", "_treas0", "_marker", "_group", "_vehicles", "_playerPresent", "_allMoneyUp"];
+private ["_result","_missionMarkerName","_missionType","_startTime","_rand", "_posRand", "_ZCoor", "_fix", "_treas0", "_marker", "_group", "_vehicles", "_playerPresent", "_allMoneyUp","_ammobox","_ammobox2","_randomIndex"];
 
 //Mission Initialization.
 _result = 0;

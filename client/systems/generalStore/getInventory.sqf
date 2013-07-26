@@ -8,17 +8,16 @@
 #include "dialog\genstoreDefines.sqf";
 disableSerialization;
 
+private["_dialog","_itemlisttext","_itemlist","_amount","_index","_listIndex","_name"];
+
 // Grab access to the controls
 _dialog = findDisplay genstore_DIALOG;
 _itemlisttext = _dialog displayCtrl genstore_item_TEXT;
-_itempicture = _dialog displayCtrl genstore_item_pic;
 _itemlist = _dialog displayCtrl genstore_sell_list;
-_itemInfo = _dialog displayCtrl genstore_item_Info;
 
 //Clear the list
 lbClear _itemlist;
 _itemlist lbSetCurSel -1;
-_itemInfo ctrlSetStructuredText parseText "";
 
 playerInventory = [];
 

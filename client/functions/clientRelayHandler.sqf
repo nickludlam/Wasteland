@@ -5,7 +5,7 @@
 //	@file Desc: Converts server method calls to local client methods
 
 #include "defines.hpp"
-
+private ["_function","_applyPaint","_applyMissile","_msgToPlayer", "_msgToAllPlayers"];
 _function = serverRelaySystem select 0;
 
 _applyPaint =
@@ -50,7 +50,7 @@ _msgToAllPlayers =
 switch(_function) do
 {
 	diag_log format ["clientRelayHandler called with %1", _function];
-
+	private ["_car", "_paint", "_type", "_msg","_playerUID"];
 	//apply paint [_car, _paint]
 	case MESSAGE_VEHICLE_PROPERTIES_APPLY:
 	{

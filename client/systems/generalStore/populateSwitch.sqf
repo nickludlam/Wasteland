@@ -7,7 +7,7 @@
 
 #include "dialog\genstoreDefines.sqf";
 disableSerialization;
-
+private["_dialog","_iteminv","_switchText"];
 _dialog = findDisplay genstore_DIALOG;
 _iteminv = _dialog displayCtrl genstore_iteminventory;
 

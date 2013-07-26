@@ -35,7 +35,9 @@ R3F_LOG_CFG_remorqueurs = [
 	"I_MRAP_03_hmg_F",
 	"I_MRAP_03_F",
 	"B_SDV_01_F",
-	"O_SDV_01_F"
+	"O_SDV_01_F",
+	"B_APC_Tracked_01_rcws_F",
+	"O_APC_Tracked_02_cannon_F"
 ];
 
 /**
@@ -153,7 +155,9 @@ R3F_LOG_CFG_objets_heliportables = [
 	"Land_Mil_WallBig_4m_F",
 	"Land_HBarrier_3_F",
 	"Land_HBarrier_5_F",
-	"Land_HBarrier_1_F"
+	"Land_HBarrier_1_F",
+	"B_APC_Tracked_01_rcws_F",
+	"O_APC_Tracked_02_cannon_F"
 ];
 
 
@@ -204,6 +208,8 @@ R3F_LOG_CFG_transporteurs = [
 	["B_Boat_Armed_01_minigun_F",5],
 	["O_Boat_Armed_01_hmg_F",5],
 	["I_Boat_Armed_01_minigun_F",5],
+	["B_APC_Tracked_01_rcws_F", 40],
+	["O_APC_Tracked_02_cannon_F", 40],
 	["B_SDV_01_F",5],
 	["O_SDV_01_F",5]
 ];

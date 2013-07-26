@@ -5,7 +5,7 @@
 //	@file Args: [player side, money amount]
 
 #include "defines.hpp"
-
+private ["_side", "_amount", "_amountStr"];
 _side = _this select 0;
 _amount = _this select 1;
 

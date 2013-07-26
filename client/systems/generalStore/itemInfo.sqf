@@ -8,6 +8,8 @@
 #include "dialog\genstoreDefines.sqf";
 disableSerialization;
 
+private["_weap_type","_picture","_price","_dialog","_itemlist","_itemlisttext","_selectedItem","_itemInfo","_itemText"];
+
 //Initialize Values
 _weap_type = "";
 _picture = "";
@@ -17,8 +19,6 @@ _price = 0;
 _dialog = findDisplay genstore_DIALOG;
 _itemlist = _dialog displayCtrl genstore_item_list;
 _itemlisttext = _dialog displayCtrl genstore_item_TEXT;
-_picture = _dialog displayCtrl genstore_item_pic;
-_buysell = _dialog displayCtrl genstore_buysell;
 _itemInfo = _dialog displayCtrl genstore_item_Info;
 
 //Get Selected Item
@@ -26,7 +26,6 @@ _selectedItem = lbCurSel _itemlist;
 _itemText = _itemlist lbText _selectedItem;
 
 //Check which state we want to be in.
-_switchText = Ctrltext _buysell;
 {if(_itemText == _x select 0) then{
 	_price = _x select 2;
 	

@@ -7,7 +7,7 @@
 
 #include "dialog\vehstoreDefines.sqf";
 disableSerialization;
-
+private ["_switch","_dialog","_vehlisttext","_vehlist","_colorlist","_vehicles","_picture","_vehlistIndex"];
 _switch = _this select 0;
 
 // Grab access to the controls

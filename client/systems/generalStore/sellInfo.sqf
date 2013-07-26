@@ -7,18 +7,15 @@
 
 #include "dialog\genstoreDefines.sqf";
 disableSerialization;
-
+private["_weap_type","_price","_dialog","_itemlist","_itemlisttext","_buysell","_itemInfo","_selectedItem","_itemText"];
 //Initialize Values
 _weap_type = "";
-_picture = "";
 _price = 0;
 
 // Grab access to the controls
 _dialog = findDisplay genstore_DIALOG;
 _itemlist = _dialog displayCtrl genstore_sell_list;
 _itemlisttext = _dialog displayCtrl genstore_sell_TEXT;
-_picture = _dialog displayCtrl genstore_item_pic;
-_buysell = _dialog displayCtrl genstore_buysell;
 _itemInfo = _dialog displayCtrl genstore_item_Info;
 
 //Get Selected Item

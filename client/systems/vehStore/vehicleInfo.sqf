@@ -8,7 +8,7 @@
 #include "dialog\vehstoreDefines.sqf";
 
 disableSerialization;
-
+private ["_veh_type","_price","_dialog","_vehlist","_vehText","_picture","_colorlist","_selectedItem","_itemText","_weap_type","_NoColorVehs","_RGBVehicles","_isRGB","_isDumb","_colorlistIndex"];
 //Initialize Values
 _veh_type = "";
 _picture = "";
@@ -73,7 +73,7 @@ _vehText ctrlSetText "";
 	_vehText ctrlSetText format ["Price: $%1", _price];	
 }}forEach submarinesArray;
 
-_NoColorVehs = ["Offroad","HEMTT Open","HEMTT Covered","Ifrit","Ifrit HMG","Ifrit GMG","Strider","Strider HMG","Strider GMG","MSE-3 Marid","AH-99 Blackfoot","Assault Boat Blue","SDV Submarine Blue"];
+_NoColorVehs = ["Offroad","HEMTT Open","HEMTT Covered","Ifrit","Ifrit HMG","Ifrit GMG","Strider","Strider HMG","Strider GMG","MSE-3 Marid","AH-99 Blackfoot","Assault Boat Blue","SDV Submarine Blue","IFV-6c Panther","BTR-K Kamysh"];
 _RGBVehicles = ["Quadbike Blue","Quadbike Red","Quadbike Green","Quadbike Civilian","Zamak Open","Zamak Covered","Assault Boat Red","Assault Boat Green","Rescue Blue","Rescue Red","Rescue Civilian","UH-80 Ghosthawk","SDV Submarine Green","SDV Submarine Red"];
 
 {

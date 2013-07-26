@@ -9,12 +9,8 @@
 
 disableSerialization;
 
+private ["_weap_type","_picture","_price"];
 //Initialize Values
 _weap_type = "";
 _picture = "";
 _price = 0;
-
-//Check Items Price
-{if(_itemText == _x select 0) then{
-
-}}forEach colorsArray;

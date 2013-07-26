@@ -7,7 +7,7 @@
 
 #include "dialog\genstoreDefines.sqf";
 disableSerialization;
-
+private["_dialog","_buysell","_switchText"];
 _dialog = findDisplay genstore_DIALOG;
 _buysell = _dialog displayCtrl genstore_buysell;
 

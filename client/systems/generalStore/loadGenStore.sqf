@@ -8,6 +8,7 @@
 #include "defines.hpp"
 #include "dialog\genstoreDefines.sqf";
 disableSerialization;
+private["_genshopDialog","_Dialog","_playerMoney","_money","_owner"];
 
 _genshopDialog = createDialog "genstored";
 genStoreCart = 0;

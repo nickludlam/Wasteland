@@ -1,4 +1,4 @@
-private ["_missionMarkerName","_missionType","_vehicleClass","_picture","_vehicleName","_hint","_waypoint","_waypoints","_groupsm","_vehicles","_marker","_failed","_startTime","_numWaypoints","_ammobox","_createVehicle","_leader"];
+private ["_missionMarkerName","_missionType","_vehicleClass","_picture","_vehicleName","_hint","_waypoint","_waypoints","_groupsm","_vehicles","_marker","_failed","_startTime","_numWaypoints","_ammobox","_createVehicle","_leader","_pos"];
 
 #include "sideMissionDefines.sqf"
 
