@@ -3,6 +3,8 @@
 //	@file Author: [404] Deadbeat, [404] Costlyy
 //	@file Created: 28/11/2012 05:19
 
+#define __REFRESH 0.34
+
 private["_inGroup","_isLeader","_refresh","_distance","_myGroup","_tempArray","_icon","_target","_nameString"];
 
 _tempArray = [];

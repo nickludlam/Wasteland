@@ -30,6 +30,6 @@ player globalChat format["You have kicked %1 from the group.",name _target];
 
 _msg = format["You have been kicked from %1's group", name player];
 _destPlayerUID = getPlayerUID _target;
-if(!isDedicated) then {call serverRelayHandler};
+if(X_Server) then {call serverRelayHandler};
 serverRelaySystem = [MESSAGE_BROADCAST_MSG_TO_PLAYER, MESSAGE_BROADCAST_MSG_TYPE_GCHAT, _destPlayerUID, _msg];
 publicVariable "serverRelaySystem";

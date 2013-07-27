@@ -27,8 +27,10 @@ else
 	
 	R3F_LOG_objet_selectionne = objNull;
 	
-	private ["_objet", "_est_calculateur", "_arme_principale", "_arme_principale_accessoires", "_arme_principale_magasines", "_action_menu_release_relative", "_action_menu_release_horizontal" ,
-	"_action_menu_45", "_azimut_canon", "_muzzles", "_magazine", "_ammo","_tempVar","_opos","_ppos","_opos2","_o",""];
+	private ["_objet", "_est_calculateur", "_arme_principale", "_arme_principale_accessoires",
+	         "_arme_principale_magasines", "_action_menu_release_relative",
+	         "_action_menu_release_horizontal" , "_action_menu_45", "_azimut_canon", "_muzzles",
+	         "_magazine", "_ammo","_tempVar","_opos","_ppos","_opos2","_o"];
 	
 	_objet = _this select 0;
 	if(isNil {_objet getVariable "R3F_Side"}) then {

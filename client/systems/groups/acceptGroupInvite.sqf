@@ -4,11 +4,11 @@
 //	@file Created: 20/11/2012 05:19
 #include "defines.hpp"
 
-private["_groupExists","_inviterUID","_accepterName","_destPlayerUID","_msg"];
-
+private["_groupExists","_inviterUID","_inviter", "_accepterName","_destPlayerUID","_msg"];
 
 //Get the inviters UID
 _inviterUID = nil;
+_inviter = nil;
 _groupExists = false;
 {
 	if(getPlayerUID player == _x select 1) then
@@ -26,10 +26,10 @@ _groupExists = false;
     {
     	_inviter = _x;
         _groupExists = true;	    
-    };   
+    };
 }forEach playableUnits;
 
-if(_groupExists) then
+if(_groupExists and !isNil "_inviter") then
 {
 	[player] join (group _inviter);
     player globalChat format["You have accepted the invite."];
@@ -38,7 +38,7 @@ if(_groupExists) then
 	_destPlayerUID = getPlayerUID _inviter;
 	_accepterName = name player;
 	_msg = format["%1 has accepted your invite", _accepterName];
-	if(!isDedicated) then {call serverRelayHandler};
+	if(X_Server) then {call serverRelayHandler};
 	serverRelaySystem = [MESSAGE_BROADCAST_MSG_TO_PLAYER, MESSAGE_BROADCAST_MSG_TYPE_GCHAT, _destPlayerUID, _msg];
 	publicVariable "serverRelaySystem";
 } else {

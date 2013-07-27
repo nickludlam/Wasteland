@@ -28,7 +28,7 @@ if(_groupExists) then
 {
 	_destPlayerUID = getPlayerUID _inviter;
 	_msg = format["%1 has declined your invite.", name player];
-	if(!isDedicated) then {call serverRelayHandler};
+	if(X_Server) then {call serverRelayHandler};
 	serverRelaySystem = [MESSAGE_BROADCAST_MSG_TO_PLAYER, MESSAGE_BROADCAST_MSG_TYPE_GCHAT, _destPlayerUID, _msg];
 	publicVariable "serverRelaySystem";
 } else {

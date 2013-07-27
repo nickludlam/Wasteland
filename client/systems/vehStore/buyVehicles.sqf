@@ -62,7 +62,7 @@ _createAndApplyapplyVehProperties =
 	
 	if(_texturePath != "") then
 	{
-		if(!isDedicated) then {call serverRelayHandler};
+		if(X_Server) then {call serverRelayHandler};
 		serverRelaySystem = [MESSAGE_VEHICLE_PROPERTIES_APPLY, _car, _texturePath];
 		publicVariable "serverRelaySystem";
 	};

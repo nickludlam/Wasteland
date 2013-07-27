@@ -40,7 +40,7 @@ publicVariableServer "currentInvites";
 
 _msg = format["You have been invited to join %1's group", name player];
 _destPlayerUID = getPlayerUID _target;
-if(!isDedicated) then {call serverRelayHandler};
+if(X_Server) then {call serverRelayHandler};
 serverRelaySystem = [MESSAGE_BROADCAST_MSG_TO_PLAYER, MESSAGE_BROADCAST_MSG_TYPE_GCHAT, _destPlayerUID, _msg];
 publicVariable "serverRelaySystem";
 

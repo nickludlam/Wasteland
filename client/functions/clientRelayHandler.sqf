@@ -5,6 +5,9 @@
 //	@file Desc: Converts server method calls to local client methods
 
 #include "defines.hpp"
+
+if(X_Server) exitWith {};
+
 private ["_function","_applyPaint","_applyMissile","_msgToPlayer", "_msgToAllPlayers"];
 _function = serverRelaySystem select 0;
 
@@ -29,20 +32,20 @@ _msgToPlayer =
 	_type = _this select 0;
 	_playerUID = _this select 1;
 	_msg = _this select 2;
-
 	_curUID = getPlayerUID player;
-	diag_log format["_msgToPlayer checking %1 == %2", _playerUID, _curUID];
-	if (_playerUID != _curUID) exitWith {};
-	
-	if(_type == MESSAGE_BROADCAST_MSG_TYPE_TITLE) then{	titleText [_msg, "plain"]; titleFadeOut 10;};
-	if(_type == MESSAGE_BROADCAST_MSG_TYPE_GCHAT) then { player globalChat _msg; };
+
+	if (!isNil "_curUID") then {
+		diag_log format["_msgToPlayer checking %1 == %2", _playerUID, _curUID];
+		if (_playerUID != _curUID) exitWith {};
+		if(_type == MESSAGE_BROADCAST_MSG_TYPE_TITLE) then{	titleText [_msg, "plain"]; titleFadeOut 10;};
+		if(_type == MESSAGE_BROADCAST_MSG_TYPE_GCHAT) then { player globalChat _msg; };
+	};
 };
 
 _msgToAllPlayers =
 {
 	private ["_type", "_msg"];
 	_msg = _this select 0;
-
 	diag_log format["_msgToAllPlayers %1", _msg];
 	hint _msg;
 };

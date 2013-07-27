@@ -75,7 +75,7 @@ if(_cont == 1) then
 		//notify the clients
 		_destPlayerUID = getPlayerUID _target;
 		_msg = "You have been promoted to group leader.";
-		if(!isDedicated) then {call serverRelayHandler};
+		if(X_Server) then {call serverRelayHandler};
 		serverRelaySystem = [MESSAGE_BROADCAST_MSG_TO_PLAYER, MESSAGE_BROADCAST_MSG_TYPE_GCHAT, _destPlayerUID, _msg];
 		publicVariable "serverRelaySystem";
 		player globalChat format["You have promoted %1 to group leader",name _target];
