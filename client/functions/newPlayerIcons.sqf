@@ -13,6 +13,7 @@ FZF_ICHud_Scale = 1.0;
 FZF_ICHud_Centre = [150, 150];
 FZF_ICHud_Customised = false;
 FZF_ICHud_Layer = 609;
+FZF_IC_Hud_Disp = nil;
 
 FZF_IC_Icons = 
 {
@@ -98,25 +99,31 @@ FZF_IC_Icons =
 				};
 							
 				with uinamespace do{  //update posistion
-					HUD_ICON = FZF_IC_Hud_Disp displayCtrl (icons_idc + _index);
-					HUD_ICON ctrlSetStructuredText parseText _picon;
-					HUD_ICON ctrlSetPosition [_sx, _sy, 0.4, 0.65];
-					HUD_ICON ctrlSetScale _scale;
-					HUD_ICON ctrlSetFade ((1- _scale ) / 2);
-					HUD_ICON ctrlCommit 0;
-					HUD_ICON ctrlShow true;
+					if (!isNil "FZF_IC_Hud_Disp") then {
+						HUD_ICON = FZF_IC_Hud_Disp displayCtrl (icons_idc + _index);
+						HUD_ICON ctrlSetStructuredText parseText _picon;
+						HUD_ICON ctrlSetPosition [_sx, _sy, 0.4, 0.65];
+						HUD_ICON ctrlSetScale _scale;
+						HUD_ICON ctrlSetFade ((1- _scale ) / 2);
+						HUD_ICON ctrlCommit 0;
+						HUD_ICON ctrlShow true;						
+					};
 				};			
 			} else {
 				with uinamespace do{  //stop displaying the icon of the unit
-					HUD_ICON = FZF_IC_Hud_Disp displayCtrl (icons_idc + _index);
-					HUD_ICON ctrlShow false;
+					if (!isNil "FZF_IC_Hud_Disp") then {
+						HUD_ICON = FZF_IC_Hud_Disp displayCtrl (icons_idc + _index);
+						HUD_ICON ctrlShow false;
+					};
 				};		
 			};
 			
 		} else {
 			with uinamespace do{
-				HUD_ICON = FZF_IC_Hud_Disp displayCtrl (icons_idc + _index);
-				HUD_ICON ctrlShow false;
+				if (!isNil "FZF_IC_Hud_Disp") then {
+					HUD_ICON = FZF_IC_Hud_Disp displayCtrl (icons_idc + _index);
+					HUD_ICON ctrlShow false;
+				};
 			};		
 		};
         _index = _index + 1;
@@ -124,8 +131,10 @@ FZF_IC_Icons =
 
 	if (_remove_icon) then {
 		with uinamespace do{
-		HUD_ICON = FZF_IC_Hud_Disp displayCtrl (icons_idc + _index );
-		HUD_ICON ctrlShow false;
+			if (!isNil "FZF_IC_Hud_Disp") then {
+				HUD_ICON = FZF_IC_Hud_Disp displayCtrl (icons_idc + _index );
+				HUD_ICON ctrlShow false;
+			};
 		};	
 	};
 };
@@ -275,7 +284,7 @@ FZF_IC_INIT =
 #else
 				call FZF_IC_Icons;
 #endif
-                sleep 0.01;
+                sleep 0.02;
             };
             FZF_ICHud_Layer cutText ["", "PLAIN"];
 
