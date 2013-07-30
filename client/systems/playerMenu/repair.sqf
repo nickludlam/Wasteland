@@ -10,17 +10,19 @@ if(mutexScriptInProgress) exitWith {
 	player globalChat localize "STR_WL_Errors_InProgress";
 };
 
-private ["_currVehicle","_currVehicleType","_stringEscapePercent","_iteration","_currPlayerState","_totalDuration","_iterationAmount","_iterationPercentage"];
+private["_objects", "_currVehicle","_currVehicleType","_stringEscapePercent","_iteration","_loopSpeed","_iterationAmount","_iterationPercentage","_currPlayerState","_totalDuration"];
 
-_currVehicle = nearestObjects[player, ["LandVehicle", "Air", "Ship"], 5] select 0;
+_objects = nearestObjects[player, ["LandVehicle", "Air", "Ship"], 5];
+// PRECONDITION: Check for vehicle near-by, if exists then select closest.
+if (count _objects == 0) exitWith { hint "No vehicle within range"; };
+
+_currVehicle = _objects select 0;
 _currVehicleType = typeOf _currVehicle;
 _stringEscapePercent = "%"; // Required to get the % sign into a formatted string.
 _iteration = 0;
 
 // PRECONDITION: Check player is not in a car (driver/passenger etc).
 if(vehicle player != player) exitWith { player globalChat localize "STR_WL_Errors_InVehicle"; };
-// PRECONDITION: Check for vehicle near-by, if exists then select closest.
-if(isNil{_currVehicle}) exitWith { hint "No vehicle within range"; };
 
 if(((damage _currVehicle) > 0.05) OR !(canMove _currVehicle) OR (_currVehicle isKindOf "Air") OR ((count crew _currVehicle > 0) AND (count(configFile >> "CfgVehicles" >> (_currVehicleType) >> "Turrets") > 0) AND !(canFire _currVehicle))) then {
 	

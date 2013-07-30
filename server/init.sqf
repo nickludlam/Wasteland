@@ -38,6 +38,10 @@ _serverCompiledScripts = [] execVM "server\functions\serverCompile.sqf";
 [] execVM "server\functions\serverTimeSync.sqf";
 serverRelaySystem = '';
 "serverRelaySystem" addPublicVariableEventHandler {[] call serverRelayHandler};
+
+serverVehicleHeliDrop = [];
+"serverVehicleHeliDrop" addPublicVariableEventHandler { serverVehicleHeliDrop spawn airdropVehicle };
+
 waitUntil{scriptDone _serverCompiledScripts};
 
 execVM "server\statSave\serverGather.sqf";

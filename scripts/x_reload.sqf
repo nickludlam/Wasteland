@@ -11,7 +11,10 @@ x_reload_time_factor = 5;
 
 _object setVehicleAmmo 1;
 
+_object setFuel 0;
+
 _object vehicleChat format ["Servicing %1... Please stand by...", _type];
+sleep x_reload_time_factor;
 
 _magazines = getArray(configFile >> "CfgVehicles" >> _type >> "magazines");
 
@@ -74,17 +77,16 @@ if (_count > 0) then {
 };
 _object setVehicleAmmo 1;	// Reload turrets / drivers magazine
 
-sleep x_reload_time_factor;
 _object vehicleChat "Repairing...";
-_object setDamage 0;
 sleep x_reload_time_factor;
+_object setDamage 0;
+
 _object vehicleChat "Refueling...";
 while {fuel _object < 0.99} do {
-	//_object setFuel ((fuel _vehicle + 0.1) min 1);
-	_object setFuel 1;
-	sleep 0.01;
+	_object setFuel ((fuel _object + 0.1) min 1);
+	sleep 2;
 };
-sleep x_reload_time_factor;
+
 _object vehicleChat format ["%1 is ready!", _type];
 
 if (true) exitWith {};

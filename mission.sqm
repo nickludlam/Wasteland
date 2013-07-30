@@ -894,7 +894,7 @@ class Mission
 					leader=1;
 					skill=0.60000002;
 					text="East_Gen";
-					init="this addEventHandler['handledamage', {false}]; removeAllWeapons this; this addAction [""Use The General Store"",""client\systems\generalStore\loadGenStore.sqf""];this setIdentity ""East_Gen"";";
+					init="this addEventHandler['handledamage', {false}]; removeAllWeapons this; this addAction [""Speak with General Store owner"",""client\systems\generalStore\loadGenStore.sqf""];this setIdentity ""East_Gen"";";
 				};
 			};
 		};
@@ -914,7 +914,7 @@ class Mission
 					leader=1;
 					skill=0.60000002;
 					text="East_GenS";
-					init="this addEventHandler['handledamage', {false}]; removeAllWeapons this; this addAction [""Use The General Store"",""client\systems\generalStore\loadGenStore.sqf""];this setIdentity ""East_GenS"";";
+					init="this addEventHandler['handledamage', {false}]; removeAllWeapons this; this addAction [""Speak with General Store owner"",""client\systems\generalStore\loadGenStore.sqf""];this setIdentity ""East_GenS"";";
 				};
 			};
 		};
@@ -935,7 +935,7 @@ class Mission
 					leader=1;
 					skill=0.60000002;
 					text="West_Gen";
-					init="this addEventHandler['handledamage', {false}]; removeAllWeapons this; this addAction [""Use The General Store"",""client\systems\generalStore\loadGenStore.sqf""];this setIdentity ""West_Gen"";";
+					init="this addEventHandler['handledamage', {false}]; removeAllWeapons this; this addAction [""Speak with General Store owner"",""client\systems\generalStore\loadGenStore.sqf""];this setIdentity ""West_Gen"";";
 				};
 			};
 		};
@@ -995,7 +995,7 @@ class Mission
 					leader=1;
 					skill=0.60000002;
 					text="East_GS";
-					init="this addEventHandler['handledamage', {false}]; removeAllWeapons this; this addAction [""Speak with Gun Store"",""client\systems\gunStore\loadGunStore.sqf""]; this setIdentity ""East_GS"";";
+					init="this addEventHandler['handledamage', {false}]; removeAllWeapons this; this addAction [""Speak with Gun Store owner"",""client\systems\gunStore\loadGunStore.sqf""]; this setIdentity ""East_GS"";";
 				};
 			};
 		};
@@ -1015,7 +1015,7 @@ class Mission
 					leader=1;
 					skill=0.60000002;
 					text="West_GSA";
-					init="this addEventHandler['handledamage', {false}]; removeAllWeapons this; this addAction [""Speak with Gun Store"",""client\systems\gunStore\loadGunStore.sqf""]; this setIdentity ""West_GSA"";";
+					init="this addEventHandler['handledamage', {false}]; removeAllWeapons this; this addAction [""Speak with Gun Store owner"",""client\systems\gunStore\loadGunStore.sqf""]; this setIdentity ""West_GSA"";";
 				};
 			};
 		};
@@ -1035,7 +1035,7 @@ class Mission
 					leader=1;
 					skill=0.60000002;
 					text="West_GS";
-					init="this addEventHandler['handledamage', {false}]; removeAllWeapons this; this addAction [""Speak with Gun Store"",""client\systems\gunStore\loadGunStore.sqf""]; this setIdentity ""West_GS"";";
+					init="this addEventHandler['handledamage', {false}]; removeAllWeapons this; this addAction [""Speak with Gun Store owner"",""client\systems\gunStore\loadGunStore.sqf""]; this setIdentity ""West_GS"";";
 				};
 			};
 		};
@@ -1055,7 +1055,7 @@ class Mission
 					leader=1;
 					skill=0.60000002;
 					text="East_GSE";
-					init="this addEventHandler['handledamage', {false}]; removeAllWeapons this; this addAction [""Speak with Gun Store"",""client\systems\gunStore\loadGunStore.sqf""]; this setIdentity ""East_GSE"";";
+					init="this addEventHandler['handledamage', {false}]; removeAllWeapons this; this addAction [""Speak with Gun Store owner"",""client\systems\gunStore\loadGunStore.sqf""]; this setIdentity ""East_GSE"";";
 				};
 			};
 		};
@@ -1315,7 +1315,7 @@ class Mission
 					leader=1;
 					skill=0.60000002;
 					text="North_GenS";
-					init="this addEventHandler['handledamage', {false}]; removeAllWeapons this; this addAction [""Use The General Store"",""client\systems\generalStore\loadGenStore.sqf""];this setIdentity ""North_GenS"";";
+					init="this addEventHandler['handledamage', {false}]; removeAllWeapons this; this addAction [""Speak with General Store owner"",""client\systems\generalStore\loadGenStore.sqf""];this setIdentity ""North_GenS"";";
 				};
 			};
 		};
@@ -2128,7 +2128,7 @@ class Mission
 					leader=1;
 					skill=0.60000002;
 					text="East_VS";
-					init="this addEventHandler['handledamage', {false}]; removeAllWeapons this; this addAction [""Speak with Vehicle Store"",""client\systems\vehStore\loadVehStore.sqf""]; this setIdentity ""East_VS"";";
+					init="this addEventHandler['handledamage', {false}]; removeAllWeapons this; this addAction [""Speak with Vehicle Store owner"",""client\systems\vehStore\loadVehStore.sqf""]; this setIdentity ""East_VS"";";
 				};
 			};
 		};
@@ -2148,7 +2148,7 @@ class Mission
 					leader=1;
 					skill=0.60000002;
 					text="North_VS";
-					init="this addEventHandler['handledamage', {false}]; removeAllWeapons this; this addAction [""Speak with Vehicle Store"",""client\systems\vehStore\loadVehStore.sqf""]; this setIdentity ""North_VS"";";
+					init="this addEventHandler['handledamage', {false}]; removeAllWeapons this; this addAction [""Speak with Vehicle Store owner"",""client\systems\vehStore\loadVehStore.sqf""]; this setIdentity ""North_VS"";";
 				};
 			};
 		};
@@ -2168,7 +2168,7 @@ class Mission
 					leader=1;
 					skill=0.60000002;
 					text="West_VS";
-					init="this addEventHandler['handledamage', {false}]; removeAllWeapons this; this addAction [""Speak with Vehicle Store"",""client\systems\vehStore\loadVehStore.sqf""]; this setIdentity ""West_VS"";";
+					init="this addEventHandler['handledamage', {false}]; removeAllWeapons this; this addAction [""Speak with Vehicle Store owner"",""client\systems\vehStore\loadVehStore.sqf""]; this setIdentity ""West_VS"";";
 				};
 			};
 		};
@@ -2188,7 +2188,7 @@ class Mission
 					leader=1;
 					skill=0.60000002;
 					text="South_VS";
-					init="this addEventHandler['handledamage', {false}]; removeAllWeapons this; this addAction [""Speak with Vehicle Store"",""client\systems\vehStore\loadVehStore.sqf""]; this setIdentity ""South_VS"";";
+					init="this addEventHandler['handledamage', {false}]; removeAllWeapons this; this addAction [""Speak with Vehicle Store owner"",""client\systems\vehStore\loadVehStore.sqf""]; this setIdentity ""South_VS"";";
 				};
 			};
 		};
@@ -2208,7 +2208,7 @@ class Mission
 					leader=1;
 					skill=0.60000002;
 					text="North_Gen";
-					init="this addEventHandler['handledamage', {false}]; removeAllWeapons this; this addAction [""Use The General Store"",""client\systems\generalStore\loadGenStore.sqf""];this setIdentity ""North_Gen"";";
+					init="this addEventHandler['handledamage', {false}]; removeAllWeapons this; this addAction [""Speak with General Store owner"",""client\systems\generalStore\loadGenStore.sqf""];this setIdentity ""North_Gen"";";
 				};
 			};
 		};
@@ -9193,7 +9193,7 @@ class Mission
 		};
 		class Item498
 		{
-			position[]={3246.5945,4.0733957,6825.7539};
+			position[]={3226.5945,4.0733957,6843.7539};
 			name="land_spawn_North_VS";
 			type="Empty";
 		};
@@ -9233,7 +9233,7 @@ class Mission
 		};
 		class Item504
 		{
-			position[]={2151.9077,0,5868.1899};
+			position[]={2154.9077,0,5872.1899};
 			name="sea_spawn_West_VS";
 			type="Empty";
 		};
@@ -9370,7 +9370,7 @@ class Mission
 			expActiv="{_x Setdammage 0} Foreach thislist; ";
 			class Effects
 			{
-				voice="Hints";
+				voice="FD_CP_Not_Clear_F";
 			};
 		};
 		class Item1
@@ -9390,7 +9390,7 @@ class Mission
 			expActiv="{_x Setdammage 0} Foreach thislist;";
 			class Effects
 			{
-				voice="Hints";
+				voice="FD_CP_Not_Clear_F";
 			};
 		};
 		class Item2
@@ -9785,7 +9785,7 @@ class Mission
 			expActiv="{_x Setdammage 0} Foreach thislist; {thirstLevel = 100; hungerLevel = 100; fatigueLevel = 0;}Foreach thislist;";
 			class Effects
 			{
-				voice="Hints";
+				voice="FD_CP_Not_Clear_F";
 			};
 		};
 		class Item23
@@ -9805,7 +9805,7 @@ class Mission
 			expActiv="{_x Setdammage 0} Foreach thislist; {thirstLevel = 100; hungerLevel = 100; fatigueLevel = 0;}Foreach thislist;";
 			class Effects
 			{
-				voice="Hints";
+				voice="FD_CP_Not_Clear_F";
 			};
 		};
 		class Item24
@@ -10119,7 +10119,7 @@ class Mission
 			expActiv="{_x Setdammage 0} Foreach thislist;";
 			class Effects
 			{
-				voice="Hints";
+				voice="FD_CP_Not_Clear_F";
 			};
 		};
 		class Item41
@@ -10314,6 +10314,7 @@ class Mission
 			expActiv="_xhandle= (thislist select 0) execVM ""scripts\x_reload.sqf"";";
 			class Effects
 			{
+				voice="FD_Course_Active_F";
 			};
 		};
 		class Item51
@@ -10331,6 +10332,7 @@ class Mission
 			expActiv="_xhandle= (thislist select 0) execVM ""scripts\x_reload.sqf"";";
 			class Effects
 			{
+				voice="FD_Course_Active_F";
 			};
 		};
 		class Item52
@@ -10348,6 +10350,7 @@ class Mission
 			expActiv="_xhandle= (thislist select 0) execVM ""scripts\x_reload.sqf"";";
 			class Effects
 			{
+				voice="FD_Course_Active_F";
 			};
 		};
 		class Item53
@@ -10365,6 +10368,7 @@ class Mission
 			expActiv="_xhandle= (thislist select 0) execVM ""scripts\x_reload.sqf"";";
 			class Effects
 			{
+				voice="FD_Course_Active_F";
 			};
 		};
 		class Item54
@@ -10546,6 +10550,7 @@ class Mission
 			expActiv="_xhandle= (thislist select 0) execVM ""scripts\x_reload.sqf"";";
 			class Effects
 			{
+				voice="FD_Course_Active_F";
 			};
 		};
 		class Item64
@@ -10579,6 +10584,7 @@ class Mission
 			expActiv="_xhandle= (thislist select 0) execVM ""scripts\x_reload.sqf"";";
 			class Effects
 			{
+				voice="FD_Course_Active_F";
 			};
 		};
 		class Item66
@@ -10596,6 +10602,7 @@ class Mission
 			expActiv="_xhandle= (thislist select 0) execVM ""scripts\x_reload.sqf"";";
 			class Effects
 			{
+				voice="FD_Course_Active_F";
 			};
 		};
 		class Item67
@@ -10613,6 +10620,7 @@ class Mission
 			expActiv="_xhandle= (thislist select 0) execVM ""scripts\x_reload.sqf"";";
 			class Effects
 			{
+				voice="FD_Course_Active_F";
 			};
 		};
 		class Item68
@@ -10630,6 +10638,7 @@ class Mission
 			expActiv="_xhandle= (thislist select 0) execVM ""scripts\x_reload.sqf"";";
 			class Effects
 			{
+				voice="FD_Course_Active_F";
 			};
 		};
 		class Item69
@@ -10704,6 +10713,7 @@ class Mission
 			expActiv="_xhandle= (thislist select 0) execVM ""scripts\x_reload.sqf"";";
 			class Effects
 			{
+				voice="FD_Course_Active_F";
 			};
 		};
 		class Item73

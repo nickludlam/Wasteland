@@ -67,6 +67,7 @@ if(X_Client) then {
 //init 3rd Party Scripts
 [] execVM "addons\R3F_ARTY_AND_LOG\init.sqf";
 [] execVM "addons\proving_ground\init.sqf";
+[] execVM "addons\scripts\DynamicWeatherEffects.sqf";
 
 //Disable r3f on map/mission sided buildings (causes desync when moved)
 //props to Tonic-_- at the BIS forums for this find! :)

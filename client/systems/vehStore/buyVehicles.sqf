@@ -7,13 +7,8 @@
 #include "defines.hpp"
 #include "dialog\vehstoreDefines.sqf";
 
-private ["_switch","_playerMoney","_price","_dialog","_playerMoneyText","_colorText","_itemText","_handleMoney","_applyVehProperties","_car","_veh_type","_vehPos","_DoSpawn","_old_veh","_class", "_idc","_types","_res","_selection","_veh","_dir"];
+private ["_switch","_playerMoney","_price","_dialog","_playerMoneyText","_colorText","_itemText","_handleMoney","_applyVehProperties","_car","_vehType","_vehPos","_veh"];
 
-//#include "addons\proving_ground\defs.hpp"
-//#define GET_DISPLAY (findDisplay balca_debug_VC_IDD)
-//#define GET_CTRL(a) (GET_DISPLAY displayCtrl ##a)
-//#define GET_SELECTED_DATA(a) ([##a] call {_idc = _this select 0;_selection = (lbSelection GET_CTRL(_idc) select 0);if (isNil {_selection}) then {_selection = 0};(GET_CTRL(_idc) lbData _selection)})
-//#define KINDOF_ARRAY(a,b) [##a,##b] call {_veh = _this select 0;_types = _this select 1;_res = false; {if (_veh isKindOf _x) exitwith { _res = true };} forEach _types;_res}
 disableSerialization;
 
 //Initialize Values
@@ -22,6 +17,8 @@ _switch = _this select 0;
 _playerMoney = player getVariable __MONEY_VAR_NAME__;
 _price = 0;
 
+_spawnPosVehicle = [3786.45,7912.79,1000.0]; // Spawn it on debug island before moving to the chopper
+
 // Grab access to the controls
 _dialog = findDisplay vehshop_DIALOG;
 _playerMoneyText = _Dialog displayCtrl vehshop_money;
@@ -29,19 +26,24 @@ _colorText = lbText [vehshop_color_list, (lbCurSel vehshop_color_list)];
 _itemText = lbText  [vehshop_veh_list, (lbCurSel vehshop_veh_list)];
 _handleMoney = 1;
 
+// Our array of arrays
+_landVehicleArrays = [landArray, armoredArray, tanksArray, helicoptersArray];
+_seaVehicleArrays = [boatsArray, submarinesArray];
+
 _createAndApplyapplyVehProperties = 
 {
-    private ["_car","_colorText","_texturePath", "_veh_type", "_vehPos"];
-	_colorText = _this select 0;
-	_veh_type = _this select 1;
-	_vehPos = _this select 2;
+    private ["_vehicle", "_colorText","_texturePath", "_type", "_pos"];
+	_pos = _this select 0;
+	_type = _this select 1;
+	_colorText = _this select 2;
 	
-	_car = createVehicle [_veh_type,_vehPos, [], 0, "CAN_COLLIDE"];
+	_vehicle = createVehicle [_type,_pos, [], 0, "NONE"];
 	
 	//_veh setDir _dir;
-	_car setVariable ["newVehicle",1,true];
-	_car setVelocity [0,0,0];
+	_vehicle setVariable ["newVehicle",1,true];
 	
+	_texturePath = "";
+
 	//if they chose a color set the color
 	if(_colorText == "Orange") then { _texturePath = '#(argb,8,8,3)color(0.82,0.2,0,1)';};
 	if(_colorText == "Red") then { _texturePath = '#(argb,8,8,3)color(0.79,0.03,0,1)';};
@@ -58,158 +60,76 @@ _createAndApplyapplyVehProperties =
 	if(_colorText == "Red Camo") then {_texturePath = "images\camo_deser.jpg";};
 	if(_colorText == "Yellow Camo") then {_texturePath = "images\camo_fuel.jpg";};
 	if(_colorText == "Pink Camo") then {_texturePath = "images\camo_pank.jpg";};
-	_car setVariable ["textureName", _texturePath];
+	_vehicle setVariable ["textureName", _texturePath];
 	
 	if(_texturePath != "") then
 	{
-		if(X_Server) then {call serverRelayHandler};
-		serverRelaySystem = [MESSAGE_VEHICLE_PROPERTIES_APPLY, _car, _texturePath];
+		//if(isServer) then {call serverRelayHandler};
+		serverRelaySystem = [MESSAGE_VEHICLE_PROPERTIES_APPLY, _vehicle, _texturePath];
 		publicVariable "serverRelaySystem";
 	};
 
 	//tell the vehicle to delete itself after dying
-	_car addEventHandler ["Killed",{(_this select 0) spawn {sleep 180; deleteVehicle _this}}];
+	_vehicle addEventHandler ["Killed",{(_this select 0) spawn {sleep 180; deleteVehicle _this}}];
 	
 	//enable vehicle locking
-	_car addAction ["Unlock / Lock","server\functions\unlocklock.sqf",[],7,true,true,"","(_target distance _this) < 7"];
+	_vehicle addAction ["Unlock / Lock","server\functions\unlocklock.sqf",[],7,true,true,"","(_target distance _this) < 7"];
+	_vehicle
 };
+
+_deliverPos = nil;
+_veh = nil;
 
 switch(_switch) do 
 {
 	//Buy To Player
 	case 0: 
 	{
+		// LAND VEHICLES
 		{
-			if(_itemText == _x select 0) then
+			_vehicleArray = _x;
 			{
-				_price = _x select 2;
-				if ( _price > parseNumber str(_playerMoney)) then {hint format["You don't have enought money for %1", _itemText];_handleMoney = 0;breakTo "main"};
-				_class = _x select 1;
-				_dir = getdir player;
-				_vehPos = getPos player;
-				_Dospawn = 0;				
-				_vehPos =(getMarkerPos format ["land_spawn_%1", currentOwnerID]);
-				_DoSpawn = 1;
-				_veh_type = _class;
-				_old_veh = nearestObjects [_vehPos, ["AllVehicles"], 5];
-				{deleteVehicle _x} forEach _old_veh;
-				if(_Dospawn == 1) then{ [_colorText, _veh_type, _vehPos] call _createAndApplyapplyVehProperties; };
-			};
-		}forEach landArray;
+				if(_itemText == _x select 0) then
+				{
+					_price = _x select 2;
+					if ( _price > parseNumber str(_playerMoney)) then {hint format["You don't have enought money for %1", _itemText];_handleMoney = 0;breakTo "main"};
+					_vehType = _x select 1;
+					_deliverPos = (getMarkerPos format ["land_spawn_%1", currentOwnerID]);
+
+					_veh = [_spawnPosVehicle, _vehType, _colorText] call _createAndApplyapplyVehProperties;
+				};
+			} forEach _vehicleArray;
+		} forEach _landVehicleArrays;
 		
+		// SEA VEHICLES
 		{
-			if(_itemText == _x select 0) then
+			_vehicleArray = _x;
 			{
-				_price = _x select 2;
-				if ( _price > parseNumber str(_playerMoney)) then {hint format["You don't have enought money for %1", _itemText];_handleMoney = 0;breakTo "main"};
-				_class = _x select 1;
-				_dir = getdir player;
-				_vehPos = getPos player;
-				_Dospawn = 0;				
-				_vehPos =(getMarkerPos format ["land_spawn_%1", currentOwnerID]);
-				_DoSpawn = 1;
-				_veh_type = _class;
-				_old_veh = nearestObjects [_vehPos, ["AllVehicles"], 5];
-				{deleteVehicle _x} forEach _old_veh;
-				if(_Dospawn == 1) then{ [_colorText, _veh_type, _vehPos] call _createAndApplyapplyVehProperties; };
-			};
-		}forEach armoredArray;
-		
-		{
-			if(_itemText == _x select 0) then
-			{
-				_price = _x select 2;
-				if ( _price > parseNumber str(_playerMoney)) then {hint format["You don't have enought money for %1", _itemText];_handleMoney = 0;breakTo "main"};
-				_class = _x select 1;
-				_dir = getdir player;
-				_vehPos = getPos player;
-				_Dospawn = 0;				
-				_vehPos =(getMarkerPos format ["land_spawn_%1", currentOwnerID]);
-				_DoSpawn = 1;
-				_veh_type = _class;
-				_old_veh = nearestObjects [_vehPos, ["AllVehicles"], 5];
-				{deleteVehicle _x} forEach _old_veh;
-				if(_Dospawn == 1) then{ [_colorText, _veh_type, _vehPos] call _createAndApplyapplyVehProperties; };
-			};
-		}forEach tanksArray;
-		
-		{
-			if(_itemText == _x select 0) then
-			{
-				_price = _x select 2;
-				if ( _price > parseNumber str(_playerMoney)) then {hint format["You don't have enought money for %1", _itemText];_handleMoney = 0;breakTo "main"};
-				_class = _x select 1;
-				_dir = getdir player;
-				_vehPos = getPos player;
-				_Dospawn = 0;				
-				_vehPos =(getMarkerPos format ["air_spawn_%1", currentOwnerID]);
-				_DoSpawn = 1;
-				_veh_type = _class;
-				_old_veh = nearestObjects [_vehPos, ["AllVehicles"], 5];
-				{deleteVehicle _x} forEach _old_veh;
-				if(_Dospawn == 1) then{ [_colorText, _veh_type, _vehPos] call _createAndApplyapplyVehProperties; };
-			};
-		}forEach helicoptersArray;
-		
-		{
-			if(_itemText == _x select 0) then
-			{
-				_price = _x select 2;
-				if ( _price > parseNumber str(_playerMoney)) then {hint format["You don't have enought money for %1", _itemText];_handleMoney = 0;breakTo "main"};
-				_class = _x select 1;
-				_dir = getdir player;
-				_vehPos = getPos player;
-				_Dospawn = 0;				
-				_vehPos =(getMarkerPos format ["air_spawn_%1", currentOwnerID]);
-				_DoSpawn = 1;
-				_veh_type = _class;
-				_old_veh = nearestObjects [_vehPos, ["AllVehicles"], 5];
-				{deleteVehicle _x} forEach _old_veh;
-				if(_Dospawn == 1) then{ [_colorText, _veh_type, _vehPos] call _createAndApplyapplyVehProperties; };
-			};
-		}forEach jetsArray;
-				
-		{
-			if(_itemText == _x select 0) then
-			{
-				_price = _x select 2;
-				if ( _price > parseNumber str(_playerMoney)) then {hint format["You don't have enought money for %1", _itemText];_handleMoney = 0;breakTo "main"};				
-				_class = _x select 1;
-				_dir = getdir player;
-				_vehPos = getPos player;
-				_Dospawn = 0;			
-				_vehPos =(getMarkerPos format ["sea_spawn_%1", currentOwnerID]);
-				_DoSpawn = 1;
-				_veh_type = _class;
-				_old_veh = nearestObjects [_vehPos, ["AllVehicles"], 5];
-				{deleteVehicle _x} forEach _old_veh;
-				if(_Dospawn == 1) then{ [_colorText, _veh_type, _vehPos] call _createAndApplyapplyVehProperties; };
-			};
-		}forEach boatsArray;
-		
-		{
-			if(_itemText == _x select 0) then
-			{
-				_price = _x select 2;
-				if ( _price > parseNumber str(_playerMoney)) then {hint format["You don't have enought money for %1", _itemText];_handleMoney = 0;breakTo "main"};				
-				_class = _x select 1;				
-				_dir = getdir player;
-				_vehPos = getPos player;
-				_Dospawn = 0;				
-				_vehPos =(getMarkerPos format ["sea_spawn_%1", currentOwnerID]);
-				_DoSpawn = 1;
-				_veh_type = _class;
-				_old_veh = nearestObjects [_vehPos, ["AllVehicles"], 5];
-				{deleteVehicle _x} forEach _old_veh;
-				if(_Dospawn == 1) then{ [_colorText, _veh_type, _vehPos] call _createAndApplyapplyVehProperties; };
-			};
-		}forEach submarinesArray;
+				if(_itemText == _x select 0) then
+				{
+					_price = _x select 2;
+					if ( _price > parseNumber str(_playerMoney)) then {hint format["You don't have enought money for %1", _itemText];_handleMoney = 0;breakTo "main"};				
+					_vehType = _x select 1;
+					_deliverPos = (getMarkerPos format ["sea_spawn_%1", currentOwnerID]);
+
+					_veh = [_spawnPosVehicle, _vehType, _colorText] call _createAndApplyapplyVehProperties;
+				};
+			}forEach _vehicleArray;
+		} foreach _seaVehicleArrays;
 	};
 };
 
-if(_handleMoney ==1) then
+diag_log "Calling airdrop script";	
+serverVehicleHeliDrop = [_veh, _deliverPos];
+publicVariableServer "serverVehicleHeliDrop";
+
+// Pick a sound to play
+_ambientRadioSound = ["RadioAmbient2", "RadioAmbient6", "RadioAmbient8"] call BIS_fnc_selectRandom;
+
+if(_handleMoney == 1) then
 {
-	hint format["%1 spawned outside.", _itemText];
+	playSound _ambientRadioSound;
+	player globalChat format["A transport helicopter is en route with your %1. Stand by....", _itemText];
 	player setVariable[__MONEY_VAR_NAME__,_playerMoney - _price,true];
 	_playerMoneyText CtrlsetText format["Cash: $%1", player getVariable __MONEY_VAR_NAME__];
 };

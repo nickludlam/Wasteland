@@ -38,7 +38,7 @@ if(_groupExists and !isNil "_inviter") then
 	_destPlayerUID = getPlayerUID _inviter;
 	_accepterName = name player;
 	_msg = format["%1 has accepted your invite", _accepterName];
-	if(X_Server) then {call serverRelayHandler};
+	//if(X_Server) then {call serverRelayHandler};
 	serverRelaySystem = [MESSAGE_BROADCAST_MSG_TO_PLAYER, MESSAGE_BROADCAST_MSG_TYPE_GCHAT, _destPlayerUID, _msg];
 	publicVariable "serverRelaySystem";
 } else {

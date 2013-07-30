@@ -89,7 +89,7 @@ if ((_uid in moderators) OR (_uid in serverAdministrators)) then {
 				_msg = format["ADMIN MESSAGE FROM %1:  %2", _adminName, _warnText];
 				diag_log format ["Msg system sending from %1 -> %2 (UID %3):  %4", _adminName, name _target, _destPlayerUID, _msg];
 
-				if(X_Client) then {call serverRelayHandler};
+				//if(X_Server) then {call serverRelayHandler};
 				serverRelaySystem = [MESSAGE_BROADCAST_MSG_TO_PLAYER, MESSAGE_BROADCAST_MSG_TYPE_TITLE, _destPlayerUID, _msg];
 				publicVariable "serverRelaySystem";
 			} else {

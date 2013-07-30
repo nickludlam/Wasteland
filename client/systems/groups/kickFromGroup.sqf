@@ -33,7 +33,7 @@ if (!isNil "_target") then {
 
 	_msg = format["You have been kicked from %1's group", name player];
 	_destPlayerUID = getPlayerUID _target;
-	if(X_Server) then {call serverRelayHandler};
+	//if(X_Server) then {call serverRelayHandler};
 	serverRelaySystem = [MESSAGE_BROADCAST_MSG_TO_PLAYER, MESSAGE_BROADCAST_MSG_TYPE_GCHAT, _destPlayerUID, _msg];
 	publicVariable "serverRelaySystem";
 };

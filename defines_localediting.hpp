@@ -42,8 +42,8 @@
 #endif
 
 // How often we decrement units from peoples food and water
-#define HUNGER_DECREMENT_INTERVAL 900
-#define THIRST_DECREMENT_INTERVAL 600
+#define HUNGER_DECREMENT_INTERVAL 1800
+#define THIRST_DECREMENT_INTERVAL 1200
 
 // Randomize money variables to stop hackers
 #define __MONEY_VAR_NAME__ "12345playermoneyvar"

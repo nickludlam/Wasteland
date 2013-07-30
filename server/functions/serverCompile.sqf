@@ -89,6 +89,8 @@ initGunStores = compile preprocessFileLineNumbers "server\functions\initStoreOwn
 immRebuild = compile preprocessFileLineNumbers "server\functions\immrebuild.sqf";
 createStoreArea = compile preprocessFileLineNumbers "server\functions\createStoreArea.sqf";
 
+airdropVehicle = compile preprocessFileLineNumbers "server\functions\airdrop.sqf";
+
 //client forwards
 serverRelayHandler = compile preprocessFileLineNumbers "server\functions\serverRelayHandler.sqf";
 
