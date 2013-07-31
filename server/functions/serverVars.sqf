@@ -148,25 +148,6 @@ vehicleAddition2 = [
 	"Chemlight_green",
 	"Chemlight_yellow"
 ];
-
-storeOwners = 
-[
-	["West_GR",[2166.83,1888.78,3.13669],"West GR"],
-	["West_GS", [2194.73,3830.4,97.9379],"West GS"],
-	["West_GSA", [2441.46,5696.97,74.071],"West GSA"],
-	["East_GR", [5386.08,3185.82,4.81283],"East GR"],
-	["East_GS", [5538.2,4710.21,77.3378],"East GS"],
-	["East_Gen", [5538.2,4710.21,77.3378],"East Gen"],
-	["North_Gen", [5538.2,4710.21,77.3378],"North Gen"],
-	["West_Gen", [5538.2,4710.21,77.3378],"West Gen"],
-	["East_GenS", [5538.2,4710.21,77.3378],"East GenS"],
-	["East_GSE", [5538.2,4710.21,77.3378],"East GSE"],
-	["North_GenS", [5538.2,4710.21,77.3378],"North GenS"],
-	["North_VS", [5538.2,4710.21,77.3378],"North VS"],
-	["East_VS", [5538.2,4710.21,77.3378],"East VS"],
-	["South_VS", [5538.2,4710.21,77.3378],"South VS"],
-	["West_VS", [5538.2,4710.21,77.3378],"West VS"]
-]; 
                 
 MissionSpawnMarkers = [
             ["Mission_1",false],

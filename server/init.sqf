@@ -29,6 +29,9 @@ execVM "server\statSave\serverGather.sqf";
 diag_log format["WASTELAND SERVER - Server Compile Finished"];
 
 //Execute Server Spawning.
+_initOwners = [] ExecVM "server\functions\initStoreOwners.sqf";
+sleep 0.1;
+
 if (buildingsloot == 1) then {
 	diag_log format["GOT WASTELAND - Placing loot in buildings"];
 	_lootspawnz = [] execVM "server\spawning\lootCreation.sqf";
@@ -51,8 +54,6 @@ if (serverSpawning == 1) then {
     //_heliSpawn = [] ExecVM "server\functions\staticHeliSpawning.sqf";
     //waitUntil{sleep 0.1; scriptDone _heliSpawn};
 	_buildrep = [] ExecVM "server\functions\rebuild.sqf";
-	sleep 0.1;
-	_initOwners = [] ExecVM "server\functions\initStoreOwners.sqf";
 	sleep 0.1;
 	//_recurOwners = [] ExecVM "server\functions\recurInitStoreOwners.sqf";
 	_cleanupLoop = [] ExecVM "server\functions\cleanupLoop.sqf";

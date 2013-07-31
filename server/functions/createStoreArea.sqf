@@ -22,4 +22,4 @@ _desk setPos [(_deskPos select 0), (_deskPos select 1), (_deskPos select 2) + .2
 _desk setVelocity [0,0,0];
 _desk setDir _pDDirMod;
 _chair disableCollisionWith _desk;
-_chair;
+_chair

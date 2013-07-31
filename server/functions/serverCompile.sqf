@@ -87,6 +87,7 @@ fn_refillbox = compile preprocessFileLineNumbers "server\functions\fn_refillbox.
 cleanupLoop = compile preprocessFileLineNumbers "server\functions\cleanupLoop.sqf";
 initGunStores = compile preprocessFileLineNumbers "server\functions\initStoreOwners.sqf";
 immRebuild = compile preprocessFileLineNumbers "server\functions\immrebuild.sqf";
+createStoreArea = compile preprocessFileLineNumbers "server\functions\createStoreArea.sqf";
 
 //client forwards
 serverRelayHandler = compile preprocessFileLineNumbers "server\functions\serverRelayHandler.sqf";
