@@ -553,21 +553,3 @@ cityList = [
 cityLocations = [];
 
 gunStoreForMarkers = ["West_GS", "West_GSA", "East_GS", "East_GSE"];
-storeOwners = 
-[
-	["West_GR","West GR"],
-	["West_GS","West GS"],
-	["West_GSA","West GSA"],
-	["East_GR","East GR"],
-	["East_GS","East GS"],
-	["East_Gen","East Gen"],
-	["North_Gen","North Gen"],
-	["West_Gen","West Gen"],
-	["East_GenS","East GenS"],
-	["East_GSE","East GSE"],
-	["North_GenS","North GenS"],
-	["North_VS","North VS"],
-	["East_VS","East VS"],
-	["South_VS","South VS"],
-	["West_VS","West VS"]
-]; 

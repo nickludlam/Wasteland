@@ -2,10 +2,17 @@
 	
 
 */
-private ["_name", "_men", "_foundChair", "_fName", "_markerName", "_mPos", "_objects", "_building", "_xName", "_pDir", "_base", "_bPos"];
-if (!isNil "StoreOwnersInited") exitWith{}
+private ["_name", "_men", "_fName", "_markerName", "_mPos", "_objects", "_building", "_xName", "_pDir", "_base", "_bPos", "_foundChairs"];
+if (isNil "LuckyClientInitStores") then
+{
+	LuckyClientInitStores = getPlayerUID player; 
+	publicVariable "LuckyClientInitStores";
+};
+if((!isNil "LuckyClientInitStores") && (LuckyClientInitStores != getPlayerUID player)) exitWith {};
 
 {
+	if((!isNil "LuckyClientInitStores") && (LuckyClientInitStores != getPlayerUID player)) exitWith {};
+	
 	//collect our arguments
 	_name = _x select 0;
 	_fName = _x select 1;
@@ -19,6 +26,7 @@ if (!isNil "StoreOwnersInited") exitWith{}
 	//find the owner himself
 	_men = nearestObjects[_mPos, ["Man"], 300];
 	{
+		if((!isNil "LuckyClientInitStores") && (LuckyClientInitStores != getPlayerUID player)) exitWith {};
 		_xName = name _x;
 
 		if(_xName == _fName) then
@@ -47,17 +55,14 @@ if (!isNil "StoreOwnersInited") exitWith{}
 			_base = (getPos _x);
 			
 			//find the bench and sit his bitch ass on it
-			_foundChair = nearestObjects[_base, ["Land_Bench_F"], 20];
+			_foundChairs = nearestObjects[_base, ["Land_Bench_F"], 20];
 			
 			//set the store owner properties
 			_x setVelocity [0,0,0];
 			_x setDir 45;
-			if(!isNil "_foundChair") then {_x attachTo [_foundChair select 0,[0,-.3,.25]];};
+			if(!isNil "_foundChairs") then {_x attachTo [_foundChairs select 0,[0,-.3,.25]];};
+			//if(!isNil "_foundChair") then {_x attachTo [_foundChair select 0,[0,-.3,0]];};
 			_x switchMove "passenger_flatground_leanright";
-			_x disableAI "MOVE"; _x disableAI "ANIM"; _x disableAI "TARGET";
 		};
 	}foreach _men;
 }foreach storeOwners;
-
-StoreOwnersInited = true;
-publicVariable "StoreOwnersInited";

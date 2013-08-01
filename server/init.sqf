@@ -56,6 +56,7 @@ if (serverSpawning == 1) then {
 	_buildrep = [] ExecVM "server\functions\rebuild.sqf";
 	sleep 0.1;
 	//_recurOwners = [] ExecVM "server\functions\recurInitStoreOwners.sqf";
+	_disableSim = [] ExecVM "server\functions\disableObjectsSimulation.sqf";
 	_cleanupLoop = [] ExecVM "server\functions\cleanupLoop.sqf";
 	sleep 0.1;
 };

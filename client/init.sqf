@@ -110,7 +110,7 @@ waituntil {!(IsNull (findDisplay 46))};
 [] execVM "client\functions\groupTags.sqf";
 [] call updateMissionsMarkers;
 [] call updateRadarMarkers;
-player call compile preprocessFileLineNumbers "client\functions\initStoreOwners.sqf";
+//player call compile preprocessFileLineNumbers "client\functions\initStoreOwners.sqf";
 if (isNil "FZF_IC_INIT") then   {
 	call compile preprocessFileLineNumbers "client\functions\newPlayerIcons.sqf";
 };

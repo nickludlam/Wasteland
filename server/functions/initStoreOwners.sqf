@@ -52,8 +52,15 @@ private ["_pos", "_name", "_men", "_run", "_fName", "_markerName", "_mPos", "_ob
 				default{_bPos = (_building buildingPos 0);};
 			};
 			_pDir = (getDir _x);
-			_chair = [_x, _bPos, _pDir, _bDeskDirMod, _fName] call createStoreArea;
-			_x setPos [(_bPos select 0), (_bPos select 1), (_bPos select 2) + .40];
+			/*_chair =*/ [_x, _bPos, _pDir, _bDeskDirMod, _fName] call createStoreArea;
+			_x setPos [(_bPos select 0), (_bPos select 1), (_bPos select 2)];
+			
+			_x setVelocity [0,0,0];
+			_x disableAI "MOVE"; _x disableAI "ANIM"; _x disableAI "TARGET";
+			//_x setDir 45;
+			//if(!isNil "_foundChair") then {_x attachTo [_foundChair select 0,[0,-.3,0]];};
+			//_x attachTo [_chair select 0,[0,-.3,.25]];};
+			//_x switchMove "passenger_flatground_leanright";
 		};
 	}foreach _men;
 }foreach storeOwners;
