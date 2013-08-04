@@ -8,32 +8,39 @@
 // 2nd arg is destination position
 // 3rd arg is the player who ordered the vehicle
 // 4th arg is the cost of the vehicle
+// 5th arg is the store owner (for locking)
 
 #include "defines.hpp"
+
+#define AIRDROP_TYPE_AIRDROP 1
+#define AIRDROP_TYPE_SELF_DELIVERY 2
 
 if(!isServer) exitWith {};
 
 private ["_deliveryPos", "_vehType", "_customer", "_colorText", "_veh", "_heli", "_spawnPosHeli", "_spawnPosVehicle", "_group", "_pilot", "_done", "_wp"];
 
-if (count _this == 0) exitWith { diag_log "Dummy call"; };
+if (count _this == 0) exitWith { };
+
+diag_log format ["Airdrop args are: %1", _this];
 
 _veh = _this select 0;
 _deliveryPos = _this select 1;
 _customer = _this select 2;
 _price = _this select 3;
+_vehStoreOwner = _this select 4;
 
 if (isNil "_veh" or isNil "_deliveryPos") exitWith { diag_log format["ERROR: _veh was %1 and _deliveryPos was %2", _veh, _deliveryPos]; }; 
-
-diag_log format ["_veh is %1, _deliveryPos is %2", _veh, _deliveryPos];
 
 if (alive _veh) then {
 	diag_log "Vehicle alive at start";
 };
 
-_dropoffType = "airlift";
+_dropoffType = AIRDROP_TYPE_AIRDROP;
 if (_veh isKindOf "Helicopter") then { 
-	diag_log "_dropoffType = delivery. No airlift";
-	_dropoffType = "delivery";
+	diag_log "_dropoffType = selfdelivery. No airdrop!";
+	_dropoffType = AIRDROP_TYPE_SELF_DELIVERY;
+} else {
+	diag_log "Its not a heli, so _dropoffType is airdrop";
 };
 
 _spawnPosHeli1 = (getMarkerPos "airdrop_heli_spawn_1");
@@ -52,7 +59,7 @@ _spawnPosHelis = [_spawnPosHeli1, _spawnPosHeli2, _spawnPosHeli3];
 _chosenSpawnPos = _spawnPosHeli1;
 _airdropHeliNumber = 1;
 
-diag_log format ["Testing %1 < %2", _deliveryPos distance _spawnPosHeli2, _deliveryPos distance _chosenSpawnPos];
+diag_log format ["Testing spawnpos2 %1 vs _chosenSpawnPos %2", _deliveryPos distance _spawnPosHeli2, _deliveryPos distance _chosenSpawnPos];
 
 if (_deliveryPos distance _spawnPosHeli2 < _deliveryPos distance _chosenSpawnPos) then {
 	_chosenSpawnPos = _spawnPosHeli2;
@@ -60,7 +67,7 @@ if (_deliveryPos distance _spawnPosHeli2 < _deliveryPos distance _chosenSpawnPos
 	diag_log "Chose _spawnPosHeli2";
 };
 
-diag_log format ["Testing %1 < %2", _deliveryPos distance _spawnPosHeli3, _deliveryPos distance _chosenSpawnPos];
+diag_log format ["Testing spawnpos3 %1 vs _chosenSpawnPos %2", _deliveryPos distance _spawnPosHeli3, _deliveryPos distance _chosenSpawnPos];
 
 if (_deliveryPos distance _spawnPosHeli3 < _deliveryPos distance _chosenSpawnPos) then {
 	_chosenSpawnPos = _spawnPosHeli3;
@@ -68,29 +75,51 @@ if (_deliveryPos distance _spawnPosHeli3 < _deliveryPos distance _chosenSpawnPos
 	diag_log "Chose _spawnPosHeli3";
 };
 
-// LIGHTS!
-// light = 
-
 //_helipad = "Land_HelipadEmpty_F" createVehicle _deliveryPos;
 _helipad = "Land_HelipadSquare_F" createVehicle _deliveryPos;
-"#lightpoint" createVehicleLocal position _helipad;
-light setLightBrightness 0.045;
-light setLightAmbient[0.0, 0.0, 0.0];
-light setLightColor[2.0, 2.0, 0.0];
-light lightAttachObject [_helipad, [0,0,0.1]]; 
+
+_light1 = "#lightpoint" createVehicle (position _helipad);
+_light1 setLightBrightness 0.2; // ?
+_light1 setLightAmbient [255, 200, 0]; // Ambient colour of the light.
+_light1 setLightColor [255, 200, 0]; // Colour of the light point and immediate surroundings.
+_light1 setLightIntensity 0.5;  // Effects the distance ambient can be seen from.
+_light1 lightAttachObject [_helipad, [4, -4, 0.2]]; // Array: Left/Right, Forward/Backward, Up/Down.
+
+_light2 = "#lightpoint" createVehicle  (position _helipad);
+_light2 setLightBrightness 0.2; // ?
+_light2 setLightAmbient [255, 200, 0]; // Ambient colour of the light.
+_light2 setLightColor [255, 200, 0]; // Colour of the light point and immediate surroundings.
+_light2 setLightIntensity 0.5;  // Effects the distance ambient can be seen from.
+_light2 lightAttachObject [_helipad, [4, 4, 0.2]]; // Array: Left/Right, Forward/Backward, Up/Down.
+
+_light3 = "#lightpoint" createVehicle  (position _helipad);
+_light3 setLightBrightness 0.2; // ?
+_light3 setLightAmbient [255, 200, 0]; // Ambient colour of the light.
+_light3 setLightColor [255, 200, 0]; // Colour of the light point and immediate surroundings.
+_light3 setLightIntensity 0.1;  // Effects the distance ambient can be seen from.
+_light3 lightAttachObject [_helipad, [-4, 4, 0.2]]; // Array: Left/Right, Forward/Backward, Up/Down.
+
+_light4 = "#lightpoint" createVehicle  (position _helipad);
+_light4 setLightBrightness 0.2; // ?
+_light4 setLightAmbient [255, 200, 0]; // Ambient colour of the light.
+_light4 setLightColor [255, 200, 0]; // Colour of the light point and immediate surroundings.
+_light4 setLightIntensity 0.5;  // Effects the distance ambient can be seen from.
+_light4 lightAttachObject [_helipad, [-4, -4, 0.2]]; // Array: Left/Right, Forward/Backward, Up/Down.
 
 _deliveryPos = position _helipad; // reset according to new helipad location
 
 diag_log format ["Helipad position ASL is %1", getPosASL _helipad];
 
-
 _group = createGroup side _customer;
 _pilot = [_group, _spawnPosPilot] call createRandomPilot; 
 _pilot setBehaviour "CARELESS";
 
+if (_dropoffType == AIRDROP_TYPE_SELF_DELIVERY) then {
+	_safeSpawnPos = [_chosenSpawnPos,5,100,20,0,0,0] call BIS_fnc_findSafePos;
+	_safeSpawnPos set [2, (floor random 1000) + 200]; // up high
 
-if (_dropoffType == "delivery") then {
-	_veh setpos _chosenSpawnPos;
+	diag_log format["Moving vehicle to safeSpawnPos %1", _safeSpawnPos];
+	_veh setpos _safeSpawnPos;
 	_pilot moveInDriver _veh;
 	_group addVehicle _veh;
 	_heli = _veh;
@@ -102,13 +131,16 @@ if (_dropoffType == "delivery") then {
 	_group addVehicle _heli;
 	_heli disableCollisionWith _veh;
 
-	_veh attachTo [_heli, [0, 0, -8]];
+	_veh attachTo [_heli, [0, 0, -10]];
 };
+
+_pilot action ["lightOn", _heli];
 
 _group setCombatMode "BLUE";
 _group setBehaviour "SAFE";
 _group allowFleeing 0;
 
+diag_log format["vehicle position is %1", position _veh];
 
 //diag_log format["_Heli bounding box: %1", boundingBox _heli];
 //diag_log format["_Veh bounding box: %1", boundingBox _veh];
@@ -126,7 +158,7 @@ _wp1 setWaypointType "MOVE";
 _wp1 setWaypointSpeed "FULL";
 _wp1 setWaypointBehaviour "CARELESS";
 _wp1 setWaypointStatements ["true", "diag_log 'At _wp1';"];
-_wp1 setWaypointCompletionRadius 10;
+_wp1 setWaypointCompletionRadius 20;
 
 diag_log "Heli should now be en route";
 
@@ -135,7 +167,7 @@ _marker = createMarker [format ["airdrop_heli_%1_%2",_airdropHeliNumber, floor r
 _marker setMarkerType "mil_pickup";
 _marker setMarkerSize [1, 1];
 _marker setMarkerColor "ColorGreen";
-if (_dropoffType == "delivery") then {
+if (_dropoffType == AIRDROP_TYPE_SELF_DELIVERY) then {
 	_marker setMarkerText "Transport Helo";
 } else {
 	_marker setMarkerText "Autonomous Helo";
@@ -159,6 +191,19 @@ waitUntil
 
     sleep 1;
 
+    // Toggle light
+    if (_count % 2 == 0) then {
+    	_light1 setLightBrightness 0.000;
+    	_light2 setLightBrightness 0.2;
+    	_light3 setLightBrightness 0.000;
+    	_light4 setLightBrightness 0.2;
+    } else {
+    	_light1 setLightBrightness 0.2;
+    	_light2 setLightBrightness 0.000;
+    	_light3 setLightBrightness 0.2;
+    	_light4 setLightBrightness 0.000;
+    };
+
 	_heli flyinHeight 50;
 
     _marker setMarkerPos (position leader _group);
@@ -173,14 +218,6 @@ waitUntil
     	_done = true;
     };
 
-    /*
-    if (!_landingMode && _heli distance _slowdownPos < 300 && _heli distance _slowdownPos > 150) then {
-    	diag_log format ["Force speed set 50 (is %1)", speed _heli];
-		_heli forceSpeed 50;
-		_heli limitSpeed 50;
-    };
-    */
-
     if (_heli distance _deliveryPos < 200) then {
     	diag_log format ["Force speed set 30 (is %1)", speed _heli];
 		_heli forceSpeed 30;
@@ -189,11 +226,12 @@ waitUntil
 
     if (!_landingMode && _heli distance _deliveryPos < 200) then {
   	    diag_log format ["Triggering landing mode"];
+    	deleteWaypoint _wp1;
 		_heli land "LAND";
 		_landingMode = true;
     };
 
-    if (_dropoffType == "delivery") then { 
+    if (_dropoffType == AIRDROP_TYPE_SELF_DELIVERY) then { 
     	if (_landingMode && position _veh select 2 < 2) then {
 	    	_done = true;
     	};
@@ -202,7 +240,6 @@ waitUntil
 	    	diag_log "Detatching vehicle";
 	    	_veh allowDamage false;
 	    	detach _veh;
-	    	_veh setVectorUp [0, 0, 1];
 	  		_heli land "NONE";
 	    	_done = true;
 	    };
@@ -215,30 +252,23 @@ waitUntil
 
 // Dropoff is now complete
 deleteMarker _marker2;
+deleteVehicle _light1;
+deleteVehicle _light2;
+deleteVehicle _light3;
+deleteVehicle _light4;
+deleteVehicle _helipad;
+
+_vehStoreOwner setVariable['isDeliveringVehicle', nil, true];
 
 // Make sure the vehicle is OK
 sleep 1;
 _veh setDamage 0; 
 _veh allowDamage true;
 
-if (_heliWasDestroyed) then {
-	diag_log "Refund time!";
-	// If it was an airlift, ensure the other vehicle is dead
-	if (_dropoffType == "airlift") then {
-		diag_log "killing ordered vehicle";
-		_veh setDamage 1;
-	};
-
-	_refund = _price / 2.0;
-	_playerMoney = _customer getVariable __MONEY_VAR_NAME__;
-	_customer setVariable[__MONEY_VAR_NAME__,_playerMoney + _refund,true];
-	_customer globalChat format["KoS regret to inform you your vehicle was damaged in transit. Please accept a 50% refund on the purchase cost."];
-};
-
-if (!_heliWasDestroyed && _dropoffType == "airlift") then {
+if (!_heliWasDestroyed && _dropoffType == AIRDROP_TYPE_AIRDROP) then {
 	diag_log "Chopper off!";
 
-	_heli flyinHeight 80;
+	_heli flyinHeight 250;
 	_heli forceSpeed 200;
 	_heli limitSpeed 200;
 
@@ -270,12 +300,32 @@ if (!_heliWasDestroyed && _dropoffType == "airlift") then {
 	// Remove the heli now
 };
 
-if (_dropoffType == "airlift") then {
+if (_heliWasDestroyed) then {
+	diag_log "Refund time!";
+	// If it was an airlift, ensure the other vehicle is dead
+	if (_dropoffType == AIRDROP_TYPE_AIRDROP) then {
+		diag_log "killing ordered vehicle";
+		_veh setDamage 1;
+	};
+
+	_refundPercentage = 50;
+	_refund = (_price / 100.0) * _refundPercentage;
+	_playerMoney = _customer getVariable __MONEY_VAR_NAME__;
+	_customer setVariable[__MONEY_VAR_NAME__,_playerMoney + _refund,true];
+
+	// Break the bad news!
+	_destPlayerUID = getPlayerUID _customer;
+	_msg = format["KoS regret to inform you your vehicle was damaged in transit. Please accept a %1% refund on the purchase cost.", _refundPercentage];
+	clientRelaySystem = [MESSAGE_BROADCAST_MSG_TO_PLAYER, MESSAGE_BROADCAST_MSG_TYPE_GCHAT, _destPlayerUID, _msg];
+	diag_log format ["Sending clientRelaySystem %1", clientRelaySystem];
+	publicVariable "clientRelaySystem";
+};
+
+if (_dropoffType == AIRDROP_TYPE_AIRDROP) then {
 	deleteVehicle _heli;
 };
 
 // Cleanup if the heli is dead or otherwise
-deleteVehicle _helipad;
-{deleteVehicle _x;}forEach units _group; 
+{deleteVehicle _x;}forEach units _group;
 deleteGroup _group; 
 deleteMarker _marker;
