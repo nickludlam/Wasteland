@@ -65,6 +65,7 @@ if (_gun == "hgun_ACPC2_F") then {
 
 _player addWeapon _gun;
 
+if _
 _player addrating 1000000;
 _player switchMove "amovpknlmstpsraswpstdnon_gear";
 
@@ -77,7 +78,11 @@ playerSpawnTime = time; // Used to know if the player has died while in sleepy l
 _money = 0;
 if(computedMoney == 0) then 
 { 
+#ifdef __SPAWN_WITH_PLENTY_DOLLA__
+	_money = 100000;
+#else
 	_money = 100;
+#endif
 }
 else 
 {
