@@ -2,8 +2,8 @@
 //	@file Name: serverRelayHandler.sqf
 //	@file Author: His_Shadow
 //	@file Created: 07/12/2013 20:55
-//	@file Args: [vehicle, texture path, [r,g,b]] for now just texture path is supported
+//	@file Args: variable. See clientRelaySystem
 
-diag_log format ["serverRelaySystem is %1", serverRelaySystem];
+diag_log format ["Setting clientRelaySystem = serverRelaySystem = %1", serverRelaySystem];
 clientRelaySystem = serverRelaySystem;
 publicVariable "clientRelaySystem";

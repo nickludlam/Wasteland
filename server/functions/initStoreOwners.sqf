@@ -39,7 +39,7 @@ private ["_pos", "_name", "_men", "_run", "_fName", "_markerName", "_mPos", "_ob
 				case "East GS":{_bPos = (_building buildingPos 6);  _bDeskDirMod = -120;}; //Kill Farm
 				case "West VS":{_bPos = (_building buildingPos 1); _bDeskDirMod = 220;}; //Airfield North
 				case "North VS":{_bPos = (_building buildingPos 4); _bDeskDirMod = 20;}; //below impound lot
-				case "South VS":{_bPos = (_building buildingPos 1); _bDeskDirMod = 150;}; //Between general store and gun runner on west side
+				case "South VS":{_bPos = (_building buildingPos 0); _bDeskDirMod = 120;}; //Near gun runner on west side
 				case "East VS":{_bPos = (_building buildingPos 0); _bDeskDirMod = 0;}; //North-East below light house
 				case "North Gen":{_bPos = (_building buildingPos 1); _bDeskDirMod = -40;}; //kamino
 				case "West Gen":{_bPos = (_building buildingPos 0); _bDeskDirMod = 50;}; //Between Girna and Gun Runner

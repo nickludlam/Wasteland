@@ -70,7 +70,6 @@ _createAndApplyapplyVehProperties =
 	
 	if(_texturePath != "") then
 	{
-		//if(isServer) then {call serverRelayHandler};
 		serverRelaySystem = [MESSAGE_VEHICLE_PROPERTIES_APPLY, _vehicle, _texturePath];
 		publicVariable "serverRelaySystem";
 	};
@@ -138,10 +137,14 @@ _ambientRadioSound = ["RadioAmbient2", "RadioAmbient6", "RadioAmbient8"] call BI
 if(_handleMoney == 1) then
 {
 	currentOwnerID say _ambientRadioSound;
-	if (_veh isKindOf "Helicopter") then { 
+	if (_veh isKindOf "Helicopter") then {
 		player globalChat format["Your %1 is en route under autonomous control. Keep well clear of the LZ and stand by....", _itemText];
 	} else {
-		player globalChat format["A transport helicopter is en route with your %1. Keep well clear of the LZ and stand by....", _itemText];
+		if (_veh isKindOf "Ship") then {
+			player globalChat format["A transport helicopter is en route with your %1. It will be dropped in the shallows nearest the store.", _itemText];
+		} else {
+			player globalChat format["A transport helicopter is en route with your %1. Keep well clear of the LZ and stand by....", _itemText];
+		};
 	};
 
 	player setVariable[__MONEY_VAR_NAME__,_playerMoney - _price,true];
