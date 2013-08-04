@@ -52,7 +52,7 @@ _msgToAllPlayers =
 
 switch(_function) do
 {
-	diag_log format ["clientRelayHandler called with %1", _function];
+	diag_log format ["clientRelayHandler called with args: %1", serverRelaySystem];
 	private ["_car", "_paint", "_type", "_msg","_playerUID"];
 	//apply paint [_car, _paint]
 	case MESSAGE_VEHICLE_PROPERTIES_APPLY:
