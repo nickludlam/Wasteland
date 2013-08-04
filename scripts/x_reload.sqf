@@ -1,7 +1,6 @@
 private ["_object","_type","_magazines","_removed","_count","_config","_i","_count_other","_config2","_vehicle"];
 _object = _this;
 
-
 // If we're not in a vehicle, dont continue
 if (_object isKindOf "Man") exitwith {};
 
@@ -11,7 +10,11 @@ x_reload_time_factor = 5;
 
 _object setVehicleAmmo 1;
 
-_object setFuel 0;
+if (_object isKindOf "Helicopter") then {
+	//
+} else {
+	_object setFuel 0;	
+};
 
 _object vehicleChat format ["Servicing %1... Please stand by...", _type];
 sleep x_reload_time_factor;
