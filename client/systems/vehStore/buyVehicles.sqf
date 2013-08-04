@@ -37,7 +37,7 @@ _createAndApplyapplyVehProperties =
 	_type = _this select 1;
 	_colorText = _this select 2;
 	
-	_vehicle = createVehicle [_type,_pos, [], 0, "NONE"];
+	_vehicle = createVehicle [_type,_pos, [], 0, "FLY"];
 	
 	//_veh setDir _dir;
 	_vehicle setVariable ["newVehicle",1,true];
@@ -79,6 +79,7 @@ _createAndApplyapplyVehProperties =
 
 _deliverPos = nil;
 _veh = nil;
+_spawnType = "";
 
 switch(_switch) do 
 {
@@ -95,6 +96,7 @@ switch(_switch) do
 					if ( _price > parseNumber str(_playerMoney)) then {hint format["You don't have enought money for %1", _itemText];_handleMoney = 0;breakTo "main"};
 					_vehType = _x select 1;
 					_deliverPos = (getMarkerPos format ["land_spawn_%1", currentOwnerID]);
+					_spawnType = "land";
 
 					_veh = [_spawnPosVehicle, _vehType, _colorText] call _createAndApplyapplyVehProperties;
 				};
@@ -111,6 +113,7 @@ switch(_switch) do
 					if ( _price > parseNumber str(_playerMoney)) then {hint format["You don't have enought money for %1", _itemText];_handleMoney = 0;breakTo "main"};				
 					_vehType = _x select 1;
 					_deliverPos = (getMarkerPos format ["sea_spawn_%1", currentOwnerID]);
+					_spawnType = "sea";
 
 					_veh = [_spawnPosVehicle, _vehType, _colorText] call _createAndApplyapplyVehProperties;
 				};
@@ -119,8 +122,8 @@ switch(_switch) do
 	};
 };
 
-diag_log "Calling airdrop script";	
-serverVehicleHeliDrop = [_veh, _deliverPos];
+diag_log "Calling airdrop script";
+serverVehicleHeliDrop = [_veh, _deliverPos, player, _price];
 publicVariableServer "serverVehicleHeliDrop";
 
 // Pick a sound to play
@@ -129,7 +132,11 @@ _ambientRadioSound = ["RadioAmbient2", "RadioAmbient6", "RadioAmbient8"] call BI
 if(_handleMoney == 1) then
 {
 	playSound _ambientRadioSound;
-	player globalChat format["A transport helicopter is en route with your %1. Stand by....", _itemText];
+	if (_veh isKindOf "Helicopter") then { 
+		player globalChat format["Your %1 is en route under autonomous control. Keep well clear of the LZ and stand by....", _itemText];
+	} else {
+		player globalChat format["A transport helicopter is en route with your %1. Keep well clear of the LZ and stand by....", _itemText];
+	};
 	player setVariable[__MONEY_VAR_NAME__,_playerMoney - _price,true];
 	_playerMoneyText CtrlsetText format["Cash: $%1", player getVariable __MONEY_VAR_NAME__];
 };
