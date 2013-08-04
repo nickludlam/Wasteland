@@ -22,6 +22,7 @@ _createVehicle = {
     _grouphsq = _this select 3;
     
     _vehicle = _type createVehicle _position;
+    _vehicle setVariable["newVehicle",1,true];
     _vehicle addEventHandler ["IncomingMissile", "hint format['Incoming Missile Launched By: %1', name (_this select 2)]"];
     _vehicle setDir _direction;
     _grouphsq addVehicle _vehicle;

@@ -25,6 +25,7 @@ _createVehicle = {
     
     _vehicle = _type createVehicle _position;
 	_vehicle addEventHandler ["IncomingMissile", "hint format['Incoming Missile Launched By: %1', name (_this select 2)]"];
+	_vehicle setVariable["newVehicle",1,true];
 	
     _vehicle setDir _direction;
     clearMagazineCargoGlobal _vehicle;

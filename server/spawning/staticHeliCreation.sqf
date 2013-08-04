@@ -16,6 +16,8 @@ if (_isWreck == 0) then {
 	//diag_log "Spawning heli complete...";
 	_spawnType = staticHeliList select (random (count staticHeliList - 1));
 	_currHeli = createVehicle [_spawnType,_spawnPos,[], 50,"None"]; 
+	_currHeli setVariable["newVehicle",1,true];
+	
 	//vehiclelock = _currHeli addAction ["Unlock / Lock","server\functions\unlocklock.sqf",[],7,true,true,"","(_target distance _this) < 4"];
 	
 	_currHeli setpos [getpos _currHeli select 0,getpos _currHeli select 1,0];
