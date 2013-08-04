@@ -18,26 +18,26 @@ if (count _this > 0) then { _initialFog = _this select 0; } else { _initialFog =
 if (count _this > 1) then { _initialOvercast = _this select 1; } else { _initialOvercast = -1; };
 if (count _this > 2) then { _initialRain = _this select 2; } else { _initialRain = -1; };
 if (count _this > 3) then { _initialWind = _this select 3; } else { _initialWind = [-1, -1]; };
-if (count _this > 4) then { _debug = _this select 4; } else { _debug = true; };
+if (count _this > 4) then { _debug = _this select 4; } else { _debug = false; };
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // The following variables can be changed to tweak weather behaviour
 
 // Minimum time in minutes for the weather (fog and overcast) to change. Must be greater than or equal to 1 and less than or equal to 
 // _maxWeatherChangeTimeMin. When weather changes, it is fog OR overcast that changes, not both at the same time. (Suggested value: 10).
-_minWeatherChangeTimeMin = 1;
+_minWeatherChangeTimeMin = 10;
 
 // Maximum time in minutes for the weather (fog and overcast) to change. Must be greater than or equal to _minWeatherChangeTimeMin.
 // (Suggested value: 20).
-_maxWeatherChangeTimeMin = 2;
+_maxWeatherChangeTimeMin = 20;
 
 // Minimum time in minutes that weather (fog and overcast) stays constant between weather changes. Must be less than or equal to 0 and 
 // greater than or equal to _minWeatherChangeTimeMin. (Suggested value: 5).
-_minTimeBetweenWeatherChangesMin = 1;
+_minTimeBetweenWeatherChangesMin = 5;
 
 // Maximum time in minutes that weather (fog and overcast) stays unchanged between weather changes. Must be greater than or equal to 
 // _minWeatherChangeTimeMin. (Suggested value: 10).
-_maxTimeBetweenWeatherChangesMin = 2;
+_maxTimeBetweenWeatherChangesMin = 10;
 
 // Fog intensity never falls below this value. Must be between 0 and 1 and less than or equal to _maximumFog
 // (0 = no fog, 1 = pea soup). (Suggested value: 0).
@@ -45,7 +45,7 @@ _minimumFog = 0;
 
 // Fog intensity never exceeds this value. Must be between 0 and 1 and greater than or equal to _minimumFog
 // (0 = no fog, 1 = pea soup). (Suggested value: 0.8).
-_maximumFog = 0.9;
+_maximumFog = 0.7;
 
 _minimumFogDecay = 0.01;
 _maximumFogDecay = 0.03;
@@ -88,7 +88,7 @@ _windChangeProbability = 25;
 // Probability in percent (0-100) for rain to start at every rain interval. Set this to 0 if you don't want rain at all. Set this to 100 
 // if you want it to rain constantly when overcast is greater than 0.75. In short: if you think that it generally rains to often then 
 // lower this value and vice versa. (Suggested value: 50).
-_rainIntervalRainProbability = 10;
+_rainIntervalRainProbability = 20;
 
 // Minimum time in minutes for rain intervals. Must be greater or equal to 0 and less than or equal to _maxRainIntervalTimeMin.
 // (Suggested value: 0).

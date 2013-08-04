@@ -151,7 +151,7 @@ if(_failed) then
 		if(!alive _x) then {deleteVehicle _x;};
 	}forEach _vehicles;
 	
-    _hint = parseText format ["<t align='center' color='%4' shadow='2' size='1.75'>PATROL IS DOWN</t><br/><t align='center' color='%4'>------------------------------</t><br/><t align='center' color='%5' size='1.25'>%1</t><br/><t align='center'><img size='5' image='%2'/></t><br/><t align='center' color='%5'>The sky is clear agian, the enemy patrol was taken out!</t>", _missionType, _picture, _vehicleName, successMissionColor, subTextColor];
+    _hint = parseText format ["<t align='center' color='%4' shadow='2' size='1.75'>PATROL IS DOWN</t><br/><t align='center' color='%4'>------------------------------</t><br/><t align='center' color='%5' size='1.25'>%1</t><br/><t align='center'><img size='5' image='%2'/></t><br/><t align='center' color='%5'>The sky is clear again, the enemy patrol was taken out!</t>", _missionType, _picture, _vehicleName, successMissionColor, subTextColor];
     messageSystem = _hint;
     if (!isDedicated) then { call serverMessage };
     publicVariable "messageSystem";
