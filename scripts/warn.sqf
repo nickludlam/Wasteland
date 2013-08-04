@@ -1,1 +1,0 @@
-_object = _this;
