@@ -12,7 +12,7 @@
 private ["_initialFog", "_initialOvercast", "_initialRain", "_initialWind", "_debug"];
 private ["_minWeatherChangeTimeMin", "_maxWeatherChangeTimeMin", "_minTimeBetweenWeatherChangesMin", "_maxTimeBetweenWeatherChangesMin", "_rainIntervalRainProbability", "_windChangeProbability"];
 private ["_minimumFog", "_maximumFog", "_minimumOvercast", "_maximumOvercast", "_minimumRain", "_maximumRain", "_minimumWind", "_maximumWind", "_minRainIntervalTimeMin", "_maxRainIntervalTimeMin", "_forceRainToStopAfterOneRainInterval", "_maxWind"];
-
+private ["_minimumFogDecay", "_maximumFogDecay", "_minimumFogBase", "_maximumFogBase"];
 if (isNil "_this") then { _this = []; };
 if (count _this > 0) then { _initialFog = _this select 0; } else { _initialFog = -1; };
 if (count _this > 1) then { _initialOvercast = _this select 1; } else { _initialOvercast = -1; };
@@ -46,6 +46,12 @@ _minimumFog = 0;
 // Fog intensity never exceeds this value. Must be between 0 and 1 and greater than or equal to _minimumFog
 // (0 = no fog, 1 = pea soup). (Suggested value: 0.8).
 _maximumFog = 0.9;
+
+_minimumFogDecay = 0.01;
+_maximumFogDecay = 0.03;
+
+_minimumFogBase = 0;
+_maximumFogBase = 100;
 
 // Overcast intensity never falls below this value. Must be between 0 and 1 and less than or equal to _maximumOvercast
 // (0 = no overcast, 1 = maximum overcast). (Suggested value: 0).
@@ -285,22 +291,26 @@ if (isServer) then {
     publicVariable "drn_var_DynamicWeather_ServerInitialized";
     
     // Start weather thread
-    [_minWeatherChangeTimeMin, _maxWeatherChangeTimeMin, _minTimeBetweenWeatherChangesMin, _maxTimeBetweenWeatherChangesMin, _minimumFog, _maximumFog, _minimumOvercast, _maximumOvercast, _minimumWind, _maximumWind, _windChangeProbability, _debug] spawn {
+    [_minWeatherChangeTimeMin, _maxWeatherChangeTimeMin, _minTimeBetweenWeatherChangesMin, _maxTimeBetweenWeatherChangesMin, _minimumFog, _maximumFog, _minimumFogDecay, _maximumFogDecay, _minimumFogBase, _maximumFogBase, _minimumOvercast, _maximumOvercast, _minimumWind, _maximumWind, _windChangeProbability, _debug] spawn {
         private ["_minWeatherChangeTimeMin", "_maxWeatherChangeTimeMin", "_minTimeBetweenWeatherChangesMin", "_maxTimeBetweenWeatherChangesMin", "_minimumFog", "_maximumFog", "_minimumOvercast", "_maximumOvercast", "_minimumWind", "_maximumWind", "_windChangeProbability", "_debug"];
         private ["_weatherType", "_fogLevel", "_overcastLevel", "_oldFogLevel", "_oldOvercastLevel", "_weatherChangeTimeSek"];
-        
+        private ["_fogValue", "_fogBase", "_fogDecay"];
         _minWeatherChangeTimeMin = _this select 0;
         _maxWeatherChangeTimeMin = _this select 1;
         _minTimeBetweenWeatherChangesMin = _this select 2;
         _maxTimeBetweenWeatherChangesMin = _this select 3;
         _minimumFog = _this select 4;
         _maximumFog = _this select 5;
-        _minimumOvercast = _this select 6;
-        _maximumOvercast = _this select 7;
-        _minimumWind = _this select 8;
-        _maximumWind = _this select 9;
-        _windChangeProbability = _this select 10;
-        _debug = _this select 11;
+        _minimumFogDecay = _this select 6;
+        _maximumFogDecay = _this select 7;
+        _minimumFogBase = _this select 8;
+        _maximumFogBase = _this select 9;
+        _minimumOvercast = _this select 10;
+        _maximumOvercast = _this select 11;
+        _minimumWind = _this select 12;
+        _maximumWind = _this select 13;
+        _windChangeProbability = _this select 14;
+        _debug = _this select 15;
         
         // Set initial fog level
         _fogLevel = 2;
@@ -341,20 +351,26 @@ if (isServer) then {
                 while {_fogLevel == _oldFogLevel} do {
                     _fogLevel = floor ((random 100) / 25);
                 };
-                
+
+                _fogDecay = _minimumFogDecay + (_maximumFogDecay - _minimumFogDecay) * random 1;
+                _fogBase = _minimumFogBase + (_maximumFogBase - _minimumFogBase) * random 1;
+                _fogValue = 0;
+
                 if (_fogLevel == 0) then {
-                    drn_DynamicWeather_WeatherTargetValue = _minimumFog + (_maximumFog - _minimumFog) * random 0.05;
+                    _fogValue = _minimumFog + (_maximumFog - _minimumFog) * random 0.05;
                 };
                 if (_fogLevel == 1) then {
-                    drn_DynamicWeather_WeatherTargetValue = _minimumFog + (_maximumFog - _minimumFog) * (0.05 + random 0.2);
+                    _fogValue = _minimumFog + (_maximumFog - _minimumFog) * (0.05 + random 0.2);
                 };
                 if (_fogLevel == 2) then {
-                    drn_DynamicWeather_WeatherTargetValue = _minimumFog + (_maximumFog - _minimumFog) * (0.25 + random 0.3);
+                    _fogValue = _minimumFog + (_maximumFog - _minimumFog) * (0.25 + random 0.3);
                 };
                 if (_fogLevel == 3) then {
-                    drn_DynamicWeather_WeatherTargetValue = _minimumFog + (_maximumFog - _minimumFog) * (0.55 + random 0.45);
+                    _fogValue = _minimumFog + (_maximumFog - _minimumFog) * (0.55 + random 0.45);
                 };
                 
+                drn_DynamicWeather_WeatherTargetValue = [_fogValue, _fogDecay, _fogBase];
+
                 drn_DynamicWeather_WeatherChangeStartedTime = time;
                 _weatherChangeTimeSek = _minWeatherChangeTimeMin * 60 + random ((_maxWeatherChangeTimeMin - _minWeatherChangeTimeMin) * 60);
                 drn_DynamicWeather_WeatherChangeCompletedTime = time + _weatherChangeTimeSek;
