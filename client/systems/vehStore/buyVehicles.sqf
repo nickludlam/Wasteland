@@ -14,6 +14,12 @@ disableSerialization;
 //Initialize Values
 _switch = _this select 0;
 
+
+if (currentOwnerID getVariable "isDeliveringVehicle" == 1) exitWith {
+	hintSilent format["Please wait until the previous delivery is complete before ordering more vehicles"];
+	player say "FD_CP_Not_Clear_F";
+};
+
 _playerMoney = player getVariable __MONEY_VAR_NAME__;
 _price = 0;
 
@@ -123,7 +129,7 @@ switch(_switch) do
 };
 
 diag_log "Calling airdrop script";
-serverVehicleHeliDrop = [_veh, _deliverPos, player, _price];
+serverVehicleHeliDrop = [_veh, _deliverPos, player, _price, currentOwnerID];
 publicVariableServer "serverVehicleHeliDrop";
 
 // Pick a sound to play
@@ -131,12 +137,14 @@ _ambientRadioSound = ["RadioAmbient2", "RadioAmbient6", "RadioAmbient8"] call BI
 
 if(_handleMoney == 1) then
 {
-	playSound _ambientRadioSound;
+	currentOwnerID say _ambientRadioSound;
 	if (_veh isKindOf "Helicopter") then { 
 		player globalChat format["Your %1 is en route under autonomous control. Keep well clear of the LZ and stand by....", _itemText];
 	} else {
 		player globalChat format["A transport helicopter is en route with your %1. Keep well clear of the LZ and stand by....", _itemText];
 	};
+
 	player setVariable[__MONEY_VAR_NAME__,_playerMoney - _price,true];
 	_playerMoneyText CtrlsetText format["Cash: $%1", player getVariable __MONEY_VAR_NAME__];
+	currentOwnerID setVariable['isDeliveringVehicle', 1, true];
 };

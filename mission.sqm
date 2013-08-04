@@ -2179,8 +2179,8 @@ class Mission
 				items=1;
 				class Item0
 				{
-					position[]={2434.3789,3.663965,1111.2559};
-					azimut=345;
+					position[]={2433.8958,3.7373703,1109.6533};
+					azimut=335;
 					id=129;
 					side="CIV";
 					vehicle="C_man_polo_3_F";
@@ -9081,7 +9081,7 @@ class Mission
 		};
 		class Item489
 		{
-			position[]={3214.2847,4.7344518,6831.584};
+			position[]={3217.1125,4.8801904,6831.2891};
 			name="land_spawn_North_VS";
 			type="Empty";
 		};
@@ -9109,13 +9109,13 @@ class Mission
 		};
 		class Item493
 		{
-			position[]={2133.9272,3.800746,5855.8413};
+			position[]={2139.6619,3.8158934,5904.1436};
 			name="land_spawn_West_VS";
 			type="Empty";
 		};
 		class Item494
 		{
-			position[]={2158.575,0,5874.6016};
+			position[]={2162.3245,0,5875.4839};
 			name="sea_spawn_West_VS";
 			type="Empty";
 		};
@@ -9137,7 +9137,7 @@ class Mission
 		};
 		class Item497
 		{
-			position[]={2425.1008,2.7584887,1134.71};
+			position[]={2426.8416,2.7926252,1135.9536};
 			name="land_spawn_South_VS";
 			type="Empty";
 		};
@@ -9149,7 +9149,7 @@ class Mission
 		};
 		class Item499
 		{
-			position[]={2434.3894,3.6678865,1111.2158};
+			position[]={2434.4717,3.7953126,1109.6128};
 			name="General_Store1_2_1_1_1_2";
 			text="Vehicle Store";
 			type="mil_dot";
@@ -9159,7 +9159,7 @@ class Mission
 		};
 		class Item500
 		{
-			position[]={2434.3401,3.6636446,1111.2148};
+			position[]={2433.9915,3.7385128,1109.7793};
 			name="move_South_VS";
 			type="Empty";
 		};
