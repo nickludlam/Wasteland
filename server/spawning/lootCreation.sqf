@@ -47,26 +47,24 @@ randomweaponspawnweapon =
 {
 	_position = _this;
 	_objects =  nearestObjects [_position, randomWeapon_WeaponList, 50];
-	if(count _objects <= 2) then
 	{
-		_selectedgroup = (floor(random(count randomWeapon_WeaponArray)));
-		_weapon = randomWeapon_WeaponArray select _selectedgroup select 0;
-		_weaponholder = createVehicle ["groundWeaponHolder", _position, [], 0, "CAN_COLLIDE"];
-		_weaponholder addWeaponCargoGlobal [_weapon, 1];
-		if((count((randomWeapon_WeaponArray) select _selectedgroup)) > 1) then 
+		diag_log format["Deleting %1", _x];
+		deleteVehicle _x;
+	}foreach _objects;
+	
+	_selectedgroup = (floor(random(count randomWeapon_WeaponArray)));
+	_weapon = randomWeapon_WeaponArray select _selectedgroup select 0;
+	_weaponholder = createVehicle ["groundWeaponHolder", _position, [], 0, "CAN_COLLIDE"];
+	_weaponholder addWeaponCargoGlobal [_weapon, 1];
+	if((count((randomWeapon_WeaponArray) select _selectedgroup)) > 1) then 
+	{
+		for[{_rm = 0}, {_rm < (2 + floor(random(3)))}, {_rm = _rm + 1}] do 
 		{
-			for[{_rm = 0}, {_rm < (2 + floor(random(3)))}, {_rm = _rm + 1}] do 
-			{
-				_mag = randomWeapon_WeaponArray select _selectedgroup select ((floor(random((count(randomWeapon_WeaponArray select _selectedgroup) - 1)))) + 1);
-				_weaponholder addMagazineCargoGlobal [_mag, 1]; 
-			};
+			_mag = randomWeapon_WeaponArray select _selectedgroup select ((floor(random((count(randomWeapon_WeaponArray select _selectedgroup) - 1)))) + 1);
+			_weaponholder addMagazineCargoGlobal [_mag, 1]; 
 		};
-		_weaponholder setPos _position;
-	}
-	else
-	{
-		diag_log "******skipped weapon spawning******";
 	};
+	_weaponholder setPos _position;
 };
 
 randomSpawnOther = 

@@ -14,6 +14,7 @@ FZF_ICHud_Centre = [150, 150];
 FZF_ICHud_Customised = false;
 FZF_ICHud_Layer = 609;
 FZF_IC_Hud_Disp = nil;
+HUD_ICON = nil;
 
 FZF_IC_Icons = 
 {
@@ -77,7 +78,7 @@ FZF_IC_Icons =
 	private "_index";
 	_index = 0;
     {
-        private ["_pos","_unit", "_distance", "_name","_screen","_scale","_sy","_sx","_remove_icon"];
+        private ["_pos","_unit", "_distance", "_name","_screen","_scale","_sy","_sx","_remove_icon", "_picon"];
         _unit = _x;
 		_pos = getposATL _x;
 		if(surfaceIsWater _pos) then {
