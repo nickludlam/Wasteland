@@ -6,10 +6,16 @@
 
 #include "defines.hpp"
 
-if(X_Server) exitWith {};
+if(isServer) exitWith {};
 
 private ["_function","_applyPaint","_applyMissile","_msgToPlayer", "_msgToAllPlayers"];
-_function = serverRelaySystem select 0;
+
+_outer = _this select 0;
+_args = _outer select 1;
+_function = _args select 0;
+
+diag_log format["clientRelayHandler called with _this = %1", _this];
+diag_log format["clientRelayHandler called with args = %1", _args];
 
 _applyPaint =
 {
@@ -52,29 +58,28 @@ _msgToAllPlayers =
 
 switch(_function) do
 {
-	diag_log format ["clientRelayHandler called with args: %1", serverRelaySystem];
 	private ["_car", "_paint", "_type", "_msg","_playerUID"];
 	//apply paint [_car, _paint]
 	case MESSAGE_VEHICLE_PROPERTIES_APPLY:
 	{
-		_car = serverRelaySystem select 1;
-		_paint = serverRelaySystem select 2;
+		_car = _args select 1;
+		_paint = _args select 2;
 		[_car, _paint] call _applyPaint;
 		[_car] call _applyMissile;
 	};
 
 	case MESSAGE_BROADCAST_MSG_TO_PLAYER:
 	{
-		_type = serverRelaySystem select 1;
-		_playerUID = serverRelaySystem select 2;
-		_msg = serverRelaySystem select 3;
+		_type = _args select 1;
+		_playerUID = _args select 2;
+		_msg = _args select 3;
 		[_type, _playerUID, _msg] call _msgToPlayer;
 	};
 
 	// NB: NOT YET FUNCTIONAL
 	case MESSAGE_BROADCAST_MSG_TO_ALL:
 	{
-		_msg = serverRelaySystem select 1;
+		_msg = _args select 1;
 		[_msg] call _msgToAllPlayers;
 	};
 };

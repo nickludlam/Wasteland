@@ -17,7 +17,7 @@ X_Server = false;
 X_Client = false;
 X_JIP = false;
 hitStateVar = false;
-versionName = "2.2";
+versionName = "2.3";
 statsLoaded = 0;
 doLoad = 1;
 ssDebug = 1;
@@ -68,6 +68,11 @@ if(X_Client) then {
 [] execVM "addons\R3F_ARTY_AND_LOG\init.sqf";
 [] execVM "addons\proving_ground\init.sqf";
 [] execVM "addons\scripts\DynamicWeatherEffects.sqf";
+
+// This is global
+clientRelayHandler = compile preprocessFileLineNumbers "client\functions\clientRelayHandler.sqf";
+if (isNil "clientRelaySystem") then { clientRelaySystem = []; };
+"clientRelaySystem" addPublicVariableEventHandler {[_this] call clientRelayHandler};
 
 //Disable r3f on map/mission sided buildings (causes desync when moved)
 //props to Tonic-_- at the BIS forums for this find! :)

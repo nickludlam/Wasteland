@@ -44,7 +44,7 @@ _createAndApplyapplyVehProperties =
 	_colorText = _this select 2;
 	
 	_vehicle = createVehicle [_type,_pos, [], 0, "FLY"];
-	
+	_vehicle disableTIEquipment true; // Disable Thermal on bought vehicles. Mission based ones are more powerful
 	//_veh setDir _dir;
 	_vehicle setVariable ["newVehicle",1,true];
 	

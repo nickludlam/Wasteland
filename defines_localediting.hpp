@@ -34,6 +34,9 @@
 // Easy cash at start 
 #define __SPAWN_WITH_PLENTY_DOLLA__ 1	
 
+// Do we skip from night to morning? serverTimeSync.sqf
+#define __SERVER_SKIP_NIGHT__ 1
+
 // Define this if you want to enable long periods of running to drain your water level
 #define __RUNNING_EXHAUSTION__
 

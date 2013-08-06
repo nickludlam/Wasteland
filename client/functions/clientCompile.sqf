@@ -22,7 +22,7 @@ placeSpawnBeacon = compile preprocessFileLineNumbers "client\systems\playerMenu\
 // Sync client with server
 timeSync = compile preprocessFileLineNumbers "client\functions\clientTimeSync.sqf";
 serverMessage = compile preprocessFileLineNumbers "client\functions\serverMessage.sqf";
-clientRelayHandler = compile preprocessFileLineNumbers "client\functions\clientRelayHandler.sqf";
+//clientRelayHandler = compile preprocessFileLineNumbers "client\functions\clientRelayHandler.sqf";
 
 // Update scripts
 updateTeamKiller = compile preprocessFileLineNumbers "client\functions\updateTeamKiller.sqf";

@@ -279,6 +279,17 @@ player createDiaryRecord["changelog",
 ]
 ];
 
+player createDiaryRecord["changelog",
+[
+"2.3 Bewilderbeest & His_Shadow -",
+"<br/><br/>
+- Dynamic weather incorporated. This is restricted to fog and wind until rain is reintroduced<br/>
+- Vehicles bought at the vehicle stores are now airlifted in. Be warned, they can be shot down mid-flight yielding only a 65% refund!<br/>
+- Vehicles bought at the vehicle stores have their NV and TI optics disabled. Mission vehicles do not.
+"
+]
+];
+
 player createDiaryRecord["Info",
 [
 "The Basics -",

@@ -28,10 +28,13 @@
 // Uncomment this when testing in the standalone server
 //#define __DEBUG__
 
-#define __DISABLE_INIDB__
+//#define __DISABLE_INIDB__
+
+// Do we skip from night to morning? serverTimeSync.sqf
+#define __SERVER_SKIP_NIGHT__ 1
 
 // Easy cash at start 
-#define __SPAWN_WITH_PLENTY_DOLLA__ 1	
+//#define __SPAWN_WITH_PLENTY_DOLLA__ 1	
 
 // Define this if you want to enable long periods of running to drain your water level
 #define __RUNNING_EXHAUSTION__
@@ -48,5 +51,5 @@
 #define THIRST_DECREMENT_INTERVAL 1200
 
 // Randomize money variables to stop hackers
-#define __MONEY_VAR_NAME__ "12345playermoneyvar"
-#define __MONEYBAG_VAR_NAME__ "ABCDEFbagmoneyvar"
+#define __MONEY_VAR_NAME__ "6789playermoneyvar"
+#define __MONEYBAG_VAR_NAME__ "AB3245Fbagmoneyvar"

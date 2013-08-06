@@ -3,6 +3,8 @@
 //	@file Author: [404] Deadbeat
 //	@file Created: 20/11/2012 05:19
 
+#include "defines.hpp"
+
 if(!X_Server) exitWith {};
 
 _dateStamp = Date;
@@ -14,9 +16,20 @@ _startTime = time;
 
 while{true} do
 {	
+    _dateStamp = Date;
+
+// Experimental
+#ifdef __SERVER_SKIP_NIGHT__ 
+
+    if (_dateStamp select 3 > 22) then {
+        skipTime 7;
+        currentDate = Date;
+        publicVariable "currentDate";
+    };
+#endif
+
 	if(time - _startTime > 900) then  
     {
-    	_dateStamp = Date;
         _dateStamp set [4, _dateStamp select 4];
         setDate _dateStamp;
         currentDate = _dateStamp;

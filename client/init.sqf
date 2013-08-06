@@ -103,7 +103,7 @@ waituntil {!(IsNull (findDisplay 46))};
 "currentDate" addPublicVariableEventHandler {[] call timeSync};
 "messageSystem" addPublicVariableEventHandler {[] call serverMessage};
 "pvar_teamKillList" addPublicVariableEventHandler {[] call updateTeamKiller};
-"clientRelaySystem" addPublicVariableEventHandler {[] call clientRelayHandler};
+//"clientRelaySystem" addPublicVariableEventHandler {[_this select 1] call clientRelayHandler};
 "clientRadarMarkers" addPublicVariableEventHandler {[] call updateRadarMarkers};
 "clientMissionMarkers" addPublicVariableEventHandler {[] call updateMissionsMarkers};
 "publicVar_teamkillMessage" addPublicVariableEventHandler {if(local(_this select 1)) then {[] spawn teamkillMessage;};};
