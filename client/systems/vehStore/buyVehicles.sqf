@@ -14,16 +14,16 @@ disableSerialization;
 //Initialize Values
 _switch = _this select 0;
 
-
 if (currentOwnerID getVariable "isDeliveringVehicle" == 1) exitWith {
-	hintSilent format["Please wait until the previous delivery is complete before ordering more vehicles"];
-	player say "FD_CP_Not_Clear_F";
+  // Nicer audible error effect
+  hintSilent format["Please wait until the previous delivery is complete before ordering more vehicles"];
+  player say "FD_CP_Not_Clear_F";
 };
 
 _playerMoney = player getVariable __MONEY_VAR_NAME__;
 _price = 0;
 
-_spawnPosVehicle = [3786.45,7912.79,1000.0]; // Spawn it on debug island before moving to the chopper
+_spawnPosVehicle = [3786.45,7912.79,500 + (floor random 500)]; // Spawn it on debug island before moving to the chopper
 
 // Grab access to the controls
 _dialog = findDisplay vehshop_DIALOG;

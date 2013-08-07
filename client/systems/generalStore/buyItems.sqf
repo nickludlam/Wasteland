@@ -12,7 +12,7 @@ disableSerialization;
 private["_playerMoney","_size", "_price","_dialog","_itemlist","_totalText","_playerMoneyText","_handleMoney","_itemText", "_class",
         "_vestName", "_backpackName"];
 
-if(genStoreCart > (player getVariable __MONEY_VAR_NAME__)) exitWith {hint "You do not have enough money"};
+if(genStoreCart > (player getVariable __MONEY_VAR_NAME__)) exitWith {hintSilent "You do not have enough money for that"; player say "FD_CP_Not_Clear_F"; };
 
 //Initialize Values
 _playerMoney = player getVariable __MONEY_VAR_NAME__;
@@ -27,6 +27,14 @@ _playerMoneyText = _Dialog displayCtrl genstore_money;
 _handleMoney = 1;
 _itemText = lbText  [genstore_item_list, (lbCurSel genstore_item_list)];
 
+_showInsufficientFundsError = 
+{
+  _itemText = _this select 0;
+  hintSilent format["You don't have enought money for %1", _itemText];
+  player say "FD_CP_Not_Clear_F";
+  _handleMoney = 0;
+};
+
 {
 	if(_itemText == _x select 0) then
     {
@@ -34,7 +42,7 @@ _itemText = lbText  [genstore_item_list, (lbCurSel genstore_item_list)];
 		_price = _x select 2;
 		
 		//ensure they player has enought money
-		if ( _price > parseNumber str(_playerMoney)) then {hint format["You don't have enought money for %1", _itemText];_handleMoney = 0;breakTo "main"};
+		if ( _price > parseNumber str(_playerMoney)) then { [_itemText] call _showInsufficientFundsError; breakTo "main"};
 		_vestName = headgear player;
 		removeHeadgear player;
 		player addHeadgear _class;
@@ -48,7 +56,7 @@ _itemText = lbText  [genstore_item_list, (lbCurSel genstore_item_list)];
 		_price = _x select 2;
 				
 		//ensure they player has enought money
-		if ( _price > parseNumber str(_playerMoney)) then {hint format["You don't have enought money for %1", _itemText];_handleMoney = 0;breakTo "main"};
+		if ( _price > parseNumber str(_playerMoney)) then {[_itemText] call _showInsufficientFundsError; breakTo "main"};
         _vestName = uniform player;
 		removeUniform player;
         player addUniform _class;
@@ -62,7 +70,7 @@ _itemText = lbText  [genstore_item_list, (lbCurSel genstore_item_list)];
 		_price = _x select 2;
 		
 		//ensure they player has enought money
-		if ( _price > parseNumber str(_playerMoney)) then {hint format["You don't have enought money for %1", _itemText];_handleMoney = 0;breakTo "main"};
+		if ( _price > parseNumber str(_playerMoney)) then {[_itemText] call _showInsufficientFundsError; breakTo "main"};
 		_vestName = vest player;
 
 		removeVest player;
@@ -77,7 +85,7 @@ _itemText = lbText  [genstore_item_list, (lbCurSel genstore_item_list)];
 		_price = _x select 2;
 		
 		//ensure they player has enought money
-			if ( _price > parseNumber str(_playerMoney)) then {hint format["You don't have enought money for %1", _itemText];_handleMoney = 0;breakTo "main"};
+			if ( _price > parseNumber str(_playerMoney)) then {[_itemText] call _showInsufficientFundsError; ;breakTo "main"};
 		
 					_backpackName = backpack player;
 
@@ -93,7 +101,7 @@ _itemText = lbText  [genstore_item_list, (lbCurSel genstore_item_list)];
 				_price = _x select 2;
 				
 				//ensure they player has enought money
-				if ( _price > parseNumber str(_playerMoney)) then {hint format["You don't have enought money for %1", _itemText];_handleMoney = 0;breakTo "main"};
+				if ( _price > parseNumber str(_playerMoney)) then {[_itemText] call _showInsufficientFundsError; breakTo "main"};
 				switch((_x select 3)) do
                 {
                 	case "binoc":
@@ -168,7 +176,7 @@ _itemText = lbText  [genstore_item_list, (lbCurSel genstore_item_list)];
 	if(_itemText == _x select 0) then
 	{
 		_price = _x select 4;
-		if ( _price > parseNumber str(_playerMoney)) then {hint format["You don't have enought money for %1", _itemText];_handleMoney = 0;breakTo "main"};
+		if ( _price > parseNumber str(_playerMoney)) then {[_itemText] call _showInsufficientFundsError; breakTo "main"};
 		switch (_itemText) do 
 		{
 			
