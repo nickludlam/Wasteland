@@ -18,7 +18,8 @@ HUD_ICON = nil;
 
 FZF_IC_Icons = 
 {
-    private ["_pIcons", "_make_icons","_remove_icon","_units","_uc","_Plicon"];
+    private ["_pIcons","_make_icons","_remove_icon","_uc","_Plicon","_picon","_marker_index","_index","_unit","_distance","_screen","_scale","_sx","_sy","_currPos","_objects","_icon_text"];
+
     _pIcons = player getVariable "FZF_IC_Hud_pIcons";
 
     _make_icons = false;

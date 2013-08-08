@@ -89,9 +89,10 @@ if (!isDedicated) then {
 	} foreach (nearestObjects[[0,0], R3F_LOG_CFG_objets_deplacables, 20000]); 
 };
 
-if (isServer) then { execVM "antihack\setup.sqf" }
-else 
+//if (isServer) then { execVM "antihack\setup.sqf" }
+if(!isServer) then
 {
 	clientStarted = player;	
 	publicVariableServer "clientStarted";
+	execVM "client\functions\removeWatermark.sqf";
 };
