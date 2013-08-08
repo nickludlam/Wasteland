@@ -7,7 +7,7 @@
 
 if(!X_Server) exitWith {};
 
-private ["_markerPos","_pos","_type","_num","_cartype","_car"];
+private ["_markerPos","_pos","_type","_num","_cartype","_car", "_color"];
 
 _markerPos = _this select 0;
 
@@ -50,7 +50,6 @@ _car disableTIEquipment true;
 _car setVariable ["newVehicle",1,true];
 _car setPosATL [getpos _car select 0,getpos _car select 1,1];
 _car setVelocity [0,0,0];
-//_car addEventHandler ["IncomingMissile", "hint format['Incoming Missile Launched By: %1', name (_this select 2)]"];
 _car addEventHandler ["IncomingMissile", "[name (_this select 2)] execVM 'incomingAlarm.sqf'"];
 
 if(_cartype == "B_MRAP_01_F") then
@@ -79,7 +78,5 @@ if(_cartype == "B_MRAP_01_F") then
 	};
 };
 
-//vehiclelock = _car addAction ["Unlock / Lock","server\functions\unlocklock.sqf",[],7,true,true,"","(_target distance _this) < 5"];
-//[_car, 1800, 3600, 0, false, _markerPos] execVM "server\functions\vehicle.sqf"; ORIGINAL
-[_car, 180, 3600, 0, false, _markerPos] execVM "server\functions\vehicle.sqf"; //5 Minutes (Desired)
+[_car, 120, 3600, 0, false, _markerPos] execVM "server\functions\vehicle.sqf"; //5 Minutes (Desired)
 //[_car, 1, 3600, 0, false, _markerPos] execVM "server\functions\vehicle.sqf"; //Immediate (TESTING)

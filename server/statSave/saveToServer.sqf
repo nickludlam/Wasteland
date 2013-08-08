@@ -1,4 +1,4 @@
-private "_save";
+private ["_save"];
 _save =
 "
 	accountToServerSave = _this;

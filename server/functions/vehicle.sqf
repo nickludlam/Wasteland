@@ -44,6 +44,8 @@ NOTE: Some parameters have changed since the previous release, especially static
   
 if (!isServer) exitWith {};
 
+private ["_unit","_delay","_deserted","_respawns","_explode","_static","_run","_dir","_position","_type","_dead","_nodelay","_timeout","_towedUnit","_effect","_carType"];
+
 // Define variables
 _unit = _this select 0;
 _delay = if (count _this > 1) then {_this select 1} else {30};

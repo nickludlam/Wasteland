@@ -6,7 +6,7 @@
 
 if(!X_Server) exitWith {};
 
-private ["_counter", "_placed"];
+private ["_counter","_placed","_i"];
 
 _counter = 0;
 _placed = [0];

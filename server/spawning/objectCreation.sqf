@@ -3,7 +3,8 @@
 //	@file Author: [404] Deadbeat, [GoT] JoSchaap, [KoS]Bewilderbeest
 //	@file Created: DD/MM/YYYY HH:MM
 //	@file Args: position, array of objects
-private ["_objPos", "_objType","_specificObjects","_obj"];
+
+private ["_objPos","_specificObjects","_objType","_obj"];
 if(!X_Server) exitWith {};
 
 _objPos = _this select 0;

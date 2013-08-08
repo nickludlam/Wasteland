@@ -6,7 +6,7 @@
 
 if(!X_Server) exitWith {};
 
-private ["_car","_mags","_rnd","_weapon","_mag"];
+private ["_car","_additionArray","_weapon","_mag","_additionOne","_additionTwo","_additionThree"];
 
 //Grabs carname from array in execVM
 _car = _this select 0;

@@ -1,4 +1,4 @@
-private["_saveToDB","_loadFromDB"];
+private ["_saveToDB","_array","_varName","_varValue","_saveArray","_loadFromDB","_type","_loadArray"];
 _saveToDB =
 "
 	_array = _this;
@@ -24,8 +24,6 @@ _loadFromDB =
 ";
 
 loadFromDB = compile _loadFromDB;
-
-
 
 "accountToServerSave" addPublicVariableEventHandler 
 {
