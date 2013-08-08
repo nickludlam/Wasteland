@@ -2,7 +2,7 @@ if(!X_Server) exitWith {};
 
 //Admin menu access levels
 
-//louis, wlfpac, joedaddy, Ballz
+//louis, wlfpac, joedaddy, Ballz, amounted 76561198067783579
 moderators = ["76561198064773232", "76561197968719664","76561198013844408","76561197965139274"]; 
 publicVariable "moderators"; 
            
