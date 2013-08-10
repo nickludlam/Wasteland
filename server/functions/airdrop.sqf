@@ -17,7 +17,7 @@
 
 if(!isServer) exitWith {};
 
-private ["_veh", "_deliveryPos", "_customer", "_price", "_vehStoreOwner", "_customerUID", "_dropoffType", "_spawnPosHeli1", "_spawnPosHeli2", "_spawnPosHeli3", "_chosenSpawnPos", "_airdropHeliNumber", "_helipad", "_daytime", "_light1", "_group", "_pilot", "_wp1", "_markerDropoff", "_markerHeli", "_done", "_refundNeeded", "_count", "_landingMode"];
+private ["_veh", "_heli", "_deliveryPos", "_customer", "_price", "_vehStoreOwner", "_customerUID", "_dropoffType", "_spawnPosHeli1", "_spawnPosHeli2", "_spawnPosHeli3", "_chosenSpawnPos", "_airdropHeliNumber", "_helipad", "_daytime", "_light1", "_group", "_pilot", "_wp1", "_markerDropoff", "_markerHeli", "_done", "_refundNeeded", "_count", "_landingMode"];
 
 if (count _this == 0) exitWith { };
 
@@ -79,7 +79,7 @@ _helipad = "Land_HelipadEmpty_F" createVehicle _deliveryPos;
 // Spawn in smoke or chemlights depending on time of day
 _daytime = daytime;
 if (_daytime > 6 && _daytime < 19) then {
-    _light1 = "SmokeShellYellow" createVehicle (getPos _helipad);
+    _light1 = "SmokeShellBlue" createVehicle (getPos _helipad);
 } else {
     _light1 = "Chemlight_yellow" createVehicle (getPos _helipad);
 };
@@ -91,6 +91,8 @@ _deliveryPos = position _helipad; // reset according to new helipad location
 _group = createGroup side _customer;
 _pilot = [_group, _spawnPosPilot] call createRandomPilot; 
 _pilot setBehaviour "CARELESS";
+
+_heli = nil;
 
 if (_dropoffType == AIRDROP_TYPE_SELF_DELIVERY) then {
     _chosenSpawnPos set [2, (floor random 200) + 100]; // up high
@@ -128,22 +130,22 @@ _wp1 setWaypointCompletionRadius 20;
 //diag_log "Heli should now be en route";
 
 // Mark it up
-_markerHeli = createMarkerLocal [format ["airdrop_heli_%1_%2",_airdropHeliNumber, floor random 300], position leader _group];
-_markerHeli setMarkerTypeLocal "mil_pickup";
-_markerHeli setMarkerSizeLocal [1, 1];
-_markerHeli setMarkerColorLocal "ColorGreen";
+_markerHeli = createMarker [format ["airdrop_heli_%1_%2",_airdropHeliNumber, floor random 300], position leader _group];
+_markerHeli setMarkerType "mil_pickup";
+_markerHeli setMarkerSize [1, 1];
+_markerHeli setMarkerColor "ColorGreen";
 if (_dropoffType == AIRDROP_TYPE_AIRDROP) then {
-    _markerHeli setMarkerTextLocal "Transport Helo";
+    _markerHeli setMarkerText "Transport Helo";
 } else {
-    _markerHeli setMarkerTextLocal "Autonomous Helo";
+    _markerHeli setMarkerText "Autonomous Helo";
 };
 
 // Second marker for the dropoff point
-_markerDropoff = createMarkerLocal [format ["airdrop_dest_%1_%2",_airdropHeliNumber, floor random 300], _deliveryPos];
-_markerDropoff setMarkerTypeLocal "mil_end";
-_markerDropoff setMarkerSizeLocal [1, 1];
-_markerDropoff setMarkerColorLocal "ColorGreen";
-_markerDropoff setMarkerTextLocal "Dropoff";
+_markerDropoff = createMarker [format ["airdrop_dest_%1_%2",_airdropHeliNumber, floor random 300], _deliveryPos];
+_markerDropoff setMarkerType "mil_end";
+_markerDropoff setMarkerSize [1, 1];
+_markerDropoff setMarkerColor "ColorGreen";
+_markerDropoff setMarkerText "Dropoff";
 
 _done = false; // Exit cond
 _refundNeeded = false; // Whether the player gets a refund or not
@@ -158,7 +160,7 @@ waitUntil
 
     _heli flyinHeight 50;
 
-    _markerHeli setMarkerPosLocal (position leader _group);
+    _markerHeli setMarkerPos (position leader _group);
 
     // If its shot down or timed out, exit
     if (!alive _heli || _count > 240) then {
@@ -203,7 +205,7 @@ waitUntil
 };
 
 // Dropoff is now complete
-deleteMarkerLocal _markerDropoff;
+deleteMarker _markerDropoff;
 deleteVehicle _light1;
 deleteVehicle _helipad;
 
@@ -233,7 +235,7 @@ if (!_refundNeeded && _dropoffType == AIRDROP_TYPE_AIRDROP) then {
     _count = 0;
     waitUntil
     {
-        _markerHeli setMarkerPosLocal (position leader _group);
+        _markerHeli setMarkerPos (position leader _group);
 
         _count = _count + 1;
         //diag_log format ["Distance to WP: %1, Egress timeout is %2", _heli distance _chosenSpawnPos, _count];
@@ -264,10 +266,11 @@ if (_refundNeeded) then {
 
     // Break the bad news!
 
-    _msg = format["KoS regret to inform you your vehicle was damaged in transit. Please accept a %1 percent refund on the purchase cost.", _refundPercentage];
+    _msg = format["KoS regret to inform you your vehicle was lost or damaged in transit. Please accept a %1 percent refund on the purchase cost.", _refundPercentage];
     clientRelaySystem = [MESSAGE_BROADCAST_MSG_TO_PLAYER, MESSAGE_BROADCAST_MSG_TYPE_GCHAT, _customerUID, _msg];
     //diag_log format ["Set clientRelaySystem to %1", clientRelaySystem];
     publicVariable "clientRelaySystem";
+    //diag_log format["VEHICLE REFUND TRIGGERED: %1 tried to buy a %2", name _customer, name _veh];
 };
 
 if (_dropoffType == AIRDROP_TYPE_AIRDROP) then {
@@ -277,4 +280,4 @@ if (_dropoffType == AIRDROP_TYPE_AIRDROP) then {
 // Cleanup if the heli is dead or otherwise
 {deleteVehicle _x;}forEach units _group;
 deleteGroup _group; 
-deleteMarkerLocal _markerHeli;
+deleteMarker _markerHeli;

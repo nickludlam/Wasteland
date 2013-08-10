@@ -37,10 +37,12 @@ _marker setMarkerSize [1.25, 1.25];
 _marker setMarkerColor "ColorRed";
 _marker setMarkerText _missionType;
 
-_vehicleClass = ["B_APC_Wheeled_01_cannon_F", "O_APC_Wheeled_02_rcws_F"] call BIS_fnc_selectRandom;
+_vehicleClass = ["B_APC_Wheeled_01_cannon_F", "O_APC_Wheeled_02_rcws_F", "B_APC_Tracked_01_rcws_F", "O_APC_Tracked_02_cannon_F"] call BIS_fnc_selectRandom;
 //Vehicle Class, Posistion, Fuel, Ammo, Damage, State
 _vehicle = [_vehicleClass,_randomPos,0.05,0.1,0.45,"NONE"] call createMissionVehicle;
 _vehicle addEventHandler ["IncomingMissile", "hint format['Incoming Missile Launched By: %1', name (_this select 2)]"];
+
+diag_log format["Vehicle created %1", _vehicle];
 
 // Add some enemies to make it interesting
 CivGrpM = createGroup civilian;
@@ -66,9 +68,9 @@ waitUntil
 	_unitsAlive = ({alive _x} count units CivGrpM);
 	_vehicleDamage = damage _vehicle;
 
-	//diag_log format ["Mission debug: _playerPresent is %1", _playerPresent];
-	//diag_log format ["Mission debug: _unitsAlive is %1", _unitsAlive];
-	//diag_log format ["Mission debug: damage _vehicle is %1", _vehicleDamage];
+	diag_log format ["Mission debug: _playerPresent is %1", _playerPresent];
+	diag_log format ["Mission debug: _unitsAlive is %1", _unitsAlive];
+	diag_log format ["Mission debug: damage _vehicle is %1", _vehicleDamage];
 
     (_result == 1) OR ((_playerPresent) AND (_unitsAlive < 1)) OR (_vehicleDamage == 1)
 };

@@ -36,6 +36,14 @@ _handleMoney = 1;
 _landVehicleArrays = [landArray, armoredArray, tanksArray, helicoptersArray];
 _seaVehicleArrays = [boatsArray, submarinesArray];
 
+_showInsufficientFundsError = 
+{
+  _itemText = _this select 0;
+  hintSilent format["You don't have enought money for %1", _itemText];
+  player say "FD_CP_Not_Clear_F";
+  _handleMoney = 0;
+};
+
 _createAndApplyapplyVehProperties = 
 {
     private ["_vehicle", "_colorText","_texturePath", "_type", "_pos"];
@@ -44,7 +52,7 @@ _createAndApplyapplyVehProperties =
 	_colorText = _this select 2;
 	
 	_vehicle = createVehicle [_type,_pos, [], 0, "FLY"];
-	_vehicle disableTIEquipment true; // Disable Thermal on bought vehicles. Mission based ones are more powerful
+	//_vehicle disableTIEquipment true; // Disable Thermal on bought vehicles. Mission based ones are more powerful
 	//_veh setDir _dir;
 	_vehicle setVariable ["newVehicle",1,true];
 	
@@ -98,7 +106,7 @@ switch(_switch) do
 				if(_itemText == _x select 0) then
 				{
 					_price = _x select 2;
-					if ( _price > parseNumber str(_playerMoney)) then {hint format["You don't have enought money for %1", _itemText];_handleMoney = 0;breakTo "main"};
+					if ( _price > parseNumber str(_playerMoney)) then {[_itemText] call _showInsufficientFundsError; breakTo "main"};
 					_vehType = _x select 1;
 					_deliverPos = (getMarkerPos format ["land_spawn_%1", currentOwnerID]);
 					_spawnType = "land";
@@ -115,7 +123,7 @@ switch(_switch) do
 				if(_itemText == _x select 0) then
 				{
 					_price = _x select 2;
-					if ( _price > parseNumber str(_playerMoney)) then {hint format["You don't have enought money for %1", _itemText];_handleMoney = 0;breakTo "main"};				
+					if ( _price > parseNumber str(_playerMoney)) then {[_itemText] call _showInsufficientFundsError;;breakTo "main"};				
 					_vehType = _x select 1;
 					_deliverPos = (getMarkerPos format ["sea_spawn_%1", currentOwnerID]);
 					_spawnType = "sea";

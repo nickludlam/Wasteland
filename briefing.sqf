@@ -283,9 +283,12 @@ player createDiaryRecord["changelog",
 [
 "2.3 Bewilderbeest & His_Shadow -",
 "<br/><br/>
-- Dynamic weather incorporated. This is restricted to fog and wind until rain is reintroduced<br/>
-- Vehicles bought at the vehicle stores are now airlifted in. Be warned, they can be shot down mid-flight yielding only a 65% refund!<br/>
-- Vehicles bought at the vehicle stores have their NV and TI optics disabled. Mission vehicles do not.
+- Dynamic weather incorporated. This is restricted to fog and wind until rain is reintroduced by Bohemia.<br/>
+- Vehicles bought at the vehicle stores are now airlifted in. Be warned, they can be shot down mid-flight yielding only a 65% refund! Be careful...<br/>
+- Night skip: When the server time reaches 10pm, time will skip forward to 5am to give a shorter night cycle.
+- Southern vehicle store moved to more effectively accomodate airdropped vehicles.
+- Kaymish and Panther vehicles have been added to the Immobile APC mission.
+- New capture system. Capturing areas can be blocked if more than one team is in the area.
 "
 ]
 ];
@@ -297,18 +300,13 @@ player createDiaryRecord["Info",
 <br/>
 * Bags are for sale in the Gun Store.<br/><br/>
 * Yellow territories can be captured by staying in them for 5 consecutive minutes.<br/><br/>
-* There are a total of 5 treasure hunts.<br/><br/>
-* Vehicles are harder to find to encourage player killing as well as territory capturing.<br/><br/>
-* Access the general store via the scroll menu.<br/><br/>
+* Access the stores via the scroll menu.<br/><br/>
 * To use the fuel truck go in an non full of fuel vehicle and approach the fuel truck and use the scroll option refuel.<br/><br/>
-* You can refuel 10 times then the truck cannot refuel anymore (destroy it or use it as transport).<br/><br/>
 * If you cannot pick up an item place it on the ground then pick it up or place it in your backpack then pick it up.<br/><br/>
-* Cousin Romans Garage and Palmbeatz Impoundlot have a repair-refuel-rearm station<br/><br/>
-* Medical Supply buildings and churchs will heal you fully when inside them for 30 seconds.<br/><br/>
-* You can manually remove all the dead bodies on the server by pressing 0, 0, 1.<br/><br/>
+* Garages and Helipasds function as repair-refuel-rearm stations<br/><br/>
+* Medical Supply buildings and churchs will heal you fully when inside them for a while.<br/><br/>
 * Capping the airfield will give you twice as much money but it is much harder to hold.<br/><br/>
-* Drive inside open garages in Civilian Villages like agia and Girna to heal-refuel.<br/><br/>
-	<br/>
+<br/>
 "
 ]
 ];

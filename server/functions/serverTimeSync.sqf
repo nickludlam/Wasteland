@@ -20,8 +20,7 @@ while{true} do
 
 // Experimental
 #ifdef __SERVER_SKIP_NIGHT__ 
-
-    if (_dateStamp select 3 > 22) then {
+    if (_dateStamp select 3 >= 22) then {
         skipTime 7;
         currentDate = Date;
         publicVariable "currentDate";
@@ -36,5 +35,5 @@ while{true} do
 		publicVariable "currentDate";
 		_startTime = time;    
     };
-	sleep 10;
+	sleep 30;
 };

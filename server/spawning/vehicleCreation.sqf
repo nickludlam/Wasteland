@@ -39,11 +39,11 @@ clearMagazineCargoGlobal _car;
 clearWeaponCargoGlobal _car;
 
 //Set Cars Attributes
-_car setFuel (0.50);
-_car setDamage (random 0.50);
+_car setFuel (0.2 + random 0.40);
+//_car setDamage (random 0.50);
 _car setDir (random 360);
 if (_type > 1) then { _car setVehicleAmmo (random 0.90) };
-_car disableTIEquipment true;
+//_car disableTIEquipment true;
 [_car] call randomWeapons;
 
 //Set original posistion then add to vehicle array
@@ -78,5 +78,6 @@ if(_cartype == "B_MRAP_01_F") then
 	};
 };
 
-[_car, 120, 3600, 0, false, _markerPos] execVM "server\functions\vehicle.sqf"; //5 Minutes (Desired)
+// Unit, delay, deserted, respawns, explode, static
+[_car, 120, 3600, 0, false, _markerPos] execVM "server\functions\vehicle.sqf"; //2 Minutes (Desired)
 //[_car, 1, 3600, 0, false, _markerPos] execVM "server\functions\vehicle.sqf"; //Immediate (TESTING)

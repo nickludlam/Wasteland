@@ -29,6 +29,23 @@ _playerSlots = [];
 _itemText = "";
 _handleMoney = 1;
 
+
+_showInsufficientFundsError = 
+{
+  _itemText = _this select 0;
+  hintSilent format["You don't have enought money for %1", _itemText];
+  player say "FD_CP_Not_Clear_F";
+  _handleMoney = 0;
+};
+
+_showInsufficientSpaceError = 
+{
+  _itemText = _this select 0;
+  hintSilent format["You don't have enought space for %1", _itemText];
+  player say "FD_CP_Not_Clear_F";
+  _handleMoney = 0;
+};
+
 switch(_switch) do 
 {
 	//Buy To Player
@@ -49,14 +66,13 @@ switch(_switch) do
 				_price = _x select 2;
 				
 				//ensure they player has enought money
-				if ( _price > parseNumber str(_playerMoney)) then {hint format["You don't have enought money for %1", _itemText]; _handleMoney = 0;breakTo "main"};
+				if ( _price > parseNumber str(_playerMoney)) then {[_itemText] call _showInsufficientFundsError; breakTo "main"};
 				_exe = [player, _class] call fn_fitsInventory;
 				
 				if(_exe == 0) then
 				{
 					{if(_x select 1 == _class) then{_price = _x select 2; _name = _x select 0;};}forEach ammoArray;
-					hint format["You don't have enough space for %1", _name];
-					_handleMoney = 0;
+                    [_name] call _showInsufficientSpaceError;
 					breakTo "main"
 				};
 				if(_exe == 1) then

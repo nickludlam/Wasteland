@@ -10,8 +10,7 @@
 //Initialize Values
 private["_primary","_magazine","_weapon_value","_magSell"];
 _magSell = 0;
-_weapon_value = 0;
-_primary = "";
+_weapon_value = nil;
 _primary = currentWeapon player;
 if(_primary == "") exitWith {hint "You don't have a current weapon in your hand to sell!";};
 
@@ -28,7 +27,7 @@ if(_primary == "") exitWith {hint "You don't have a current weapon in your hand 
 {if(_x select 1 == _primary) then {_weapon_value = _x select 3;};}forEach shotgunArray;
 {if(_x select 1 == _primary) then {_weapon_value = _x select 3;};}forEach launcherArray;
 
-if(isNil {_weapon_value}) exitWith {hint "The store does not want this item."};
+if(isNil "_weapon_value") exitWith {hint "The store does not want this item."};
 
 //_weapon_value = 25; // This is for weapons that aren't in the gunstore stock list. TODO fix the sell price.
 

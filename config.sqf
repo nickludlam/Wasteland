@@ -3,7 +3,6 @@ BIT NOTE: use the following to test animations
 [] call BIS_fnc_animViewer
 */
 
-
 currentOwnerName = "";
 pistolArray =
 [
@@ -553,3 +552,30 @@ cityList = [
 cityLocations = [];
 
 gunStoreForMarkers = ["West_GS", "West_GSA", "East_GS", "East_GSE"];
+
+captureAreaMarkers = [
+	["CAP_POINT_SPARTAN", "Godmode's Garage", 200],
+	["CAP_POINT_GIRNA", "Girna", 200],
+	["CAP_POINT_AGIA_NORTH", "North Agia Marina", 200],
+	["CAP_POINT_AGIA_SOUTH", "South Agia Marina", 200],
+	["CAP_POINT_AIRSTATION_MIKE", "Airstation Mike", 200],
+	["CAP_POINT_KAMINO_FR", "Kamino Firing Range", 200],
+	["CAP_POINT_CAMP_MAXWELL", "Camp Maxwell", 200],
+	["CAP_POINT_CAMP_ROGAIN", "Camp Rogain", 200],
+	["CAP_POINT_CAMP_TEMPEST", "Camp Tempest", 200],
+	["CAP_POINT_AGIOS_CEPHAS", "Agios Cephas", 200],
+	["CAP_POINT_AGIOS_IOANNIS", "Agios Ioannis", 200],
+	["CAP_POINT_DAVIS_IMPOUND", "Davis' Impound Lot", 200],
+	["CAP_POINT_JAY_COVE", "Jay Cove", 200],
+	["CAP_POINT_LIMERI_BAY", "Limeri Bay", 200],
+	["CAP_POINT_OTS", "Old Transmission Station", 200],
+	["CAP_POINT_AIRFIELD_NORTH", "North Stratis Air Base", 500],
+	["CAP_POINT_AIRFIELD_SOUTH", "South Stratis Air Base", 500],
+	["CAP_POINT_LZ_CONNOR", "LZ Connor", 200],
+	["CAP_POINT_FAVELA", "CrossOps' Favela", 200],
+	["CAP_POINT_SHADOWS_LIGHT", "Shadow's Light", 200],
+	["CAP_POINT_KAMINO_SETTLEMENT", "Kamino Settlement", 200],
+	["CAP_POINT_KILL_FARM", "Kill Farm", 200],
+	["CAP_POINT_LZ_BALDY", "LZ Baldy", 200],
+	["CAP_POINT_PYTHOS", "Pythos Island", 200]
+];

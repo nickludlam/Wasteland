@@ -25,14 +25,14 @@ _itemlist = _dialog displayCtrl genstore_item_list;
 _totalText = _dialog displayCtrl genstore_total;
 _playerMoneyText = _Dialog displayCtrl genstore_money;
 _handleMoney = 1;
-_itemText = lbText  [genstore_item_list, (lbCurSel genstore_item_list)];
+_itemText = lbText [genstore_item_list, (lbCurSel genstore_item_list)];
 
 _showInsufficientFundsError = 
 {
-  _itemText = _this select 0;
-  hintSilent format["You don't have enought money for %1", _itemText];
-  player say "FD_CP_Not_Clear_F";
-  _handleMoney = 0;
+	_itemText = _this select 0;
+ 	hintSilent format["You don't have enought money for %1", _itemText];
+	player say "FD_CP_Not_Clear_F";
+	_handleMoney = 0;
 };
 
 {
