@@ -15,7 +15,7 @@ _donation = getPlayerUID player + "_donation";
 [getPlayerUID player, getPlayerUID player, "HeadGear", "STRING"] call sendToServer;
 [getPlayerUID player, getPlayerUID player, "Backpack", "STRING"] call sendToServer;
 [getPlayerUID player, getPlayerUID player, "Vest", "STRING"] call sendToServer;
-//[getPlayerUID player, getPlayerUID player , "Money", "NUMBER"] call sendToServer;
+[getPlayerUID player, getPlayerUID player , "Money", "NUMBER"] call sendToServer;
 //sleep .1;
 [getPlayerUID player, getPlayerUID player, "CanFood", "NUMBER"] call sendToServer;
 [getPlayerUID player, getPlayerUID player, "Medkits", "NUMBER"] call sendToServer;

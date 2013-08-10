@@ -26,7 +26,10 @@ loadFromDBClient =
 	if(_varName == 'ComputedMoney') then {player setVariable["computedMoney",_varValue,true]; moneyLoaded = 1;};
 	if(_varName == 'Health') then {player setDamage _varValue;};
 	if(_varName == 'Goggles') then {player addGoggles _varValue;};
-	//if(_varName == 'Money') then {player setVariable[__MONEY_VAR_NAME__,_varValue,true];};
+	if(_varName == 'Money') then {
+		If (_varValue > 5000) Then { _varValue = 5000;};
+		player setVariable[__MONEY_VAR_NAME__,_varValue,true];
+	};
 	if(_varName == 'CanFood') then {player setVariable["canfood",_varValue,true];};
 	if(_varName == 'Medkits') then {player setVariable["medkits",_varValue,true];};
 	if(_varName == 'Water') then {player setVariable["water",_varValue,true];};
@@ -186,7 +189,7 @@ loadFromDBClient =
 			};
 		};
 	};
-	if(_varName == 'SecondaryWeapon') then {player addWeapon _x; secondaryLoaded = 1;};
+	if(_varName == 'SecondaryWeapon') then {player addWeapon _varValue; secondaryLoaded = 1;};
 	if(_varName == 'Outfit') then {removeUniform player; player addUniform _varValue; outfitLoaded = 1;};
 	if(_varName == 'HeadGear') then {removeHeadgear player; player addHeadgear _varValue;};
 	if(_varName == 'Backpack') then {removeBackpack player; player addBackpack _varValue; backpackLoaded = 1;};

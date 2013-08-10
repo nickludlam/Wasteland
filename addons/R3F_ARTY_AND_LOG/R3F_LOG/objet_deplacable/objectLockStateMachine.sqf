@@ -13,13 +13,15 @@ private["_locking", "_currObject", "_lockState", "_lockDuration", "_stringEscape
 
 _currObject = _this select 0;
 _lockState = _this select 3;
+Diag_Log Format ["Object %1 is being locked",_CurrObject];
+//Hint Format ["Object is %1",_CurrObject];
 
 _totalDuration = 0;
 _stringEscapePercent = "%";
 
 switch (_lockState) do {
     case 0:{ // LOCK
-    
+		Diag_Log Format ["Object %1 is being locked",_CurrObject];
     	R3F_LOG_mutex_local_verrou = true;
 		_totalDuration = 5;
 		_lockDuration = _totalDuration;
@@ -51,9 +53,16 @@ switch (_lockState) do {
 		    
 			if (_iteration >= _totalDuration) exitWith { // Sleep a little extra to show that lock has completed.
 		        sleep 1;
+				
+				
+				
                 _currObject setVariable ["objectLocked", true, true];
                 2 cutText ["", "PLAIN DOWN", 1];
                 R3F_LOG_mutex_local_verrou = false;
+				
+				ObjectSaveRelay = _currObject;
+				PublicVariable "ObjectSaveRelay";
+				// Change the value of ObjectSaveRelay in order to save the locked object
 		    }; 
 		};
 		
@@ -95,6 +104,8 @@ switch (_lockState) do {
                 _currObject setVariable ["objectLocked", false, true];
                 2 cutText ["", "PLAIN DOWN", 1];
                 R3F_LOG_mutex_local_verrou = false;
+				ObjectRemoveRelay = _currObject;
+				PublicVariable "ObjectRemoveRelay";
 		    }; 
 		};
 		

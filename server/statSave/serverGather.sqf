@@ -25,6 +25,15 @@ _loadFromDB =
 
 loadFromDB = compile _loadFromDB;
 
+_AccountExists = 
+"	
+	_Player = _this Select 0;
+	_UID = GetPlayerUID _Player;
+	_Exists = _UID call iniDB_exists;
+	_Player SetVariable [""AccountExists"", _Exists, True];
+";
+AccountExists = compile _AccountExists;
+
 "accountToServerSave" addPublicVariableEventHandler 
 {
 	(_this select 1) spawn saveToDB;

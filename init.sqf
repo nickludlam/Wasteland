@@ -40,7 +40,7 @@ true spawn {
 
 if(X_Server) then {
 	diag_log format ["############################# %1 #############################", missionName];
-	diag_log format["WASTELAND SERVER - Initilizing Server"];
+	diag_log format["WASTELAND SERVER - Initializing Server"];
 	
 	#ifdef __DISABLE_INIDB__
 	diag_log format ["Skipping iniDB load"];

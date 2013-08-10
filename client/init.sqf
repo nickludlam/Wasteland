@@ -7,7 +7,7 @@
 #include "defines.hpp"
 
 if(!X_Client) exitWith {};
-
+Player SetVariable ["SaveOK", 0, True]; // Disable saving initially.
 mutexScriptInProgress = false;
 respawnDialogActive = false;
 groupManagmentActive = false;
@@ -81,6 +81,16 @@ _positionLoaded = player getVariable "positionLoaded";
 if(!isNil "client_initEH") then {player removeEventHandler ["Respawn", client_initEH];};
 player addEventHandler ["Respawn", {[_this] call onRespawn;}];
 player addEventHandler ["Killed", {[_this] call onKilled;}];
+
+// add the time and event handlers that will keep the player from being saved while in combat
+player setvariable ["CombatTime", Time, True];
+player AddEventHandler ["Hit", {[_this] call onCombat;}];
+player AddEventHandler ["FiredNear", {[_this] call onCombat;}];
+player AddEventHandler ["Dammaged", {[_this] call onCombat;}];
+
+
+
+
 //player addMPEventHandler ["Killed", {[_this] call onMPKilled}];
 
 //Setup player menu scroll action.
@@ -118,3 +128,4 @@ if(_positionLoaded == 0)then{true spawn playerSpawn;}
 else {player switchMove "AmovPpneMstpSnonWnonDnon"};
 //true spawn playerSpawn;
 [] spawn FZF_IC_INIT;
+[] execVM "client\saveok.sqf";

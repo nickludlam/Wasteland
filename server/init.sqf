@@ -12,6 +12,22 @@ serverSpawning = 1;
 buildingsloot = 1;
 
 private ["_serverCompiledScripts","_lootspawnz","_vehSpawn","_objSpawn","_objSpawn2","_boxSpawn","_boatSpawn","_buildrep","_initOwners","_cleanupLoop","_id"];
+// New Code
+ObjectArray = [];
+ObjectSaveRelay = [];
+ObjectRemoveRelay = [];
+ActiveObjects = [];
+AcctCheck = [];
+
+"ObjectSaveRelay" addPublicVariableEventHandler {[] ExecVM "server\ObjSaving.sqf";};
+"ObjectRemoveRelay" addPublicVariableEventHandler {[] ExecVM "server\ObjRemoval.sqf";};
+"AcctCheck" AddPublicVariableEventHandler {[_this Select 1] call AccountExists};
+Diag_Log Format["Initializing Save Loop at time %1", time];
+[] execVM "server\statSave\saveloop.sqf";
+[] execVM "server\LoadItemDatabase.sqf";
+[] execVM "server\statSave\saveToServer.sqf";
+// New Code
+
 //Execute Server Side Scripts.
 _serverCompiledScripts = [] execVM "server\functions\serverCompile.sqf";
 
