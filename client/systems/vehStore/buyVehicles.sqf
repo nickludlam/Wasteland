@@ -7,12 +7,17 @@
 #include "defines.hpp"
 #include "dialog\vehstoreDefines.sqf";
 
-private ["_switch","_playerMoney","_price","_dialog","_playerMoneyText","_colorText","_itemText","_handleMoney","_applyVehProperties","_car","_vehType","_vehPos","_veh"];
+#define _DELIVERY_METHOD_SPAWN 1
+#define _DELIVERY_METHOD_AIRDROP 2
+
+private ["_switch", "_deliveryMethod", "_playerMoney","_price","_dialog","_playerMoneyText","_colorText","_itemText","_handleMoney","_applyVehProperties","_car","_vehType","_vehPos","_veh"];
 
 disableSerialization;
 
 //Initialize Values
 _switch = _this select 0;
+
+_deliveryMethod = _DELIVERY_METHOD_AIRDROP;
 
 if (currentOwnerID getVariable "isDeliveringVehicle" == 1) exitWith {
   // Nicer audible error effect
@@ -23,7 +28,7 @@ if (currentOwnerID getVariable "isDeliveringVehicle" == 1) exitWith {
 _playerMoney = player getVariable __MONEY_VAR_NAME__;
 _price = 0;
 
-_spawnPosVehicle = [3786.45,7912.79,500 + (floor random 500)]; // Spawn it on debug island before moving to the chopper
+_vehicleSpawnPosAirdrop = [3786.45,7912.79,500 + (floor random 500)]; // Spawn it on debug island before moving to the chopper
 
 // Grab access to the controls
 _dialog = findDisplay vehshop_DIALOG;
@@ -111,7 +116,12 @@ switch(_switch) do
 					_deliverPos = (getMarkerPos format ["land_spawn_%1", currentOwnerID]);
 					_spawnType = "land";
 
-					_veh = [_spawnPosVehicle, _vehType, _colorText] call _createAndApplyapplyVehProperties;
+					if (_deliveryMethod == _DELIVERY_METHOD_SPAWN) then {
+						_veh = [_deliverPos, _vehType, _colorText] call _createAndApplyapplyVehProperties;
+					} else {
+						_veh = [_vehicleSpawnPosAirdrop, _vehType, _colorText] call _createAndApplyapplyVehProperties;
+					};
+
 				};
 			} forEach _vehicleArray;
 		} forEach _landVehicleArrays;
@@ -128,34 +138,44 @@ switch(_switch) do
 					_deliverPos = (getMarkerPos format ["sea_spawn_%1", currentOwnerID]);
 					_spawnType = "sea";
 
-					_veh = [_spawnPosVehicle, _vehType, _colorText] call _createAndApplyapplyVehProperties;
+					if (_deliveryMethod == _DELIVERY_METHOD_SPAWN) then {
+						_veh = [_deliverPos, _vehType, _colorText] call _createAndApplyapplyVehProperties;
+					} else {
+						_veh = [_vehicleSpawnPosAirdrop, _vehType, _colorText] call _createAndApplyapplyVehProperties;
+					};
+
 				};
 			}forEach _vehicleArray;
 		} foreach _seaVehicleArrays;
 	};
 };
 
-diag_log "Calling airdrop script";
-serverVehicleHeliDrop = [_veh, _deliverPos, player, _price, currentOwnerID];
-publicVariableServer "serverVehicleHeliDrop";
-
 // Pick a sound to play
-_ambientRadioSound = ["RadioAmbient2", "RadioAmbient6", "RadioAmbient8"] call BIS_fnc_selectRandom;
 
 if(_handleMoney == 1) then
 {
-	currentOwnerID say _ambientRadioSound;
-	if (_veh isKindOf "Helicopter") then {
-		player globalChat format["Your %1 is en route under autonomous control. Keep well clear of the LZ and stand by....", _itemText];
-	} else {
-		if (_veh isKindOf "Ship") then {
-			player globalChat format["A transport helicopter is en route with your %1. It will be dropped in the shallows nearest the store.", _itemText];
+
+	if (_deliveryMethod == _DELIVERY_METHOD_AIRDROP) then {
+		diag_log "Calling airdrop script";
+		serverVehicleHeliDrop = [_veh, _deliverPos, player, _price, currentOwnerID];
+		publicVariableServer "serverVehicleHeliDrop";
+
+		_ambientRadioSound = ["RadioAmbient2", "RadioAmbient6", "RadioAmbient8"] call BIS_fnc_selectRandom;
+		currentOwnerID say _ambientRadioSound;
+
+		if (_veh isKindOf "Helicopter") then {
+			player globalChat format["Your %1 is en route under autonomous control. Keep well clear of the LZ and stand by....", _itemText];
 		} else {
-			player globalChat format["A transport helicopter is en route with your %1. Keep well clear of the LZ and stand by....", _itemText];
+			if (_veh isKindOf "Ship") then {
+				player globalChat format["A transport helicopter is en route with your %1. It will be dropped in the shallows nearest the store.", _itemText];
+			} else {
+				player globalChat format["A transport helicopter is en route with your %1. Keep well clear of the LZ and stand by....", _itemText];
+			};
 		};
+		
+		currentOwnerID setVariable['isDeliveringVehicle', 1, true];
 	};
 
 	player setVariable[__MONEY_VAR_NAME__,_playerMoney - _price,true];
 	_playerMoneyText CtrlsetText format["Cash: $%1", player getVariable __MONEY_VAR_NAME__];
-	currentOwnerID setVariable['isDeliveringVehicle', 1, true];
 };

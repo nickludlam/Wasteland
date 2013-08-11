@@ -526,7 +526,7 @@ if (isServer) then {
                     sleep 1;
                 }
                 else {
-                    sleep 10;
+                    sleep 20;
                 };
             };
         };
@@ -574,7 +574,7 @@ if (isServer) then {
         
         3 setRain _rain;
         
-        sleep 3;
+        sleep 10;
     };
 };
 

@@ -153,15 +153,19 @@ _refundNeeded = false; // Whether the player gets a refund or not
 _count = 0; // Timeout counter
 _landingMode = false; // Latch
 
+_heli flyinHeight 50;
+
 waitUntil
 {
+    _loopStart = diag_tickTime;
+
     //diag_log format ["LZ distance: %1, Vehicle height: %2, Cur WP: %3, Count: %4, Damage: %5", _heli distance _helipad, position _veh select 2, currentWaypoint _group, _count, damage _heli];
 
     sleep 1;
 
-    _heli flyinHeight 50;
-
     _markerHeli setMarkerPos (position leader _group);
+
+    _heliDistance = _heli distance _deliveryPos;
 
     // If its shot down or timed out, exit
     if (!alive _heli || _count > 240) then {
@@ -171,14 +175,14 @@ waitUntil
     };
 
     // If we're close, start slowing down
-    if (_heli distance _deliveryPos < 200) then {
+    if (_heliDistance < 200) then {
         //diag_log format ["Force speed set 30 (is %1)", speed _heli];
-        _heli forceSpeed 30;
-        _heli limitSpeed 30;
+        _heli forceSpeed 40;
+        _heli limitSpeed 40;
     };
 
     // If we're very near, start landing
-    if (!_landingMode && _heli distance _deliveryPos < 200) then {
+    if (!_landingMode && _heliDistance < 100) then {
         //diag_log format ["Triggering landing mode"];
         deleteWaypoint _wp1;
         _heli land "LAND";
@@ -202,6 +206,8 @@ waitUntil
 
     _count = _count + 1;
 
+    _loopStop = diag_tickTime;
+    diag_log format ["AIRDROP MAIN LOOP TOOK %1ms", _loopStop - _loopStart];
     _done
 };
 

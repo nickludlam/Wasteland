@@ -174,5 +174,5 @@ while{_do == 1} do
 			};    
 		};
 	}foreach randomweapon_buildings;
-	sleep 7200;
+	sleep 14400; // 4 hours
 };

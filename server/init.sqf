@@ -55,7 +55,7 @@ if (buildingsloot == 1) then {
 	_lootspawnz = [] execVM "server\spawning\lootCreation.sqf";
 	sleep 0.1;
 	diag_log format["GOT WASTELAND - Done placing loot in buildings"];
-	};
+};
 
 if (serverSpawning == 1) then {
     diag_log format["WASTELAND SERVER - Initilizing Server Spawning"];

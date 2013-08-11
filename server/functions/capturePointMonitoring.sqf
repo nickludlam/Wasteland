@@ -2,8 +2,8 @@
 
 #include "defines.hpp"
 
-#define SLEEP_INTERVAL 10
-#define CAPTURE_PERIOD 250
+#define SLEEP_INTERVAL 30
+#define CAPTURE_PERIOD 180
 
 if(!X_Server) exitWith {};
 
@@ -184,6 +184,13 @@ _handleSideCounts = {
 
 
 _handleCapPointTick = {
+    private["_previousEntries","_currentEntries","_count","_previousCapPointDetails","_i",
+    "_previousCapPointName","_previousCapPointPlayers","_previousCapPointTimer","_currentCapPointDetailsArr","_curCapPointDetails","_curCapPointName",
+    "_curCapPointPlayers","_previousSideCounts","_curSideCounts","_currentDominantSide","_previousDominantSide","_action","_curCapPointTimer",
+    "_currentPointOwner","_newMarkerColor","_playerUIDs","_msg","_configEntry", "_capturePointHumanName","_value", "_timerStart", "_timerStop"];
+    
+    _timerStart = diag_tickTime;
+
     //diag_log format["_handleCapPointTick called with %1", _this];
 
     // Into this method comes two arrays. One is the master array called _previousEntries, containing all the 
@@ -314,6 +321,9 @@ _handleCapPointTick = {
         };
     };
 
+    _timerStop = diag_tickTime;
+    diag_log format ["CAP SYSTEM: _handleCapPointTick took %1ms", _timerStop - _timerStart];
+
     _previousEntries
 };
 
@@ -324,7 +334,9 @@ _handleCapPointTick = {
 
 while{true} do
 {	
-    private['_capPointPlayerMapSingle', '_capPointPlayerMapConsolidated', '_lastCapPointName', '_lastCapPointPlayers', '_curCapturePointDetails'];
+    private['_loopStart', '_loopStop', '_capPointPlayerMapSingle', '_capPointPlayerMapConsolidated', '_lastCapPointName', '_lastCapPointPlayers', '_curCapturePointDetails'];
+
+    _loopStart = diag_tickTime;
 
     // Iterate through each player, and because the client-side trigger has added the var
     // 'CAP_POINT' onto the player object and set it global, we the server should know
@@ -392,6 +404,9 @@ while{true} do
     _curCapturePointDetails = [_capPointPlayerMapConsolidated, lastCapturePointDetails] call _handleCapPointTick;
     // _the above _handleCapPointTick returns our new set of last iteration info
     lastCapturePointDetails = _curCapturePointDetails;
+
+    _loopStop = diag_tickTime;
+    diag_log format ["MAIN CAPTURE MONITOR LOOP TOOK %1ms", _loopStop - _loopStart];
 
 	sleep SLEEP_INTERVAL;
 };
