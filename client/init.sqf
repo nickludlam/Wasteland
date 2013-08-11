@@ -16,8 +16,6 @@ doCancelAction = false;
 currentMissionsMarkers = [];
 currentRadarMarkers = [];
 computedMoney = 0;
-//_loadPos = [];
-//_loadDir = 0;
 
 //Initialization Variables
 playerCompiledScripts = false;
@@ -82,17 +80,6 @@ if(!isNil "client_initEH") then {player removeEventHandler ["Respawn", client_in
 player addEventHandler ["Respawn", {[_this] call onRespawn;}];
 player addEventHandler ["Killed", {[_this] call onKilled;}];
 
-// add the time and event handlers that will keep the player from being saved while in combat
-player setvariable ["CombatTime", Time, True];
-player AddEventHandler ["Hit", {[_this] call onCombat;}];
-player AddEventHandler ["FiredNear", {[_this] call onCombat;}];
-player AddEventHandler ["Dammaged", {[_this] call onCombat;}];
-
-
-
-
-//player addMPEventHandler ["Killed", {[_this] call onMPKilled}];
-
 //Setup player menu scroll action.
 [] execVM "client\clientEvents\onMouseWheel.sqf";
 
@@ -129,4 +116,3 @@ if(_positionLoaded == 0)then{true spawn playerSpawn;}
 else {player switchMove "AmovPpneMstpSnonWnonDnon"};
 //true spawn playerSpawn;
 [] spawn FZF_IC_INIT;
-[] execVM "client\saveok.sqf";

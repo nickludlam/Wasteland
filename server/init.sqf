@@ -19,13 +19,9 @@ ObjectRemoveRelay = [];
 ActiveObjects = [];
 AcctCheck = [];
 
-"ObjectSaveRelay" addPublicVariableEventHandler {[] ExecVM "server\ObjSaving.sqf";};
-"ObjectRemoveRelay" addPublicVariableEventHandler {[] ExecVM "server\ObjRemoval.sqf";};
-"AcctCheck" AddPublicVariableEventHandler {[_this Select 1] call AccountExists};
-Diag_Log Format["Initializing Save Loop at time %1", time];
-[] execVM "server\statSave\saveloop.sqf";
-[] execVM "server\LoadItemDatabase.sqf";
-[] execVM "server\statSave\saveToServer.sqf";
+"ObjectSaveRelay" addPublicVariableEventHandler {[] ExecVM "server\itemSave\ObjSaving.sqf";};
+"ObjectRemoveRelay" addPublicVariableEventHandler {[] ExecVM "server\itemSave\ObjRemoval.sqf";};
+[] execVM "server\itemSave\LoadItemDatabase.sqf";
 // New Code
 
 //Execute Server Side Scripts.
