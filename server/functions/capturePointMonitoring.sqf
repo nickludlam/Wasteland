@@ -40,7 +40,7 @@ _onCapture = {
     _captureValue = _this select 1;
     _captureDescription = _this select 2;
 
-    _msg = format["Your team has successfully captured %1 and earned you $%2", _captureDescription, _captureValue];
+    _msg = format["Your team has successfully captured %1 and you've received $%2", _captureDescription, _captureValue];
     clientRelaySystem = [MESSAGE_BROADCAST_MSG_TO_SIDE, MESSAGE_BROADCAST_MSG_TYPE_TITLE, _captureTeam, _msg, _captureValue];
     publicVariable "clientRelaySystem";
 };
