@@ -289,6 +289,11 @@ player createDiaryRecord["changelog",
 - Southern vehicle store moved to more effectively accomodate airdropped vehicles.
 - Kaymish and Panther vehicles have been added to the Immobile APC mission.
 - New capture system. Capturing areas can be blocked if more than one team is in the area.
+- All server administration is now done via rcon, KoS players don't have the ability to spawn objects in-game.
+- Fortifications are persisted across reboots.
+- Player saving is automated.
+- Fixed bounty hunt mission when the bounty is killed from a vehicle.
+- Removed watermark.
 "
 ]
 ];
