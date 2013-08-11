@@ -285,15 +285,15 @@ player createDiaryRecord["changelog",
 "<br/><br/>
 - Dynamic weather incorporated. This is restricted to fog and wind until rain is reintroduced by Bohemia.<br/>
 - Vehicles bought at the vehicle stores are now airlifted in. Be warned, they can be shot down mid-flight yielding only a 65% refund! Be careful...<br/>
-- Night skip: When the server time reaches 10pm, time will skip forward to 5am to give a shorter night cycle.
-- Southern vehicle store moved to more effectively accomodate airdropped vehicles.
-- Kaymish and Panther vehicles have been added to the Immobile APC mission.
-- New capture system. Capturing areas can be blocked if more than one team is in the area.
-- All server administration is now done via rcon, KoS players don't have the ability to spawn objects in-game.
-- Fortifications are persisted across reboots.
-- Player saving is automated.
-- Fixed bounty hunt mission when the bounty is killed from a vehicle.
-- Removed watermark.
+- Night skip: When the server time reaches 10pm, time will skip forward to 5am to give a shorter night cycle.<br/>
+- Southern vehicle store moved to more effectively accomodate airdropped vehicles.<br/>
+- Kaymish and Panther vehicles have been added to the Immobile APC mission.<br/>
+- New capture system. Capturing areas can be blocked if more than one team is in the area.<br/>
+- All server administration is now done via rcon, KoS players don't have the ability to spawn objects in-game.<br/>
+- Fortifications are persisted across reboots.<br/>
+- Player saving is automated.<br/>
+- Fixed bounty hunt mission when the bounty is killed from a vehicle.<br/>
+- Removed watermark.<br/>
 "
 ]
 ];

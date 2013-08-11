@@ -104,7 +104,8 @@ if (_dropoffType == AIRDROP_TYPE_SELF_DELIVERY) then {
 } else {
     _heli = createVehicle ["I_Heli_Transport_02_F", _chosenSpawnPos, [], 0, "FLY"];
     _heli addEventHandler ["Killed",{(_this select 0) spawn {sleep 180; deleteVehicle _this}}];
-    
+    _heli setVehicleLock "LOCKED";
+
     _pilot moveInDriver _heli;
     _group addVehicle _heli;
     _heli disableCollisionWith _veh;
