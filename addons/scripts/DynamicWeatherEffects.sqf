@@ -169,6 +169,7 @@ drn_fnc_DynamicWeather_SetWeatherLocal = {
     // Set forecast
     if (_currentWeatherChange == "OVERCAST") then {
         _timeUntilCompletion setOvercast _targetWeatherValue;
+        5 setFog 0; // Quick hack to ensure fog goes away regularly
     };
     if (_currentWeatherChange == "FOG") then {
         _timeUntilCompletion setFog _targetWeatherValue;
