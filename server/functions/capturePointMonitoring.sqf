@@ -2,7 +2,7 @@
 
 #include "defines.hpp"
 
-#define SLEEP_INTERVAL 30
+#define SLEEP_INTERVAL 2
 #define CAPTURE_PERIOD 180
 
 if(!X_Server) exitWith {};
@@ -322,7 +322,7 @@ _handleCapPointTick = {
     };
 
     _timerStop = diag_tickTime;
-    diag_log format ["CAP SYSTEM: _handleCapPointTick took %1ms", _timerStop - _timerStart];
+    //diag_log format ["CAP SYSTEM: _handleCapPointTick took %1ms", _timerStop - _timerStart];
 
     _previousEntries
 };
@@ -376,7 +376,6 @@ while{true} do
             _capPointName = _x select 0;
             _player = _x select 1;
 
-
             if (_lastCapPointName != _capPointName) then {
                 //diag_log "change in cap point name!";
                 // NEW CAP POINT IN THE ARRAY! Flush the previous ones out to _capPointPlayerMapConsolidated
@@ -398,7 +397,6 @@ while{true} do
 
         //diag_log format["LAST ENTRY: Adding _capPointPlayerMapConsolidated entry for %1 containing %2", _lastCapPointName, _lastCapPointPlayers];
         _capPointPlayerMapConsolidated = _capPointPlayerMapConsolidated + [ [_lastCapPointName, _lastCapPointPlayers] ];
-
     };
 
     _curCapturePointDetails = [_capPointPlayerMapConsolidated, lastCapturePointDetails] call _handleCapPointTick;
@@ -406,7 +404,7 @@ while{true} do
     lastCapturePointDetails = _curCapturePointDetails;
 
     _loopStop = diag_tickTime;
-    diag_log format ["MAIN CAPTURE MONITOR LOOP TOOK %1ms", _loopStop - _loopStart];
+    //diag_log format ["MAIN CAPTURE MONITOR LOOP TOOK %1ms", _loopStop - _loopStart];
 
 	sleep SLEEP_INTERVAL;
 };

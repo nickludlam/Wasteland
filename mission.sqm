@@ -8864,7 +8864,7 @@ class Mission
 		};
 		class Item459
 		{
-			position[]={2115.3945,5.5,5815.5601};
+			position[]={2111.7014,5.1301594,5827.7168};
 			name="buildrep_32";
 			type="Empty";
 		};
@@ -9098,7 +9098,7 @@ class Mission
 		};
 		class Item493
 		{
-			position[]={2139.6619,3.8158934,5904.1436};
+			position[]={2132.5017,3.8979933,5853.7925};
 			name="land_spawn_West_VS";
 			type="Empty";
 		};

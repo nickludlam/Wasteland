@@ -11,7 +11,10 @@ if(isServer) exitWith {};
 private ["_function","_applyPaint","_applyMissile","_msgToPlayer", "_msgToAllPlayers"];
 
 _outer = _this select 0;
+
 _args = _outer select 1;
+if (count _args == 0) exitWith { diag_log "No args in clientRelayHandler?" };
+
 _function = _args select 0;
 
 //diag_log format["clientRelayHandler called with _this = %1", _this];

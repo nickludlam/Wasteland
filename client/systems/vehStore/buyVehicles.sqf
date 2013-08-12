@@ -17,9 +17,10 @@ disableSerialization;
 //Initialize Values
 _switch = _this select 0;
 
-_deliveryMethod = _DELIVERY_METHOD_AIRDROP;
+// CHANGE THIS TO SWAP BETWEEN SPAWNS AND AIRDROPS
+_deliveryMethod = _DELIVERY_METHOD_SPAWN;
 
-if (currentOwnerID getVariable "isDeliveringVehicle" == 1) exitWith {
+if (_deliveryMethod == _DELIVERY_METHOD_AIRDROP && currentOwnerID getVariable "isDeliveringVehicle" == 1) exitWith {
   // Nicer audible error effect
   hintSilent format["Please wait until the previous delivery is complete before ordering more vehicles"];
   player say "FD_CP_Not_Clear_F";
@@ -143,7 +144,6 @@ switch(_switch) do
 					} else {
 						_veh = [_vehicleSpawnPosAirdrop, _vehType, _colorText] call _createAndApplyapplyVehProperties;
 					};
-
 				};
 			}forEach _vehicleArray;
 		} foreach _seaVehicleArrays;
@@ -164,7 +164,7 @@ if(_handleMoney == 1) then
 		currentOwnerID say _ambientRadioSound;
 
 		if (_veh isKindOf "Helicopter") then {
-			player globalChat format["Your %1 is en route under autonomous control. Keep well clear of the LZ and stand by....", _itemText];
+				player globalChat format["A transport helicopter is en route with your %1. It will be dropped in the shallows nearest the store.", _itemText];
 		} else {
 			if (_veh isKindOf "Ship") then {
 				player globalChat format["A transport helicopter is en route with your %1. It will be dropped in the shallows nearest the store.", _itemText];
@@ -172,8 +172,10 @@ if(_handleMoney == 1) then
 				player globalChat format["A transport helicopter is en route with your %1. Keep well clear of the LZ and stand by....", _itemText];
 			};
 		};
-		
+
 		currentOwnerID setVariable['isDeliveringVehicle', 1, true];
+	} else {
+		player globalChat format["Your %1 has spawned outside.", _itemText];
 	};
 
 	player setVariable[__MONEY_VAR_NAME__,_playerMoney - _price,true];
