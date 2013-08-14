@@ -2,7 +2,7 @@
 
 #include "defines.hpp"
 
-#define SLEEP_INTERVAL 2
+#define SLEEP_INTERVAL 10
 #define CAPTURE_PERIOD 180
 
 if(!X_Server) exitWith {};
@@ -19,12 +19,13 @@ if(!X_Server) exitWith {};
 // 1 = Name of capture marker
 // 2 = List of players in that area
 // 3 = Length of time the area has been occupied
+// 4 = Side owning the point currently
 lastCapturePointDetails = [];
 
 {
     _markerName = _x select 0;
     //diag_log format ["Adding %1 to lastCapturePointDetails", _markerName];
-    lastCapturePointDetails = lastCapturePointDetails + [[_markerName, [], 0]];
+    lastCapturePointDetails = lastCapturePointDetails + [[_markerName, [], 0, "coloryellow"]];
 } forEach captureAreaMarkers;
 
 //diag_log format["lastCapturePointDetails = %1", lastCapturePointDetails];
@@ -76,6 +77,7 @@ _getSideForCaptureArea = {
         case "colorblue": { _side = "WEST"; };
         case "colorred": { _side = "EAST"; };
         case "colorgreen": { _side = "GUER"; };
+        case "coloryellow": { _side = ""; };
         default { _side = "unknown"; };
     };
 
@@ -187,11 +189,10 @@ _handleCapPointTick = {
     private["_previousEntries","_currentEntries","_count","_previousCapPointDetails","_i",
     "_previousCapPointName","_previousCapPointPlayers","_previousCapPointTimer","_currentCapPointDetailsArr","_curCapPointDetails","_curCapPointName",
     "_curCapPointPlayers","_previousSideCounts","_curSideCounts","_currentDominantSide","_previousDominantSide","_action","_curCapPointTimer",
-    "_currentPointOwner","_newMarkerColor","_playerUIDs","_msg","_configEntry", "_capturePointHumanName","_value", "_timerStart", "_timerStop"];
+    "_currentPointOwner","_newMarkerColor","_playerUIDs","_msg","_configEntry", "_capturePointHumanName","_value", '_loopStart', '_loopP1', '_loopP2', '_loopStop'];
     
-    _timerStart = diag_tickTime;
-
     //diag_log format["_handleCapPointTick called with %1", _this];
+    _loopTimings = "";
 
     // Into this method comes two arrays. One is the master array called _previousEntries, containing all the 
     // cap points, known players within that area, and the timer count for that area.
@@ -205,7 +206,7 @@ _handleCapPointTick = {
 
     // The data structure is as follows:
     // [
-    //  [NAME_OF_CAP_POINT, [PLAYERS, AT, POINT], uncontestedOccupiedTime]
+    //  [NAME_OF_CAP_POINT, [PLAYERS, AT, POINT], uncontestedOccupiedTime, currentPointOwners]
     // ]
     // 
 
@@ -215,12 +216,14 @@ _handleCapPointTick = {
     _count = count _previousEntries;
 
     for "_i" from 0 to (_count-1) do {
+        _loopStart = diag_tickTime;
 
         _previousCapPointDetails = _previousEntries select _i;
 
         _previousCapPointName = _previousCapPointDetails select 0;
         _previousCapPointPlayers = _previousCapPointDetails select 1;
         _previousCapPointTimer = _previousCapPointDetails select 2;
+        _previousCapPointSide = _previousCapPointDetails select 3;
 
         // Use BIS_fnc_conditionalSelect since we can't sort arrays using strings FFS.
         // This is slower than my plan to have both _currentEntries and _previousEntries sorted in the same way to allow
@@ -298,13 +301,16 @@ _handleCapPointTick = {
                 if (_curCapPointTimer >= CAPTURE_PERIOD) then {
                     // Find the current marker color which denotes capture status
                      _newMarkerColor = [_currentDominantSide] call _markerColorForSide;
+
                     if (getMarkerColor _curCapPointName != _newMarkerColor) then {
                         // If the timer is above what we consider a successful capture and its not already theirs...
+                        _curCapPointName setMarkerColor _newMarkerColor;
+
                         _configEntry = [captureAreaMarkers, { _x select 0 == _curCapPointName }] call BIS_fnc_conditionalSelect;
                         _capturePointHumanName = (_configEntry select 0) select 1;
                         _value = (_configEntry select 0) select 2;
 
-                        _curCapPointName setMarkerColor _newMarkerColor;
+
                         //diag_log format["%1 captured point %2 (%3)", _currentDominantSide, _curCapPointName, _capturePointHumanName];
 
                         [_currentDominantSide, _value, _capturePointHumanName] call _onCapture;
@@ -314,15 +320,18 @@ _handleCapPointTick = {
 
             // Now ensure we're creating a mirror of _previousCapPointDetails with all the new info so we can assign it
             // at the end of this iteration
-            _previousEntries set [_i, [_previousCapPointName, _curCapPointPlayers, _curCapPointTimer] ];
+            _previousEntries set [_i, [_previousCapPointName, _curCapPointPlayers, _curCapPointTimer, _currentPointOwner] ];
         } else {
             // Nobody there
-            _previousEntries set [_i, [_previousCapPointName, [], 0] ];
+            _previousEntries set [_i, [_previousCapPointName, [], 0, _previousCapPointSide] ];
         };
+
+        _loopStop = diag_tickTime;
+        _loopTimings = format["%1,%2", _loopTimings, (_loopStop - _loopStart)];
+        sleep 0.02;
     };
 
-    _timerStop = diag_tickTime;
-    //diag_log format ["CAP SYSTEM: _handleCapPointTick took %1ms", _timerStop - _timerStart];
+    diag_log format ["CAP SYSTEM: _handleCapPointTick timings are %1", _loopTimings];
 
     _previousEntries
 };
@@ -334,7 +343,7 @@ _handleCapPointTick = {
 
 while{true} do
 {	
-    private['_loopStart', '_loopStop', '_capPointPlayerMapSingle', '_capPointPlayerMapConsolidated', '_lastCapPointName', '_lastCapPointPlayers', '_curCapturePointDetails'];
+    private['_loopStart', '_loopP1', '_loopP2', '_loopStop', '_capPointPlayerMapSingle', '_capPointPlayerMapConsolidated', '_lastCapPointName', '_lastCapPointPlayers', '_curCapturePointDetails'];
 
     _loopStart = diag_tickTime;
 
@@ -358,6 +367,8 @@ while{true} do
         };
 
     } forEach playableUnits;
+
+    _loopP1 = diag_tickTime;
 
     // Now capPointPlayerMapSingle has [[ "CAP_POINT", "PLAYER"] .. ];
 
@@ -399,13 +410,14 @@ while{true} do
         _capPointPlayerMapConsolidated = _capPointPlayerMapConsolidated + [ [_lastCapPointName, _lastCapPointPlayers] ];
     };
 
+    _loopP2 = diag_tickTime;
+
     _curCapturePointDetails = [_capPointPlayerMapConsolidated, lastCapturePointDetails] call _handleCapPointTick;
     // _the above _handleCapPointTick returns our new set of last iteration info
     lastCapturePointDetails = _curCapturePointDetails;
 
     _loopStop = diag_tickTime;
-    //diag_log format ["MAIN CAPTURE MONITOR LOOP TOOK %1ms", _loopStop - _loopStart];
+    diag_log format ["MAIN CAPTURE MONITOR LOOP TOOK %1s, P1: %2, P2: %3, players in cap zones: %4, run at %5", _loopStop - _loopStart, _loopP1 - _loopStart, _loopP2 - _loopStart, count _capPointPlayerMapSingle, date];
 
 	sleep SLEEP_INTERVAL;
 };
-    

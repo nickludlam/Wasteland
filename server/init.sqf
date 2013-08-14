@@ -40,6 +40,8 @@ serverRelaySystem = '';
 serverVehicleHeliDrop = [];
 "serverVehicleHeliDrop" addPublicVariableEventHandler { serverVehicleHeliDrop spawn airdropVehicle };
 
+onPlayerConnected "[_id, _name] execVM ""server\functions\onplayerconnected.sqf""";
+
 waitUntil{scriptDone _serverCompiledScripts};
 
 execVM "server\statSave\serverGather.sqf";

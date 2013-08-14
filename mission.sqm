@@ -9344,11 +9344,11 @@ class Mission
 			repeating=1;
 			interruptable=1;
 			age="UNKNOWN";
-			expCond="(""AllVehicles"" countType thislist  > 0) && ((getpos (thislist select 0)) select 2 < 1)";
+			expCond="(""AllVehicles"" countType thislist > 0) && ((getpos (thislist select 0)) select 2 < 1)";
 			expActiv="_xhandle= (thislist select 0) execVM ""scripts\x_reload.sqf"";";
 			class Effects
 			{
-				voice="FD_Course_Active_F";
+				voice="FD_Start_F";
 			};
 		};
 		class Item6
@@ -9366,7 +9366,7 @@ class Mission
 			expActiv="_xhandle= (thislist select 0) execVM ""scripts\x_reload.sqf"";";
 			class Effects
 			{
-				voice="FD_Course_Active_F";
+				voice="FD_Start_F";
 			};
 		};
 		class Item7
@@ -9384,7 +9384,7 @@ class Mission
 			expActiv="_xhandle= (thislist select 0) execVM ""scripts\x_reload.sqf"";";
 			class Effects
 			{
-				voice="FD_Course_Active_F";
+				voice="FD_Start_F";
 			};
 		};
 		class Item8
@@ -9402,7 +9402,7 @@ class Mission
 			expActiv="_xhandle= (thislist select 0) execVM ""scripts\x_reload.sqf"";";
 			class Effects
 			{
-				voice="FD_Course_Active_F";
+				voice="FD_Start_F";
 			};
 		};
 		class Item9
@@ -9419,7 +9419,7 @@ class Mission
 			expActiv="_xhandle= (thislist select 0) execVM ""scripts\x_reload.sqf"";";
 			class Effects
 			{
-				voice="FD_Course_Active_F";
+				voice="FD_Start_F";
 			};
 		};
 		class Item10
@@ -9453,7 +9453,7 @@ class Mission
 			expActiv="_xhandle= (thislist select 0) execVM ""scripts\x_reload.sqf"";";
 			class Effects
 			{
-				voice="FD_Course_Active_F";
+				voice="FD_Start_F";
 			};
 		};
 		class Item12
@@ -9471,7 +9471,7 @@ class Mission
 			expActiv="_xhandle= (thislist select 0) execVM ""scripts\x_reload.sqf"";";
 			class Effects
 			{
-				voice="FD_Course_Active_F";
+				voice="FD_Start_F";
 			};
 		};
 		class Item13
@@ -9489,7 +9489,7 @@ class Mission
 			expActiv="_xhandle= (thislist select 0) execVM ""scripts\x_reload.sqf"";";
 			class Effects
 			{
-				voice="FD_Course_Active_F";
+				voice="FD_Start_F";
 			};
 		};
 		class Item14
@@ -9507,7 +9507,7 @@ class Mission
 			expActiv="_xhandle= (thislist select 0) execVM ""scripts\x_reload.sqf"";";
 			class Effects
 			{
-				voice="FD_Course_Active_F";
+				voice="FD_Start_F";
 			};
 		};
 		class Item15
@@ -9525,7 +9525,7 @@ class Mission
 			expActiv="_xhandle= (thislist select 0) execVM ""scripts\x_reload.sqf"";";
 			class Effects
 			{
-				voice="FD_Course_Active_F";
+				voice="FD_Start_F";
 			};
 		};
 		class Item16

@@ -9,8 +9,8 @@ if(!X_Server) exitWith {};
 while {true} do {
     //To broadcast clientRaderMarkers to clients from the server due to clients not being able to broadcast server wide variables with eventhandlers.	
 	publicVariable "currentInvites";
-    publicVariable "clientRadarMarkers";
+    //publicVariable "clientRadarMarkers";
 	serverFPS = str(diag_fpsmin);
 	publicVariable "serverFPS";
-    sleep 1; 
+    sleep 2; 
 };
