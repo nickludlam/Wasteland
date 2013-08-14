@@ -51,6 +51,7 @@ _car setVariable ["newVehicle",1,true];
 _car setPosATL [getpos _car select 0,getpos _car select 1,1];
 _car setVelocity [0,0,0];
 _car addEventHandler ["IncomingMissile", "[name (_this select 2)] execVM 'incomingAlarm.sqf'"];
+_car addEventHandler ["Killed",{(_this select 0) spawn {sleep 180; deleteVehicle _this}}];
 
 if(_cartype == "B_MRAP_01_F") then
 {
