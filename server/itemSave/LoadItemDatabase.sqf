@@ -5,7 +5,15 @@
 //	@file Description: When the server starts, load items from the ObjectDatabase.ini
 //	@file Args:
 
+#include "defines.hpp"
+
 Private ["_DBObjects","_ObjType","_ObjPos","_ObjDirect","_ArrayCount","_i","_NewVeh"];
+
+#ifdef __DISABLE_INIDB__
+
+diag_log "Skipping LoadItemDatabase"
+
+#else
 
 //Read the database and push it to an object array
 _DBObjects = ["ObjectDatabase","ObjectDatabase","ObjectArray","ARRAY"] call iniDB_Read;
@@ -43,3 +51,4 @@ Sleep 1;
 
 ["ObjectDatabase","ObjectDatabase","ObjectArray",ObjectArray] Call IniDB_Write;
 
+#endif

@@ -64,6 +64,7 @@ copy "%USERPROFILE%\Documents\GitHub\Wasteland\defines_servermode.hpp" %TEMP%\%L
 copy "%USERPROFILE%\Documents\GitHub\Wasteland\defines_servermode.hpp" %TEMP%\%LOCAL_MISSION_NAME%\server\missions\bountyMissions\defines.hpp > nul
 copy "%USERPROFILE%\Documents\GitHub\Wasteland\defines_servermode.hpp" %TEMP%\%LOCAL_MISSION_NAME%\server\missions\moneyMissions\defines.hpp > nul
 copy "%USERPROFILE%\Documents\GitHub\Wasteland\defines_servermode.hpp" %TEMP%\%LOCAL_MISSION_NAME%\server\statSave\defines.hpp > nul
+copy "%USERPROFILE%\Documents\GitHub\Wasteland\defines_servermode.hpp" %TEMP%\%LOCAL_MISSION_NAME%\server\itemSave\defines.hpp > nul
 
 echo Copied to %TEMP%\%LOCAL_MISSION_NAME%
 
@@ -102,6 +103,7 @@ copy "%USERPROFILE%\Documents\GitHub\Wasteland\defines_localediting.hpp" %TEST_D
 copy "%USERPROFILE%\Documents\GitHub\Wasteland\defines_localediting.hpp" %TEST_DESTINATION_DIR%\server\missions\bountyMissions\defines.hpp > nul
 copy "%USERPROFILE%\Documents\GitHub\Wasteland\defines_localediting.hpp" %TEST_DESTINATION_DIR%\server\missions\moneyMissions\defines.hpp > nul
 copy "%USERPROFILE%\Documents\GitHub\Wasteland\defines_localediting.hpp" %TEST_DESTINATION_DIR%\server\statSave\defines.hpp > nul
+copy "%USERPROFILE%\Documents\GitHub\Wasteland\defines_localediting.hpp" %TEST_DESTINATION_DIR%\server\itemSave\defines.hpp > nul
 
 echo Mission copied to %TEST_DESTINATION_DIR%
 

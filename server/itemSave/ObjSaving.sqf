@@ -5,7 +5,15 @@
 //	@file Description: When an object is locked, save it to the server
 //	@file Args:
 
+#include "defines.hpp"
+
 Private["_NewObject","_ObjType","_ObjPos","_ObjDirect"];
+
+#ifdef __DISABLE_INIDB__
+
+diag_log "Skipping ObjSaving"
+
+#else
 
 // ObjectSaveRelay has been updated, so store it to a private variable.
 _NewObject = ObjectSaveRelay;
@@ -21,3 +29,5 @@ ObjectArray = ObjectArray + [_ObjType,_ObjPos,_ObjDirect];
 
 // Push the object array to the database
 ["ObjectDatabase","ObjectDatabase","ObjectArray",ObjectArray] Call IniDB_Write;
+
+#endif

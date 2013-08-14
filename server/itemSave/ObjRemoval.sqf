@@ -5,7 +5,15 @@
 //	@file Description: Remove an item from the DB when it's unlocked
 //	@file Args:
 
+#include "defines.hpp"
+
 Private ["_ObjType","_ObjPos","_ObjDirect","_RemObj"];
+
+#ifdef __DISABLE_INIDB__
+
+diag_log "Skipping ObjRemoval"
+
+#else
 
 _RemObj = ObjectRemoveRelay;
 Diag_Log Format ["Object %1 passed for removal",_RemObj];
@@ -29,7 +37,4 @@ If (_RemObj In ActiveObjects) Then
 	Diag_Log Format ["Object %1 is not in the array", _RemObj];
 };
 
-
-
-
-
+#else
