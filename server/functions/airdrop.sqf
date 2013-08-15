@@ -153,7 +153,6 @@ _refundNeeded = false; // Whether the player gets a refund or not
 _count = 0; // Timeout counter
 _landingMode = false; // Latch
 
-_heli flyinHeight 50;
 
 waitUntil
 {
@@ -162,6 +161,8 @@ waitUntil
     //diag_log format ["LZ distance: %1, Vehicle height: %2, Cur WP: %3, Count: %4, Damage: %5", _heli distance _helipad, position _veh select 2, currentWaypoint _group, _count, damage _heli];
 
     sleep 1;
+
+    _heli flyinHeight 50;
 
     _markerHeli setMarkerPos (position leader _group);
 
