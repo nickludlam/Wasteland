@@ -80,5 +80,5 @@ if(_cartype == "B_MRAP_01_F") then
 };
 
 // Unit, delay, deserted, respawns, explode, static
-[_car, 120, 3600, 0, false, _markerPos] execVM "server\functions\vehicle.sqf"; //2 Minutes (Desired)
+//[_car, 120, 3600, 0, false, _markerPos] execVM "server\functions\vehicle.sqf"; //2 Minutes (Desired)
 //[_car, 1, 3600, 0, false, _markerPos] execVM "server\functions\vehicle.sqf"; //Immediate (TESTING)

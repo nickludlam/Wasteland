@@ -42,11 +42,11 @@ if(X_Server) then {
 	diag_log format ["############################# %1 #############################", missionName];
 	diag_log format["WASTELAND SERVER - Initializing Server"];
 	
-	#ifdef __DISABLE_INIDB__
-	diag_log format ["Skipping iniDB load"];
-	#else
+#ifdef __DISABLE_INIDB__
+	diag_log "Skipping iniDB load";
+#else
 	call compile preProcessFile "\iniDB\init.sqf";
-	#endif
+#endif
 
 	[] execVM "server\init.sqf";	
 };
@@ -67,7 +67,7 @@ if(X_Client) then {
 //init 3rd Party Scripts
 [] execVM "addons\R3F_ARTY_AND_LOG\init.sqf";
 [] execVM "addons\proving_ground\init.sqf";
-//[] execVM "addons\scripts\DynamicWeatherEffects.sqf"; // Disabled until capture areas work properly
+[] execVM "addons\scripts\DynamicWeatherEffects.sqf"; // Disabled until capture areas work properly
 
 // This is global
 clientRelayHandler = compile preprocessFileLineNumbers "client\functions\clientRelayHandler.sqf";
