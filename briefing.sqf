@@ -283,7 +283,8 @@ player createDiaryRecord["changelog",
 [
 "2.3 Bewilderbeest & His_Shadow -",
 "<br/><br/>
-- Dynamic weather enabled. It gets overcast and foggy randomly. It'll rain when Bohemia bring it back in.<br/>
+- Airdropped vehicles are back in!<br/>
+- Dynamic weather enabled. It gets overcast and foggy randomly. It'll rain when Bohemia bring it back in to the game.<br/>
 - Night skip: When the server time reaches 10pm, time will skip forward to 5am to give a shorter night cycle.<br/>
 - Southern vehicle store moved.<br/>
 - Kaymish and Panther vehicles have been added to the Immobile APC mission.<br/>

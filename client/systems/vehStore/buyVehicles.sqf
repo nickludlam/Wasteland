@@ -18,7 +18,7 @@ disableSerialization;
 _switch = _this select 0;
 
 // CHANGE THIS TO SWAP BETWEEN SPAWNS AND AIRDROPS
-_deliveryMethod = _DELIVERY_METHOD_SPAWN;
+_deliveryMethod = _DELIVERY_METHOD_AIRDROP;
 
 if (_deliveryMethod == _DELIVERY_METHOD_AIRDROP && currentOwnerID getVariable "isDeliveringVehicle" == 1) exitWith {
   // Nicer audible error effect
@@ -56,8 +56,14 @@ _createAndApplyapplyVehProperties =
 	_pos = _this select 0;
 	_type = _this select 1;
 	_colorText = _this select 2;
+
+	if (_deliveryMethod == _DELIVERY_METHOD_AIRDROP) then {
+		_spawnType = "FLY";
+	} else {
+		_spawnType = "NONE";
+	};
 	
-	_vehicle = createVehicle [_type,_pos, [], 0, "FLY"];
+	_vehicle = createVehicle [_type,_pos, [], 0, _spawnType];
 	//_vehicle disableTIEquipment true; // Disable Thermal on bought vehicles. Mission based ones are more powerful
 	//_veh setDir _dir;
 	_vehicle setVariable ["newVehicle",1,true];
