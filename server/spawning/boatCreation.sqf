@@ -19,7 +19,6 @@ _pos = [_markerPos, 1, 15, 5, 2, 60 * (pi / 180), 0, [], [[], _markerPos]] call 
 
 //Car Initialization
 _boat = createVehicle [_boattype,_pos, [], 0, "None"];
-[_boat, 180, 3600, 0, false, _markerPos, """R3F_LOG_disabled"",false"] execVM "server\functions\vehicle.sqf";
 
 //Clear Cars Inventory
 clearMagazineCargoGlobal _boat;
