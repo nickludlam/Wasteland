@@ -18,7 +18,7 @@ disableSerialization;
 _switch = _this select 0;
 
 // CHANGE THIS TO SWAP BETWEEN SPAWNS AND AIRDROPS
-_deliveryMethod = _DELIVERY_METHOD_AIRDROP;
+_deliveryMethod = _DELIVERY_METHOD_SPAWN;
 
 if (_deliveryMethod == _DELIVERY_METHOD_AIRDROP && currentOwnerID getVariable "isDeliveringVehicle" == 1) exitWith {
   // Nicer audible error effect
