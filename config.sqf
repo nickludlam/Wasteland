@@ -424,6 +424,34 @@ genItemArray=
 	//["Empty Weapon Crate","Box_NATO_Wps_F", 250,"weaponcrate"]
 ];
 
+genObjectsArray=
+[
+	["Barrier: Concrete","Land_CncBarrier_F",200,"object"],
+	["Barrier: C Long","Land_CncBarrierMedium_F", 250,"object"],
+	["Barrier: C Med","Land_CncBarrierMedium4_F", 175,"object"],
+	["Barrier: H-1","Land_HBarrier_1_F", 50,"object"],
+	["Barrier: H-3","Land_HBarrier_3_F", 100,"object"],
+	["Barrier: H-4","Land_HBarrierBig_F", 175,"object"],
+	["Barrier: H-5","Land_HBarrier_5_F", 250,"object"],
+	["Barrier: Safety","Land_Crash_barrier_F",100,"object"],
+	["Wall: Concrete","Land_CncWall1_F", 200,"object"],
+	["Wall: Concrete Long","Land_CncWall4_F", 300,"object"],
+	["Wall: Mill Big","Land_Mil_WallBig_4m_F", 300,"object"],
+	["Wall: Stone","Land_Stone_8m_F", 300,"object"],
+	["Barrier: Razorwire","Land_Razorwire_F",100,"object"],
+	["Bag Fence Corner","Land_BagFence_Corner_F", 50,"object"],
+	["Bag Fence End","Land_BagFence_End_F",50,"object"],
+	["Bag Fence Long","Land_BagFence_Long_F",50,"object"],
+	["Bag Fence Round","Land_BagFence_Round_F",50,"object"],
+	["Bag Fence Short","Land_BagFence_Short_F",50,"object"],   
+	["Bag Fence Bunker","Land_BagBunker_Small_F",175,"object"],
+	["Mound","Land_Mound01_8m_F", 150,"object"],
+	["Mound: Low","Land_Mound02_8m_F",100,"object"],
+	["Nest: Military","Land_Cargo20_Military_F",350,"object"],
+	["Nest: Patrol","Land_Cargo_Patrol_V1_F",350,"object"],
+	["Pipes","Land_Pipes_Large_F",100,"object"]
+];
+
 //Text name, classname, buy cost, spawn type, color
 landArray =
 [

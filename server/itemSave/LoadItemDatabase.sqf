@@ -40,6 +40,8 @@ For "_i" From 0 to _ArrayCount Step 3 Do
 		Diag_Log Format ["ArrayType: %1 ArrayPos: %2 ArrayDir: %3", _ObjType,_ObjPos,_ObjDirect];	
 		Diag_Log Format ["Executing CreateVehicle [%1,%2,0,[],None]",_ObjType,_ObjPos];
 		_NewVeh = createVehicle [_ObjType,_ObjPos,[],0,"None"];
+		_NewVeh addeventhandler ["hit", {(_this select 0) setdamage 0;}];
+		_NewVeh addeventhandler ["dammaged", {(_this select 0) setdamage 0;}];
 		_NewVeh SetDir _ObjDirect;
 		_NewVeh setVectorUP (surfaceNormal [(getPosATL _NewVeh) select 0,(getPosATL _NewVeh) select 1]); 
 		_NewVeh setVariable ["objectLocked", true, true];		

@@ -25,10 +25,11 @@ IF "%username%" == "Robert" (
 SET SOURCE_DIR="%USERPROFILE%\Documents\GitHub\Wasteland"
 SET PBO_TOOL="C:\Program Files (x86)\Bohemia Interactive\Tools\BinPBO Personal Edition\BinPBO.exe"
 
+SET LOCAL_MISSION_TEST=KOS_Wasteland.Stratis
 SET LOCAL_MISSION_NAME=KOS_Wasteland_INDEX.Stratis
 SET SERVER_DEFINES_NAME=defines_server_INDEX.hpp
 
-SET TEST_DESTINATION_DIR="%USERPROFILE%\Documents\Arma 3 - Other Profiles\%LOCAL_ARMA_PROFILE%\MPMissions\%LOCAL_MISSION_NAME%"
+SET TEST_DESTINATION_DIR="%USERPROFILE%\Documents\Arma 3 - Other Profiles\%LOCAL_ARMA_PROFILE%\MPMissions\%LOCAL_MISSION_TEST%"
 
 :: end config
 

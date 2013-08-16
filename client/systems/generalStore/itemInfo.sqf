@@ -60,3 +60,9 @@ _itemText = _itemlist lbText _selectedItem;
 	_itemlisttext ctrlSetText format ["Price: $%1", _price];
 	breakTo "main"	
 }}forEach generalStore;
+
+{if(_itemText == _x select 0)then{
+	_price = _x select 2;
+	_itemlisttext ctrlSetText format ["Price: $%1", _price];
+	breakTo "main"
+}} forEach genObjectsArray;

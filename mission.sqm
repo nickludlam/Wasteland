@@ -5703,7 +5703,7 @@ class Mission
 	};
 	class Markers
 	{
-		items=510;
+		items=515;
 		class Item0
 		{
 			position[]={4028.4797,183.32338,3397.2529};
@@ -9228,6 +9228,41 @@ class Mission
 			name="airdrop_heli_spawn_3";
 			type="Empty";
 			colorName="ColorPink";
+		};
+		class Item510
+		{
+			position[]={6045.0381,18.035734,5627.0112};
+			name="spawn_North_Gen";
+			type="Empty";
+			colorName="ColorBrown";
+		};
+		class Item511
+		{
+			position[]={4337.8687,177.33424,4349.5562};
+			name="spawn_East_Gen";
+			type="Empty";
+			colorName="ColorBrown";
+		};
+		class Item512
+		{
+			position[]={4288.1855,2.6800647,2670.3208};
+			name="spawn_East_GenS";
+			type="Empty";
+			colorName="ColorBrown";
+		};
+		class Item513
+		{
+			position[]={2159.0957,2.8878369,1884.9736};
+			name="spawn_West_Gen";
+			type="Empty";
+			colorName="ColorBrown";
+		};
+		class Item514
+		{
+			position[]={3086.4834,4.7950735,6039.749};
+			name="spawn_North_GenS";
+			type="Empty";
+			colorName="ColorBrown";
 		};
 	};
 	class Sensors

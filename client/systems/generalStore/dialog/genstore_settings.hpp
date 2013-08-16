@@ -251,5 +251,17 @@ class genstored {
 			w = 0.088 * safezoneW;
 			h = 0.040 * safezoneH;
 		};
+
+		class StoreButton6: w_RscButton
+		{
+			idc = -1;
+			onButtonClick = "[6] execVM 'client\systems\generalStore\populateGenStore.sqf'";
+			text = "Objects";
+
+			x = 0.203125 * safezoneW + safezoneX;
+			y = 0.525 * safezoneH + safezoneY;
+			w = 0.088 * safezoneW;
+			h = 0.040 * safezoneH;
+		};
 	};
 };

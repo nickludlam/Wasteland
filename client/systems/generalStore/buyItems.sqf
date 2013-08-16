@@ -10,7 +10,7 @@
 disableSerialization;
 
 private["_playerMoney","_size", "_price","_dialog","_itemlist","_totalText","_playerMoneyText","_handleMoney","_itemText", "_class",
-        "_vestName", "_backpackName"];
+        "_vestName", "_backpackName","_markerPos","_obj"];
 
 if(genStoreCart > (player getVariable __MONEY_VAR_NAME__)) exitWith {hintSilent "You do not have enough money for that"; player say "FD_CP_Not_Clear_F"; };
 
@@ -33,6 +33,14 @@ _showInsufficientFundsError =
  	hintSilent format["You don't have enought money for %1", _itemText];
 	player say "FD_CP_Not_Clear_F";
 	_handleMoney = 0;
+};
+
+_showItemSpawnedOutsideMessage = 
+{
+	_itemText = _this select 0;
+ 	hintSilent format["%1 has been spawned outside.", _itemText];
+	player say "FD_CP_Not_Clear_F";
+	_handleMoney = 1;
 };
 
 {
@@ -265,6 +273,26 @@ _showInsufficientFundsError =
 		};
 	};
 }forEach generalStore;
+
+{
+	//if the names match attempt to purchase the item
+	if(_itemText == _x select 0) then
+	{
+		//collect the class name and price
+		_class = _x select 1;
+		_price = _x select 2;
+		
+		//ensure they player has enought money
+		if ( _price > parseNumber str(_playerMoney)) then { [_itemText] call _showInsufficientFundsError; breakTo "main"};
+
+		//get the marker at which we will spawn this object
+		_markerPos = (getMarkerPos format ["spawn_%1", currentOwnerID]);
+		_obj = createVehicle [_class,_markerPos,[],0,"None"];
+		_obj addeventhandler ["hit", {(_this select 0) setdamage 0;}];
+		_obj addeventhandler ["dammaged", {(_this select 0) setdamage 0;}];
+		[_itemText] call _showItemSpawnedOutsideMessage;
+	};
+}forEach genObjectsArray;
 
 if(_handleMoney == 1) then
 {

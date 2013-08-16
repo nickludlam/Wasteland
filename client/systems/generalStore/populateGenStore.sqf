@@ -18,11 +18,7 @@ if (isNil "_switch") then {
 
 // Grab access to the controls
 _dialog = findDisplay genstore_DIALOG;
-//_itemlisttext = _dialog displayCtrl genstore_item_TEXT;
 _itemlist = _dialog displayCtrl genstore_item_list;
-//_selllist = _dialog displayCtrl genstore_sell_list;
-//_sellbut = _dialog displayCtrl genstore_sell;
-//_selltext = _dialog displayCtrl genstore_sell_TEXT;					
 
 //Clear the list
 
@@ -110,5 +106,19 @@ switch(_switch) do
 			_listIndex = _itemlist lbAdd format["%1",_x select 0];
 			_itemlist lbSetPicture [_listIndex,_x select 3];
 		} forEach generalStore;
+	};
+
+	case 6: 
+	{
+		//Clear the list
+		lbClear _itemlist;
+		_itemlist lbSetCurSel -1;
+
+		{
+			_weapon = (configFile >> "CfgVehicles" >> _x select 1);
+			_picture = getText (_weapon >> "picture");
+			_listIndex = _itemlist lbAdd format["%1",_x select 0];
+			_itemlist lbSetPicture [_listIndex,_x select 3];
+		} forEach genObjectsArray;
 	};
 };
