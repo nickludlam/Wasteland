@@ -1,13 +1,14 @@
 //	@file Version: 1.0
 //	@file Name: LoadItemDatabase.sqf
-//	@file Author: Reaper
+//	@file Author: Reaper, His_Shadow
 //	@file Created: 2013-08-08
 //	@file Description: When the server starts, load items from the ObjectDatabase.ini
 //	@file Args:
 
 #include "defines.hpp"
+#include "serverDefines.hpp"
 
-Private ["_DBObjects","_ObjType","_ObjPos","_ObjDirect","_ArrayCount","_i","_NewVeh"];
+Private ["_DBObjects","_ObjType","_ObjPos","_ObjDirect","_ArrayCount","_i","_NewVeh","_SaveLocation"];
 
 #ifdef __DISABLE_INIDB__
 
@@ -16,7 +17,8 @@ diag_log "Skipping LoadItemDatabase"
 #else
 
 //Read the database and push it to an object array
-_DBObjects = ["ObjectDatabase","ObjectDatabase","ObjectArray","ARRAY"] call iniDB_Read;
+_SaveLocation = __SERVER_OBJECT_DATABASE__;
+_DBObjects = [__SERVER_OBJECT_DATABASE__,__SERVER_OBJECT_DATABASE__,"ObjectArray","ARRAY"] call iniDB_Read;
 Sleep 1;
 
 Diag_Log Format ["Saved Item Array is %1", _DBObjects];
@@ -49,6 +51,6 @@ For "_i" From 0 to _ArrayCount Step 3 Do
 
 Sleep 1;
 
-["ObjectDatabase","ObjectDatabase","ObjectArray",ObjectArray] Call IniDB_Write;
+[_SaveLocation,_SaveLocation,"ObjectArray",ObjectArray] Call IniDB_Write;
 
 #endif

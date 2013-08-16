@@ -1,14 +1,17 @@
 //	@file Version: 1.0
 //	@file Name: objectsSpawning.sqf
-//	@file Author: [404] Deadbeat, [404] Costlyy
+//	@file Author: [404] Deadbeat, [404] Costlyy, His_Shadow
 //	@file Created: 20/11/2012 05:19
 //	@file Args:
 
 if(!X_Server) exitWith {};
 
-private ["_counter","_pos","_markerName","_marker","_amountOfVehicles","_hint","_placed"];
+private ["_counter","_pos","_markerName","_marker","_amountOfVehicles","_hint","_placed","_savedObjectsCount","_totalToSpawn"];
 _counter = 0;
 _placed = [0];
+_savedObjectsCount = count ActiveObjects;
+_totalToSpawn = 134;
+_totalToSpawn = _totalToSpawn - _savedObjectsCount;
 for "_i" from 1 to 134 do
 {
     _x = floor (random 195);

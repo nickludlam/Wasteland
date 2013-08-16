@@ -1,13 +1,14 @@
 //	@file Version: 1.0
 //	@file Name: ObjRemoval.sqf
-//	@file Author: Reaper
+//	@file Author: Reaper, His_Shadow
 //	@file Created: 2013-08-08
 //	@file Description: Remove an item from the DB when it's unlocked
 //	@file Args:
 
 #include "defines.hpp"
+#include "serverDefines.hpp"
 
-Private ["_ObjType","_ObjPos","_ObjDirect","_RemObj"];
+Private ["_ObjType","_ObjPos","_ObjDirect","_RemObj","_SaveLocation"];
 
 #ifdef __DISABLE_INIDB__
 
@@ -32,7 +33,8 @@ If (_RemObj In ActiveObjects) Then
 	ObjectArray = ObjectArray + [_ObjType,_ObjPos,_ObjDirect];
 	} ForEach ActiveObjects;
 	
-	["ObjectDatabase","ObjectDatabase","ObjectArray",ObjectArray] Call IniDB_Write;	
+	_SaveLocation = __SERVER_OBJECT_DATABASE__;
+	[_SaveLocation,_SaveLocation,"ObjectArray",ObjectArray] Call IniDB_Write;	
 } Else {
 	Diag_Log Format ["Object %1 is not in the array", _RemObj];
 };

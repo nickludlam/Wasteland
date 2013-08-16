@@ -1,13 +1,14 @@
 //	@file Version: 1.0
 //	@file Name: ObjSaving.sqf
-//	@file Author: Reaper
+//	@file Author: Reaper, His_Shadow
 //	@file Created: 2013-08-08
 //	@file Description: When an object is locked, save it to the server
 //	@file Args:
 
 #include "defines.hpp"
+#include "serverDefines.hpp"
 
-Private["_NewObject","_ObjType","_ObjPos","_ObjDirect"];
+Private["_NewObject","_ObjType","_ObjPos","_ObjDirect","_SaveLocation"];
 
 #ifdef __DISABLE_INIDB__
 
@@ -28,6 +29,7 @@ diag_log Format ["Object %1 has been flagged for storage", _NewObject];
 ObjectArray = ObjectArray + [_ObjType,_ObjPos,_ObjDirect];
 
 // Push the object array to the database
-["ObjectDatabase","ObjectDatabase","ObjectArray",ObjectArray] Call IniDB_Write;
+_SaveLocation = __SERVER_OBJECT_DATABASE__;
+[__SERVER_OBJECT_DATABASE__,__SERVER_OBJECT_DATABASE__,"ObjectArray",ObjectArray] Call IniDB_Write;
 
 #endif
