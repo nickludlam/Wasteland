@@ -108,10 +108,13 @@ switch(_switch) do
 
 		// Populate the gun shop weapon list
 		{
-			_weapon = (configFile >> "CfgWeapons" >> _x select 1);
-			_picture = getText (_weapon >> "picture");
-			_gunlistIndex = _gunlist lbAdd format["%1",_x select 0];
-			_gunlist lbSetPicture [_gunlistIndex,_picture];
+			if(_x != "RPG32_AA_F") then
+			{
+				_weapon = (configFile >> "CfgWeapons" >> _x select 1);
+				_picture = getText (_weapon >> "picture");
+				_gunlistIndex = _gunlist lbAdd format["%1",_x select 0];
+				_gunlist lbSetPicture [_gunlistIndex,_picture];
+			};
 		} forEach launcherArray;
 	};
 	
