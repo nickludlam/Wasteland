@@ -305,11 +305,14 @@ _handleCapPointTick = {
                     if (getMarkerColor _curCapPointName != _newMarkerColor) then {
                         // If the timer is above what we consider a successful capture and its not already theirs...
                         _curCapPointName setMarkerColor _newMarkerColor;
+                        _currentPointOwner = _currentDominantSide;
 
                         _configEntry = [captureAreaMarkers, { _x select 0 == _curCapPointName }] call BIS_fnc_conditionalSelect;
                         _capturePointHumanName = (_configEntry select 0) select 1;
                         _value = (_configEntry select 0) select 2;
 
+                        // Reset to zero
+                        _curCapPointTimer = 0;
 
                         //diag_log format["%1 captured point %2 (%3)", _currentDominantSide, _curCapPointName, _capturePointHumanName];
 
@@ -331,7 +334,7 @@ _handleCapPointTick = {
         sleep 0.02;
     };
 
-    diag_log format ["CAP SYSTEM: _handleCapPointTick timings are %1", _loopTimings];
+    //diag_log format ["CAP SYSTEM: _handleCapPointTick timings are %1", _loopTimings];
 
     _previousEntries
 };
