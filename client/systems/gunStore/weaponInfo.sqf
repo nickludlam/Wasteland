@@ -148,7 +148,6 @@ if(_itemText == _x select 0) then
 	{
 		if(_x != "RPG32_AA_F") then
 		{
-
 			_name = getText(configFile >> "CfgMagazines" >> _x >> "displayname");
 			_conf = (configFile >>  "CfgMagazines" >> _x);
 			_picture = getText(_conf >> "picture");
