@@ -38,7 +38,7 @@
 //#define __SPAWN_WITH_PLENTY_DOLLA__ 1	
 
 // Define this if you want to enable long periods of running to drain your water level
-#define __RUNNING_EXHAUSTION__
+//#define __RUNNING_EXHAUSTION__
 
 // FATIGUE SYSTEM DEFINES
 #ifdef __RUNNING_EXHAUSTION__
@@ -53,4 +53,4 @@
 
 // Randomize money variables to stop hackers
 #define __MONEY_VAR_NAME__ "6789playermoneyvar"
-#define __MONEYBAG_VAR_NAME__ "AB3245Fbagmoneyvar"
+#define __MONEYBAG_VAR_NAME__ "AB3245Fbagmoneyvar"
