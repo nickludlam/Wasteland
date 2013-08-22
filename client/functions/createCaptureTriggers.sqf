@@ -1,8 +1,13 @@
-private ['_triggers'];
+// Only make the global if we've not made it already
+if (isNil "clientCaptureTriggers") then {
+    clientCaptureTriggers = [];
+};
 
-_triggers = [];
+// Exit as we've already created them!
+if (count clientCaptureTriggers > 0) exitWith { diag_log "Triggers already created"; };
 
 {
+    private ['_markerName', '_humanName', '_markerPos', '_markerDir', '_markerSize', '_markerType', '_markerColor', '_markerBrush'];
     _markerName = _x select 0;
     _humanName = _x select 1;
 
@@ -26,6 +31,6 @@ _triggers = [];
     _trg setTriggerActivation["ANY", "PRESENT", true];
     _trg setTriggerStatements["player in thislist", format["player setVariable ['CAP_POINT', '%1', true];", _markerName], format["player setVariable ['CAP_POINT', '', true];"]]; 
 
-    _triggers = _triggers + [_trg];
+    clientCaptureTriggers = clientCaptureTriggers + [_trg];
 
 } forEach captureAreaMarkers;

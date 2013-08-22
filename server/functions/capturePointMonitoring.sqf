@@ -420,7 +420,10 @@ while{true} do
     lastCapturePointDetails = _curCapturePointDetails;
 
     _loopStop = diag_tickTime;
-    diag_log format ["MAIN CAPTURE MONITOR LOOP TOOK %1s, P1: %2, P2: %3, players in cap zones: %4, run at %5", _loopStop - _loopStart, _loopP1 - _loopStart, _loopP2 - _loopStart, count _capPointPlayerMapSingle, date];
+    //diag_log format ["MAIN CAPTURE MONITOR LOOP TOOK %1s, P1: %2, P2: %3, players in cap zones: %4, run at %5", _loopStop - _loopStart, _loopP1 - _loopStart, _loopP2 - _loopStart, count _capPointPlayerMapSingle, date];
 
-	sleep SLEEP_INTERVAL;
+    _initTime = diag_tickTime;
+    sleep SLEEP_INTERVAL;
+    _finalTime = diag_tickTime;
+    diag_log format["TESTING: Sleep time was %1 (server time dilation factor %2)", _finalTime - _initTime, (_finalTime - _initTime) / 10.0];
 };

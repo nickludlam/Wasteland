@@ -6,7 +6,6 @@
 //	@file Args:
 
 #include "defines.hpp"
-#include "serverDefines.hpp"
 
 Private ["_DBObjects","_ObjType","_ObjPos","_ObjDirect","_ArrayCount","_i","_NewVeh","_SaveLocation"];
 
@@ -15,6 +14,8 @@ Private ["_DBObjects","_ObjType","_ObjPos","_ObjDirect","_ArrayCount","_i","_New
 diag_log "Skipping LoadItemDatabase"
 
 #else
+
+#include "serverDefines.hpp"
 
 //Read the database and push it to an object array
 _SaveLocation = __SERVER_OBJECT_DATABASE__;

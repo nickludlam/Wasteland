@@ -6,7 +6,6 @@
 //	@file Args:
 
 #include "defines.hpp"
-#include "serverDefines.hpp"
 
 Private["_NewObject","_ObjType","_ObjPos","_ObjDirect","_SaveLocation"];
 
@@ -15,6 +14,8 @@ Private["_NewObject","_ObjType","_ObjPos","_ObjDirect","_SaveLocation"];
 diag_log "Skipping ObjSaving"
 
 #else
+
+#include "serverDefines.hpp"
 
 // ObjectSaveRelay has been updated, so store it to a private variable.
 _NewObject = ObjectSaveRelay;
@@ -32,4 +33,4 @@ ObjectArray = ObjectArray + [_ObjType,_ObjPos,_ObjDirect];
 _SaveLocation = __SERVER_OBJECT_DATABASE__;
 [__SERVER_OBJECT_DATABASE__,__SERVER_OBJECT_DATABASE__,"ObjectArray",ObjectArray] Call IniDB_Write;
 
-#endif
+#endif

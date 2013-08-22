@@ -6,7 +6,6 @@
 //	@file Args:
 
 #include "defines.hpp"
-#include "serverDefines.hpp"
 
 Private ["_ObjType","_ObjPos","_ObjDirect","_RemObj","_SaveLocation"];
 
@@ -15,6 +14,8 @@ Private ["_ObjType","_ObjPos","_ObjDirect","_RemObj","_SaveLocation"];
 diag_log "Skipping ObjRemoval"
 
 #else
+
+#include "serverDefines.hpp"
 
 _RemObj = ObjectRemoveRelay;
 Diag_Log Format ["Object %1 passed for removal",_RemObj];
