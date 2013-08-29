@@ -45,7 +45,7 @@ For "_i" From 0 to _ArrayCount Step 3 Do
 		_NewVeh addeventhandler ["dammaged", {(_this select 0) setdamage 0;}];
 		_NewVeh SetDir _ObjDirect;
 		_NewVeh setVectorUP (surfaceNormal [(getPosATL _NewVeh) select 0,(getPosATL _NewVeh) select 1]); 
-		_NewVeh setVariable ["objectLocked", true, true];		
+		_NewVeh setVariable ["objectLocked", false, false];		
 		ObjectArray = ObjectArray + [_ObjType,_ObjPos,_ObjDirect];
 		
 		ActiveObjects = ActiveObjects + [_NewVeh];

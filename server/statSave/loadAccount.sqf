@@ -1,49 +1,57 @@
 
-private["_donation"];
+private["_donation","_UID"];
 sleep 3;
 player globalchat "Loading...";
-//Requests info from server in order to download stats
-_donation = getPlayerUID player + "_donation";
-[_donation, _donation, "ComputedMoney", "NUMBER"] call sendToServer;
-[getPlayerUID player, getPlayerUID player, "Weapons", "ARRAY"] call sendToServer;
-[getPlayerUID player, getPlayerUID player, "SecondaryWeapon", "STRING"] call sendToServer;
-[getPlayerUID player, getPlayerUID player, "HandgunWeapon", "STRING"] call sendToServer;
-[getPlayerUID player, getPlayerUID player, "Goggles", "STRING"] call sendToServer;
-[getPlayerUID player, getPlayerUID player, "Position", "ARRAY"] call sendToServer;
-[getPlayerUID player, getPlayerUID player, "Direction", "NUMBER"] call sendToServer;
-[getPlayerUID player, getPlayerUID player, "Outfit", "STRING"] call sendToServer;
-[getPlayerUID player, getPlayerUID player, "HeadGear", "STRING"] call sendToServer;
-[getPlayerUID player, getPlayerUID player, "Backpack", "STRING"] call sendToServer;
-[getPlayerUID player, getPlayerUID player, "Vest", "STRING"] call sendToServer;
-//[getPlayerUID player, getPlayerUID player , "Money", "NUMBER"] call sendToServer;
-//sleep .1;
-[getPlayerUID player, getPlayerUID player, "CanFood", "NUMBER"] call sendToServer;
-[getPlayerUID player, getPlayerUID player, "Medkits", "NUMBER"] call sendToServer;
-[getPlayerUID player, getPlayerUID player, "Water", "NUMBER"] call sendToServer;
-[getPlayerUID player, getPlayerUID player, "Fuel", "NUMBER"] call sendToServer;
-[getPlayerUID player, getPlayerUID player, "RepairKits", "NUMBER"] call sendToServer;
-[getPlayerUID player, getPlayerUID player, "FuelFull", "NUMBER"] call sendToServer;
-[getPlayerUID player, getPlayerUID player, "FuelEmpty", "NUMBER"] call sendToServer;
-[getPlayerUID player, getPlayerUID player, "SpawnBeacon", "NUMBER"] call sendToServer;
-[getPlayerUID player, getPlayerUID player, "Camonet", "NUMBER"] call sendToServer;
-[getPlayerUID player, getPlayerUID player, "Magazines", "ARRAY"] call sendToServer;
-//sleep .15;
-[getPlayerUID player, getPlayerUID player, "Health", "NUMBER"] call sendToServer;
 
+//Requests info from server in order to download stats
+_UID = getPlayerUID player;
+_donation = _UID + "_donation";
+[_donation, _donation, "ComputedMoney", "NUMBER"] call sendToServer;
+//[_UID, _UID , "Money", "NUMBER"] call sendToServer;
+
+[_UID, _UID, "Position", "ARRAY"] call sendToServer;
+[_UID, _UID, "Direction", "NUMBER"] call sendToServer;
+
+[_UID, _UID, "Vest", "STRING"] call sendToServer;
+[_UID, _UID, "Uniform", "STRING"] call sendToServer;
+[_UID, _UID, "Goggles", "STRING"] call sendToServer;
+[_UID, _UID, "Backpack", "STRING"] call sendToServer;
+[_UID, _UID, "HeadGear", "STRING"] call sendToServer;
+
+[_UID, _UID, "Fuel", "NUMBER"] call sendToServer;
+[_UID, _UID, "Water", "NUMBER"] call sendToServer;
+[_UID, _UID, "Health", "NUMBER"] call sendToServer;
+[_UID, _UID, "Camonet", "NUMBER"] call sendToServer;
+[_UID, _UID, "CanFood", "NUMBER"] call sendToServer;
+[_UID, _UID, "Medkits", "NUMBER"] call sendToServer;
+[_UID, _UID, "FuelFull", "NUMBER"] call sendToServer;
+[_UID, _UID, "FuelEmpty", "NUMBER"] call sendToServer;
+[_UID, _UID, "RepairKits", "NUMBER"] call sendToServer;
+[_UID, _UID, "SpawnBeacon", "NUMBER"] call sendToServer;
+
+[_UID, _UID, "PrimaryMagazine", "ARRAY"] call sendToServer;
+[_UID, _UID, "HandgunMagazine", "ARRAY"] call sendToServer;
+[_UID, _UID, "SecondaryMagazine", "ARRAY"] call sendToServer;
 
 //wait until everything has loaded in to add items
-waitUntil {!isNil "primaryLoaded"};
-waitUntil {!isNil "secondaryLoaded"};
-waitUntil {!isNil "outfitLoaded"};
+
+waitUntil {!isNil "uniformLoaded"};
 waitUntil {!isNil "vestLoaded"};
 waitUntil {!isNil "backpackLoaded"};
-[getPlayerUID player, getPlayerUID player, "Items", "ARRAY"] call sendToServer;
-[getPlayerUID player, getPlayerUID player, "PrimaryItems", "ARRAY"] call sendToServer;
-[getPlayerUID player, getPlayerUID player, "SecondaryItems", "ARRAY"] call sendToServer;
-[getPlayerUID player, getPlayerUID player, "HandgunItems", "ARRAY"] call sendToServer;
-[getPlayerUID player, getPlayerUID player, "PrimaryMagazine", "ARRAY"] call sendToServer;
-[getPlayerUID player, getPlayerUID player, "SecondaryMagazine", "ARRAY"] call sendToServer;
-[getPlayerUID player, getPlayerUID player, "HandgunMagazine", "ARRAY"] call sendToServer;
+[_UID, _UID, "Items", "ARRAY"] call sendToServer;
+
+
+waitUntil {!isNil "itemsLoaded"};
+[_UID, _UID, "PrimaryWeapon", "STRING"] call sendToServer;
+[_UID, _UID, "HandgunWeapon", "STRING"] call sendToServer;
+[_UID, _UID, "SecondaryWeapon", "STRING"] call sendToServer;
+
+waitUntil {!isNil "primaryLoaded"};
+waitUntil {!isNil "secondaryLoaded"};
+waitUntil {!isNil "handgunLoaded"};
+[_UID, _UID, "PrimaryItems", "ARRAY"] call sendToServer;
+[_UID, _UID, "HandgunItems", "ARRAY"] call sendToServer;
+[_UID, _UID, "SecondaryItems", "ARRAY"] call sendToServer;
 //===========================================================================
 
 //END
