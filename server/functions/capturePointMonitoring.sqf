@@ -8,8 +8,8 @@
 if(!X_Server) exitWith {};
 
 //diag_log "Starting capture point monitoring";
- 
- // We exit here as we only want the triggers to be client side
+
+// We exit here as we only want the triggers to be client side
 
 // Prep the lastCapturePointDetails array with our areas to check later on
 //
@@ -331,7 +331,6 @@ _handleCapPointTick = {
 
         _loopStop = diag_tickTime;
         _loopTimings = format["%1,%2", _loopTimings, (_loopStop - _loopStart)];
-        sleep 0.02;
     };
 
     //diag_log format ["CAP SYSTEM: _handleCapPointTick timings are %1", _loopTimings];
@@ -348,7 +347,7 @@ while{true} do
 {	
     private['_loopStart', '_loopP1', '_loopP2', '_loopStop', '_capPointPlayerMapSingle', '_capPointPlayerMapConsolidated', '_lastCapPointName', '_lastCapPointPlayers', '_curCapturePointDetails'];
 
-    _loopStart = diag_tickTime;
+    _initTime = diag_tickTime;
 
     // Iterate through each player, and because the client-side trigger has added the var
     // 'CAP_POINT' onto the player object and set it global, we the server should know
@@ -370,8 +369,6 @@ while{true} do
         };
 
     } forEach playableUnits;
-
-    _loopP1 = diag_tickTime;
 
     // Now capPointPlayerMapSingle has [[ "CAP_POINT", "PLAYER"] .. ];
 
@@ -413,17 +410,13 @@ while{true} do
         _capPointPlayerMapConsolidated = _capPointPlayerMapConsolidated + [ [_lastCapPointName, _lastCapPointPlayers] ];
     };
 
-    _loopP2 = diag_tickTime;
 
     _curCapturePointDetails = [_capPointPlayerMapConsolidated, lastCapturePointDetails] call _handleCapPointTick;
     // _the above _handleCapPointTick returns our new set of last iteration info
     lastCapturePointDetails = _curCapturePointDetails;
 
-    _loopStop = diag_tickTime;
-    //diag_log format ["MAIN CAPTURE MONITOR LOOP TOOK %1s, P1: %2, P2: %3, players in cap zones: %4, run at %5", _loopStop - _loopStart, _loopP1 - _loopStart, _loopP2 - _loopStart, count _capPointPlayerMapSingle, date];
-
-    _initTime = diag_tickTime;
-    sleep SLEEP_INTERVAL;
+    // Use the new server_sleepModifier variable calculatged in timeDilationModifier.sqf
+    sleep SLEEP_INTERVAL * server_sleepModifier;
     _finalTime = diag_tickTime;
-    diag_log format["TESTING: Sleep time was %1 (server time dilation factor %2)", _finalTime - _initTime, (_finalTime - _initTime) / 10.0];
+    diag_log format["TESTING: Sleep time was %1 and server_sleepModifier was %2", _finalTime - _initTime, server_sleepModifier];
 };

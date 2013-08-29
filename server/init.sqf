@@ -27,6 +27,9 @@ AcctCheck = [];
 //Execute Server Side Scripts.
 _serverCompiledScripts = [] execVM "server\functions\serverCompile.sqf";
 
+// Load this early as other scripts might depend on what it defines
+[] execVM "server\functions\timeDilationMonitor.sqf";
+
 [] execVM "server\admins.sqf";
 [] execVM "server\functions\serverVars.sqf";
 [] execVM "server\functions\broadcaster.sqf";
