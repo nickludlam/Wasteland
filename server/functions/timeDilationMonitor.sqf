@@ -2,7 +2,7 @@
 # @@ScriptName: timeDilationMonitor.sqf
 # @@Author: Nick 'Bewilderbeest' Ludlam <bewilder@recoil.org>
 # @@Create Date: 2013-08-29 21:49:20
-# @@Modify Date: 2013-08-29 23:01:17
+# @@Modify Date: 2013-08-29 23:16:00
 # @@Function: Measures the server lag and presents an API to
 #             attempt to compensate for late timekeeping
 #*********************************************************/
@@ -60,5 +60,5 @@ while {true} do {
 	};
 
 	server_sleepModifier = [_sleepDurationsBuffer] call _fnc_avgArray;
-	diag_log format["server_sleepModifier: %1", server_sleepModifier];
+	//diag_log format["server_sleepModifier: %1", server_sleepModifier];
 };
